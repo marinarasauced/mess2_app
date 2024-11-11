@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainiIzSih.ui'
+## Form generated from reading UI file 'mainxaEkVU.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -384,7 +384,6 @@ class Ui_MainWindow(object):
 "QScrollBar:vertical {\n"
 "border: none;\n"
 "background: rgb(52, 59, 72);\n"
-"border-left: 2px solid rgb(0, 204, 255)!important; \n"
 "width: 8px;\n"
 "margin: 0 0 0 0;\n"
 "border-radius: 0px;\n"
@@ -397,9 +396,9 @@ class Ui_MainWindow(object):
 "QScrollBar::handle:vertical:hover {\n"
 "background: rgb(60, 64, 72);\n"
 "}\n"
-""
-                        "QScrollBar::handle:vertical:pressed { \n"
-"background: rgb(60, 64, 72); \n"
+"QScrollBar::handle:vertical:pressed { \n"
+"background:"
+                        " rgb(60, 64, 72); \n"
 "}\n"
 "QScrollBar::add-line:vertical {\n"
 "border: none;\n"
@@ -434,10 +433,10 @@ class Ui_MainWindow(object):
 "width: 15px;\n"
 "height: 15px;\n"
 "border-radius: 10px;\n"
-"backgrou"
-                        "nd: rgb(44, 49, 60);\n"
+"background: rgb(44, 49, 60);\n"
 "}\n"
-"QCheckBox::indicator:hover {\n"
+"QCheckBox::indicator:ho"
+                        "ver {\n"
 "border: 3px solid rgb(58, 66, 81);\n"
 "}\n"
 "QCheckBox::indicator:checked {\n"
@@ -468,10 +467,10 @@ class Ui_MainWindow(object):
 "QComboBox{\n"
 "background-color: rgb(27, 29, 35);\n"
 "border-radius: 5px;\n"
-"border: 2px so"
-                        "lid rgb(33, 37, 43);\n"
+"border: 2px solid rgb(33, 37, 43);\n"
 "padding: 5px;\n"
-"padding-left: 10px;\n"
+"padding-lef"
+                        "t: 10px;\n"
 "}\n"
 "QComboBox:hover{\n"
 "border: 2px solid rgb(64, 71, 88);\n"
@@ -504,9 +503,9 @@ class Ui_MainWindow(object):
 "margin: 0px;\n"
 "background-color: rgb(52, 59, 72);\n"
 "}\n"
-"QSlider::groov"
-                        "e:horizontal:hover {\n"
-"background-color: rgb(55, 62, 76);\n"
+"QSlider::groove:horizontal:hover {\n"
+"background-color: rgb(55, 62,"
+                        " 76);\n"
 "}\n"
 "QSlider::handle:horizontal {\n"
 "background-color: rgb(98, 114, 164 );\n"
@@ -547,8 +546,8 @@ class Ui_MainWindow(object):
 "background-color: rgb(0, 204, 255);\n"
 "}\n"
 "\n"
-"/* //////////////////////////////////"
-                        "///////////////////////////////////////////////////////////////\n"
+"/* ////////////////////////////////////////////////////////////////////////////////////////"
+                        "/////////\n"
 "CommandLinkButton */\n"
 "QCommandLinkButton { \n"
 "color: rgb(0, 204, 255);\n"
@@ -581,10 +580,10 @@ class Ui_MainWindow(object):
 "border: 2px solid rgb(43, 50, 61);\n"
 "}\n"
 "#diagnosticsRow11 QPushButton {\n"
-"background-color: rbg(255,"
-                        " 0, 0);\n"
+"background-color: rbg(255, 0, 0);\n"
 "}\n"
-"#diagnosticsRow11 QPushButton:pressed {\n"
+"#diagnosticsRow11 QPushButton:presse"
+                        "d {\n"
 "background-color: rbg(0, 204, 255);\n"
 "}\n"
 "\n"
@@ -1625,10 +1624,11 @@ class Ui_MainWindow(object):
         self.diagnosticsCol2.setFrameShape(QFrame.NoFrame)
         self.diagnosticsCol2.setFrameShadow(QFrame.Raised)
         self.verticalLayout_14 = QVBoxLayout(self.diagnosticsCol2)
-        self.verticalLayout_14.setSpacing(9)
+        self.verticalLayout_14.setSpacing(0)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_21 = QVBoxLayout()
+        self.verticalLayout_21.setSpacing(0)
         self.verticalLayout_21.setObjectName(u"verticalLayout_21")
         self.diagnosticsSubMenu2 = QFrame(self.diagnosticsCol2)
         self.diagnosticsSubMenu2.setObjectName(u"diagnosticsSubMenu2")
@@ -1671,8 +1671,9 @@ class Ui_MainWindow(object):
         self.verticalFrame_2 = QFrame(self.diagnosticsCol2)
         self.verticalFrame_2.setObjectName(u"verticalFrame_2")
         self.verticalLayout_22 = QVBoxLayout(self.verticalFrame_2)
+        self.verticalLayout_22.setSpacing(0)
         self.verticalLayout_22.setObjectName(u"verticalLayout_22")
-        self.verticalLayout_22.setContentsMargins(9, -1, 9, -1)
+        self.verticalLayout_22.setContentsMargins(0, 0, 0, 0)
         self.diagnosticsStackedWidget = QStackedWidget(self.verticalFrame_2)
         self.diagnosticsStackedWidget.setObjectName(u"diagnosticsStackedWidget")
         sizePolicy3.setHeightForWidth(self.diagnosticsStackedWidget.sizePolicy().hasHeightForWidth())
@@ -1682,85 +1683,85 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.diagnosticsSensors.sizePolicy().hasHeightForWidth())
         self.diagnosticsSensors.setSizePolicy(sizePolicy3)
         self.diagnosticsSensors.setMinimumSize(QSize(748, 732))
-        self.verticalLayoutWidget = QWidget(self.diagnosticsSensors)
-        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(-1, -1, 751, 843))
-        self.verticalLayout_26 = QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout_26.setObjectName(u"verticalLayout_26")
-        self.verticalLayout_26.setContentsMargins(0, 0, 0, 0)
-        self.diagnosticsVICON = QWidget(self.verticalLayoutWidget)
-        self.diagnosticsVICON.setObjectName(u"diagnosticsVICON")
-        sizePolicy1.setHeightForWidth(self.diagnosticsVICON.sizePolicy().hasHeightForWidth())
-        self.diagnosticsVICON.setSizePolicy(sizePolicy1)
-        self.diagnosticsVICON.setMinimumSize(QSize(375, 205))
-        self.diagnosticsVICON.setMaximumSize(QSize(375, 205))
-        self.frameVICON_11 = QFrame(self.diagnosticsVICON)
-        self.frameVICON_11.setObjectName(u"frameVICON_11")
-        self.frameVICON_11.setGeometry(QRect(10, 0, 350, 200))
-        self.frameVICON_11.setStyleSheet(u"QFrame {\n"
-"	border-radius: 9px;\n"
-"	background-color: rgb(21, 23, 27);\n"
-"}")
-        self.frameVICON_11.setFrameShape(QFrame.StyledPanel)
-        self.frameVICON_11.setFrameShadow(QFrame.Raised)
-        self.label_3 = QLabel(self.frameVICON_11)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QRect(0, 0, 269, 50))
-        self.label_3.setStyleSheet(u"QLabel {\n"
-"	padding-left: 18px;\n"
-"}")
-        self.frameVICON_11Online = QFrame(self.frameVICON_11)
-        self.frameVICON_11Online.setObjectName(u"frameVICON_11Online")
-        self.frameVICON_11Online.setGeometry(QRect(309, 0, 40, 50))
-        self.frameVICON_11Online.setStyleSheet(u"QFrame {\n"
-"	background-image: url(:/icons/images/icons2/status_offline.png);\n"
-"	background-position: center;\n"
-"	background-repeat: no-repeat;\n"
-"}")
-        self.frameVICON_11Online.setFrameShape(QFrame.StyledPanel)
-        self.frameVICON_11Online.setFrameShadow(QFrame.Raised)
-        self.frameVICON_11Connected = QFrame(self.frameVICON_11)
-        self.frameVICON_11Connected.setObjectName(u"frameVICON_11Connected")
-        self.frameVICON_11Connected.setGeometry(QRect(280, 0, 40, 50))
-        self.frameVICON_11Connected.setStyleSheet(u"QFrame {\n"
-"background-image: url(:/icons/images/icons2/status_disconnected.png);\n"
-"background-position: center;\n"
-"background-repeat: no-repeat;\n"
-"}")
-        self.frameVICON_11Connected.setFrameShape(QFrame.StyledPanel)
-        self.frameVICON_11Connected.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_23 = QVBoxLayout(self.diagnosticsSensors)
+        self.verticalLayout_23.setSpacing(0)
+        self.verticalLayout_23.setObjectName(u"verticalLayout_23")
+        self.verticalLayout_23.setContentsMargins(18, 9, 9, 9)
+        self.diagnosticsSensorsScrollArea = QScrollArea(self.diagnosticsSensors)
+        self.diagnosticsSensorsScrollArea.setObjectName(u"diagnosticsSensorsScrollArea")
+        self.diagnosticsSensorsScrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.diagnosticsSensorsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.diagnosticsSensorsScrollArea.setWidgetResizable(True)
+        self.diagnosticsSensorsScrollAreaContent = QWidget()
+        self.diagnosticsSensorsScrollAreaContent.setObjectName(u"diagnosticsSensorsScrollAreaContent")
+        self.diagnosticsSensorsScrollAreaContent.setGeometry(QRect(0, 0, 729, 736))
+        self.verticalLayout_28 = QVBoxLayout(self.diagnosticsSensorsScrollAreaContent)
+        self.verticalLayout_28.setObjectName(u"verticalLayout_28")
+        self.verticalLayout_28.setContentsMargins(0, 18, 18, 18)
+        self.diagnosticsSensorsLayout = QGridLayout()
+        self.diagnosticsSensorsLayout.setSpacing(9)
+        self.diagnosticsSensorsLayout.setObjectName(u"diagnosticsSensorsLayout")
+        self.diagnosticsSensorsLayout.setContentsMargins(0, 0, 0, 0)
 
-        self.verticalLayout_26.addWidget(self.diagnosticsVICON)
+        self.verticalLayout_28.addLayout(self.diagnosticsSensorsLayout)
 
-        self.gridLayout_4 = QGridLayout()
-        self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.pushButton_4 = QPushButton(self.verticalLayoutWidget)
-        self.pushButton_4.setObjectName(u"pushButton_4")
+        self.diagnosticsSensorsScrollArea.setWidget(self.diagnosticsSensorsScrollAreaContent)
 
-        self.gridLayout_4.addWidget(self.pushButton_4, 0, 1, 1, 1)
-
-        self.btnVICON_11 = QPushButton(self.verticalLayoutWidget)
-        self.btnVICON_11.setObjectName(u"btnVICON_11")
-
-        self.gridLayout_4.addWidget(self.btnVICON_11, 0, 0, 1, 1)
-
-        self.pushButton_9 = QPushButton(self.verticalLayoutWidget)
-        self.pushButton_9.setObjectName(u"pushButton_9")
-
-        self.gridLayout_4.addWidget(self.pushButton_9, 1, 0, 1, 1)
-
-
-        self.verticalLayout_26.addLayout(self.gridLayout_4)
+        self.verticalLayout_23.addWidget(self.diagnosticsSensorsScrollArea)
 
         self.diagnosticsStackedWidget.addWidget(self.diagnosticsSensors)
+        self.diagnosticsTEST = QWidget()
+        self.diagnosticsTEST.setObjectName(u"diagnosticsTEST")
+        self.gridLayout_6 = QGridLayout(self.diagnosticsTEST)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.diagnosticsStackedWidget.addWidget(self.diagnosticsTEST)
         self.diagnosticsUGVs = QWidget()
         self.diagnosticsUGVs.setObjectName(u"diagnosticsUGVs")
+        self.verticalLayout_25 = QVBoxLayout(self.diagnosticsUGVs)
+        self.verticalLayout_25.setObjectName(u"verticalLayout_25")
+        self.verticalLayout_25.setContentsMargins(0, 0, 0, 0)
+        self.diagnosticsUGVsScrollArea = QScrollArea(self.diagnosticsUGVs)
+        self.diagnosticsUGVsScrollArea.setObjectName(u"diagnosticsUGVsScrollArea")
+        self.diagnosticsUGVsScrollArea.setWidgetResizable(True)
+        self.diagnosticsUGVsScrollAreaContent = QWidget()
+        self.diagnosticsUGVsScrollAreaContent.setObjectName(u"diagnosticsUGVsScrollAreaContent")
+        self.diagnosticsUGVsScrollAreaContent.setGeometry(QRect(0, 0, 746, 730))
+        self.verticalLayout_26 = QVBoxLayout(self.diagnosticsUGVsScrollAreaContent)
+        self.verticalLayout_26.setObjectName(u"verticalLayout_26")
+        self.diagnosticsUGVsLayout = QGridLayout()
+        self.diagnosticsUGVsLayout.setSpacing(18)
+        self.diagnosticsUGVsLayout.setObjectName(u"diagnosticsUGVsLayout")
+
+        self.verticalLayout_26.addLayout(self.diagnosticsUGVsLayout)
+
+        self.diagnosticsUGVsScrollArea.setWidget(self.diagnosticsUGVsScrollAreaContent)
+
+        self.verticalLayout_25.addWidget(self.diagnosticsUGVsScrollArea)
+
         self.diagnosticsStackedWidget.addWidget(self.diagnosticsUGVs)
         self.diagnosticsUAVs = QWidget()
         self.diagnosticsUAVs.setObjectName(u"diagnosticsUAVs")
-        self.label_2 = QLabel(self.diagnosticsUAVs)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(240, 460, 66, 18))
+        self.verticalLayout_24 = QVBoxLayout(self.diagnosticsUAVs)
+        self.verticalLayout_24.setObjectName(u"verticalLayout_24")
+        self.verticalLayout_24.setContentsMargins(0, 0, 0, 0)
+        self.diagnosticsUAVsScrollArea = QScrollArea(self.diagnosticsUAVs)
+        self.diagnosticsUAVsScrollArea.setObjectName(u"diagnosticsUAVsScrollArea")
+        self.diagnosticsUAVsScrollArea.setWidgetResizable(True)
+        self.diagnosticsUAVsScrollAreaContent = QWidget()
+        self.diagnosticsUAVsScrollAreaContent.setObjectName(u"diagnosticsUAVsScrollAreaContent")
+        self.diagnosticsUAVsScrollAreaContent.setGeometry(QRect(0, 0, 746, 730))
+        self.verticalLayout_27 = QVBoxLayout(self.diagnosticsUAVsScrollAreaContent)
+        self.verticalLayout_27.setObjectName(u"verticalLayout_27")
+        self.diagnosticsUAVsLayout = QGridLayout()
+        self.diagnosticsUAVsLayout.setSpacing(18)
+        self.diagnosticsUAVsLayout.setObjectName(u"diagnosticsUAVsLayout")
+
+        self.verticalLayout_27.addLayout(self.diagnosticsUAVsLayout)
+
+        self.diagnosticsUAVsScrollArea.setWidget(self.diagnosticsUAVsScrollAreaContent)
+
+        self.verticalLayout_24.addWidget(self.diagnosticsUAVsScrollArea)
+
         self.diagnosticsStackedWidget.addWidget(self.diagnosticsUAVs)
 
         self.verticalLayout_22.addWidget(self.diagnosticsStackedWidget)
@@ -2005,11 +2006,6 @@ class Ui_MainWindow(object):
         self.btn_diagnostics_uavs.setText(QCoreApplication.translate("MainWindow", u"UAVs", None))
         self.btn_diagnostics_sensors.setText(QCoreApplication.translate("MainWindow", u"Sensors", None))
         self.btn_diagnostics_refresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"VICON Valkyrie Motion Capture System", None))
-        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"disconnect", None))
-        self.btnVICON_11.setText(QCoreApplication.translate("MainWindow", u"connect", None))
-        self.pushButton_9.setText("")
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"uavs", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"Marina J. Nelson", None))
         self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.3", None))
     # retranslateUi

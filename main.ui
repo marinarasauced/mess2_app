@@ -377,7 +377,6 @@ background: none;
 QScrollBar:vertical {
 border: none;
 background: rgb(52, 59, 72);
-border-left: 2px solid rgb(0, 204, 255)!important; 
 width: 8px;
 margin: 0 0 0 0;
 border-radius: 0px;
@@ -3570,7 +3569,7 @@ border: None;</string>
                          </property>
                          <layout class="QVBoxLayout" name="verticalLayout_14">
                           <property name="spacing">
-                           <number>9</number>
+                           <number>0</number>
                           </property>
                           <property name="leftMargin">
                            <number>0</number>
@@ -3586,6 +3585,9 @@ border: None;</string>
                           </property>
                           <item>
                            <layout class="QVBoxLayout" name="verticalLayout_21">
+                            <property name="spacing">
+                             <number>0</number>
+                            </property>
                             <item>
                              <widget class="QFrame" name="diagnosticsSubMenu2">
                               <property name="minimumSize">
@@ -3714,11 +3716,20 @@ border: None;</string>
                             <item>
                              <widget class="QFrame" name="verticalFrame_2">
                               <layout class="QVBoxLayout" name="verticalLayout_22">
+                               <property name="spacing">
+                                <number>0</number>
+                               </property>
                                <property name="leftMargin">
-                                <number>9</number>
+                                <number>0</number>
+                               </property>
+                               <property name="topMargin">
+                                <number>0</number>
                                </property>
                                <property name="rightMargin">
-                                <number>9</number>
+                                <number>0</number>
+                               </property>
+                               <property name="bottomMargin">
+                                <number>0</number>
                                </property>
                                <item>
                                 <widget class="QStackedWidget" name="diagnosticsStackedWidget">
@@ -3744,167 +3755,166 @@ border: None;</string>
                                     <height>732</height>
                                    </size>
                                   </property>
-                                  <widget class="QWidget" name="verticalLayoutWidget">
-                                   <property name="geometry">
-                                    <rect>
-                                     <x>-1</x>
-                                     <y>-1</y>
-                                     <width>751</width>
-                                     <height>843</height>
-                                    </rect>
+                                  <layout class="QVBoxLayout" name="verticalLayout_23">
+                                   <property name="spacing">
+                                    <number>0</number>
                                    </property>
-                                   <layout class="QVBoxLayout" name="verticalLayout_26">
-                                    <item>
-                                     <widget class="QWidget" name="diagnosticsVICON" native="true">
-                                      <property name="sizePolicy">
-                                       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                       </sizepolicy>
+                                   <property name="leftMargin">
+                                    <number>18</number>
+                                   </property>
+                                   <property name="topMargin">
+                                    <number>9</number>
+                                   </property>
+                                   <property name="rightMargin">
+                                    <number>9</number>
+                                   </property>
+                                   <property name="bottomMargin">
+                                    <number>9</number>
+                                   </property>
+                                   <item>
+                                    <widget class="QScrollArea" name="diagnosticsSensorsScrollArea">
+                                     <property name="verticalScrollBarPolicy">
+                                      <enum>Qt::ScrollBarAlwaysOn</enum>
+                                     </property>
+                                     <property name="horizontalScrollBarPolicy">
+                                      <enum>Qt::ScrollBarAlwaysOff</enum>
+                                     </property>
+                                     <property name="widgetResizable">
+                                      <bool>true</bool>
+                                     </property>
+                                     <widget class="QWidget" name="diagnosticsSensorsScrollAreaContent">
+                                      <property name="geometry">
+                                       <rect>
+                                        <x>0</x>
+                                        <y>0</y>
+                                        <width>729</width>
+                                        <height>736</height>
+                                       </rect>
                                       </property>
-                                      <property name="minimumSize">
-                                       <size>
-                                        <width>375</width>
-                                        <height>205</height>
-                                       </size>
-                                      </property>
-                                      <property name="maximumSize">
-                                       <size>
-                                        <width>375</width>
-                                        <height>205</height>
-                                       </size>
-                                      </property>
-                                      <widget class="QFrame" name="frameVICON_11">
-                                       <property name="geometry">
-                                        <rect>
-                                         <x>10</x>
-                                         <y>0</y>
-                                         <width>350</width>
-                                         <height>200</height>
-                                        </rect>
+                                      <layout class="QVBoxLayout" name="verticalLayout_28">
+                                       <property name="leftMargin">
+                                        <number>0</number>
                                        </property>
-                                       <property name="styleSheet">
-                                        <string notr="true">QFrame {
-	border-radius: 9px;
-	background-color: rgb(21, 23, 27);
-}</string>
+                                       <property name="topMargin">
+                                        <number>18</number>
                                        </property>
-                                       <property name="frameShape">
-                                        <enum>QFrame::StyledPanel</enum>
+                                       <property name="rightMargin">
+                                        <number>18</number>
                                        </property>
-                                       <property name="frameShadow">
-                                        <enum>QFrame::Raised</enum>
+                                       <property name="bottomMargin">
+                                        <number>18</number>
                                        </property>
-                                       <widget class="QLabel" name="label_3">
-                                        <property name="geometry">
-                                         <rect>
-                                          <x>0</x>
-                                          <y>0</y>
-                                          <width>269</width>
-                                          <height>50</height>
-                                         </rect>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">QLabel {
-	padding-left: 18px;
-}</string>
-                                        </property>
-                                        <property name="text">
-                                         <string>VICON Valkyrie Motion Capture System</string>
-                                        </property>
-                                       </widget>
-                                       <widget class="QFrame" name="frameVICON_11Online">
-                                        <property name="geometry">
-                                         <rect>
-                                          <x>309</x>
-                                          <y>0</y>
-                                          <width>40</width>
-                                          <height>50</height>
-                                         </rect>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">QFrame {
-	background-image: url(:/icons/images/icons2/status_offline.png);
-	background-position: center;
-	background-repeat: no-repeat;
-}</string>
-                                        </property>
-                                        <property name="frameShape">
-                                         <enum>QFrame::StyledPanel</enum>
-                                        </property>
-                                        <property name="frameShadow">
-                                         <enum>QFrame::Raised</enum>
-                                        </property>
-                                       </widget>
-                                       <widget class="QFrame" name="frameVICON_11Connected">
-                                        <property name="geometry">
-                                         <rect>
-                                          <x>280</x>
-                                          <y>0</y>
-                                          <width>40</width>
-                                          <height>50</height>
-                                         </rect>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">QFrame {
-background-image: url(:/icons/images/icons2/status_disconnected.png);
-background-position: center;
-background-repeat: no-repeat;
-}</string>
-                                        </property>
-                                        <property name="frameShape">
-                                         <enum>QFrame::StyledPanel</enum>
-                                        </property>
-                                        <property name="frameShadow">
-                                         <enum>QFrame::Raised</enum>
-                                        </property>
-                                       </widget>
-                                      </widget>
+                                       <item>
+                                        <layout class="QGridLayout" name="diagnosticsSensorsLayout">
+                                         <property name="leftMargin">
+                                          <number>0</number>
+                                         </property>
+                                         <property name="topMargin">
+                                          <number>0</number>
+                                         </property>
+                                         <property name="rightMargin">
+                                          <number>0</number>
+                                         </property>
+                                         <property name="bottomMargin">
+                                          <number>0</number>
+                                         </property>
+                                         <property name="spacing">
+                                          <number>9</number>
+                                         </property>
+                                        </layout>
+                                       </item>
+                                      </layout>
                                      </widget>
-                                    </item>
-                                    <item>
-                                     <layout class="QGridLayout" name="gridLayout_4">
-                                      <item row="0" column="1">
-                                       <widget class="QPushButton" name="pushButton_4">
-                                        <property name="text">
-                                         <string>disconnect</string>
-                                        </property>
-                                       </widget>
-                                      </item>
-                                      <item row="0" column="0">
-                                       <widget class="QPushButton" name="btnVICON_11">
-                                        <property name="text">
-                                         <string>connect</string>
-                                        </property>
-                                       </widget>
-                                      </item>
-                                      <item row="1" column="0">
-                                       <widget class="QPushButton" name="pushButton_9">
-                                        <property name="text">
-                                         <string/>
-                                        </property>
-                                       </widget>
-                                      </item>
-                                     </layout>
-                                    </item>
-                                   </layout>
-                                  </widget>
+                                    </widget>
+                                   </item>
+                                  </layout>
                                  </widget>
-                                 <widget class="QWidget" name="diagnosticsUGVs"/>
+                                 <widget class="QWidget" name="diagnosticsTEST">
+                                  <layout class="QGridLayout" name="gridLayout_6"/>
+                                 </widget>
+                                 <widget class="QWidget" name="diagnosticsUGVs">
+                                  <layout class="QVBoxLayout" name="verticalLayout_25">
+                                   <property name="leftMargin">
+                                    <number>0</number>
+                                   </property>
+                                   <property name="topMargin">
+                                    <number>0</number>
+                                   </property>
+                                   <property name="rightMargin">
+                                    <number>0</number>
+                                   </property>
+                                   <property name="bottomMargin">
+                                    <number>0</number>
+                                   </property>
+                                   <item>
+                                    <widget class="QScrollArea" name="diagnosticsUGVsScrollArea">
+                                     <property name="widgetResizable">
+                                      <bool>true</bool>
+                                     </property>
+                                     <widget class="QWidget" name="diagnosticsUGVsScrollAreaContent">
+                                      <property name="geometry">
+                                       <rect>
+                                        <x>0</x>
+                                        <y>0</y>
+                                        <width>746</width>
+                                        <height>730</height>
+                                       </rect>
+                                      </property>
+                                      <layout class="QVBoxLayout" name="verticalLayout_26">
+                                       <item>
+                                        <layout class="QGridLayout" name="diagnosticsUGVsLayout">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                        </layout>
+                                       </item>
+                                      </layout>
+                                     </widget>
+                                    </widget>
+                                   </item>
+                                  </layout>
+                                 </widget>
                                  <widget class="QWidget" name="diagnosticsUAVs">
-                                  <widget class="QLabel" name="label_2">
-                                   <property name="geometry">
-                                    <rect>
-                                     <x>240</x>
-                                     <y>460</y>
-                                     <width>66</width>
-                                     <height>18</height>
-                                    </rect>
+                                  <layout class="QVBoxLayout" name="verticalLayout_24">
+                                   <property name="leftMargin">
+                                    <number>0</number>
                                    </property>
-                                   <property name="text">
-                                    <string>uavs</string>
+                                   <property name="topMargin">
+                                    <number>0</number>
                                    </property>
-                                  </widget>
+                                   <property name="rightMargin">
+                                    <number>0</number>
+                                   </property>
+                                   <property name="bottomMargin">
+                                    <number>0</number>
+                                   </property>
+                                   <item>
+                                    <widget class="QScrollArea" name="diagnosticsUAVsScrollArea">
+                                     <property name="widgetResizable">
+                                      <bool>true</bool>
+                                     </property>
+                                     <widget class="QWidget" name="diagnosticsUAVsScrollAreaContent">
+                                      <property name="geometry">
+                                       <rect>
+                                        <x>0</x>
+                                        <y>0</y>
+                                        <width>746</width>
+                                        <height>730</height>
+                                       </rect>
+                                      </property>
+                                      <layout class="QVBoxLayout" name="verticalLayout_27">
+                                       <item>
+                                        <layout class="QGridLayout" name="diagnosticsUAVsLayout">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                        </layout>
+                                       </item>
+                                      </layout>
+                                     </widget>
+                                    </widget>
+                                   </item>
+                                  </layout>
                                  </widget>
                                 </widget>
                                </item>

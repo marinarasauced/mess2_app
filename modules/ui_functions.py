@@ -18,6 +18,7 @@
 # ///////////////////////////////////////////////////////////////
 from main import *
 from datetime import datetime
+from modules.custom.sensor_object import Obj_tileSensorTemplate
 
 # GLOBALS
 # ///////////////////////////////////////////////////////////////
@@ -304,11 +305,6 @@ class UIFunctions(MainWindow):
 
 
 
-    def log2DiagnosticsTerminal(self, message):
-        timestamp = datetime.now().strftime("[%H:%M:%S]")
-        message_ = f"{timestamp} : {message}"
-        self.ui.diagnosticsTerminal.appendPlainText(message_)
-
     
     def selectStyleDiagnosticsSubMenu2(getStyle):
         """
@@ -383,3 +379,61 @@ class UIFunctions(MainWindow):
 
     # ///////////////////////////////////////////////////////////////
     # END - GUI DEFINITIONS
+
+    def mess2_log_to_diagnostics(self, msg: str = ""):
+        """
+        This method logs strings to the diagnostics terminal with an HH:MM:SS timestamp.
+        """
+        timestamp = datetime.now().strftime("[%H:%M:%S]")
+        message = f"{timestamp} : {msg}"
+        self.ui.diagnosticsTerminal.appendPlainText(message)
+
+
+    def mess2_toggle_connected(self, widget_name: str, sensor: Obj_tileSensorTemplate):
+        """
+        This method toggles the is_connected ui element of a widget.
+        """
+        if not sensor.show_connected:
+            widget = eval(f"self.ui.{widget_name}")
+            style = widget.styleSheet()
+            style = style.replace(sensor.style_is_disconnected, "")
+            style = style.replace(sensor.style_is_connected, "")
+            widget.setStyleSheet(style)
+
+
+    def mess2_update_connected(self, widget_name: str, sensor: Obj_tileSensorTemplate):
+        """
+        This method updates the is_connected ui element of a widget.
+        """
+        widget = eval(f"self.ui.{widget_name}")
+        style = widget.styleSheet()
+        if sensor.is_connected:
+            style.replace(sensor.style_is_disconnected, sensor.style_is_connected)
+        else:
+            style.replace(sensor.style_is_connected, sensor.style_is_disconnected)
+        widget.setStyleSheet(style)
+
+
+    def mess2_toggle_online(self, widget_name: str, sensor: Obj_tileSensorTemplate):
+        """
+        This method toggles the is_online ui element of a widget.
+        """
+        if not sensor.show_online:
+            widget = eval(f"self.ui.{widget_name}")
+            style = widget.styleSheet()
+            style = style.replace(sensor.style_is_offline, "")
+            style = style.replace(sensor.style_is_online, "")
+            widget.setStyleSheet(style)
+
+
+    def mess2_update_online(self, widget_name: str, sensor: Obj_tileSensorTemplate):
+        """
+        This method updates the is_online ui element of a widget.
+        """
+        widget = eval(f"self.ui.{widget_name}")
+        style = widget.styleSheet()
+        if sensor.is_online:
+            style.replace(sensor.style_is_offline, sensor.style_is_online)
+        else:
+            style.replace(sensor.style_is_online, sensor.style_is_offline)
+        widget.setStyleSheet(style) 

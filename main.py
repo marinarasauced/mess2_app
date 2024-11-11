@@ -1,68 +1,39 @@
-# ///////////////////////////////////////////////////////////////
-#
-# BY: WANDERSON M.PIMENTA
-# PROJECT MADE WITH: Qt Designer and PySide6
-# V: 1.0.0
-#
-# This project can be used freely for all uses, as long as they maintain the
-# respective credits only in the Python scripts, any information in the visual
-# interface (GUI) can be modified without any implication.
-#
-# There are limitations on Qt licenses if you want to use your products
-# commercially, I recommend reading them on the official website:
-# https://doc.qt.io/qtforpython/licenses.html
-#
-# ///////////////////////////////////////////////////////////////
 
 import sys
 import os
 import platform
 import threading
 
-# IMPORT / GUI AND MODULES AND WIDGETS
-# ///////////////////////////////////////////////////////////////
 from modules import *
 from widgets import *
-from modules.diagnostics_sensors import *
+from modules.diagnostics import *
 os.environ["QT_FONT_DPI"] = "96" # FIX Problem for High DPI and Scale above 100%
 
-# SET AS GLOBAL WIDGETS
-# ///////////////////////////////////////////////////////////////
 widgets = None
 
+
 class MainWindow(QMainWindow):
+    """
+    """
     def __init__(self):
+        """
+        """
         QMainWindow.__init__(self)
 
-        # SET AS GLOBAL WIDGETS
-        # ///////////////////////////////////////////////////////////////
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         global widgets
         widgets = self.ui
 
-        # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
-        # ///////////////////////////////////////////////////////////////
         Settings.ENABLE_CUSTOM_TITLE_BAR = True
 
-        # APP NAME
-        # ///////////////////////////////////////////////////////////////
         title = "mess2"
         description = "Modular Experiment Software System 2"
-        # APPLY TEXTS
         self.setWindowTitle(title)
         widgets.titleRightInfo.setText(description)
 
-        # TOGGLE MENU
-        # ///////////////////////////////////////////////////////////////
         widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, False))
-
-        # SET UI DEFINITIONS
-        # ///////////////////////////////////////////////////////////////
         UIFunctions.uiDefinitions(self)
-
-        # QTableWidget PARAMETERS
-        # ///////////////////////////////////////////////////////////////
         widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         # BUTTONS CLICK
@@ -95,9 +66,9 @@ class MainWindow(QMainWindow):
         widgets.btn_diagnostics_refresh.clicked.connect(self.buttonClick)
 
         # VICON CONNECTIVITY
-        self.sensor_vicon = SensorVICON(name="VICON Valkyrie Motion Capture System", btnName=widgets.btnVICON_11.objectName())
-        self.sensors_flir = []
-        widgets.btnVICON_11.clicked.connect(self.buttonClick)
+        # self.sensor_vicon = SensorVICON(name="VICON Valkyrie Motion Capture System", btnName=widgets.btnVICON_11.objectName())
+        # self.sensors_flir = []
+        # widgets.btnVICON_11.clicked.connect(self.buttonClick)
 
         # ///////////////////////////////////////////////////////////////
         self.threadpool = QThreadPool()
@@ -106,10 +77,25 @@ class MainWindow(QMainWindow):
 
 
 
+
+
+        # diagnostics sensors
+        widgets.diagnosticsSensorsLayout.setAlignment(Qt.AlignTop)
+        self.grid_diagnostics_sensors = Obj_gridWidget(2)
+        self.mess2_initialize_vicon()
+
+        
+        widgets.diagnosticsUGVsLayout.setAlignment(Qt.AlignTop)
+        widgets.diagnosticsUAVsLayout.setAlignment(Qt.AlignTop)
+        
+
+
+
+
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
         self.show()
-        UIFunctions.log2DiagnosticsTerminal(self, "launched mess2")
+        UIFunctions.mess2_log_to_diagnostics(self, "launched mess2")
 
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
@@ -129,6 +115,7 @@ class MainWindow(QMainWindow):
         widgets.stackedWidget.setCurrentWidget(widgets.home)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
         widgets.btn_diagnostics_sensors.setStyleSheet(UIFunctions.selectStyleDiagnosticsSubMenu2(widgets.btn_diagnostics_sensors.styleSheet()))
+        widgets.diagnosticsStackedWidget.setCurrentWidget(widgets.diagnosticsSensors)
 
 
     # BUTTONS CLICK
@@ -199,9 +186,6 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectStyleDiagnosticsSubMenu2(btn.styleSheet()))
         
 
-        if btnName == "btnVICON_11":
-            self.toggleSensorVICONEvent()
-
 
 
 
@@ -243,7 +227,7 @@ class MainWindow(QMainWindow):
         """
         """
         if self.enable_click_logging_while_experiment_running:
-                    UIFunctions.log2DiagnosticsTerminal(f"buttonClick : cannot press {btnName} while experiment is running")
+                    UIFunctions.mess2_log_to_diagnostics(f"buttonClick : cannot press {btnName} while experiment is running")
 
 
     def selectExperimentEvent(self):
@@ -258,7 +242,7 @@ class MainWindow(QMainWindow):
         experiment_file_path, _ = response
         if experiment_file_path:
             self.experiment_file_path = experiment_file_path
-            UIFunctions.log2DiagnosticsTerminal(self, f"selected experiment file {self.experiment_file_path}")
+            UIFunctions.mess2_log_to_diagnostics(self, f"selected experiment file {self.experiment_file_path}")
     
 
     def createSensorVICONEvent(self):
@@ -278,6 +262,62 @@ class MainWindow(QMainWindow):
         # if not self.sensor_vicon.is_running
 
 
+
+
+
+
+
+
+
+    # CUSTOM CODE
+    # ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    # def mess2_create_grid(self, n_cols: int = 2, n_rows: int = None):
+    #     """
+    #     This method initializes 
+    #     """
+
+
+
+    # def mess2_create_sensor(self):
+    def mess2_add_sensor(self, widget: QWidget, widget_name: str, index_row: int, index_col: int):
+        """
+        This method adds a sensor template widget to the diagnostics sensors grid layout at the specified row and column index.
+        """
+        widgets.diagnosticsSensorsLayout.addWidget(widget, index_row, index_col)
+        if widget_name == None:
+            widget_name = f"diagnosticsSensorsLayoutGrid_{index_row}_{index_col}"
+        widgets.__setattr__(widget_name, widget)
+
+
+    def mess2_create_sensor(self, sensor: Obj_tileSensorTemplate):
+        """
+        This method creates a sensor template widget and updates its attributes using a sensor object.
+        """
+        widget = QWidget()
+        widget.setObjectName(sensor.widget_name)
+        ui = Ui_tileSensorTemplate()
+        ui.setupUi(widget)
+
+        ui.sensorName.setText(sensor.sensor_name)
+
+
+        return widget
+    
+
+    def mess2_initialize_vicon(self):
+        """
+        
+        """
+        vicon_sensor = Obj_tileSensorTemplate("VICON Valkyrie Motion Capture System", "192.168.0.145", "sensorVICON", False, True)
+        print(vicon_sensor.show_online)
+        vicon_widget = self.mess2_create_sensor(vicon_sensor)
+
+        self.mess2_add_sensor(vicon_widget, vicon_widget.objectName(), self.grid_diagnostics_sensors.get_index_row(), self.grid_diagnostics_sensors.get_index_col())
+        self.mess2_add_sensor(QWidget(), None, self.grid_diagnostics_sensors.get_index_row(), self.grid_diagnostics_sensors.get_index_col())
+
+        UIFunctions.mess2_toggle_connected(self, vicon_widget.objectName(), vicon_sensor)
+        UIFunctions.mess2_toggle_online(self, vicon_widget.objectName(), vicon_sensor)
+        UIFunctions.mess2_log_to_diagnostics(self, "added vicon diagnostics to sensors")
 
 
 

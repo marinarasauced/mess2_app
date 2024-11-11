@@ -1,6 +1,7 @@
 <RCC>
   <qresource prefix="images">
     <file>images/images/PyDracula.png</file>
+    <file>images/images/mess2_beta.png</file>
     <file>images/images/PyDracula_vertical.png</file>
   </qresource>
   <qresource prefix="icons">
@@ -259,5 +260,11 @@
     <file>images/icons/icon_minimize.png</file>
     <file>images/icons/icon_restore.png</file>
     <file>images/icons/icon_settings.png</file>
+  </qresource>
+  <qresource prefix="icons">
+    <file>images/icons2/status_offline.png</file>
+    <file>images/icons2/status_online.png</file>
+    <file>images/icons2/status_disconnected.png</file>
+    <file>images/icons2/status_connected.png</file>
   </qresource>
 </RCC>

@@ -13,6 +13,18 @@ class Settings():
 
     # MENU SELECTED STYLESHEET
     MENU_SELECTED_STYLESHEET = """
-    border-left: 22px solid qlineargradient(spread:pad, x1:0.034, y1:0, x2:0.216, y2:0, stop:0.499 rgba(255, 121, 198, 255), stop:0.5 rgba(85, 170, 255, 0));
+    border-left: 22px solid qlineargradient(spread:pad, x1:0.034, y1:0, x2:0.216, y2:0, stop:0.499 rgba(0, 204, 255, 255), stop:0.5 rgba(85, 170, 255, 0));
     background-color: rgb(40, 44, 52);
     """
+
+    # DIAGNOSTICS SUBMENU 2 STYLESHEETS
+    MENU_SELECTED_STYLESHEET_DIAGNOSTICS2 = """
+    background-color: rgb(40, 44, 52); 
+    border-bottom: 3px solid rgb(0, 204, 255); 
+    border-top: 3px solid transparent; 
+    """
+
+    # CONNECTED ICON TOGGLE
+    ICON_IS_DISCONNECTED = """background-image: url(:/icons/images/icons2/status_disconnected.png);"""
+    ICON_IS_CONNECTED = """background-image: url(:/icons/images/icons2/status_connected.png);"""
+

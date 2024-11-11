@@ -17,11 +17,13 @@
 import sys
 import os
 import platform
+import threading
 
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from modules import *
 from widgets import *
+from modules.diagnostics_sensors import *
 os.environ["QT_FONT_DPI"] = "96" # FIX Problem for High DPI and Scale above 100%
 
 # SET AS GLOBAL WIDGETS
@@ -45,15 +47,15 @@ class MainWindow(QMainWindow):
 
         # APP NAME
         # ///////////////////////////////////////////////////////////////
-        title = "PyDracula - Modern GUI"
-        description = "PyDracula APP - Theme with colors based on Dracula for Python."
+        title = "mess2"
+        description = "Modular Experiment Software System 2"
         # APPLY TEXTS
         self.setWindowTitle(title)
         widgets.titleRightInfo.setText(description)
 
         # TOGGLE MENU
         # ///////////////////////////////////////////////////////////////
-        widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
+        widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, False))
 
         # SET UI DEFINITIONS
         # ///////////////////////////////////////////////////////////////
@@ -68,29 +70,51 @@ class MainWindow(QMainWindow):
 
         # LEFT MENUS
         widgets.btn_home.clicked.connect(self.buttonClick)
-        widgets.btn_widgets.clicked.connect(self.buttonClick)
-        widgets.btn_new.clicked.connect(self.buttonClick)
-        widgets.btn_save.clicked.connect(self.buttonClick)
+        widgets.btn_diagnostics.clicked.connect(self.buttonClick)
+        widgets.btn_planner.clicked.connect(self.buttonClick)
+        widgets.btn_settings.clicked.connect(self.buttonClick)
 
-        # EXTRA LEFT BOX
-        def openCloseLeftBox():
-            UIFunctions.toggleLeftBox(self, True)
-        widgets.toggleLeftBox.clicked.connect(openCloseLeftBox)
-        widgets.extraCloseColumnBtn.clicked.connect(openCloseLeftBox)
+        # DIAGNOSTICS TAB
+        # ///////////////////////////////////////////////////////////////
 
-        # EXTRA RIGHT BOX
-        def openCloseRightBox():
-            UIFunctions.toggleRightBox(self, True)
-        widgets.settingsTopBtn.clicked.connect(openCloseRightBox)
+        # DIAGNOSTICS MENU
+        widgets.btn_experiment_select.clicked.connect(self.buttonClick)
+        widgets.btn_experiment_load.clicked.connect(self.buttonClick)
+        widgets.btn_actors_connect.clicked.connect(self.buttonClick)
+        widgets.btn_actors_disconnect.clicked.connect(self.buttonClick)
+
+        self.enable_click_logging_while_experiment_running = False
+        self.is_experiment_running: bool = False
+        self.experiment_file_extensions: str = "test1 (*.yaml *.png);; test2 (*.png *.csv)"
+        self.experiment_file_path: str = None
+
+        # DIAGNOSTICS SUBMENU 2
+        widgets.btn_diagnostics_sensors.clicked.connect(self.buttonClick)
+        widgets.btn_diagnostics_ugvs.clicked.connect(self.buttonClick)
+        widgets.btn_diagnostics_uavs.clicked.connect(self.buttonClick)
+        widgets.btn_diagnostics_refresh.clicked.connect(self.buttonClick)
+
+        # VICON CONNECTIVITY
+        self.sensor_vicon = SensorVICON(name="VICON Valkyrie Motion Capture System", btnName=widgets.btnVICON_11.objectName())
+        self.sensors_flir = []
+        widgets.btnVICON_11.clicked.connect(self.buttonClick)
+
+        # ///////////////////////////////////////////////////////////////
+        self.threadpool = QThreadPool()
+        self.threadpool.maxThreadCount = 4
+
+
+
 
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
         self.show()
+        UIFunctions.log2DiagnosticsTerminal(self, "launched mess2")
 
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = False
-        themeFile = "themes\py_dracula_light.qss"
+        themeFile = "themes/py_dracula_light.qss"
 
         # SET THEME AND HACKS
         if useCustomTheme:
@@ -104,6 +128,7 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.home)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+        widgets.btn_diagnostics_sensors.setStyleSheet(UIFunctions.selectStyleDiagnosticsSubMenu2(widgets.btn_diagnostics_sensors.styleSheet()))
 
 
     # BUTTONS CLICK
@@ -114,29 +139,83 @@ class MainWindow(QMainWindow):
         btn = self.sender()
         btnName = btn.objectName()
 
+        # LOG CLICK IN LINUX TERMINAL
+        print(f"buttonClick : pressed {btnName}")
+
+
         # SHOW HOME PAGE
         if btnName == "btn_home":
-            widgets.stackedWidget.setCurrentWidget(widgets.home)
-            UIFunctions.resetStyle(self, btnName)
-            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+            if self.is_experiment_running:
+                self.logExperimentRunningEvent(self, btnName)
+            else:
+                widgets.stackedWidget.setCurrentWidget(widgets.home)
+                UIFunctions.resetStyle(self, btnName)
+                btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        # SHOW WIDGETS PAGE
-        if btnName == "btn_widgets":
-            widgets.stackedWidget.setCurrentWidget(widgets.widgets)
-            UIFunctions.resetStyle(self, btnName)
-            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        # SHOW NEW PAGE
-        if btnName == "btn_new":
-            widgets.stackedWidget.setCurrentWidget(widgets.new_page) # SET PAGE
-            UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
-            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
 
-        if btnName == "btn_save":
-            print("Save BTN clicked!")
+        # DIAGNOSTICS
+        # ///////////////////////////////////////////////////////////////////////////
 
-        # PRINT BTN NAME
-        print(f'Button "{btnName}" pressed!')
+
+        # SHOW DIAGNOSTICS PAGE
+        if btnName == "btn_diagnostics":
+            if self.is_experiment_running:
+                self.logExperimentRunningEvent(self, btnName)
+            else:
+                widgets.stackedWidget.setCurrentWidget(widgets.diagnostics)
+                UIFunctions.resetStyle(self, btnName)
+                btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+                widgets.diagnosticsTerminal.verticalScrollBar().setValue(widgets.diagnosticsTerminal.verticalScrollBar().maximum())
+
+
+        # DIAGNOSTICS SUBMENU1
+        if btnName == "btn_experiment_select":
+            if self.is_experiment_running:
+                self.logExperimentRunningEvent(self, btnName)
+            else:
+                self.selectExperimentEvent()
+
+
+
+        # DIAGNOSTICS SENSORS TAB
+        if btnName == "btn_diagnostics_sensors":
+            widgets.diagnosticsStackedWidget.setCurrentWidget(widgets.diagnosticsSensors)
+            UIFunctions.resetStyleDiagnosticsSubMenu2(self, btnName)
+            btn.setStyleSheet(UIFunctions.selectStyleDiagnosticsSubMenu2(btn.styleSheet()))
+
+
+        # DIAGNOSTICS UGVS TAB
+        if btnName == "btn_diagnostics_ugvs":
+            widgets.diagnosticsStackedWidget.setCurrentWidget(widgets.diagnosticsUGVs)
+            UIFunctions.resetStyleDiagnosticsSubMenu2(self, btnName)
+            btn.setStyleSheet(UIFunctions.selectStyleDiagnosticsSubMenu2(btn.styleSheet()))
+
+
+        # DIAGNOSTICS UAVS TAB
+        if btnName == "btn_diagnostics_uavs":
+            widgets.diagnosticsStackedWidget.setCurrentWidget(widgets.diagnosticsUAVs)
+            UIFunctions.resetStyleDiagnosticsSubMenu2(self, btnName)
+            btn.setStyleSheet(UIFunctions.selectStyleDiagnosticsSubMenu2(btn.styleSheet()))
+        
+
+        if btnName == "btnVICON_11":
+            self.toggleSensorVICONEvent()
+
+
+
+
+
+
+        if btnName == "btn_actors_connect":
+            new_button = QPushButton("Dynamically Added")
+            new_button.setObjectName("dynamic_button")
+            new_button.setStyleSheet("background-color: lightblue;")
+            self.ui.diagnosticsCol2Layout.addWidget(new_button)
+            new_button.clicked.connect(lambda: print("Dynamically added button clicked!"))
+
+        
+        print(f"clicked {btnName}")
 
 
     # RESIZE EVENTS
@@ -153,12 +232,58 @@ class MainWindow(QMainWindow):
 
         # PRINT MOUSE EVENTS
         if event.buttons() == Qt.LeftButton:
-            print('Mouse click: LEFT CLICK')
+            print('mouseClick : left click')
         if event.buttons() == Qt.RightButton:
-            print('Mouse click: RIGHT CLICK')
+            print('mouseClick : right click')
 
+    
+    # BUTTON EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def logExperimentRunningEvent(self, btnName: str):
+        """
+        """
+        if self.enable_click_logging_while_experiment_running:
+                    UIFunctions.log2DiagnosticsTerminal(f"buttonClick : cannot press {btnName} while experiment is running")
+
+
+    def selectExperimentEvent(self):
+        """
+        """
+        response = QFileDialog.getOpenFileName(
+            parent=self,
+            caption="Select a file",
+            dir=os.getcwd(),
+            filter=self.experiment_file_extensions
+        )
+        experiment_file_path, _ = response
+        if experiment_file_path:
+            self.experiment_file_path = experiment_file_path
+            UIFunctions.log2DiagnosticsTerminal(self, f"selected experiment file {self.experiment_file_path}")
+    
+
+    def createSensorVICONEvent(self):
+        """
+        """
+        if self.sensor_vicon:
+            pass
+
+
+    def toggleSensorVICONEvent(self):
+        """
+        """
+        if not self.sensor_vicon.is_connected:
+            UIFunctions.toggleStyleConnected(self, self.sensor_vicon.frameNameConnected, True)
+            UIFunctions.toggleStyleOnline(self, self.sensor_vicon.frameNameOnline, True)
+            self.sensor_vicon.is_connected = True
+        # if not self.sensor_vicon.is_running
+
+
+
+
+
+#######################
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

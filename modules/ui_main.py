@@ -1,29 +1,41 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'maingnxZcz.ui'
+## Form generated from reading UI file 'mainiIzSih.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.0.2
+## Created by: Qt User Interface Compiler version 6.4.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import *
-from PySide6.QtGui import *
-from PySide6.QtWidgets import *
-
-from . resources_rc import *
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplication, QCheckBox,
+    QComboBox, QCommandLinkButton, QFrame, QGridLayout,
+    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
+    QMainWindow, QPlainTextEdit, QPushButton, QRadioButton,
+    QScrollArea, QScrollBar, QSizePolicy, QSlider,
+    QStackedWidget, QTableWidget, QTableWidgetItem, QTextEdit,
+    QVBoxLayout, QWidget)
+import modules.resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1280, 720)
-        MainWindow.setMinimumSize(QSize(940, 560))
+        MainWindow.resize(1600, 900)
+        MainWindow.setMinimumSize(QSize(1600, 900))
+        MainWindow.setMaximumSize(QSize(1600, 900))
         self.styleSheet = QWidget(MainWindow)
         self.styleSheet.setObjectName(u"styleSheet")
+        self.styleSheet.setMaximumSize(QSize(16777215, 16777215))
         font = QFont()
-        font.setFamily(u"Segoe UI")
+        font.setFamilies([u"Segoe UI"])
         font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
@@ -36,103 +48,118 @@ class Ui_MainWindow(object):
 "///////////////////////////////////////////////////////////////////////////////////////////////// */\n"
 "\n"
 "QWidget{\n"
-"	color: rgb(221, 221, 221);\n"
-"	font: 10pt \"Segoe UI\";\n"
+"color: rgb(221, 221, 221);\n"
+"font: 10pt \"Segoe UI\";\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Tooltip */\n"
 "QToolTip {\n"
-"	color: #ffffff;\n"
-"	background-color: rgba(33, 37, 43, 180);\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
-"	background-image: none;\n"
-"	background-position: left center;\n"
-"    background-repeat: no-repeat;\n"
-"	border: none;\n"
-"	border-left: 2px solid rgb(255, 121, 198);\n"
-"	text-align: left;\n"
-"	padding-left: 8px;\n"
-"	margin: 0px;\n"
+"color: #ffffff;\n"
+"background-color: rgba(33, 37, 43, 180);\n"
+"border: 1px solid rgb(44, 49, 58);\n"
+"background-image: none;\n"
+"background-position: left center;\n"
+"background-repeat: no-repeat;\n"
+"border: none;\n"
+"border-left: 2px solid rgb(0, 204, 255);\n"
+"text-align: left;\n"
+"padding-left: 8px;\n"
+"margin: 0px;\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Bg App */\n"
-"#bgApp {	\n"
-"	background"
-                        "-color: rgb(40, 44, 52);\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
+"#bgApp { \n"
+"background-color: rgb(37, 39,"
+                        " 43);\n"
+"border: 1px solid rgb(44, 49, 58);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Left Menu */\n"
-"#leftMenuBg {	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"#leftMenuBg { \n"
+"background-color: rgb(33, 37, 43);\n"
 "}\n"
 "#topLogo {\n"
-"	background-color: rgb(33, 37, 43);\n"
-"	background-image: url(:/images/images/images/PyDracula.png);\n"
-"	background-position: centered;\n"
-"	background-repeat: no-repeat;\n"
+"background-color: rgb(33, 37, 43);\n"
+"background-image: url(:/images/images/images/mess2_beta.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;\n"
 "}\n"
 "#titleLeftApp { font: 63 12pt \"Segoe UI Semibold\"; }\n"
-"#titleLeftDescription { font: 8pt \"Segoe UI\"; color: rgb(189, 147, 249); }\n"
+"#titleLeftDescription { font: 8pt \"Segoe UI\"; color: rgb(0, 204, 255 ); }\n"
 "\n"
 "/* MENUS */\n"
-"#topMenu .QPushButton {	\n"
-"	background-position: left center;\n"
-"    background-repeat: no-repeat;\n"
-"	border: none;\n"
-"	border-left: 22px solid transparent;\n"
-"	background-color: transparent;\n"
-"	text-align: left;\n"
-"	padding-left: 44px;\n"
+"#topMenu .QPushButton { \n"
+"background-position: left center;\n"
+"background-repeat: no-repeat;\n"
+"border: none;\n"
+"border-left: 22px solid transparent;\n"
+"background-color: transparent;\n"
+"text-align: left;\n"
+"padding-left: 44px;\n"
 "}\n"
 "#topMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"background-color: rgb(37, 39, 43);\n"
 "}\n"
-"#topMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(18"
-                        "9, 147, 249);\n"
-"	color: rgb(255, 255, 255);\n"
+"#topMenu .QPushButton:pressed { \n"
+"background-color: rgb(98, 114, 164 );\n"
+"color: rgb(255, 255"
+                        ", 255);\n"
 "}\n"
-"#bottomMenu .QPushButton {	\n"
-"	background-position: left center;\n"
-"    background-repeat: no-repeat;\n"
-"	border: none;\n"
-"	border-left: 20px solid transparent;\n"
-"	background-color:transparent;\n"
-"	text-align: left;\n"
-"	padding-left: 44px;\n"
+"#bottomMenu .QPushButton { \n"
+"background-position: left center;\n"
+"background-repeat: no-repeat;\n"
+"border: none;\n"
+"border-left: 20px solid transparent;\n"
+"background-color:transparent;\n"
+"text-align: left;\n"
+"padding-left: 44px;\n"
 "}\n"
 "#bottomMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"background-color: rgb(37, 39, 43);\n"
 "}\n"
-"#bottomMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
-"	color: rgb(255, 255, 255);\n"
+"#bottomMenu .QPushButton:pressed { \n"
+"background-color: rgb(98, 114, 164 );\n"
+"color: rgb(255, 255, 255);\n"
 "}\n"
-"#leftMenuFrame{\n"
-"	border-top: 3px solid rgb(44, 49, 58);\n"
+"#diagnosticsSubMenu2 .QPushButton { \n"
+"background-color: transparent;\n"
+"text-align: center;\n"
+"padding: 0 18px 0 18px;\n"
+"border: None;\n"
+"border-radius: 0;\n"
+"}\n"
+"#diagnosticsSubMenu2 .QPushButton:hover {\n"
+"background-color: rgb(37, 39, 43);\n"
+"border: None;\n"
+"border-radius: 0;\n"
+"}\n"
+"#diagnosticsSubMenu2 .QPushButton:pressed { \n"
+"background-color: rgb(98, 114, 164 );\n"
+"color: rgb(255, 255, 255);\n"
+"border: None;\n"
+"border-radius: 0;\n"
 "}\n"
 "\n"
 "/* Toggle Button */\n"
 "#toggleButton {\n"
-"	background-position: left center;\n"
-"    background-repeat: no-repeat;\n"
-"	border: none;\n"
-"	border-left: 20px solid transparent;\n"
-"	background-color: rgb(37, 41, 48);\n"
-"	text-align: left;\n"
-"	padding-left: 44px;\n"
-"	color: rgb(113, 126, 149);\n"
+"background-position: left center;\n"
+""
+                        "background-repeat: no-repeat;\n"
+"border: none;\n"
+"border-left: 20px solid transparent;\n"
+"background-color: rgb(37, 41, 48);\n"
+"text-align: left;\n"
+"padding-left: 44px;\n"
+"color: rgb(138, 139, 141);\n"
 "}\n"
 "#toggleButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"background-color: rgb(37, 39, 43);\n"
 "}\n"
 "#toggleButton:pressed {\n"
-"	background-color: rgb("
-                        "189, 147, 249);\n"
+"background-color: rgb(98, 114, 164 );\n"
 "}\n"
 "\n"
 "/* Title Menu */\n"
@@ -141,411 +168,426 @@ class Ui_MainWindow(object):
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Extra Tab */\n"
-"#extraLeftBox {	\n"
-"	background-color: rgb(44, 49, 58);\n"
+"#extraLeftBox { \n"
+"background-color: rgb(44, 49, 58);\n"
 "}\n"
-"#extraTopBg{	\n"
-"	background-color: rgb(189, 147, 249)\n"
+"#extraTopBg{ \n"
+"background-color: rgb(98, 114, 164 )\n"
 "}\n"
 "\n"
 "/* Icon */\n"
 "#extraIcon {\n"
-"	background-position: center;\n"
-"	background-repeat: no-repeat;\n"
-"	background-image: url(:/icons/images/icons/icon_settings.png);\n"
+"background-position: center;\n"
+"background-repeat: no-repeat;\n"
+"background-image: url(:/icons/images/icons/icon_settings.png);\n"
 "}\n"
 "\n"
 "/* Label */\n"
 "#extraLabel { color: rgb(255, 255, 255); }\n"
 "\n"
 "/* Btn Close */\n"
-"#extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-"#extraCloseColumnBtn:hover { background-color: rgb(196, 161, 249); border-style: solid; border-radius: 4px; }\n"
-"#extraCloseColumnBtn:pressed { background-color: rgb(180, 141, 238); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn { background-color: rgba(255, 255, 255,"
+                        " 0); border: none; border-radius: 5px; }\n"
+"#extraCloseColumnBtn:hover { background-color: rgb(98, 114, 164 ); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:pressed { background-color: rgb(98, 114, 164 ); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Extra Content */\n"
 "#extraContent{\n"
-"	border"
-                        "-top: 3px solid rgb(40, 44, 52);\n"
+"border-top: 3px solid rgb(37, 39, 43);\n"
 "}\n"
 "\n"
 "/* Extra Top Menus */\n"
 "#extraTopMenu .QPushButton {\n"
 "background-position: left center;\n"
-"    background-repeat: no-repeat;\n"
-"	border: none;\n"
-"	border-left: 22px solid transparent;\n"
-"	background-color:transparent;\n"
-"	text-align: left;\n"
-"	padding-left: 44px;\n"
+"background-repeat: no-repeat;\n"
+"border: none;\n"
+"border-left: 22px solid transparent;\n"
+"background-color:transparent;\n"
+"text-align: left;\n"
+"padding-left: 44px;\n"
 "}\n"
 "#extraTopMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"background-color: rgb(37, 39, 43);\n"
 "}\n"
-"#extraTopMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
-"	color: rgb(255, 255, 255);\n"
+"#extraTopMenu .QPushButton:pressed { \n"
+"background-color: rgb(98, 114, 164 );\n"
+"color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Content App */\n"
-"#contentTopBg{	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"#contentTopBg{ \n"
+"background-color: "
+                        "rgb(33, 37, 43);\n"
 "}\n"
 "#contentBottom{\n"
-"	border-top: 3px solid rgb(44, 49, 58);\n"
+"border-top: 3px solid rgb(0, 204, 255);\n"
 "}\n"
 "\n"
 "/* Top Buttons */\n"
-"#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-"#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-sty"
-                        "le: solid; border-radius: 4px; }\n"
+"#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none; border-radius: 5px; }\n"
+"#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-style: solid; border-radius: 4px; }\n"
 "#rightButtons .QPushButton:pressed { background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Theme Settings */\n"
 "#extraRightBox { background-color: rgb(44, 49, 58); }\n"
-"#themeSettingsTopDetail { background-color: rgb(189, 147, 249); }\n"
+"#themeSettingsTopDetail { background-color: rgb(0, 204, 255 ); }\n"
 "\n"
 "/* Bottom Bar */\n"
 "#bottomBar { background-color: rgb(44, 49, 58); }\n"
-"#bottomBar QLabel { font-size: 11px; color: rgb(113, 126, 149); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }\n"
+"#bottomBar QLabel { font-size: 11px; color: rgb(255, 0, 0); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }\n"
 "\n"
 "/* CONTENT SETTINGS */\n"
 "/* MENUS */\n"
-"#contentSettings .QPushButton {	\n"
-"	background-position: left center;\n"
-"    background-repeat: no-repeat;\n"
-"	border: none;\n"
-"	border-left: 22px solid transparent;\n"
-"	background-color:transparent;\n"
-"	text-align: left;\n"
-"	padding-left: 44px;\n"
+"#contentSettings .QPushButton { \n"
+"background-position: left center;\n"
+"background-repeat: no-repeat;\n"
+"border: none;\n"
+"border-left: 2"
+                        "2px solid transparent;\n"
+"background-color:transparent;\n"
+"text-align: left;\n"
+"padding-left: 44px;\n"
 "}\n"
 "#contentSettings .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"background-color: rgb(37, 39, 43);\n"
 "}\n"
-"#contentSettings .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
-"	color: rgb"
-                        "(255, 255, 255);\n"
+"#contentSettings .QPushButton:pressed { \n"
+"background-color: rgb(98, 114, 164 );\n"
+"color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "QTableWidget */\n"
-"QTableWidget {	\n"
-"	background-color: transparent;\n"
-"	padding: 10px;\n"
-"	border-radius: 5px;\n"
-"	gridline-color: rgb(44, 49, 58);\n"
-"	border-bottom: 1px solid rgb(44, 49, 60);\n"
+"QTableWidget { \n"
+"background-color: transparent;\n"
+"padding: 10px;\n"
+"border-radius: 5px;\n"
+"gridline-color: rgb(44, 49, 58);\n"
+"border-bottom: 1px solid rgb(44, 49, 60);\n"
 "}\n"
 "QTableWidget::item{\n"
-"	border-color: rgb(44, 49, 60);\n"
-"	padding-left: 5px;\n"
-"	padding-right: 5px;\n"
-"	gridline-color: rgb(44, 49, 60);\n"
+"border-color: rgb(44, 49, 60);\n"
+"padding-left: 5px;\n"
+"padding-right: 5px;\n"
+"gridline-color: rgb(44, 49, 60);\n"
 "}\n"
 "QTableWidget::item:selected{\n"
-"	background-color: rgb(189, 147, 249);\n"
+"background-color: rgb(98, 114, 164 );\n"
 "}\n"
 "QHeaderView::section{\n"
-"	background-color: rgb(33, 37, 43);\n"
-"	max-width: 30px;\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
-"	border-style: none;\n"
-"    border-bottom: 1px solid rgb(44, 49, 60);\n"
-"    border-right: 1px solid rgb(44, 49, 60);\n"
+"background-color: rgb(33, 37, 43);\n"
+"max-width: 30px;\n"
+"border: 1px solid rgb(44, 49, 58);\n"
+"border-style: none;\n"
+"borde"
+                        "r-bottom: 1px solid rgb(44, 49, 60);\n"
+"border-right: 1px solid rgb(44, 49, 60);\n"
 "}\n"
-"QTableWidget::horizontalHeader {	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"QTableWidget::horizontalHeader { \n"
+"background-color: rgb(33, 37, 43);\n"
 "}\n"
 "QHeaderView::section:horizontal\n"
 "{\n"
-"    border: 1px solid rgb(33, 37, 43);\n"
-"	background-co"
-                        "lor: rgb(33, 37, 43);\n"
-"	padding: 3px;\n"
-"	border-top-left-radius: 7px;\n"
-"    border-top-right-radius: 7px;\n"
+"border: 1px solid rgb(33, 37, 43);\n"
+"background-color: rgb(33, 37, 43);\n"
+"padding: 3px;\n"
+"border-top-left-radius: 7px;\n"
+"border-top-right-radius: 7px;\n"
 "}\n"
 "QHeaderView::section:vertical\n"
 "{\n"
-"    border: 1px solid rgb(44, 49, 60);\n"
+"border: 1px solid rgb(44, 49, 60);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "LineEdit */\n"
 "QLineEdit {\n"
-"	background-color: rgb(33, 37, 43);\n"
-"	border-radius: 5px;\n"
-"	border: 2px solid rgb(33, 37, 43);\n"
-"	padding-left: 10px;\n"
-"	selection-color: rgb(255, 255, 255);\n"
-"	selection-background-color: rgb(255, 121, 198);\n"
+"background-color: rgb(33, 37, 43);\n"
+"border-radius: 5px;\n"
+"border: 2px solid rgb(33, 37, 43);\n"
+"padding-left: 10px;\n"
+"selection-color: rgb(255, 255, 255);\n"
+"selection-background-color: rgb(0, 204, 255);\n"
 "}\n"
 "QLineEdit:hover {\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
+"border: 2px solid rgb(64, 71, 88);\n"
 "}\n"
 "QLineEdit:focus {\n"
-"	border: 2px solid rgb(91, 101, 124);\n"
+"border: 2px solid rgb(91, 101, 124);\n"
 "}\n"
 "\n"
-"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"/* /////////////////////////////////////////////"
+                        "////////////////////////////////////////////////////\n"
 "PlainTextEdit */\n"
 "QPlainTextEdit {\n"
-"	background-color: rgb(27, 29, 35);\n"
-"	border-radius: 5px;\n"
-"	padding: 10px;\n"
-"	selection-color: rgb(255, 255, 255);\n"
-"	selection-background-c"
-                        "olor: rgb(255, 121, 198);\n"
+"background-color: rgb(27, 29, 35);\n"
+"border-radius: 0px;\n"
+"padding: 6px;\n"
+"selection-color: rgb(231, 231, 231);\n"
+"selection-background-color: rgb(0, 114, 143);\n"
 "}\n"
-"QPlainTextEdit  QScrollBar:vertical {\n"
-"    width: 8px;\n"
-" }\n"
-"QPlainTextEdit  QScrollBar:horizontal {\n"
-"    height: 8px;\n"
-" }\n"
+"QPlainTextEdit QScrollBar:vertical {\n"
+"width: 6px;\n"
+"}\n"
+"QPlainTextEdit QScrollBar:horizontal {\n"
+"height: 8px;\n"
+"}\n"
 "QPlainTextEdit:hover {\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
+"border: 2px solid rgb(64, 71, 88);\n"
 "}\n"
 "QPlainTextEdit:focus {\n"
-"	border: 2px solid rgb(91, 101, 124);\n"
+"border: 2px solid rgb(91, 101, 124);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "ScrollBars */\n"
 "QScrollBar:horizontal {\n"
-"    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
-"    height: 8px;\n"
-"    margin: 0px 21px 0 21px;\n"
-"	border-radius: 0px;\n"
+"border: none;\n"
+"background: rgb(52, 59, 72);\n"
+"height: 8px;\n"
+"margin: 0px 21px 0 21px;\n"
+"border-radius: 0px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
-"    background: rgb(189, 147, 249);\n"
-"    min-width: 25px;\n"
-"	border-radius: 4px\n"
+"background: rgb(98, 114, 164 );\n"
+"min-width: 25px;\n"
+"border-radius: 4px\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
-"    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
-"	border-top-right-radius: 4px;\n"
-"    border-bottom-right-radius: 4px;\n"
-"    subcontrol-position: right;\n"
-"    subcontrol-origin: margin;\n"
+"border: none;\n"
+"background: "
+                        "rgb(55, 63, 77);\n"
+"width: 20px;\n"
+"border-top-right-radius: 4px;\n"
+"border-bottom-right-radius: 4px;\n"
+"subcontrol-position: right;\n"
+"subcontrol-origin: margin;\n"
 "}\n"
-""
-                        "QScrollBar::sub-line:horizontal {\n"
-"    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
-"	border-top-left-radius: 4px;\n"
-"    border-bottom-left-radius: 4px;\n"
-"    subcontrol-position: left;\n"
-"    subcontrol-origin: margin;\n"
+"QScrollBar::sub-line:horizontal {\n"
+"border: none;\n"
+"background: rgb(55, 63, 77);\n"
+"width: 20px;\n"
+"border-top-left-radius: 4px;\n"
+"border-bottom-left-radius: 4px;\n"
+"subcontrol-position: left;\n"
+"subcontrol-origin: margin;\n"
 "}\n"
 "QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal\n"
 "{\n"
-"     background: none;\n"
+"background: none;\n"
 "}\n"
 "QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal\n"
 "{\n"
-"     background: none;\n"
+"background: none;\n"
 "}\n"
-" QScrollBar:vertical {\n"
-"	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
-"    width: 8px;\n"
-"    margin: 21px 0 21px 0;\n"
-"	border-radius: 0px;\n"
-" }\n"
-" QScrollBar::handle:vertical {	\n"
-"	background: rgb(189, 147, 249);\n"
-"    min-height: 25px;\n"
-"	border-radius: 4px\n"
-" }\n"
-" QScrollBar::add-line:vertical {\n"
-"     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
-"	border-bottom-left-radius: 4px;\n"
-"    border-bottom-right-radius: 4px;\n"
-"     subcontrol-position: bottom;\n"
-"     su"
-                        "bcontrol-origin: margin;\n"
-" }\n"
-" QScrollBar::sub-line:vertical {\n"
-"	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
-"	border-top-left-radius: 4px;\n"
-"    border-top-right-radius: 4px;\n"
-"     subcontrol-position: top;\n"
-"     subcontrol-origin: margin;\n"
-" }\n"
-" QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"     background: none;\n"
-" }\n"
+"QScrollBar:vertical {\n"
+"border: none;\n"
+"background: rgb(52, 59, 72);\n"
+"border-left: 2px solid rgb(0, 204, 255)!important; \n"
+"width: 8px;\n"
+"margin: 0 0 0 0;\n"
+"border-radius: 0px;\n"
+"}\n"
+"QScrollBar::handle:vertical { \n"
+"background: rgb(40, 44, 52);\n"
+"min-height: 25px;\n"
+"border-radius: 4px\n"
+"}\n"
+"QScrollBar::handle:vertical:hover {\n"
+"background: rgb(60, 64, 72);\n"
+"}\n"
+""
+                        "QScrollBar::handle:vertical:pressed { \n"
+"background: rgb(60, 64, 72); \n"
+"}\n"
+"QScrollBar::add-line:vertical {\n"
+"border: none;\n"
+"background: rgb(55, 63, 77);\n"
+"height: 0px;\n"
+"border-bottom-left-radius: 4px;\n"
+"border-bottom-right-radius: 4px;\n"
+"subcontrol-position: bottom;\n"
+"subcontrol-origin: margin;\n"
+"}\n"
+"QScrollBar::sub-line:vertical {\n"
+"border: none;\n"
+"background: rgb(55, 63, 77);\n"
+"height: 0px;\n"
+"border-top-left-radius: 4px;\n"
+"border-top-right-radius: 4px;\n"
+"subcontrol-position: top;\n"
+"subcontrol-origin: margin;\n"
+"}\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"background: none;\n"
+"}\n"
 "\n"
-" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"     background: none;\n"
-" }\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"background: none;\n"
+"}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "CheckBox */\n"
 "QCheckBox::indicator {\n"
-"    border: 3px solid rgb(52, 59, 72);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
-"	border-radius: 10px;\n"
-"    background: rgb(44, 49, 60);\n"
+"border: 3px solid rgb(52, 59, 72);\n"
+"width: 15px;\n"
+"height: 15px;\n"
+"border-radius: 10px;\n"
+"backgrou"
+                        "nd: rgb(44, 49, 60);\n"
 "}\n"
 "QCheckBox::indicator:hover {\n"
-"    border: 3px solid rgb(58, 66, 81);\n"
+"border: 3px solid rgb(58, 66, 81);\n"
 "}\n"
 "QCheckBox::indicator:checked {\n"
-"    background: 3px solid rgb(52, 59, 72);\n"
-"	border: 3px solid rgb(52, 59, 72);	\n"
-"	back"
-                        "ground-image: url(:/icons/images/icons/cil-check-alt.png);\n"
+"background: 3px solid rgb(52, 59, 72);\n"
+"border: 3px solid rgb(52, 59, 72); \n"
+"background-image: url(:/icons/images/icons/cil-check-alt.png);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "RadioButton */\n"
 "QRadioButton::indicator {\n"
-"    border: 3px solid rgb(52, 59, 72);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
-"	border-radius: 10px;\n"
-"    background: rgb(44, 49, 60);\n"
+"border: 3px solid rgb(52, 59, 72);\n"
+"width: 15px;\n"
+"height: 15px;\n"
+"border-radius: 10px;\n"
+"background: rgb(44, 49, 60);\n"
 "}\n"
 "QRadioButton::indicator:hover {\n"
-"    border: 3px solid rgb(58, 66, 81);\n"
+"border: 3px solid rgb(58, 66, 81);\n"
 "}\n"
 "QRadioButton::indicator:checked {\n"
-"    background: 3px solid rgb(94, 106, 130);\n"
-"	border: 3px solid rgb(52, 59, 72);	\n"
+"background: 3px solid rgb(94, 106, 130);\n"
+"border: 3px solid rgb(52, 59, 72); \n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "ComboBox */\n"
 "QComboBox{\n"
-"	background-color: rgb(27, 29, 35);\n"
-"	border-radius: 5px;\n"
-"	border: 2px solid rgb(33, 37, 43);\n"
-"	padding: 5px;\n"
-"	padding-left: 10px;\n"
+"background-color: rgb(27, 29, 35);\n"
+"border-radius: 5px;\n"
+"border: 2px so"
+                        "lid rgb(33, 37, 43);\n"
+"padding: 5px;\n"
+"padding-left: 10px;\n"
 "}\n"
 "QComboBox:hover{\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
+"border: 2px solid rgb(64, 71, 88);\n"
 "}\n"
 "QComboBox::drop-down {\n"
-"	subcontrol-origin: padding;\n"
-"	subco"
-                        "ntrol-position: top right;\n"
-"	width: 25px; \n"
-"	border-left-width: 3px;\n"
-"	border-left-color: rgba(39, 44, 54, 150);\n"
-"	border-left-style: solid;\n"
-"	border-top-right-radius: 3px;\n"
-"	border-bottom-right-radius: 3px;	\n"
-"	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);\n"
-"	background-position: center;\n"
-"	background-repeat: no-reperat;\n"
-" }\n"
+"subcontrol-origin: padding;\n"
+"subcontrol-position: top right;\n"
+"width: 25px; \n"
+"border-left-width: 3px;\n"
+"border-left-color: rgba(39, 44, 54, 150);\n"
+"border-left-style: solid;\n"
+"border-top-right-radius: 3px;\n"
+"border-bottom-right-radius: 3px; \n"
+"background-image: url(:/icons/images/icons/cil-arrow-bottom.png);\n"
+"background-position: center;\n"
+"background-repeat: no-reperat;\n"
+"}\n"
 "QComboBox QAbstractItemView {\n"
-"	color: rgb(255, 121, 198);	\n"
-"	background-color: rgb(33, 37, 43);\n"
-"	padding: 10px;\n"
-"	selection-background-color: rgb(39, 44, 54);\n"
+"color: rgb(0, 204, 255); \n"
+"background-color: rgb(33, 37, 43);\n"
+"padding: 10px;\n"
+"selection-background-color: rgb(39, 44, 54);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Sliders */\n"
 "QSlider::groove:horizontal {\n"
-"    border-radius: 5px;\n"
-"    height: 10px;\n"
-"	margin: 0px;\n"
-"	background-color: rgb(52, 59, 72);\n"
+"border-radius: 5px;\n"
+"height: 10px;\n"
+"margin: 0px;\n"
+"background-color: rgb(52, 59, 72);\n"
 "}\n"
-"QSlider::groove:horizontal:hover {\n"
-"	background-color: rgb(55, 62, 76);\n"
+"QSlider::groov"
+                        "e:horizontal:hover {\n"
+"background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:horizontal {\n"
-"    background-color: rgb(189, 147, 249);\n"
-"    border: none;\n"
-"    h"
-                        "eight: 10px;\n"
-"    width: 10px;\n"
-"    margin: 0px;\n"
-"	border-radius: 5px;\n"
+"background-color: rgb(98, 114, 164 );\n"
+"border: none;\n"
+"height: 10px;\n"
+"width: 10px;\n"
+"margin: 0px;\n"
+"border-radius: 5px;\n"
 "}\n"
 "QSlider::handle:horizontal:hover {\n"
-"    background-color: rgb(195, 155, 255);\n"
+"background-color: rgb(195, 155, 255);\n"
 "}\n"
 "QSlider::handle:horizontal:pressed {\n"
-"    background-color: rgb(255, 121, 198);\n"
+"background-color: rgb(0, 204, 255);\n"
 "}\n"
 "\n"
 "QSlider::groove:vertical {\n"
-"    border-radius: 5px;\n"
-"    width: 10px;\n"
-"    margin: 0px;\n"
-"	background-color: rgb(52, 59, 72);\n"
+"border-radius: 5px;\n"
+"width: 10px;\n"
+"margin: 0px;\n"
+"background-color: rgb(52, 59, 72);\n"
 "}\n"
 "QSlider::groove:vertical:hover {\n"
-"	background-color: rgb(55, 62, 76);\n"
+"background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:vertical {\n"
-"    background-color: rgb(189, 147, 249);\n"
-"	border: none;\n"
-"    height: 10px;\n"
-"    width: 10px;\n"
-"    margin: 0px;\n"
-"	border-radius: 5px;\n"
+"background-color: rgb(98, 114, 164 );\n"
+"border: none;\n"
+"height: 10px;\n"
+"width: 10px;\n"
+"margin: 0px;\n"
+"border-radius: 5px;\n"
 "}\n"
 "QSlider::handle:vertical:hover {\n"
-"    background-color: rgb(195, 155, 255);\n"
+"background-color: rgb(195, 155, 255);\n"
 "}\n"
 "QSlider::handle:vertical:pressed {\n"
-"    background-color: rgb(255, 121, 198);\n"
+"background-color: rgb(0, 204, 255);\n"
 "}\n"
 "\n"
-"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"/* //////////////////////////////////"
+                        "///////////////////////////////////////////////////////////////\n"
 "CommandLinkButton */\n"
-"QCommandLi"
-                        "nkButton {	\n"
-"	color: rgb(255, 121, 198);\n"
-"	border-radius: 5px;\n"
-"	padding: 5px;\n"
-"	color: rgb(255, 170, 255);\n"
+"QCommandLinkButton { \n"
+"color: rgb(0, 204, 255);\n"
+"border-radius: 5px;\n"
+"padding: 5px;\n"
+"color: rgb(255, 170, 255);\n"
 "}\n"
-"QCommandLinkButton:hover {	\n"
-"	color: rgb(255, 170, 255);\n"
-"	background-color: rgb(44, 49, 60);\n"
+"QCommandLinkButton:hover { \n"
+"color: rgb(255, 170, 255);\n"
+"background-color: rgb(44, 49, 60);\n"
 "}\n"
-"QCommandLinkButton:pressed {	\n"
-"	color: rgb(189, 147, 249);\n"
-"	background-color: rgb(52, 58, 71);\n"
+"QCommandLinkButton:pressed { \n"
+"color: rgb(98, 114, 164 );\n"
+"background-color: rgb(52, 58, 71);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Button */\n"
 "#pagesContainer QPushButton {\n"
-"	border: 2px solid rgb(52, 59, 72);\n"
-"	border-radius: 5px;	\n"
-"	background-color: rgb(52, 59, 72);\n"
+"border: 2px solid rgb(52, 59, 72);\n"
+"border-radius: 5px; \n"
+"background-color: rgb(52, 59, 72);\n"
 "}\n"
 "#pagesContainer QPushButton:hover {\n"
-"	background-color: rgb(57, 65, 80);\n"
-"	border: 2px solid rgb(61, 70, 86);\n"
+"background-color: rgb(57, 65, 80);\n"
+"border: 2px solid rgb(61, 70, 86);\n"
 "}\n"
-"#pagesContainer QPushButton:pressed {	\n"
-"	background-color: rgb(35, 40, 49);\n"
-"	border: 2px solid rgb(43, 50, 61);\n"
+"#pagesContainer QPushButton:pressed { \n"
+"background-color: rgb(35, 40, 49);\n"
+"border: 2px solid rgb(43, 50, 61);\n"
 "}\n"
+"#diagnosticsRow11 QPushButton {\n"
+"background-color: rbg(255,"
+                        " 0, 0);\n"
+"}\n"
+"#diagnosticsRow11 QPushButton:pressed {\n"
+"background-color: rbg(0, 204, 255);\n"
+"}\n"
+"\n"
 "\n"
 "")
         self.appMargins = QVBoxLayout(self.styleSheet)
@@ -575,6 +617,7 @@ class Ui_MainWindow(object):
         self.topLogoInfo.setObjectName(u"topLogoInfo")
         self.topLogoInfo.setMinimumSize(QSize(0, 50))
         self.topLogoInfo.setMaximumSize(QSize(16777215, 50))
+        self.topLogoInfo.setStyleSheet(u"background-color: rgb(13, 16, 21);")
         self.topLogoInfo.setFrameShape(QFrame.NoFrame)
         self.topLogoInfo.setFrameShadow(QFrame.Raised)
         self.topLogo = QFrame(self.topLogoInfo)
@@ -588,7 +631,7 @@ class Ui_MainWindow(object):
         self.titleLeftApp.setObjectName(u"titleLeftApp")
         self.titleLeftApp.setGeometry(QRect(70, 8, 160, 20))
         font1 = QFont()
-        font1.setFamily(u"Segoe UI Semibold")
+        font1.setFamilies([u"Segoe UI Semibold"])
         font1.setPointSize(12)
         font1.setBold(False)
         font1.setItalic(False)
@@ -599,7 +642,7 @@ class Ui_MainWindow(object):
         self.titleLeftDescription.setGeometry(QRect(70, 27, 160, 16))
         self.titleLeftDescription.setMaximumSize(QSize(16777215, 16))
         font2 = QFont()
-        font2.setFamily(u"Segoe UI")
+        font2.setFamilies([u"Segoe UI"])
         font2.setPointSize(8)
         font2.setBold(False)
         font2.setItalic(False)
@@ -610,6 +653,7 @@ class Ui_MainWindow(object):
 
         self.leftMenuFrame = QFrame(self.leftMenuBg)
         self.leftMenuFrame.setObjectName(u"leftMenuFrame")
+        self.leftMenuFrame.setStyleSheet(u"background-color: rgb(13, 16, 21);")
         self.leftMenuFrame.setFrameShape(QFrame.NoFrame)
         self.leftMenuFrame.setFrameShadow(QFrame.Raised)
         self.verticalMenuLayout = QVBoxLayout(self.leftMenuFrame)
@@ -633,10 +677,46 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.toggleButton.sizePolicy().hasHeightForWidth())
         self.toggleButton.setSizePolicy(sizePolicy)
         self.toggleButton.setMinimumSize(QSize(0, 45))
+        palette = QPalette()
+        brush = QBrush(QColor(138, 139, 141, 255))
+        brush.setStyle(Qt.SolidPattern)
+        palette.setBrush(QPalette.Active, QPalette.WindowText, brush)
+        brush1 = QBrush(QColor(21, 23, 27, 255))
+        brush1.setStyle(Qt.SolidPattern)
+        palette.setBrush(QPalette.Active, QPalette.Button, brush1)
+        palette.setBrush(QPalette.Active, QPalette.Text, brush)
+        palette.setBrush(QPalette.Active, QPalette.ButtonText, brush)
+        palette.setBrush(QPalette.Active, QPalette.Base, brush1)
+        palette.setBrush(QPalette.Active, QPalette.Window, brush1)
+        brush2 = QBrush(QColor(138, 139, 141, 128))
+        brush2.setStyle(Qt.SolidPattern)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette.Active, QPalette.PlaceholderText, brush2)
+#endif
+        palette.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
+        palette.setBrush(QPalette.Inactive, QPalette.Button, brush1)
+        palette.setBrush(QPalette.Inactive, QPalette.Text, brush)
+        palette.setBrush(QPalette.Inactive, QPalette.ButtonText, brush)
+        palette.setBrush(QPalette.Inactive, QPalette.Base, brush1)
+        palette.setBrush(QPalette.Inactive, QPalette.Window, brush1)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush2)
+#endif
+        palette.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
+        palette.setBrush(QPalette.Disabled, QPalette.Button, brush1)
+        palette.setBrush(QPalette.Disabled, QPalette.Text, brush)
+        palette.setBrush(QPalette.Disabled, QPalette.ButtonText, brush)
+        palette.setBrush(QPalette.Disabled, QPalette.Base, brush1)
+        palette.setBrush(QPalette.Disabled, QPalette.Window, brush1)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush2)
+#endif
+        self.toggleButton.setPalette(palette)
         self.toggleButton.setFont(font)
         self.toggleButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.toggleButton.setLayoutDirection(Qt.LeftToRight)
-        self.toggleButton.setStyleSheet(u"background-image: url(:/icons/images/icons/icon_menu.png);")
+        self.toggleButton.setStyleSheet(u"background-image: url(:/icons/images/icons/icon_menu.png);\n"
+"background-color: rgb(21, 23, 27);")
 
         self.verticalLayout_4.addWidget(self.toggleButton)
 
@@ -663,53 +743,28 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_home)
 
-        self.btn_widgets = QPushButton(self.topMenu)
-        self.btn_widgets.setObjectName(u"btn_widgets")
-        sizePolicy.setHeightForWidth(self.btn_widgets.sizePolicy().hasHeightForWidth())
-        self.btn_widgets.setSizePolicy(sizePolicy)
-        self.btn_widgets.setMinimumSize(QSize(0, 45))
-        self.btn_widgets.setFont(font)
-        self.btn_widgets.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_widgets.setLayoutDirection(Qt.LeftToRight)
-        self.btn_widgets.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-gamepad.png);")
+        self.btn_diagnostics = QPushButton(self.topMenu)
+        self.btn_diagnostics.setObjectName(u"btn_diagnostics")
+        sizePolicy.setHeightForWidth(self.btn_diagnostics.sizePolicy().hasHeightForWidth())
+        self.btn_diagnostics.setSizePolicy(sizePolicy)
+        self.btn_diagnostics.setMinimumSize(QSize(0, 45))
+        self.btn_diagnostics.setFont(font)
+        self.btn_diagnostics.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_diagnostics.setLayoutDirection(Qt.LeftToRight)
+        self.btn_diagnostics.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-rss.png);")
 
-        self.verticalLayout_8.addWidget(self.btn_widgets)
+        self.verticalLayout_8.addWidget(self.btn_diagnostics)
 
-        self.btn_new = QPushButton(self.topMenu)
-        self.btn_new.setObjectName(u"btn_new")
-        sizePolicy.setHeightForWidth(self.btn_new.sizePolicy().hasHeightForWidth())
-        self.btn_new.setSizePolicy(sizePolicy)
-        self.btn_new.setMinimumSize(QSize(0, 45))
-        self.btn_new.setFont(font)
-        self.btn_new.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_new.setLayoutDirection(Qt.LeftToRight)
-        self.btn_new.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-file.png);")
+        self.btn_planner = QPushButton(self.topMenu)
+        self.btn_planner.setObjectName(u"btn_planner")
+        self.btn_planner.setEnabled(False)
+        sizePolicy.setHeightForWidth(self.btn_planner.sizePolicy().hasHeightForWidth())
+        self.btn_planner.setSizePolicy(sizePolicy)
+        self.btn_planner.setMinimumSize(QSize(0, 45))
+        self.btn_planner.setFont(font)
+        self.btn_planner.setCursor(QCursor(Qt.PointingHandCursor))
 
-        self.verticalLayout_8.addWidget(self.btn_new)
-
-        self.btn_save = QPushButton(self.topMenu)
-        self.btn_save.setObjectName(u"btn_save")
-        sizePolicy.setHeightForWidth(self.btn_save.sizePolicy().hasHeightForWidth())
-        self.btn_save.setSizePolicy(sizePolicy)
-        self.btn_save.setMinimumSize(QSize(0, 45))
-        self.btn_save.setFont(font)
-        self.btn_save.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_save.setLayoutDirection(Qt.LeftToRight)
-        self.btn_save.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-save.png)")
-
-        self.verticalLayout_8.addWidget(self.btn_save)
-
-        self.btn_exit = QPushButton(self.topMenu)
-        self.btn_exit.setObjectName(u"btn_exit")
-        sizePolicy.setHeightForWidth(self.btn_exit.sizePolicy().hasHeightForWidth())
-        self.btn_exit.setSizePolicy(sizePolicy)
-        self.btn_exit.setMinimumSize(QSize(0, 45))
-        self.btn_exit.setFont(font)
-        self.btn_exit.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_exit.setLayoutDirection(Qt.LeftToRight)
-        self.btn_exit.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-x.png);")
-
-        self.verticalLayout_8.addWidget(self.btn_exit)
+        self.verticalLayout_8.addWidget(self.btn_planner)
 
 
         self.verticalMenuLayout.addWidget(self.topMenu, 0, Qt.AlignTop)
@@ -722,17 +777,17 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setSpacing(0)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
-        self.toggleLeftBox = QPushButton(self.bottomMenu)
-        self.toggleLeftBox.setObjectName(u"toggleLeftBox")
-        sizePolicy.setHeightForWidth(self.toggleLeftBox.sizePolicy().hasHeightForWidth())
-        self.toggleLeftBox.setSizePolicy(sizePolicy)
-        self.toggleLeftBox.setMinimumSize(QSize(0, 45))
-        self.toggleLeftBox.setFont(font)
-        self.toggleLeftBox.setCursor(QCursor(Qt.PointingHandCursor))
-        self.toggleLeftBox.setLayoutDirection(Qt.LeftToRight)
-        self.toggleLeftBox.setStyleSheet(u"background-image: url(:/icons/images/icons/icon_settings.png);")
+        self.btn_settings = QPushButton(self.bottomMenu)
+        self.btn_settings.setObjectName(u"btn_settings")
+        sizePolicy.setHeightForWidth(self.btn_settings.sizePolicy().hasHeightForWidth())
+        self.btn_settings.setSizePolicy(sizePolicy)
+        self.btn_settings.setMinimumSize(QSize(0, 45))
+        self.btn_settings.setFont(font)
+        self.btn_settings.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_settings.setLayoutDirection(Qt.LeftToRight)
+        self.btn_settings.setStyleSheet(u"background-image: url(:/icons/images/icons/icon_settings.png);")
 
-        self.verticalLayout_9.addWidget(self.toggleLeftBox)
+        self.verticalLayout_9.addWidget(self.btn_settings)
 
 
         self.verticalMenuLayout.addWidget(self.bottomMenu, 0, Qt.AlignBottom)
@@ -899,6 +954,7 @@ class Ui_MainWindow(object):
         self.contentTopBg.setObjectName(u"contentTopBg")
         self.contentTopBg.setMinimumSize(QSize(0, 50))
         self.contentTopBg.setMaximumSize(QSize(16777215, 50))
+        self.contentTopBg.setStyleSheet(u"background-color: rgb(13, 16, 21);")
         self.contentTopBg.setFrameShape(QFrame.NoFrame)
         self.contentTopBg.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.contentTopBg)
@@ -912,6 +968,7 @@ class Ui_MainWindow(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.leftBox.sizePolicy().hasHeightForWidth())
         self.leftBox.setSizePolicy(sizePolicy1)
+        self.leftBox.setStyleSheet(u"background-color: rgb(13, 16, 21);")
         self.leftBox.setFrameShape(QFrame.NoFrame)
         self.leftBox.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.leftBox)
@@ -937,32 +994,21 @@ class Ui_MainWindow(object):
         self.rightButtons = QFrame(self.contentTopBg)
         self.rightButtons.setObjectName(u"rightButtons")
         self.rightButtons.setMinimumSize(QSize(0, 28))
+        self.rightButtons.setStyleSheet(u"background-color: rgb(13, 16, 21);")
         self.rightButtons.setFrameShape(QFrame.NoFrame)
         self.rightButtons.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.rightButtons)
         self.horizontalLayout_2.setSpacing(5)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.settingsTopBtn = QPushButton(self.rightButtons)
-        self.settingsTopBtn.setObjectName(u"settingsTopBtn")
-        self.settingsTopBtn.setMinimumSize(QSize(28, 28))
-        self.settingsTopBtn.setMaximumSize(QSize(28, 28))
-        self.settingsTopBtn.setCursor(QCursor(Qt.PointingHandCursor))
-        icon1 = QIcon()
-        icon1.addFile(u":/icons/images/icons/icon_settings.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.settingsTopBtn.setIcon(icon1)
-        self.settingsTopBtn.setIconSize(QSize(20, 20))
-
-        self.horizontalLayout_2.addWidget(self.settingsTopBtn)
-
         self.minimizeAppBtn = QPushButton(self.rightButtons)
         self.minimizeAppBtn.setObjectName(u"minimizeAppBtn")
         self.minimizeAppBtn.setMinimumSize(QSize(28, 28))
         self.minimizeAppBtn.setMaximumSize(QSize(28, 28))
         self.minimizeAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
-        icon2 = QIcon()
-        icon2.addFile(u":/icons/images/icons/icon_minimize.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.minimizeAppBtn.setIcon(icon2)
+        icon1 = QIcon()
+        icon1.addFile(u":/icons/images/icons/icon_minimize.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.minimizeAppBtn.setIcon(icon1)
         self.minimizeAppBtn.setIconSize(QSize(20, 20))
 
         self.horizontalLayout_2.addWidget(self.minimizeAppBtn)
@@ -972,16 +1018,16 @@ class Ui_MainWindow(object):
         self.maximizeRestoreAppBtn.setMinimumSize(QSize(28, 28))
         self.maximizeRestoreAppBtn.setMaximumSize(QSize(28, 28))
         font3 = QFont()
-        font3.setFamily(u"Segoe UI")
+        font3.setFamilies([u"Segoe UI"])
         font3.setPointSize(10)
         font3.setBold(False)
         font3.setItalic(False)
         font3.setStyleStrategy(QFont.PreferDefault)
         self.maximizeRestoreAppBtn.setFont(font3)
         self.maximizeRestoreAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
-        icon3 = QIcon()
-        icon3.addFile(u":/icons/images/icons/icon_maximize.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.maximizeRestoreAppBtn.setIcon(icon3)
+        icon2 = QIcon()
+        icon2.addFile(u":/icons/images/icons/icon_maximize.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.maximizeRestoreAppBtn.setIcon(icon2)
         self.maximizeRestoreAppBtn.setIconSize(QSize(20, 20))
 
         self.horizontalLayout_2.addWidget(self.maximizeRestoreAppBtn)
@@ -1004,6 +1050,7 @@ class Ui_MainWindow(object):
 
         self.contentBottom = QFrame(self.contentBox)
         self.contentBottom.setObjectName(u"contentBottom")
+        self.contentBottom.setAutoFillBackground(False)
         self.contentBottom.setFrameShape(QFrame.NoFrame)
         self.contentBottom.setFrameShadow(QFrame.Raised)
         self.verticalLayout_6 = QVBoxLayout(self.contentBottom)
@@ -1026,10 +1073,102 @@ class Ui_MainWindow(object):
         self.verticalLayout_15 = QVBoxLayout(self.pagesContainer)
         self.verticalLayout_15.setSpacing(0)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
-        self.verticalLayout_15.setContentsMargins(10, 10, 10, 10)
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget = QStackedWidget(self.pagesContainer)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setStyleSheet(u"background: transparent;")
+        palette1 = QPalette()
+        brush3 = QBrush(QColor(221, 221, 221, 255))
+        brush3.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Active, QPalette.WindowText, brush3)
+        brush4 = QBrush(QColor(30, 33, 39, 255))
+        brush4.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Active, QPalette.Button, brush4)
+        brush5 = QBrush(QColor(66, 74, 87, 255))
+        brush5.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Active, QPalette.Light, brush5)
+        brush6 = QBrush(QColor(55, 61, 72, 255))
+        brush6.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Active, QPalette.Midlight, brush6)
+        brush7 = QBrush(QColor(22, 25, 29, 255))
+        brush7.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Active, QPalette.Dark, brush7)
+        brush8 = QBrush(QColor(29, 33, 39, 255))
+        brush8.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Active, QPalette.Mid, brush8)
+        palette1.setBrush(QPalette.Active, QPalette.Text, brush3)
+        brush9 = QBrush(QColor(255, 255, 255, 255))
+        brush9.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Active, QPalette.BrightText, brush9)
+        palette1.setBrush(QPalette.Active, QPalette.ButtonText, brush3)
+        palette1.setBrush(QPalette.Active, QPalette.Base, brush4)
+        palette1.setBrush(QPalette.Active, QPalette.Window, brush4)
+        brush10 = QBrush(QColor(0, 0, 0, 255))
+        brush10.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Active, QPalette.Shadow, brush10)
+        brush11 = QBrush(QColor(22, 24, 29, 255))
+        brush11.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Active, QPalette.AlternateBase, brush11)
+        brush12 = QBrush(QColor(255, 255, 220, 255))
+        brush12.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Active, QPalette.ToolTipBase, brush12)
+        palette1.setBrush(QPalette.Active, QPalette.ToolTipText, brush10)
+        brush13 = QBrush(QColor(221, 221, 221, 128))
+        brush13.setStyle(Qt.SolidPattern)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette1.setBrush(QPalette.Active, QPalette.PlaceholderText, brush13)
+#endif
+        palette1.setBrush(QPalette.Inactive, QPalette.WindowText, brush3)
+        palette1.setBrush(QPalette.Inactive, QPalette.Button, brush4)
+        brush14 = QBrush(QColor(75, 75, 75, 255))
+        brush14.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Inactive, QPalette.Light, brush14)
+        brush15 = QBrush(QColor(42, 42, 42, 255))
+        brush15.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Inactive, QPalette.Midlight, brush15)
+        brush16 = QBrush(QColor(33, 33, 33, 255))
+        brush16.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Inactive, QPalette.Dark, brush16)
+        brush17 = QBrush(QColor(38, 38, 38, 255))
+        brush17.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Inactive, QPalette.Mid, brush17)
+        palette1.setBrush(QPalette.Inactive, QPalette.Text, brush3)
+        palette1.setBrush(QPalette.Inactive, QPalette.BrightText, brush14)
+        palette1.setBrush(QPalette.Inactive, QPalette.ButtonText, brush3)
+        palette1.setBrush(QPalette.Inactive, QPalette.Base, brush4)
+        palette1.setBrush(QPalette.Inactive, QPalette.Window, brush4)
+        brush18 = QBrush(QColor(25, 25, 25, 255))
+        brush18.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Inactive, QPalette.Shadow, brush18)
+        brush19 = QBrush(QColor(43, 43, 43, 255))
+        brush19.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Inactive, QPalette.AlternateBase, brush19)
+        palette1.setBrush(QPalette.Inactive, QPalette.ToolTipBase, brush12)
+        palette1.setBrush(QPalette.Inactive, QPalette.ToolTipText, brush10)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette1.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush13)
+#endif
+        palette1.setBrush(QPalette.Disabled, QPalette.WindowText, brush3)
+        palette1.setBrush(QPalette.Disabled, QPalette.Button, brush4)
+        palette1.setBrush(QPalette.Disabled, QPalette.Light, brush5)
+        palette1.setBrush(QPalette.Disabled, QPalette.Midlight, brush6)
+        palette1.setBrush(QPalette.Disabled, QPalette.Dark, brush7)
+        palette1.setBrush(QPalette.Disabled, QPalette.Mid, brush8)
+        palette1.setBrush(QPalette.Disabled, QPalette.Text, brush3)
+        palette1.setBrush(QPalette.Disabled, QPalette.BrightText, brush9)
+        palette1.setBrush(QPalette.Disabled, QPalette.ButtonText, brush3)
+        palette1.setBrush(QPalette.Disabled, QPalette.Base, brush4)
+        palette1.setBrush(QPalette.Disabled, QPalette.Window, brush4)
+        brush20 = QBrush(QColor(37, 37, 37, 255))
+        brush20.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Disabled, QPalette.Shadow, brush20)
+        palette1.setBrush(QPalette.Disabled, QPalette.AlternateBase, brush19)
+        palette1.setBrush(QPalette.Disabled, QPalette.ToolTipBase, brush12)
+        palette1.setBrush(QPalette.Disabled, QPalette.ToolTipText, brush10)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette1.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush13)
+#endif
+        self.stackedWidget.setPalette(palette1)
+        self.stackedWidget.setStyleSheet(u"background-color: rgb(30, 33, 39);")
         self.home = QWidget()
         self.home.setObjectName(u"home")
         self.home.setStyleSheet(u"background-image: url(:/images/images/images/PyDracula_vertical.png);\n"
@@ -1100,9 +1239,9 @@ class Ui_MainWindow(object):
         self.pushButton.setFont(font)
         self.pushButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.pushButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
-        icon4 = QIcon()
-        icon4.addFile(u":/icons/images/icons/cil-folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon4)
+        icon3 = QIcon()
+        icon3.addFile(u":/icons/images/icons/cil-folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton.setIcon(icon3)
 
         self.gridLayout.addWidget(self.pushButton, 0, 1, 1, 1)
 
@@ -1225,9 +1364,9 @@ class Ui_MainWindow(object):
         self.commandLinkButton.setObjectName(u"commandLinkButton")
         self.commandLinkButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.commandLinkButton.setStyleSheet(u"")
-        icon5 = QIcon()
-        icon5.addFile(u":/icons/images/icons/cil-link.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.commandLinkButton.setIcon(icon5)
+        icon4 = QIcon()
+        icon4.addFile(u":/icons/images/icons/cil-link.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.commandLinkButton.setIcon(icon4)
 
         self.gridLayout_2.addWidget(self.commandLinkButton, 1, 6, 1, 1)
 
@@ -1267,7 +1406,7 @@ class Ui_MainWindow(object):
         if (self.tableWidget.rowCount() < 16):
             self.tableWidget.setRowCount(16)
         font4 = QFont()
-        font4.setFamily(u"Segoe UI")
+        font4.setFamilies([u"Segoe UI"])
         __qtablewidgetitem4 = QTableWidgetItem()
         __qtablewidgetitem4.setFont(font4);
         self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem4)
@@ -1315,45 +1454,35 @@ class Ui_MainWindow(object):
         sizePolicy3.setVerticalStretch(0)
         sizePolicy3.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
         self.tableWidget.setSizePolicy(sizePolicy3)
-        palette = QPalette()
-        brush = QBrush(QColor(221, 221, 221, 255))
-        brush.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Active, QPalette.WindowText, brush)
-        brush1 = QBrush(QColor(0, 0, 0, 0))
-        brush1.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Active, QPalette.Button, brush1)
-        palette.setBrush(QPalette.Active, QPalette.Text, brush)
-        palette.setBrush(QPalette.Active, QPalette.ButtonText, brush)
-        brush2 = QBrush(QColor(0, 0, 0, 255))
-        brush2.setStyle(Qt.NoBrush)
-        palette.setBrush(QPalette.Active, QPalette.Base, brush2)
-        palette.setBrush(QPalette.Active, QPalette.Window, brush1)
+        palette2 = QPalette()
+        palette2.setBrush(QPalette.Active, QPalette.WindowText, brush3)
+        palette2.setBrush(QPalette.Active, QPalette.Button, brush4)
+        palette2.setBrush(QPalette.Active, QPalette.Text, brush3)
+        palette2.setBrush(QPalette.Active, QPalette.ButtonText, brush3)
+        palette2.setBrush(QPalette.Active, QPalette.Base, brush4)
+        palette2.setBrush(QPalette.Active, QPalette.Window, brush4)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Active, QPalette.PlaceholderText, brush)
+        palette2.setBrush(QPalette.Active, QPalette.PlaceholderText, brush13)
 #endif
-        palette.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
-        palette.setBrush(QPalette.Inactive, QPalette.Button, brush1)
-        palette.setBrush(QPalette.Inactive, QPalette.Text, brush)
-        palette.setBrush(QPalette.Inactive, QPalette.ButtonText, brush)
-        brush3 = QBrush(QColor(0, 0, 0, 255))
-        brush3.setStyle(Qt.NoBrush)
-        palette.setBrush(QPalette.Inactive, QPalette.Base, brush3)
-        palette.setBrush(QPalette.Inactive, QPalette.Window, brush1)
+        palette2.setBrush(QPalette.Inactive, QPalette.WindowText, brush3)
+        palette2.setBrush(QPalette.Inactive, QPalette.Button, brush4)
+        palette2.setBrush(QPalette.Inactive, QPalette.Text, brush3)
+        palette2.setBrush(QPalette.Inactive, QPalette.ButtonText, brush3)
+        palette2.setBrush(QPalette.Inactive, QPalette.Base, brush4)
+        palette2.setBrush(QPalette.Inactive, QPalette.Window, brush4)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush)
+        palette2.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush13)
 #endif
-        palette.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
-        palette.setBrush(QPalette.Disabled, QPalette.Button, brush1)
-        palette.setBrush(QPalette.Disabled, QPalette.Text, brush)
-        palette.setBrush(QPalette.Disabled, QPalette.ButtonText, brush)
-        brush4 = QBrush(QColor(0, 0, 0, 255))
-        brush4.setStyle(Qt.NoBrush)
-        palette.setBrush(QPalette.Disabled, QPalette.Base, brush4)
-        palette.setBrush(QPalette.Disabled, QPalette.Window, brush1)
+        palette2.setBrush(QPalette.Disabled, QPalette.WindowText, brush3)
+        palette2.setBrush(QPalette.Disabled, QPalette.Button, brush4)
+        palette2.setBrush(QPalette.Disabled, QPalette.Text, brush3)
+        palette2.setBrush(QPalette.Disabled, QPalette.ButtonText, brush3)
+        palette2.setBrush(QPalette.Disabled, QPalette.Base, brush4)
+        palette2.setBrush(QPalette.Disabled, QPalette.Window, brush4)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush)
+        palette2.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush13)
 #endif
-        self.tableWidget.setPalette(palette)
+        self.tableWidget.setPalette(palette2)
         self.tableWidget.setFrameShape(QFrame.NoFrame)
         self.tableWidget.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.tableWidget.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
@@ -1378,101 +1507,311 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.row_3)
 
         self.stackedWidget.addWidget(self.widgets)
-        self.new_page = QWidget()
-        self.new_page.setObjectName(u"new_page")
-        self.verticalLayout_20 = QVBoxLayout(self.new_page)
+        self.diagnostics = QWidget()
+        self.diagnostics.setObjectName(u"diagnostics")
+        sizePolicy2.setHeightForWidth(self.diagnostics.sizePolicy().hasHeightForWidth())
+        self.diagnostics.setSizePolicy(sizePolicy2)
+        self.horizontalLayout_7 = QHBoxLayout(self.diagnostics)
+        self.horizontalLayout_7.setSpacing(0)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.diagnosticsCol1 = QFrame(self.diagnostics)
+        self.diagnosticsCol1.setObjectName(u"diagnosticsCol1")
+        self.diagnosticsCol1.setMinimumSize(QSize(250, 60))
+        self.diagnosticsCol1.setMaximumSize(QSize(250, 16777215))
+        self.diagnosticsCol1.setStyleSheet(u"/*border-left: 6px solid rgb(21, 23, 27); */\n"
+"background-color: rgb(21, 23, 27);")
+        self.diagnosticsCol1.setFrameShape(QFrame.NoFrame)
+        self.diagnosticsCol1.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_7 = QVBoxLayout(self.diagnosticsCol1)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.diagnosticsRow11 = QFrame(self.diagnosticsCol1)
+        self.diagnosticsRow11.setObjectName(u"diagnosticsRow11")
+        self.diagnosticsRow11.setMinimumSize(QSize(0, 500))
+        self.diagnosticsRow11.setStyleSheet(u"QFrame {\n"
+"	background: transparent;\n"
+"	border: None;\n"
+"}\n"
+"QFrame QPushButton {\n"
+"	border: 2px solid rgb(0, 204, 255);\n"
+"	border-radius: 20px;\n"
+"	background-color: transparent;\n"
+"}\n"
+"QFrame QPushButton:hover {\n"
+"	background-color: rgb(0, 49, 61);\n"
+"}\n"
+"QFrame QPushButton:pressed {\n"
+"	background-color: rgb(0, 49, 61);\n"
+"}")
+        self.btn_experiment_load = QPushButton(self.diagnosticsRow11)
+        self.btn_experiment_load.setObjectName(u"btn_experiment_load")
+        self.btn_experiment_load.setGeometry(QRect(10, 60, 211, 41))
+        self.btn_experiment_load.setCursor(QCursor(Qt.PointingHandCursor))
+        icon5 = QIcon()
+        iconThemeName = u"system-help"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon5 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon5.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
+        self.btn_experiment_load.setIcon(icon5)
+        self.btn_actors_connect = QPushButton(self.diagnosticsRow11)
+        self.btn_actors_connect.setObjectName(u"btn_actors_connect")
+        self.btn_actors_connect.setGeometry(QRect(20, 200, 181, 26))
+        self.pushButton_5 = QPushButton(self.diagnosticsRow11)
+        self.pushButton_5.setObjectName(u"pushButton_5")
+        self.pushButton_5.setGeometry(QRect(20, 300, 181, 26))
+        self.pushButton_6 = QPushButton(self.diagnosticsRow11)
+        self.pushButton_6.setObjectName(u"pushButton_6")
+        self.pushButton_6.setGeometry(QRect(20, 220, 181, 26))
+        self.pushButton_7 = QPushButton(self.diagnosticsRow11)
+        self.pushButton_7.setObjectName(u"pushButton_7")
+        self.pushButton_7.setGeometry(QRect(20, 240, 181, 26))
+        self.pushButton_8 = QPushButton(self.diagnosticsRow11)
+        self.pushButton_8.setObjectName(u"pushButton_8")
+        self.pushButton_8.setGeometry(QRect(20, 260, 181, 26))
+        self.btn_actors_disconnect = QPushButton(self.diagnosticsRow11)
+        self.btn_actors_disconnect.setObjectName(u"btn_actors_disconnect")
+        self.btn_actors_disconnect.setGeometry(QRect(20, 280, 181, 26))
+        self.btn_experiment_select = QPushButton(self.diagnosticsRow11)
+        self.btn_experiment_select.setObjectName(u"btn_experiment_select")
+        self.btn_experiment_select.setGeometry(QRect(10, 10, 211, 41))
+        self.btn_experiment_select.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_experiment_select.setStyleSheet(u"")
+        icon6 = QIcon()
+        iconThemeName = u"folder-open"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon6 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon6.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+
+        self.btn_experiment_select.setIcon(icon6)
+        self.btn_vicon_driver = QPushButton(self.diagnosticsRow11)
+        self.btn_vicon_driver.setObjectName(u"btn_vicon_driver")
+        self.btn_vicon_driver.setGeometry(QRect(10, 110, 211, 41))
+
+        self.verticalLayout_7.addWidget(self.diagnosticsRow11)
+
+        self.diagnosticsRow12 = QFrame(self.diagnosticsCol1)
+        self.diagnosticsRow12.setObjectName(u"diagnosticsRow12")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.diagnosticsRow12.sizePolicy().hasHeightForWidth())
+        self.diagnosticsRow12.setSizePolicy(sizePolicy4)
+        self.diagnosticsRow12.setStyleSheet(u"background: transparent;\n"
+"border: None;")
+        self.diagnosticsRow12.setFrameShape(QFrame.StyledPanel)
+        self.diagnosticsRow12.setFrameShadow(QFrame.Raised)
+        self.pushButton_2 = QPushButton(self.diagnosticsRow12)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setGeometry(QRect(40, 50, 151, 26))
+
+        self.verticalLayout_7.addWidget(self.diagnosticsRow12)
+
+
+        self.horizontalLayout_7.addWidget(self.diagnosticsCol1)
+
+        self.diagnosticsCol2 = QFrame(self.diagnostics)
+        self.diagnosticsCol2.setObjectName(u"diagnosticsCol2")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(1)
+        sizePolicy5.setHeightForWidth(self.diagnosticsCol2.sizePolicy().hasHeightForWidth())
+        self.diagnosticsCol2.setSizePolicy(sizePolicy5)
+        self.diagnosticsCol2.setMinimumSize(QSize(400, 60))
+        self.diagnosticsCol2.setStyleSheet(u"background: transparent;\n"
+"")
+        self.diagnosticsCol2.setFrameShape(QFrame.NoFrame)
+        self.diagnosticsCol2.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_14 = QVBoxLayout(self.diagnosticsCol2)
+        self.verticalLayout_14.setSpacing(9)
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_21 = QVBoxLayout()
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
+        self.diagnosticsSubMenu2 = QFrame(self.diagnosticsCol2)
+        self.diagnosticsSubMenu2.setObjectName(u"diagnosticsSubMenu2")
+        self.diagnosticsSubMenu2.setMinimumSize(QSize(0, 45))
+        self.diagnosticsSubMenu2.setStyleSheet(u"background-color: rgb(21, 23, 27);")
+        self.btn_diagnostics_ugvs = QPushButton(self.diagnosticsSubMenu2)
+        self.btn_diagnostics_ugvs.setObjectName(u"btn_diagnostics_ugvs")
+        self.btn_diagnostics_ugvs.setGeometry(QRect(90, 0, 73, 45))
+        self.btn_diagnostics_ugvs.setMinimumSize(QSize(0, 45))
+        self.btn_diagnostics_ugvs.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_diagnostics_ugvs.setStyleSheet(u"")
+        self.btn_diagnostics_uavs = QPushButton(self.diagnosticsSubMenu2)
+        self.btn_diagnostics_uavs.setObjectName(u"btn_diagnostics_uavs")
+        self.btn_diagnostics_uavs.setGeometry(QRect(163, 0, 72, 45))
+        sizePolicy6 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.btn_diagnostics_uavs.sizePolicy().hasHeightForWidth())
+        self.btn_diagnostics_uavs.setSizePolicy(sizePolicy6)
+        self.btn_diagnostics_uavs.setMinimumSize(QSize(0, 45))
+        self.btn_diagnostics_uavs.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_diagnostics_uavs.setStyleSheet(u"")
+        self.btn_diagnostics_sensors = QPushButton(self.diagnosticsSubMenu2)
+        self.btn_diagnostics_sensors.setObjectName(u"btn_diagnostics_sensors")
+        self.btn_diagnostics_sensors.setGeometry(QRect(-1, 0, 91, 45))
+        self.btn_diagnostics_sensors.setMinimumSize(QSize(0, 45))
+        self.btn_diagnostics_sensors.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_diagnostics_sensors.setStyleSheet(u"")
+        self.btn_diagnostics_refresh = QPushButton(self.diagnosticsSubMenu2)
+        self.btn_diagnostics_refresh.setObjectName(u"btn_diagnostics_refresh")
+        self.btn_diagnostics_refresh.setGeometry(QRect(680, 0, 87, 45))
+        self.btn_diagnostics_refresh.setMinimumSize(QSize(0, 45))
+        self.btn_diagnostics_refresh.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_diagnostics_refresh.setStyleSheet(u"")
+        self.btn_diagnostics_refresh.setCheckable(False)
+        self.btn_diagnostics_refresh.setAutoDefault(False)
+
+        self.verticalLayout_21.addWidget(self.diagnosticsSubMenu2)
+
+        self.verticalFrame_2 = QFrame(self.diagnosticsCol2)
+        self.verticalFrame_2.setObjectName(u"verticalFrame_2")
+        self.verticalLayout_22 = QVBoxLayout(self.verticalFrame_2)
+        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
+        self.verticalLayout_22.setContentsMargins(9, -1, 9, -1)
+        self.diagnosticsStackedWidget = QStackedWidget(self.verticalFrame_2)
+        self.diagnosticsStackedWidget.setObjectName(u"diagnosticsStackedWidget")
+        sizePolicy3.setHeightForWidth(self.diagnosticsStackedWidget.sizePolicy().hasHeightForWidth())
+        self.diagnosticsStackedWidget.setSizePolicy(sizePolicy3)
+        self.diagnosticsSensors = QWidget()
+        self.diagnosticsSensors.setObjectName(u"diagnosticsSensors")
+        sizePolicy3.setHeightForWidth(self.diagnosticsSensors.sizePolicy().hasHeightForWidth())
+        self.diagnosticsSensors.setSizePolicy(sizePolicy3)
+        self.diagnosticsSensors.setMinimumSize(QSize(748, 732))
+        self.verticalLayoutWidget = QWidget(self.diagnosticsSensors)
+        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
+        self.verticalLayoutWidget.setGeometry(QRect(-1, -1, 751, 843))
+        self.verticalLayout_26 = QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout_26.setObjectName(u"verticalLayout_26")
+        self.verticalLayout_26.setContentsMargins(0, 0, 0, 0)
+        self.diagnosticsVICON = QWidget(self.verticalLayoutWidget)
+        self.diagnosticsVICON.setObjectName(u"diagnosticsVICON")
+        sizePolicy1.setHeightForWidth(self.diagnosticsVICON.sizePolicy().hasHeightForWidth())
+        self.diagnosticsVICON.setSizePolicy(sizePolicy1)
+        self.diagnosticsVICON.setMinimumSize(QSize(375, 205))
+        self.diagnosticsVICON.setMaximumSize(QSize(375, 205))
+        self.frameVICON_11 = QFrame(self.diagnosticsVICON)
+        self.frameVICON_11.setObjectName(u"frameVICON_11")
+        self.frameVICON_11.setGeometry(QRect(10, 0, 350, 200))
+        self.frameVICON_11.setStyleSheet(u"QFrame {\n"
+"	border-radius: 9px;\n"
+"	background-color: rgb(21, 23, 27);\n"
+"}")
+        self.frameVICON_11.setFrameShape(QFrame.StyledPanel)
+        self.frameVICON_11.setFrameShadow(QFrame.Raised)
+        self.label_3 = QLabel(self.frameVICON_11)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(0, 0, 269, 50))
+        self.label_3.setStyleSheet(u"QLabel {\n"
+"	padding-left: 18px;\n"
+"}")
+        self.frameVICON_11Online = QFrame(self.frameVICON_11)
+        self.frameVICON_11Online.setObjectName(u"frameVICON_11Online")
+        self.frameVICON_11Online.setGeometry(QRect(309, 0, 40, 50))
+        self.frameVICON_11Online.setStyleSheet(u"QFrame {\n"
+"	background-image: url(:/icons/images/icons2/status_offline.png);\n"
+"	background-position: center;\n"
+"	background-repeat: no-repeat;\n"
+"}")
+        self.frameVICON_11Online.setFrameShape(QFrame.StyledPanel)
+        self.frameVICON_11Online.setFrameShadow(QFrame.Raised)
+        self.frameVICON_11Connected = QFrame(self.frameVICON_11)
+        self.frameVICON_11Connected.setObjectName(u"frameVICON_11Connected")
+        self.frameVICON_11Connected.setGeometry(QRect(280, 0, 40, 50))
+        self.frameVICON_11Connected.setStyleSheet(u"QFrame {\n"
+"background-image: url(:/icons/images/icons2/status_disconnected.png);\n"
+"background-position: center;\n"
+"background-repeat: no-repeat;\n"
+"}")
+        self.frameVICON_11Connected.setFrameShape(QFrame.StyledPanel)
+        self.frameVICON_11Connected.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_26.addWidget(self.diagnosticsVICON)
+
+        self.gridLayout_4 = QGridLayout()
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.pushButton_4 = QPushButton(self.verticalLayoutWidget)
+        self.pushButton_4.setObjectName(u"pushButton_4")
+
+        self.gridLayout_4.addWidget(self.pushButton_4, 0, 1, 1, 1)
+
+        self.btnVICON_11 = QPushButton(self.verticalLayoutWidget)
+        self.btnVICON_11.setObjectName(u"btnVICON_11")
+
+        self.gridLayout_4.addWidget(self.btnVICON_11, 0, 0, 1, 1)
+
+        self.pushButton_9 = QPushButton(self.verticalLayoutWidget)
+        self.pushButton_9.setObjectName(u"pushButton_9")
+
+        self.gridLayout_4.addWidget(self.pushButton_9, 1, 0, 1, 1)
+
+
+        self.verticalLayout_26.addLayout(self.gridLayout_4)
+
+        self.diagnosticsStackedWidget.addWidget(self.diagnosticsSensors)
+        self.diagnosticsUGVs = QWidget()
+        self.diagnosticsUGVs.setObjectName(u"diagnosticsUGVs")
+        self.diagnosticsStackedWidget.addWidget(self.diagnosticsUGVs)
+        self.diagnosticsUAVs = QWidget()
+        self.diagnosticsUAVs.setObjectName(u"diagnosticsUAVs")
+        self.label_2 = QLabel(self.diagnosticsUAVs)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(240, 460, 66, 18))
+        self.diagnosticsStackedWidget.addWidget(self.diagnosticsUAVs)
+
+        self.verticalLayout_22.addWidget(self.diagnosticsStackedWidget)
+
+
+        self.verticalLayout_21.addWidget(self.verticalFrame_2)
+
+
+        self.verticalLayout_14.addLayout(self.verticalLayout_21)
+
+
+        self.horizontalLayout_7.addWidget(self.diagnosticsCol2)
+
+        self.diagnosticsCol3 = QFrame(self.diagnostics)
+        self.diagnosticsCol3.setObjectName(u"diagnosticsCol3")
+        self.diagnosticsCol3.setMinimumSize(QSize(500, 60))
+        self.diagnosticsCol3.setMaximumSize(QSize(500, 16777215))
+        self.diagnosticsCol3.setStyleSheet(u"background-color: rgb(13, 16, 21);\n"
+"/*border-left: 6px solid rgb(21, 23, 27);*/")
+        self.diagnosticsCol3.setFrameShape(QFrame.NoFrame)
+        self.diagnosticsCol3.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_13 = QVBoxLayout(self.diagnosticsCol3)
+        self.verticalLayout_13.setSpacing(0)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.verticalLayout_13.setContentsMargins(9, 9, 9, 18)
+        self.diagnosticsTerminal = QPlainTextEdit(self.diagnosticsCol3)
+        self.diagnosticsTerminal.setObjectName(u"diagnosticsTerminal")
+        self.diagnosticsTerminal.setStyleSheet(u"border: None;\n"
+"background: transparent;\n"
+"")
+        self.diagnosticsTerminal.setFrameShape(QFrame.NoFrame)
+        self.diagnosticsTerminal.setReadOnly(True)
+
+        self.verticalLayout_13.addWidget(self.diagnosticsTerminal)
+
+
+        self.horizontalLayout_7.addWidget(self.diagnosticsCol3)
+
+        self.stackedWidget.addWidget(self.diagnostics)
+        self.test = QWidget()
+        self.test.setObjectName(u"test")
+        self.test.setMinimumSize(QSize(1198, 623))
+        self.test.setAutoFillBackground(False)
+        self.verticalLayout_20 = QVBoxLayout(self.test)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
-        self.label = QLabel(self.new_page)
-        self.label.setObjectName(u"label")
-        self.label.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_20.addWidget(self.label)
-
-        self.stackedWidget.addWidget(self.new_page)
+        self.stackedWidget.addWidget(self.test)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
 
 
         self.horizontalLayout_4.addWidget(self.pagesContainer)
-
-        self.extraRightBox = QFrame(self.content)
-        self.extraRightBox.setObjectName(u"extraRightBox")
-        self.extraRightBox.setMinimumSize(QSize(0, 0))
-        self.extraRightBox.setMaximumSize(QSize(0, 16777215))
-        self.extraRightBox.setFrameShape(QFrame.NoFrame)
-        self.extraRightBox.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_7 = QVBoxLayout(self.extraRightBox)
-        self.verticalLayout_7.setSpacing(0)
-        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
-        self.themeSettingsTopDetail = QFrame(self.extraRightBox)
-        self.themeSettingsTopDetail.setObjectName(u"themeSettingsTopDetail")
-        self.themeSettingsTopDetail.setMaximumSize(QSize(16777215, 3))
-        self.themeSettingsTopDetail.setFrameShape(QFrame.NoFrame)
-        self.themeSettingsTopDetail.setFrameShadow(QFrame.Raised)
-
-        self.verticalLayout_7.addWidget(self.themeSettingsTopDetail)
-
-        self.contentSettings = QFrame(self.extraRightBox)
-        self.contentSettings.setObjectName(u"contentSettings")
-        self.contentSettings.setFrameShape(QFrame.NoFrame)
-        self.contentSettings.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_13 = QVBoxLayout(self.contentSettings)
-        self.verticalLayout_13.setSpacing(0)
-        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
-        self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
-        self.topMenus = QFrame(self.contentSettings)
-        self.topMenus.setObjectName(u"topMenus")
-        self.topMenus.setFrameShape(QFrame.NoFrame)
-        self.topMenus.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_14 = QVBoxLayout(self.topMenus)
-        self.verticalLayout_14.setSpacing(0)
-        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
-        self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
-        self.btn_message = QPushButton(self.topMenus)
-        self.btn_message.setObjectName(u"btn_message")
-        sizePolicy.setHeightForWidth(self.btn_message.sizePolicy().hasHeightForWidth())
-        self.btn_message.setSizePolicy(sizePolicy)
-        self.btn_message.setMinimumSize(QSize(0, 45))
-        self.btn_message.setFont(font)
-        self.btn_message.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_message.setLayoutDirection(Qt.LeftToRight)
-        self.btn_message.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-envelope-open.png);")
-
-        self.verticalLayout_14.addWidget(self.btn_message)
-
-        self.btn_print = QPushButton(self.topMenus)
-        self.btn_print.setObjectName(u"btn_print")
-        sizePolicy.setHeightForWidth(self.btn_print.sizePolicy().hasHeightForWidth())
-        self.btn_print.setSizePolicy(sizePolicy)
-        self.btn_print.setMinimumSize(QSize(0, 45))
-        self.btn_print.setFont(font)
-        self.btn_print.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_print.setLayoutDirection(Qt.LeftToRight)
-        self.btn_print.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-print.png);")
-
-        self.verticalLayout_14.addWidget(self.btn_print)
-
-        self.btn_logout = QPushButton(self.topMenus)
-        self.btn_logout.setObjectName(u"btn_logout")
-        sizePolicy.setHeightForWidth(self.btn_logout.sizePolicy().hasHeightForWidth())
-        self.btn_logout.setSizePolicy(sizePolicy)
-        self.btn_logout.setMinimumSize(QSize(0, 45))
-        self.btn_logout.setFont(font)
-        self.btn_logout.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_logout.setLayoutDirection(Qt.LeftToRight)
-        self.btn_logout.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-account-logout.png);")
-
-        self.verticalLayout_14.addWidget(self.btn_logout)
-
-
-        self.verticalLayout_13.addWidget(self.topMenus, 0, Qt.AlignTop)
-
-
-        self.verticalLayout_7.addWidget(self.contentSettings)
-
-
-        self.horizontalLayout_4.addWidget(self.extraRightBox)
 
 
         self.verticalLayout_6.addWidget(self.content)
@@ -1481,6 +1820,7 @@ class Ui_MainWindow(object):
         self.bottomBar.setObjectName(u"bottomBar")
         self.bottomBar.setMinimumSize(QSize(0, 22))
         self.bottomBar.setMaximumSize(QSize(16777215, 22))
+        self.bottomBar.setStyleSheet(u"background-color: rgb(21, 23, 27);")
         self.bottomBar.setFrameShape(QFrame.NoFrame)
         self.bottomBar.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.bottomBar)
@@ -1491,16 +1831,18 @@ class Ui_MainWindow(object):
         self.creditsLabel.setObjectName(u"creditsLabel")
         self.creditsLabel.setMaximumSize(QSize(16777215, 16))
         font5 = QFont()
-        font5.setFamily(u"Segoe UI")
+        font5.setFamilies([u"Segoe UI"])
         font5.setBold(False)
         font5.setItalic(False)
         self.creditsLabel.setFont(font5)
+        self.creditsLabel.setStyleSheet(u"color: rgb(221, 221, 221);")
         self.creditsLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.creditsLabel)
 
         self.version = QLabel(self.bottomBar)
         self.version.setObjectName(u"version")
+        self.version.setStyleSheet(u"color: rgb(221, 221, 221)")
         self.version.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.version)
@@ -1531,6 +1873,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget.setCurrentIndex(2)
+        self.diagnosticsStackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1538,15 +1881,12 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"PyDracula", None))
-        self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"Modern GUI / Flat Style", None))
+        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"mess2", None))
+        self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"ace lab @ wpi", None))
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
-        self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
-        self.btn_new.setText(QCoreApplication.translate("MainWindow", u"New", None))
-        self.btn_save.setText(QCoreApplication.translate("MainWindow", u"Save", None))
-        self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
-        self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
+        self.btn_diagnostics.setText(QCoreApplication.translate("MainWindow", u"Diagnostics", None))
+        self.btn_settings.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.extraLabel.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
 #if QT_CONFIG(tooltip)
         self.extraCloseColumnBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close left box", None))
@@ -1558,22 +1898,21 @@ class Ui_MainWindow(object):
         self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">PyDracula</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zeno Rocha.</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-inde"
-                        "nt:0; text-indent:0px;\"><span style=\" color:#ffffff;\">MIT License</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#bd93f9;\">Created by: Wanderson M. Pimenta</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zen"
+                        "o Rocha.</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">MIT License</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#8be9fd;\">Created by: Wanderson M. Pimenta</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert UI</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-uic main.ui &gt; ui_main.py</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert QRC</span></p>\n"
-"<p align=\"center\" "
-                        "style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
-        self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"PyDracula APP - Theme with colors based on Dracula for Python.", None))
-#if QT_CONFIG(tooltip)
-        self.settingsTopBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
-#endif // QT_CONFIG(tooltip)
-        self.settingsTopBtn.setText("")
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-in"
+                        "dent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert QRC</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
+        self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"Modular Experiment Software System 2", None))
 #if QT_CONFIG(tooltip)
         self.minimizeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Minimize", None))
 #endif // QT_CONFIG(tooltip)
@@ -1652,11 +1991,26 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Line", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
-        self.label.setText(QCoreApplication.translate("MainWindow", u"NEW PAGE TEST", None))
-        self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
-        self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
-        self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
-        self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: Wanderson M. Pimenta", None))
+        self.btn_experiment_load.setText(QCoreApplication.translate("MainWindow", u"    Load Experiment File  ", None))
+        self.btn_actors_connect.setText(QCoreApplication.translate("MainWindow", u"Connect to all Actors", None))
+        self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"Start ROS2 Sensor Drivers", None))
+        self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"Stop ROS2 Sensor Drivers", None))
+        self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"Start ROS2 Actor Servers", None))
+        self.pushButton_8.setText(QCoreApplication.translate("MainWindow", u"Stop ROS2 Actor Servers", None))
+        self.btn_actors_disconnect.setText(QCoreApplication.translate("MainWindow", u"Disconnect from all Actors", None))
+        self.btn_experiment_select.setText(QCoreApplication.translate("MainWindow", u"    Select Experiment File", None))
+        self.btn_vicon_driver.setText(QCoreApplication.translate("MainWindow", u"Start VICON Driver", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Abort Experiment", None))
+        self.btn_diagnostics_ugvs.setText(QCoreApplication.translate("MainWindow", u"UGVs", None))
+        self.btn_diagnostics_uavs.setText(QCoreApplication.translate("MainWindow", u"UAVs", None))
+        self.btn_diagnostics_sensors.setText(QCoreApplication.translate("MainWindow", u"Sensors", None))
+        self.btn_diagnostics_refresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"VICON Valkyrie Motion Capture System", None))
+        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"disconnect", None))
+        self.btnVICON_11.setText(QCoreApplication.translate("MainWindow", u"connect", None))
+        self.pushButton_9.setText("")
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"uavs", None))
+        self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"Marina J. Nelson", None))
         self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.3", None))
     # retranslateUi
 

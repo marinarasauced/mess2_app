@@ -17,6 +17,7 @@
 # MAIN FILE
 # ///////////////////////////////////////////////////////////////
 from main import *
+from datetime import datetime
 
 # GLOBALS
 # ///////////////////////////////////////////////////////////////
@@ -277,6 +278,108 @@ class UIFunctions(MainWindow):
             self.right_grip.setGeometry(self.width() - 10, 10, 10, self.height())
             self.top_grip.setGeometry(0, 0, self.width(), 10)
             self.bottom_grip.setGeometry(0, self.height() - 10, self.width(), 10)
+
+    # /////////////////////////////////////////////////////////////////////////////////
+
+    #     def selectMenu(getStyle):
+    #     select = getStyle + Settings.MENU_SELECTED_STYLESHEET
+    #     return select
+
+    # # DESELECT
+    # def deselectMenu(getStyle):
+    #     deselect = getStyle.replace(Settings.MENU_SELECTED_STYLESHEET, "")
+    #     return deselect
+
+    # # START SELECTION
+    # def selectStandardMenu(self, widget):
+    #     for w in self.ui.topMenu.findChildren(QPushButton):
+    #         if w.objectName() == widget:
+    #             w.setStyleSheet(UIFunctions.selectMenu(w.styleSheet()))
+
+    # # RESET SELECTION
+    # def resetStyle(self, widget):
+    #     for w in self.ui.topMenu.findChildren(QPushButton):
+    #         if w.objectName() != widget:
+    #             w.setStyleSheet(UIFunctions.deselectMenu(w.styleSheet()))
+
+
+
+    def log2DiagnosticsTerminal(self, message):
+        timestamp = datetime.now().strftime("[%H:%M:%S]")
+        message_ = f"{timestamp} : {message}"
+        self.ui.diagnosticsTerminal.appendPlainText(message_)
+
+    
+    def selectStyleDiagnosticsSubMenu2(getStyle):
+        """
+        
+        """
+        select = getStyle + Settings.MENU_SELECTED_STYLESHEET_DIAGNOSTICS2
+        return select
+        # # select = getStyle.replace(Settings.MENU_SELECTED_STYLESHEET, Settings.DIAGNOSTICS_SUBMENU2_STYLESHEET_SELECTED)
+        # # print(select)
+        # return select
+
+
+    def deselectStyleDiagnosticsSubMenu2(getStyle):
+        """
+        
+        """
+        deselect = getStyle.replace(Settings.MENU_SELECTED_STYLESHEET_DIAGNOSTICS2, "")
+        return deselect
+
+    
+    def resetStyleDiagnosticsSubMenu2(self, btnName: str):
+        """
+        
+        """
+        ignore = ["btn_diagnostics_refresh"]
+        for w in self.ui.diagnosticsSubMenu2.findChildren(QPushButton):
+            is_same: bool = (w.objectName() == btnName)
+            is_ignore: bool = (w.objectName() in ignore)
+            if not is_same and not is_ignore:
+                w.setStyleSheet(UIFunctions.deselectStyleDiagnosticsSubMenu2(w.styleSheet()))
+    
+
+
+
+
+    def toggleStyleConnected(self, frameName, frameBool: bool):
+        """
+        """
+        frame = eval(f"self.ui.{frameName}")
+        style = frame.styleSheet()
+        if frameBool:
+            style = style.replace("disconnected", "connected")
+        else:
+            style = style.replace("connected", "disconnected")
+        frame.setStyleSheet(style)
+    
+
+    def toggleStyleOnline(self, frameName: str, frameBool: bool):
+        """
+        """
+        frame = eval(f"self.ui.{frameName}")
+        style = frame.styleSheet()
+        if frameBool:
+            style = style.replace("offline", "online")
+        else:
+            style = style.replace("online", "offline")
+        frame.setStyleSheet(style)
+
+
+
+
+    # def selectMenu(getStyle):
+    #     select = getStyle + Settings.MENU_SELECTED_STYLESHEET
+    #     return select
+
+    # # DESELECT
+    # def deselectMenu(getStyle):
+    #     deselect = getStyle.replace(Settings.MENU_SELECTED_STYLESHEET, "")
+    #     return deselect
+
+
 
     # ///////////////////////////////////////////////////////////////
     # END - GUI DEFINITIONS

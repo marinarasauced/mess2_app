@@ -14,10 +14,10 @@ target = Executable(
 
 # SETUP CX FREEZE
 setup(
-    name = "PyDracula",
+    name = "mess2",
     version = "1.0",
-    description = "Modern GUI for Python applications",
-    author = "Wanderson M. Pimenta",
+    description = "Modular Experiment Software System 2",
+    author = "Marina J. Nelson",
     options = {'build_exe' : {'include_files' : files}},
     executables = [target]
     

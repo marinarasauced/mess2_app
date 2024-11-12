@@ -3,6 +3,7 @@ import sys
 import os
 import platform
 import threading
+import yaml
 
 from modules import *
 from widgets import *
@@ -56,8 +57,7 @@ class MainWindow(QMainWindow):
 
         self.enable_click_logging_while_experiment_running = False
         self.is_experiment_running: bool = False
-        self.experiment_file_extensions: str = "test1 (*.yaml *.png);; test2 (*.png *.csv)"
-        self.experiment_file_path: str = None
+        
 
         # DIAGNOSTICS SUBMENU 2
         widgets.btn_diagnostics_sensors.clicked.connect(self.buttonClick)
@@ -80,11 +80,19 @@ class MainWindow(QMainWindow):
         widgets.btn_experiment_select.clicked.connect(self.mess2_experiment_select)
         widgets.btn_experiment_load.clicked.connect(self.mess2_experiment_load)
 
+        self.experiment_file_extensions: str = ".yaml (*.yaml)"
+        self.experiment_file_path: str = None
+        self.experiment_file_content = None
+        
+        self.experiment_name = None
+        self.is_experiment_loaded = False
+
+        self.experiment_widgets_sensors = []
 
         # diagnostics sensors
         widgets.diagnosticsSensorsLayout.setAlignment(Qt.AlignTop)
         self.grid_diagnostics_sensors = Obj_gridWidget(2)
-        self.mess2_initialize_vicon()
+        # self.mess2_initialize_vicon()
 
         
         widgets.diagnosticsUGVsLayout.setAlignment(Qt.AlignTop)
@@ -269,6 +277,9 @@ class MainWindow(QMainWindow):
     #     This method initializes 
     #     """
     def mess2_experiment_select(self):
+        """
+        This method creates a 
+        """
         if not self.is_experiment_running:
             response = QFileDialog.getOpenFileName(
                 parent=self,
@@ -283,8 +294,132 @@ class MainWindow(QMainWindow):
 
 
     def mess2_experiment_load(self):
-        if not self.is_experiment_running and self.experiment_file_path is not None:
-            print("hi")
+        """
+        This method loads the gui elements of a preconfigured experiment .yaml file and creates backend object instances needed to run an experiment.
+        """
+        if self.is_experiment_running:
+            UIFunctions.mess2_log_to_diagnostics(self, "unable to load experiment file while experiment is running")
+        elif self.experiment_file_path is None:
+            UIFunctions.mess2_log_to_diagnostics(self, "unable to load exeperiment file while no experiment is selected")
+        else:
+            with open(self.experiment_file_path, "r") as file:
+                self.experiment_file_content = yaml.safe_load(file)
+            experiment_name = self.experiment_file_content.get("experiment_name", "")
+            print(experiment_name)
+            if self.experiment_name is None and experiment_name != "":
+                self.experiment_name = experiment_name
+                self.mess2_experiment_load_sensors_gui()
+            elif self.experiment_name is not None and experiment_name != "" and experiment_name != self.experiment_name:
+                self.experiment_name = experiment_name
+                self.mess2_experiment_clear_sensors_gui()
+                self.mess2_experiment_load_sensors_gui()
+            elif experiment_name == "":
+                UIFunctions.mess2_log_to_diagnostics(self, f"experiment file {self.experiment_file_path} is invalid")
+            elif experiment_name == self.experiment_name:
+                UIFunctions.mess2_log_to_diagnostics(self, f"experiment file {self.experiment_file_path} was already loaded")
+
+    
+    def mess2_experiment_clear_sensors_gui(self):
+        """
+        
+        """
+        is_empty = False
+        if self.experiment_widgets_sensors == []:
+            is_empty = True
+        for widget in self.experiment_widgets_sensors:
+            widgets.diagnosticsSensorsLayout.removeWidget(widget)
+            print(widget.objectName())
+            widgets.__delattr__(widget.objectName())
+            widget.deleteLater()
+        self.experiment_widgets_sensors.clear()
+        if not is_empty:
+            UIFunctions.mess2_log_to_diagnostics(self, "removed gui elements for experiment sensors from previous experiment")
+
+
+    def mess2_experiment_load_sensors_gui(self):
+        """
+        This method loads the sensor diagnostics gui elements from a preconfigured experiment .yaml file.
+        """
+        if "sensors" in self.experiment_file_content:
+            # UIFunctions.mess2_log_to_diagnostics(self, "creating gui elements for experiment sensors")
+            for sensor in self.experiment_file_content["sensors"]:
+                # if type == "vicon":
+                #     self.mess2_initialize_vicon()
+                name = sensor.get("name", "")
+                assert(name != "")
+
+                ip = sensor.get("ip", "")
+                show_connected = sensor.get("show_connected", False)
+                show_online = sensor.get("show_online", False)
+
+                sensor_object = self.mess2_create_sensor_gui_object(name, ip, show_connected, show_online)
+                sensor_widget = self.mess2_create_sensor_gui_widget(sensor_object)
+
+                index_row = self.grid_diagnostics_sensors.get_index_row()
+                index_col = self.grid_diagnostics_sensors.get_index_col()
+                self.mess2_add_sensor_gui_widget(sensor_widget, index_row, index_col)
+                # UIFunctions.mess2_log_to_diagnostics(self, f"created gui element for experiment sensor {sensor_object.widget_name}")
+                type = sensor.get("type", "")
+                if type == "vicon":
+                    index_row = self.grid_diagnostics_sensors.get_index_row()
+                    index_col = self.grid_diagnostics_sensors.get_index_col()
+                    empty_widget = self.mess2_create_sensor_gui_widget_empty(index_row, index_col)
+                    self.mess2_add_sensor_gui_widget(empty_widget, index_row, index_col)
+            UIFunctions.mess2_log_to_diagnostics(self, "created gui elements for experiment sensors")
+
+
+    
+    def mess2_create_sensor_gui_object(self, name: str, ip: str = "", show_connected: bool = False, show_online: bool = False):
+        """
+        
+        """
+        assert(name != "")
+        sensor_name = name.replace(" ", "_")
+        sensor_object = Obj_tileSensorTemplate(name, ip, f"sensor{sensor_name}", show_connected, show_online)
+        return sensor_object
+
+
+    def mess2_create_sensor_gui_widget(self, sensor_object: Obj_tileSensorTemplate):
+        """
+        
+        """
+        assert(sensor_object.sensor_name != "" and sensor_object.widget_name != "sensor")
+
+        sensor_widget = QWidget()
+        sensor_widget.setObjectName(sensor_object.widget_name)
+        ui = Ui_tileSensorTemplate()
+        ui.setupUi(sensor_widget)
+        ui.sensorName.setText(sensor_object.sensor_name)
+        ui.sensorIP.setText(sensor_object.sensor_ip)
+        print(sensor_object.widget_name)
+        widgets.__setattr__(sensor_object.widget_name, sensor_widget)
+        UIFunctions.mess2_toggle_connected_icon(self, sensor_object.widget_name, sensor_object)
+        UIFunctions.mess2_toggle_online_icon(self, sensor_object.widget_name, sensor_object)
+        # UIFunctions.mess2_log_to_diagnostics(self, f"added {sensor_object.widget_name} as attribute")
+        return sensor_widget
+
+
+    def mess2_create_sensor_gui_widget_empty(self, index_row: int, index_col: int):
+        """
+        
+        """
+        name = f"sensorEmpty_{index_row}_{index_col}"
+        empty_widget = QWidget()
+        empty_widget.setObjectName(name)
+        widgets.__setattr__(name, empty_widget)
+        return empty_widget
+
+    
+    def mess2_add_sensor_gui_widget(self, widget: QWidget, index_row: int, index_col: int):
+        """
+        
+        """
+        widgets.diagnosticsSensorsLayout.addWidget(eval(f"self.ui.{widget.objectName()}"), index_row, index_col)
+        self.experiment_widgets_sensors.append(widget)
+        
+
+            
+
 
 
     # def mess2_create_sensor(self):
@@ -309,8 +444,6 @@ class MainWindow(QMainWindow):
 
         ui.sensorName.setText(sensor.sensor_name)
         ui.sensorIP.setText(sensor.sensor_ip)
-
-
         return widget
     
 
@@ -319,7 +452,6 @@ class MainWindow(QMainWindow):
         
         """
         vicon_sensor = Obj_tileSensorTemplate("VICON Valkyrie Motion Capture System", "192.168.0.145", "sensorVICON", False, True)
-        print(vicon_sensor.show_online)
         vicon_widget = self.mess2_create_sensor(vicon_sensor)
 
         self.mess2_add_sensor(vicon_widget, vicon_widget.objectName(), self.grid_diagnostics_sensors.get_index_row(), self.grid_diagnostics_sensors.get_index_col())

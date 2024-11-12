@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainBtFIOL.ui'
+## Form generated from reading UI file 'mainIfXXgu.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -1719,19 +1719,25 @@ class Ui_MainWindow(object):
         self.diagnosticsStackedWidget.addWidget(self.diagnosticsTEST)
         self.diagnosticsUGVs = QWidget()
         self.diagnosticsUGVs.setObjectName(u"diagnosticsUGVs")
+        sizePolicy3.setHeightForWidth(self.diagnosticsUGVs.sizePolicy().hasHeightForWidth())
+        self.diagnosticsUGVs.setSizePolicy(sizePolicy3)
+        self.diagnosticsUGVs.setMinimumSize(QSize(748, 732))
         self.verticalLayout_25 = QVBoxLayout(self.diagnosticsUGVs)
         self.verticalLayout_25.setObjectName(u"verticalLayout_25")
-        self.verticalLayout_25.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_25.setContentsMargins(18, 9, 9, 9)
         self.diagnosticsUGVsScrollArea = QScrollArea(self.diagnosticsUGVs)
         self.diagnosticsUGVsScrollArea.setObjectName(u"diagnosticsUGVsScrollArea")
+        self.diagnosticsUGVsScrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.diagnosticsUGVsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.diagnosticsUGVsScrollArea.setWidgetResizable(True)
         self.diagnosticsUGVsScrollAreaContent = QWidget()
         self.diagnosticsUGVsScrollAreaContent.setObjectName(u"diagnosticsUGVsScrollAreaContent")
-        self.diagnosticsUGVsScrollAreaContent.setGeometry(QRect(0, 0, 98, 28))
+        self.diagnosticsUGVsScrollAreaContent.setGeometry(QRect(0, 0, 729, 736))
         self.verticalLayout_26 = QVBoxLayout(self.diagnosticsUGVsScrollAreaContent)
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
+        self.verticalLayout_26.setContentsMargins(0, 18, 18, 18)
         self.diagnosticsUGVsLayout = QGridLayout()
-        self.diagnosticsUGVsLayout.setSpacing(18)
+        self.diagnosticsUGVsLayout.setSpacing(9)
         self.diagnosticsUGVsLayout.setObjectName(u"diagnosticsUGVsLayout")
 
         self.verticalLayout_26.addLayout(self.diagnosticsUGVsLayout)
@@ -1743,19 +1749,26 @@ class Ui_MainWindow(object):
         self.diagnosticsStackedWidget.addWidget(self.diagnosticsUGVs)
         self.diagnosticsUAVs = QWidget()
         self.diagnosticsUAVs.setObjectName(u"diagnosticsUAVs")
+        sizePolicy3.setHeightForWidth(self.diagnosticsUAVs.sizePolicy().hasHeightForWidth())
+        self.diagnosticsUAVs.setSizePolicy(sizePolicy3)
+        self.diagnosticsUAVs.setMinimumSize(QSize(748, 732))
         self.verticalLayout_24 = QVBoxLayout(self.diagnosticsUAVs)
+        self.verticalLayout_24.setSpacing(0)
         self.verticalLayout_24.setObjectName(u"verticalLayout_24")
-        self.verticalLayout_24.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_24.setContentsMargins(18, 9, 9, 9)
         self.diagnosticsUAVsScrollArea = QScrollArea(self.diagnosticsUAVs)
         self.diagnosticsUAVsScrollArea.setObjectName(u"diagnosticsUAVsScrollArea")
+        self.diagnosticsUAVsScrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.diagnosticsUAVsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.diagnosticsUAVsScrollArea.setWidgetResizable(True)
         self.diagnosticsUAVsScrollAreaContent = QWidget()
         self.diagnosticsUAVsScrollAreaContent.setObjectName(u"diagnosticsUAVsScrollAreaContent")
-        self.diagnosticsUAVsScrollAreaContent.setGeometry(QRect(0, 0, 98, 28))
+        self.diagnosticsUAVsScrollAreaContent.setGeometry(QRect(0, 0, 729, 736))
         self.verticalLayout_27 = QVBoxLayout(self.diagnosticsUAVsScrollAreaContent)
         self.verticalLayout_27.setObjectName(u"verticalLayout_27")
+        self.verticalLayout_27.setContentsMargins(0, 18, 18, 18)
         self.diagnosticsUAVsLayout = QGridLayout()
-        self.diagnosticsUAVsLayout.setSpacing(18)
+        self.diagnosticsUAVsLayout.setSpacing(9)
         self.diagnosticsUAVsLayout.setObjectName(u"diagnosticsUAVsLayout")
 
         self.verticalLayout_27.addLayout(self.diagnosticsUAVsLayout)
@@ -1877,8 +1890,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
-        self.diagnosticsStackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
+        self.diagnosticsStackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2011,6 +2024,6 @@ class Ui_MainWindow(object):
         self.btn_diagnostics_sensors.setText(QCoreApplication.translate("MainWindow", u"Sensors", None))
         self.btn_diagnostics_refresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"Marina J. Nelson", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.3", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.5", None))
     # retranslateUi
 

@@ -2449,7 +2449,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string notr="true">background-color: rgb(30, 33, 39);</string>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>2</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
@@ -3742,7 +3742,7 @@ border: None;</string>
                                   </sizepolicy>
                                  </property>
                                  <property name="currentIndex">
-                                  <number>0</number>
+                                  <number>1</number>
                                  </property>
                                  <widget class="QWidget" name="diagnosticsSensors">
                                   <property name="sizePolicy">
@@ -3835,21 +3835,39 @@ border: None;</string>
                                   <layout class="QGridLayout" name="gridLayout_6"/>
                                  </widget>
                                  <widget class="QWidget" name="diagnosticsUGVs">
+                                  <property name="sizePolicy">
+                                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                   </sizepolicy>
+                                  </property>
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>748</width>
+                                    <height>732</height>
+                                   </size>
+                                  </property>
                                   <layout class="QVBoxLayout" name="verticalLayout_25">
                                    <property name="leftMargin">
-                                    <number>0</number>
+                                    <number>18</number>
                                    </property>
                                    <property name="topMargin">
-                                    <number>0</number>
+                                    <number>9</number>
                                    </property>
                                    <property name="rightMargin">
-                                    <number>0</number>
+                                    <number>9</number>
                                    </property>
                                    <property name="bottomMargin">
-                                    <number>0</number>
+                                    <number>9</number>
                                    </property>
                                    <item>
                                     <widget class="QScrollArea" name="diagnosticsUGVsScrollArea">
+                                     <property name="verticalScrollBarPolicy">
+                                      <enum>Qt::ScrollBarAlwaysOn</enum>
+                                     </property>
+                                     <property name="horizontalScrollBarPolicy">
+                                      <enum>Qt::ScrollBarAlwaysOff</enum>
+                                     </property>
                                      <property name="widgetResizable">
                                       <bool>true</bool>
                                      </property>
@@ -3858,15 +3876,27 @@ border: None;</string>
                                        <rect>
                                         <x>0</x>
                                         <y>0</y>
-                                        <width>98</width>
-                                        <height>28</height>
+                                        <width>729</width>
+                                        <height>736</height>
                                        </rect>
                                       </property>
                                       <layout class="QVBoxLayout" name="verticalLayout_26">
+                                       <property name="leftMargin">
+                                        <number>0</number>
+                                       </property>
+                                       <property name="topMargin">
+                                        <number>18</number>
+                                       </property>
+                                       <property name="rightMargin">
+                                        <number>18</number>
+                                       </property>
+                                       <property name="bottomMargin">
+                                        <number>18</number>
+                                       </property>
                                        <item>
                                         <layout class="QGridLayout" name="diagnosticsUGVsLayout">
                                          <property name="spacing">
-                                          <number>18</number>
+                                          <number>9</number>
                                          </property>
                                         </layout>
                                        </item>
@@ -3877,21 +3907,42 @@ border: None;</string>
                                   </layout>
                                  </widget>
                                  <widget class="QWidget" name="diagnosticsUAVs">
+                                  <property name="sizePolicy">
+                                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                   </sizepolicy>
+                                  </property>
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>748</width>
+                                    <height>732</height>
+                                   </size>
+                                  </property>
                                   <layout class="QVBoxLayout" name="verticalLayout_24">
-                                   <property name="leftMargin">
+                                   <property name="spacing">
                                     <number>0</number>
+                                   </property>
+                                   <property name="leftMargin">
+                                    <number>18</number>
                                    </property>
                                    <property name="topMargin">
-                                    <number>0</number>
+                                    <number>9</number>
                                    </property>
                                    <property name="rightMargin">
-                                    <number>0</number>
+                                    <number>9</number>
                                    </property>
                                    <property name="bottomMargin">
-                                    <number>0</number>
+                                    <number>9</number>
                                    </property>
                                    <item>
                                     <widget class="QScrollArea" name="diagnosticsUAVsScrollArea">
+                                     <property name="verticalScrollBarPolicy">
+                                      <enum>Qt::ScrollBarAlwaysOn</enum>
+                                     </property>
+                                     <property name="horizontalScrollBarPolicy">
+                                      <enum>Qt::ScrollBarAlwaysOff</enum>
+                                     </property>
                                      <property name="widgetResizable">
                                       <bool>true</bool>
                                      </property>
@@ -3900,15 +3951,27 @@ border: None;</string>
                                        <rect>
                                         <x>0</x>
                                         <y>0</y>
-                                        <width>98</width>
-                                        <height>28</height>
+                                        <width>729</width>
+                                        <height>736</height>
                                        </rect>
                                       </property>
                                       <layout class="QVBoxLayout" name="verticalLayout_27">
+                                       <property name="leftMargin">
+                                        <number>0</number>
+                                       </property>
+                                       <property name="topMargin">
+                                        <number>18</number>
+                                       </property>
+                                       <property name="rightMargin">
+                                        <number>18</number>
+                                       </property>
+                                       <property name="bottomMargin">
+                                        <number>18</number>
+                                       </property>
                                        <item>
                                         <layout class="QGridLayout" name="diagnosticsUAVsLayout">
                                          <property name="spacing">
-                                          <number>18</number>
+                                          <number>9</number>
                                          </property>
                                         </layout>
                                        </item>
@@ -4086,7 +4149,7 @@ background: transparent;
                    <string notr="true">color: rgb(221, 221, 221)</string>
                   </property>
                   <property name="text">
-                   <string>v1.0.3</string>
+                   <string>v1.0.5</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

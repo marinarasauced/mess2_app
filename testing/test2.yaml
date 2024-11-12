@@ -1,10 +1,47 @@
 experiment_name: "test2_load_dynamic_experiments"
 sensors:
   - type: "vicon"
-    mess2:
-      name: "VICON Valkyrie Motion Capture System"
-      ip: "192.168.0.1"
-      show_connected: false
-      show_online: true
-    ros2:
-    
+    name: "VICON Valkyrie Motion Capture System"
+    ip: "192.168.0.101"
+    show_connected: false
+    show_online: true
+  - type: "flir"
+    name: "FLIR1"
+    ip: "192.168.0.201"
+    show_connected: false
+    show_online: true
+  - type: "flir"
+    name: "FLIR2"
+    ip: "192.168.0.202"
+    show_connected: false
+    show_online: true
+  - type: "flir"
+    name: "FLIR3"
+    ip: "192.168.0.203"
+    show_connected: false
+    show_online: true
+  - type: "flir"
+    name: "FLIR4"
+    ip: "192.168.0.204"
+    show_connected: false
+    show_online: true
+  - type: "flir"
+    name: "FLIR5"
+    ip: "192.168.0.205"
+    show_connected: false
+    show_online: true
+  - type: "flir"
+    name: "FLIR6"
+    ip: "192.168.0.206"
+    show_connected: false
+    show_online: true
+  - type: "flir"
+    name: "FLIR7"
+    ip: "192.168.0.207"
+    show_connected: false
+    show_online: true
+  - type: "flir"
+    name: "FLIR8"
+    ip: "192.168.0.208"
+    show_connected: false
+    show_online: true

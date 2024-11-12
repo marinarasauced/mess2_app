@@ -389,7 +389,7 @@ class UIFunctions(MainWindow):
         self.ui.diagnosticsTerminal.appendPlainText(message)
 
 
-    def mess2_toggle_connected(self, widget_name: str, sensor: Obj_tileSensorTemplate):
+    def mess2_toggle_connected_icon(self, widget_name: str, sensor: Obj_tileSensorTemplate):
         """
         This method toggles the is_connected ui element of a widget.
         """
@@ -401,7 +401,7 @@ class UIFunctions(MainWindow):
             widget.setStyleSheet(style)
 
 
-    def mess2_update_connected(self, widget_name: str, sensor: Obj_tileSensorTemplate):
+    def mess2_update_connected_icon(self, widget_name: str, sensor: Obj_tileSensorTemplate):
         """
         This method updates the is_connected ui element of a widget.
         """
@@ -414,7 +414,7 @@ class UIFunctions(MainWindow):
         widget.setStyleSheet(style)
 
 
-    def mess2_toggle_online(self, widget_name: str, sensor: Obj_tileSensorTemplate):
+    def mess2_toggle_online_icon(self, widget_name: str, sensor: Obj_tileSensorTemplate):
         """
         This method toggles the is_online ui element of a widget.
         """
@@ -426,7 +426,7 @@ class UIFunctions(MainWindow):
             widget.setStyleSheet(style)
 
 
-    def mess2_update_online(self, widget_name: str, sensor: Obj_tileSensorTemplate):
+    def mess2_update_online_icon(self, widget_name: str, sensor: Obj_tileSensorTemplate):
         """
         This method updates the is_online ui element of a widget.
         """

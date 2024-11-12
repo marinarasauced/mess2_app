@@ -322,7 +322,7 @@ selection-color: rgb(231, 231, 231);
 selection-background-color: rgb(0, 114, 143);
 }
 QPlainTextEdit QScrollBar:vertical {
-width: 6px;
+width: 8px;
 }
 QPlainTextEdit QScrollBar:horizontal {
 height: 8px;
@@ -2449,13 +2449,15 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string notr="true">background-color: rgb(30, 33, 39);</string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
-                       <string notr="true">background-image: url(:/images/images/images/PyDracula_vertical.png);
+                       <string notr="true">/*
+background-image: url(:/images/images/images/PyDracula_vertical.png);
 background-position: center;
-background-repeat: no-repeat;</string>
+background-repeat: no-repeat;
+*/</string>
                       </property>
                      </widget>
                      <widget class="QWidget" name="widgets">
@@ -2753,7 +2755,7 @@ background-repeat: no-repeat;</string>
                                 <rect>
                                  <x>0</x>
                                  <y>0</y>
-                                 <width>218</width>
+                                 <width>520</width>
                                  <height>218</height>
                                 </rect>
                                </property>
@@ -3856,8 +3858,8 @@ border: None;</string>
                                        <rect>
                                         <x>0</x>
                                         <y>0</y>
-                                        <width>746</width>
-                                        <height>730</height>
+                                        <width>98</width>
+                                        <height>28</height>
                                        </rect>
                                       </property>
                                       <layout class="QVBoxLayout" name="verticalLayout_26">
@@ -3898,8 +3900,8 @@ border: None;</string>
                                        <rect>
                                         <x>0</x>
                                         <y>0</y>
-                                        <width>746</width>
-                                        <height>730</height>
+                                        <width>98</width>
+                                        <height>28</height>
                                        </rect>
                                       </property>
                                       <layout class="QVBoxLayout" name="verticalLayout_27">
@@ -3964,7 +3966,7 @@ border: None;</string>
                            <number>9</number>
                           </property>
                           <property name="bottomMargin">
-                           <number>18</number>
+                           <number>5</number>
                           </property>
                           <item>
                            <widget class="QPlainTextEdit" name="diagnosticsTerminal">
@@ -3975,6 +3977,12 @@ background: transparent;
                             </property>
                             <property name="frameShape">
                              <enum>QFrame::NoFrame</enum>
+                            </property>
+                            <property name="verticalScrollBarPolicy">
+                             <enum>Qt::ScrollBarAlwaysOn</enum>
+                            </property>
+                            <property name="horizontalScrollBarPolicy">
+                             <enum>Qt::ScrollBarAlwaysOff</enum>
                             </property>
                             <property name="readOnly">
                              <bool>true</bool>

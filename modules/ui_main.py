@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainxaEkVU.ui'
+## Form generated from reading UI file 'mainBtFIOL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -328,7 +328,7 @@ class Ui_MainWindow(object):
 "selection-background-color: rgb(0, 114, 143);\n"
 "}\n"
 "QPlainTextEdit QScrollBar:vertical {\n"
-"width: 6px;\n"
+"width: 8px;\n"
 "}\n"
 "QPlainTextEdit QScrollBar:horizontal {\n"
 "height: 8px;\n"
@@ -1170,9 +1170,11 @@ class Ui_MainWindow(object):
         self.stackedWidget.setStyleSheet(u"background-color: rgb(30, 33, 39);")
         self.home = QWidget()
         self.home.setObjectName(u"home")
-        self.home.setStyleSheet(u"background-image: url(:/images/images/images/PyDracula_vertical.png);\n"
+        self.home.setStyleSheet(u"/*\n"
+"background-image: url(:/images/images/images/PyDracula_vertical.png);\n"
 "background-position: center;\n"
-"background-repeat: no-repeat;")
+"background-repeat: no-repeat;\n"
+"*/")
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
@@ -1315,7 +1317,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 520, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1725,7 +1727,7 @@ class Ui_MainWindow(object):
         self.diagnosticsUGVsScrollArea.setWidgetResizable(True)
         self.diagnosticsUGVsScrollAreaContent = QWidget()
         self.diagnosticsUGVsScrollAreaContent.setObjectName(u"diagnosticsUGVsScrollAreaContent")
-        self.diagnosticsUGVsScrollAreaContent.setGeometry(QRect(0, 0, 746, 730))
+        self.diagnosticsUGVsScrollAreaContent.setGeometry(QRect(0, 0, 98, 28))
         self.verticalLayout_26 = QVBoxLayout(self.diagnosticsUGVsScrollAreaContent)
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
         self.diagnosticsUGVsLayout = QGridLayout()
@@ -1749,7 +1751,7 @@ class Ui_MainWindow(object):
         self.diagnosticsUAVsScrollArea.setWidgetResizable(True)
         self.diagnosticsUAVsScrollAreaContent = QWidget()
         self.diagnosticsUAVsScrollAreaContent.setObjectName(u"diagnosticsUAVsScrollAreaContent")
-        self.diagnosticsUAVsScrollAreaContent.setGeometry(QRect(0, 0, 746, 730))
+        self.diagnosticsUAVsScrollAreaContent.setGeometry(QRect(0, 0, 98, 28))
         self.verticalLayout_27 = QVBoxLayout(self.diagnosticsUAVsScrollAreaContent)
         self.verticalLayout_27.setObjectName(u"verticalLayout_27")
         self.diagnosticsUAVsLayout = QGridLayout()
@@ -1786,13 +1788,15 @@ class Ui_MainWindow(object):
         self.verticalLayout_13 = QVBoxLayout(self.diagnosticsCol3)
         self.verticalLayout_13.setSpacing(0)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
-        self.verticalLayout_13.setContentsMargins(9, 9, 9, 18)
+        self.verticalLayout_13.setContentsMargins(9, 9, 9, 5)
         self.diagnosticsTerminal = QPlainTextEdit(self.diagnosticsCol3)
         self.diagnosticsTerminal.setObjectName(u"diagnosticsTerminal")
         self.diagnosticsTerminal.setStyleSheet(u"border: None;\n"
 "background: transparent;\n"
 "")
         self.diagnosticsTerminal.setFrameShape(QFrame.NoFrame)
+        self.diagnosticsTerminal.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.diagnosticsTerminal.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.diagnosticsTerminal.setReadOnly(True)
 
         self.verticalLayout_13.addWidget(self.diagnosticsTerminal)
@@ -1873,7 +1877,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
         self.diagnosticsStackedWidget.setCurrentIndex(0)
 
 

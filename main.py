@@ -6,7 +6,7 @@ import threading
 
 from modules import *
 from widgets import *
-from modules.diagnostics import *
+from modules.ui_diagnostics import *
 os.environ["QT_FONT_DPI"] = "96" # FIX Problem for High DPI and Scale above 100%
 
 widgets = None
@@ -49,10 +49,10 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
 
         # DIAGNOSTICS MENU
-        widgets.btn_experiment_select.clicked.connect(self.buttonClick)
-        widgets.btn_experiment_load.clicked.connect(self.buttonClick)
-        widgets.btn_actors_connect.clicked.connect(self.buttonClick)
-        widgets.btn_actors_disconnect.clicked.connect(self.buttonClick)
+        # widgets.btn_experiment_select.clicked.connect(self.buttonClick)
+        # widgets.btn_experiment_load.clicked.connect(self.buttonClick)
+        # widgets.btn_actors_connect.clicked.connect(self.buttonClick)
+        # widgets.btn_actors_disconnect.clicked.connect(self.buttonClick)
 
         self.enable_click_logging_while_experiment_running = False
         self.is_experiment_running: bool = False
@@ -76,7 +76,9 @@ class MainWindow(QMainWindow):
 
 
 
-
+        # diagnostics submenu 1
+        widgets.btn_experiment_select.clicked.connect(self.mess2_experiment_select)
+        widgets.btn_experiment_load.clicked.connect(self.mess2_experiment_load)
 
 
         # diagnostics sensors
@@ -96,7 +98,7 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         self.show()
         UIFunctions.mess2_log_to_diagnostics(self, "launched mess2")
-
+        
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = False
@@ -233,16 +235,7 @@ class MainWindow(QMainWindow):
     def selectExperimentEvent(self):
         """
         """
-        response = QFileDialog.getOpenFileName(
-            parent=self,
-            caption="Select a file",
-            dir=os.getcwd(),
-            filter=self.experiment_file_extensions
-        )
-        experiment_file_path, _ = response
-        if experiment_file_path:
-            self.experiment_file_path = experiment_file_path
-            UIFunctions.mess2_log_to_diagnostics(self, f"selected experiment file {self.experiment_file_path}")
+        
     
 
     def createSensorVICONEvent(self):
@@ -275,7 +268,23 @@ class MainWindow(QMainWindow):
     #     """
     #     This method initializes 
     #     """
+    def mess2_experiment_select(self):
+        if not self.is_experiment_running:
+            response = QFileDialog.getOpenFileName(
+                parent=self,
+                caption="Select a file",
+                dir=os.getcwd(),
+                filter=self.experiment_file_extensions
+            )
+            experiment_file_path, _ = response
+            if experiment_file_path:
+                self.experiment_file_path = experiment_file_path
+                UIFunctions.mess2_log_to_diagnostics(self, f"selected experiment file {self.experiment_file_path}")
 
+
+    def mess2_experiment_load(self):
+        if not self.is_experiment_running and self.experiment_file_path is not None:
+            print("hi")
 
 
     # def mess2_create_sensor(self):
@@ -299,6 +308,7 @@ class MainWindow(QMainWindow):
         ui.setupUi(widget)
 
         ui.sensorName.setText(sensor.sensor_name)
+        ui.sensorIP.setText(sensor.sensor_ip)
 
 
         return widget
@@ -318,7 +328,7 @@ class MainWindow(QMainWindow):
         UIFunctions.mess2_toggle_connected(self, vicon_widget.objectName(), vicon_sensor)
         UIFunctions.mess2_toggle_online(self, vicon_widget.objectName(), vicon_sensor)
         UIFunctions.mess2_log_to_diagnostics(self, "added vicon diagnostics to sensors")
-
+        
 
 
 #######################

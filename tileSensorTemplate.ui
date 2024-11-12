@@ -29,6 +29,7 @@
    <string notr="true">QWidget QFrame {
 background-color: rgb(21, 23, 27);
 border-radius: 5px;
+color: rgb(221, 221, 221);
 }
 #sensorConnected {
 background-image: url(:/icons/images/icons2/status_disconnected.png);
@@ -39,6 +40,10 @@ background-position: center;
 background-image: url(:/icons/images/icons2/status_offline.png);
 background-repeat: no-repeat;
 background-position: center;
+}
+#sensorIP {
+color: rgb(201, 201, 201) !important;
+font-size: 10px !important;
 }</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -86,7 +91,7 @@ background-position: center;
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>32</height>
+          <height>24</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -106,13 +111,13 @@ background-position: center;
           <number>1</number>
          </property>
          <property name="topMargin">
-          <number>1</number>
+          <number>0</number>
          </property>
          <property name="rightMargin">
           <number>1</number>
          </property>
          <property name="bottomMargin">
-          <number>1</number>
+          <number>0</number>
          </property>
          <item alignment="Qt::AlignTop">
           <widget class="QLabel" name="sensorName">
@@ -129,7 +134,7 @@ background-position: center;
             </size>
            </property>
            <property name="text">
-            <string>VICON Valkyrie Motion Capture System</string>
+            <string>sensorName</string>
            </property>
           </widget>
          </item>
@@ -137,8 +142,8 @@ background-position: center;
           <widget class="QFrame" name="sensorConnected">
            <property name="minimumSize">
             <size>
-             <width>24</width>
-             <height>24</height>
+             <width>0</width>
+             <height>16</height>
             </size>
            </property>
            <property name="maximumSize">
@@ -160,7 +165,7 @@ background-position: center;
            <property name="minimumSize">
             <size>
              <width>0</width>
-             <height>24</height>
+             <height>16</height>
             </size>
            </property>
            <property name="maximumSize">
@@ -190,8 +195,51 @@ background-position: center;
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <property name="spacing">
-          <number>6</number>
+          <number>9</number>
          </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item alignment="Qt::AlignTop">
+          <widget class="QLabel" name="sensorIP">
+           <property name="font">
+            <font>
+             <pointsize>-1</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>sensorIP</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="frame_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 0, 0);</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
       </item>

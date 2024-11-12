@@ -1,0 +1,10 @@
+experiment_name: "test2_load_dynamic_experiments"
+sensors:
+  - type: "vicon"
+    mess2:
+      name: "VICON Valkyrie Motion Capture System"
+      ip: "192.168.0.1"
+      show_connected: false
+      show_online: true
+    ros2:
+    

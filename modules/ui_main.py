@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainIfXXgu.ui'
+## Form generated from reading UI file 'mainxGyYXO.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -1317,7 +1317,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 520, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1686,7 +1686,7 @@ class Ui_MainWindow(object):
         self.diagnosticsSensors.setSizePolicy(sizePolicy3)
         self.diagnosticsSensors.setMinimumSize(QSize(748, 732))
         self.verticalLayout_23 = QVBoxLayout(self.diagnosticsSensors)
-        self.verticalLayout_23.setSpacing(0)
+        self.verticalLayout_23.setSpacing(6)
         self.verticalLayout_23.setObjectName(u"verticalLayout_23")
         self.verticalLayout_23.setContentsMargins(18, 9, 9, 9)
         self.diagnosticsSensorsScrollArea = QScrollArea(self.diagnosticsSensors)
@@ -1753,7 +1753,7 @@ class Ui_MainWindow(object):
         self.diagnosticsUAVs.setSizePolicy(sizePolicy3)
         self.diagnosticsUAVs.setMinimumSize(QSize(748, 732))
         self.verticalLayout_24 = QVBoxLayout(self.diagnosticsUAVs)
-        self.verticalLayout_24.setSpacing(0)
+        self.verticalLayout_24.setSpacing(6)
         self.verticalLayout_24.setObjectName(u"verticalLayout_24")
         self.verticalLayout_24.setContentsMargins(18, 9, 9, 9)
         self.diagnosticsUAVsScrollArea = QScrollArea(self.diagnosticsUAVs)
@@ -1891,7 +1891,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget.setCurrentIndex(2)
-        self.diagnosticsStackedWidget.setCurrentIndex(1)
+        self.diagnosticsStackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2024,6 +2024,6 @@ class Ui_MainWindow(object):
         self.btn_diagnostics_sensors.setText(QCoreApplication.translate("MainWindow", u"Sensors", None))
         self.btn_diagnostics_refresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"Marina J. Nelson", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.5", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.6", None))
     # retranslateUi
 

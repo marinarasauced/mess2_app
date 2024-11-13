@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>tileSensorTemplate</class>
- <widget class="QWidget" name="tileSensorTemplate">
+ <class>tileDiagnosticsSensor</class>
+ <widget class="QWidget" name="tileDiagnosticsSensor">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -31,44 +31,26 @@ background-color: rgb(21, 23, 27);
 border-radius: 5px;
 color: rgb(221, 221, 221);
 }
-#sensorConnected {
+#status_connected {
 background-image: url(:/icons/images/icons2/status_disconnected.png);
 background-repeat: no-repeat;
 background-position: center;
 }
-#sensorOnline {
+#status_online {
 background-image: url(:/icons/images/icons2/status_offline.png);
 background-repeat: no-repeat;
 background-position: center;
 }
-#sensorIP {
+#ip_text {
 color: rgb(191, 191, 191) !important;
 font-size: 10px !important;
 }
-#sensorNodes {
+#nodes {
 background-color: rgb(30, 33, 39);
 }
-#sensorNodes QFrame {
+#nodes QFrame {
 background-color: transparent;
 font-size: 10px;
-}
-#nodeName1 {
-color: rgb(191, 191, 191);
-}
-#nodeName2 {
-color: rgb(191, 191, 191);
-}
-#nodeName3 {
-color: rgb(191, 191, 191);
-}
-#nodeStatus1 {
-color: rgb(92, 95, 102);
-}
-#nodeStatus2 {
-color: rgb(92, 95, 102);
-}
-#nodeStatus3 {
-color: rgb(92, 95, 102);
 }</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -127,7 +109,7 @@ color: rgb(92, 95, 102);
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="spacing">
-          <number>1</number>
+          <number>9</number>
          </property>
          <property name="sizeConstraint">
           <enum>QLayout::SetNoConstraint</enum>
@@ -145,7 +127,7 @@ color: rgb(92, 95, 102);
           <number>0</number>
          </property>
          <item alignment="Qt::AlignTop">
-          <widget class="QLabel" name="sensorName">
+          <widget class="QLabel" name="name_text">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -159,12 +141,12 @@ color: rgb(92, 95, 102);
             </size>
            </property>
            <property name="text">
-            <string>sensorName</string>
+            <string>name</string>
            </property>
           </widget>
          </item>
          <item alignment="Qt::AlignTop">
-          <widget class="QFrame" name="sensorConnected">
+          <widget class="QFrame" name="status_connected">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -173,7 +155,7 @@ color: rgb(92, 95, 102);
            </property>
            <property name="maximumSize">
             <size>
-             <width>24</width>
+             <width>16</width>
              <height>24</height>
             </size>
            </property>
@@ -186,7 +168,7 @@ color: rgb(92, 95, 102);
           </widget>
          </item>
          <item alignment="Qt::AlignTop">
-          <widget class="QFrame" name="sensorOnline">
+          <widget class="QFrame" name="status_online">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -195,7 +177,7 @@ color: rgb(92, 95, 102);
            </property>
            <property name="maximumSize">
             <size>
-             <width>24</width>
+             <width>16</width>
              <height>24</height>
             </size>
            </property>
@@ -211,7 +193,7 @@ color: rgb(92, 95, 102);
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="verticalWidget" native="true">
+       <widget class="QFrame" name="verticalFrame">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -235,19 +217,19 @@ color: rgb(92, 95, 102);
           <number>0</number>
          </property>
          <item alignment="Qt::AlignTop">
-          <widget class="QLabel" name="sensorIP">
+          <widget class="QLabel" name="ip_text">
            <property name="font">
             <font>
              <pointsize>-1</pointsize>
             </font>
            </property>
            <property name="text">
-            <string>sensorIP</string>
+            <string>ip</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QFrame" name="sensorNodes">
+          <widget class="QFrame" name="nodes">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -265,16 +247,16 @@ color: rgb(92, 95, 102);
            </property>
            <layout class="QGridLayout" name="gridLayout">
             <property name="leftMargin">
-             <number>9</number>
+             <number>0</number>
             </property>
             <property name="topMargin">
-             <number>3</number>
+             <number>0</number>
             </property>
             <property name="rightMargin">
-             <number>9</number>
+             <number>0</number>
             </property>
             <property name="bottomMargin">
-             <number>3</number>
+             <number>0</number>
             </property>
             <property name="horizontalSpacing">
              <number>6</number>
@@ -282,107 +264,8 @@ color: rgb(92, 95, 102);
             <property name="verticalSpacing">
              <number>0</number>
             </property>
-            <item row="2" column="1">
-             <widget class="QLabel" name="nodeStatus3">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>running</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="nodeName2">
-              <property name="minimumSize">
-               <size>
-                <width>245</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>/mess2/vicon/node2</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QLabel" name="nodeStatus2">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>not running</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLabel" name="nodeStatus1">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>not running</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="nodeName3">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>245</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>/mess2/vicon/node3</string>
-              </property>
-             </widget>
-            </item>
             <item row="0" column="0">
-             <widget class="QLabel" name="nodeName1">
-              <property name="minimumSize">
-               <size>
-                <width>245</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>/mess2/vicon/node1</string>
-              </property>
-             </widget>
+             <layout class="QGridLayout" name="nodesLayout"/>
             </item>
            </layout>
           </widget>

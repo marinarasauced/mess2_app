@@ -71,8 +71,10 @@ class MainWindow(QMainWindow):
         # widgets.btnVICON_11.clicked.connect(self.buttonClick)
 
         # ///////////////////////////////////////////////////////////////
-        self.threadpool = QThreadPool()
-        self.threadpool.maxThreadCount = 4
+        
+        # thread pool
+        self.threadpool = QThreadPool.globalInstance()
+        self.threadpool.maxThreadCount = 20
 
 
 
@@ -103,7 +105,11 @@ class MainWindow(QMainWindow):
         widgets.diagnosticsUAVsLayout.setAlignment(Qt.AlignTop)
         self.diagnsotics_grid_uavs = Obj_gridWidget(2)
         self.diagnostics_actors_uavs = []
-        
+
+        # diagnostics update network connection icons worker
+        self.diagnostics_timer_network_connection = QTimer()
+        self.diagnostics_timer_network_connection.timeout.connect(self.mess2_check_network_connections)
+        self.diagnostics_timer_network_connection.start(5000)
 
 
 
@@ -319,6 +325,7 @@ class MainWindow(QMainWindow):
                 self.experiment_name = experiment_name
                 self.mess2_load_sensors()
                 self.mess2_load_actors()
+                self.is_experiment_loaded = True
 
             elif self.experiment_name is not None and experiment_name != "" and experiment_name != self.experiment_name:
                 self.experiment_name = experiment_name
@@ -326,6 +333,7 @@ class MainWindow(QMainWindow):
                 self.mess2_load_sensors()
                 self.mess2_remove_actors()
                 self.mess2_load_actors()
+                self.is_experiment_loaded = True
 
             elif experiment_name == "":
                 UIFunctions.mess2_log_to_diagnostics(self, f"experiment file {self.experiment_file_path} is invalid")
@@ -460,6 +468,42 @@ class MainWindow(QMainWindow):
                     self.mess2_add_actor_ugv(type, name, ip)
                 elif type == "uav":
                     self.mess2_add_actor_uav(type, name, ip)
+
+
+    def mess2_check_network_connections(self):
+        """
+        Check network connections for sensors, UGVs, and UAVs.
+        """
+        worker = Worker_mess2CheckNetworkConnection(
+            self.diagnostics_sensors,
+            self.diagnostics_actors_ugvs,
+            self.diagnostics_actors_uavs
+        )
+        
+        # worker.signal..connect(self.mess2_update_network_connection_icons)
+        # worker.signals.signal.connect(
+        #     lambda str: print(f"str: {str}")
+        # )
+
+        self.threadpool.start(worker)
+        # if self.is_experiment_loaded:
+        #     worker = Worker_mess2CheckNetworkConnection(
+        #         self.diagnostics_sensors,
+        #         self.diagnostics_actors_ugvs,
+        #         self.diagnostics_actors_uavs
+        #     )
+
+        #     self.diagnostics_signal_ip_network_connection = None
+        #     self.diagnostics_signal_status_network_connection = None
+
+        #     def handle_signal(ip: str, status: bool):
+        #         """
+        #         Slot method to handle the signal emitted by the worker.
+        #         """
+        #         self.diagnostics_signal_ip_network_connection = ip
+        #         self.diagnostics_signal_status_network_connection = status
+
+        #     self.threadpool.start(worker)
 
 
 

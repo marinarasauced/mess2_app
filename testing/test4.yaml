@@ -1,0 +1,17 @@
+experiment_name: "test2_load_dynamic_experiments"
+sensors:
+  - type: "vicon"
+    name: "VICON Valkyrie Motion Capture System"
+    ip: "192.168.0.101"
+    show_connected: false
+    show_online: true
+  - type: "flir"
+    name: "FLIR1"
+    ip: "192.168.0.201"
+    show_connected: false
+    show_online: true
+  - type: "test"
+    name: "marina's pc"
+    ip: "192.168.1.168"
+    show_connected: false
+    show_online: true

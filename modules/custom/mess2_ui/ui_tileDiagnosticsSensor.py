@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tileDiagnosticsSensorxPQSkT.ui'
+## Form generated from reading UI file 'tileDiagnosticsSensorZNSchP.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -75,15 +75,15 @@ class Ui_tileDiagnosticsSensor(object):
         self.horizontalLayout.setContentsMargins(1, 0, 1, 0)
         self.name_text = QLabel(self.horizontalWidget)
         self.name_text.setObjectName(u"name_text")
-        self.name_text.setMinimumSize(QSize(0, 0))
-        self.name_text.setMaximumSize(QSize(16777215, 32))
+        self.name_text.setMinimumSize(QSize(0, 16))
+        self.name_text.setMaximumSize(QSize(16777215, 16))
 
         self.horizontalLayout.addWidget(self.name_text, 0, Qt.AlignTop)
 
         self.status_connected = QFrame(self.horizontalWidget)
         self.status_connected.setObjectName(u"status_connected")
-        self.status_connected.setMinimumSize(QSize(0, 16))
-        self.status_connected.setMaximumSize(QSize(16, 24))
+        self.status_connected.setMinimumSize(QSize(16, 16))
+        self.status_connected.setMaximumSize(QSize(16, 16))
         self.status_connected.setFrameShape(QFrame.StyledPanel)
         self.status_connected.setFrameShadow(QFrame.Raised)
 
@@ -91,8 +91,8 @@ class Ui_tileDiagnosticsSensor(object):
 
         self.status_online = QFrame(self.horizontalWidget)
         self.status_online.setObjectName(u"status_online")
-        self.status_online.setMinimumSize(QSize(0, 16))
-        self.status_online.setMaximumSize(QSize(16, 24))
+        self.status_online.setMinimumSize(QSize(16, 16))
+        self.status_online.setMaximumSize(QSize(16, 16))
         self.status_online.setFrameShape(QFrame.StyledPanel)
         self.status_online.setFrameShadow(QFrame.Raised)
 

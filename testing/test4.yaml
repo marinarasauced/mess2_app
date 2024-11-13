@@ -1,4 +1,4 @@
-experiment_name: "test2_load_dynamic_experiments"
+experiment_name: "test4_check_network_connectivity_pinging"
 sensors:
   - type: "vicon"
     name: "VICON Valkyrie Motion Capture System"

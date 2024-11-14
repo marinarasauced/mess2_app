@@ -6,7 +6,7 @@ from modules.custom.mess2_ui.common import *
 from modules.custom.mess2_ui.ui_tileDiagnosticsSensor import *
 
 
-class Obj_mess2Sensor(Obj_mess2DiagnosticsCommon):
+class Sensor(UIFunctionsDiagnostics, Ping):
     """
     """
     def __init__(self, sensor_type: str, sensor_name: str, sensor_ip: str = "", show_connected: bool = False, show_online: bool = True, is_empty: bool = False):

@@ -6,7 +6,7 @@ from modules.custom.mess2_ui.common import *
 from modules.custom.mess2_ui.ui_tileDiagnosticsUGV import *
 
 
-class Obj_mess2Actor(Obj_mess2DiagnosticsCommon):
+class Actor(UIFunctionsDiagnostics, Ping):
     """
     """
     def __init__(self, actor_type: str, actor_name: str, actor_ip: str = ""):

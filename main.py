@@ -351,7 +351,7 @@ class MainWindow(QMainWindow):
 
         if is_empty:
             sensor_name = f"sensorEmpty_{index_row}_{index_col}"
-        sensor = Obj_mess2Sensor(sensor_type, sensor_name, sensor_ip, show_connected, show_online, is_empty)
+        sensor = Sensor(sensor_type, sensor_name, sensor_ip, show_connected, show_online, is_empty)
         self.diagnostics_sensors.append(sensor)
 
         widgets.diagnosticsSensorsLayout.addWidget(sensor.widget, index_row, index_col)
@@ -403,7 +403,7 @@ class MainWindow(QMainWindow):
         index_row = self.diagnsotics_grid_ugvs.get_index_row()
         index_col = self.diagnsotics_grid_ugvs.get_index_col()
 
-        actor = Obj_mess2Actor(actor_type, actor_name, actor_ip)
+        actor = Actor(actor_type, actor_name, actor_ip)
         self.diagnostics_actors_ugvs.append(actor)
 
         widgets.diagnosticsUGVsLayout.addWidget(actor.widget, index_row, index_col)
@@ -421,7 +421,7 @@ class MainWindow(QMainWindow):
         """
         
         """
-        actor = Obj_mess2Actor(actor_type, actor_name, actor_ip)
+        actor = Actor(actor_type, actor_name, actor_ip)
         self.diagnostics_actors_uavs.append(actor)
         
         index_row = self.diagnsotics_grid_uavs.get_index_row()

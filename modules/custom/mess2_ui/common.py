@@ -1,6 +1,11 @@
 
+from paramiko import SSHClient, AutoAddPolicy
+import platform
+from scp import SCPClient
+import subprocess
 
-class Obj_mess2DiagnosticsCommon():
+
+class UIFunctionsDiagnostics():
     """
     """
     def __init__(self):
@@ -102,3 +107,125 @@ class Obj_mess2DiagnosticsCommon():
         This method updates the actor's battery percentage text.
         """
         self.ui.battery_text.setText(value)
+
+
+class Ping():
+    """
+    """
+    def ping(self, ip: str):
+        """
+        """
+        if ip is not None:
+            param = "-n" if platform.system().lower() == "windows" else "-c"
+
+            try:
+                response = subprocess.run(["ping", param, "1", ip],
+                                          stdout=subprocess.PIPE,
+                                          stderr=subprocess.PIPE,
+                                          timeout=4)
+
+                if response.returncode == 0:
+                    # print(f"{ip} is online and reachable.")
+                    return True
+                else:
+                    # print(f"{ip} is not reachable.")
+                    return False
+            except Exception as e:
+                # print(f"Error: {e}")
+                return False
+
+
+class SSH():
+    """
+    The SSH class manages SSH connection and SCP transfers.
+    """
+    def __init__(self):
+        """
+        Initializes the SSH client and load's the system host keys.
+        """
+        self.ssh = SSHClient()
+        self.ssh.load_system_host_keys()
+        self.ssh.set_missing_host_key_policy(AutoAddPolicy())
+    
+
+    def __del__(self):
+        """
+        Safely closes the SSH connection when the SSH class instance is destroyed.
+        """
+        self.ssh_disconnect()
+
+
+    def is_active(self):
+        """
+        Checks if the SSH connection is active.
+        """
+        transport = self.ssh.get_transport()
+        return transport is not None and transport.is_active()
+
+
+    def ssh_connect(self, hostname: str, username: str, password: str, port: int = -1):
+        """
+        """
+        try:
+            if port == -1:
+                self.ssh.connect(
+                    hostname=hostname,
+                    username=username,
+                    password=password
+                )
+            else:
+                self.ssh.connect(
+                    hostname=hostname,
+                    username=username,
+                    password=password,
+                    port=port
+                )
+            return True
+        except Exception as e:
+            return False
+    
+
+    def ssh_disconnect(self):
+        """
+        """
+        if self.ssh:
+            self.ssh.close()
+            return True
+        else:
+            return False
+        
+
+    def scp_upload(self, local_path: str, remote_path: str):
+        """
+        """
+        try:
+            if not self.is_active():
+                self.ssh_connect()
+            scp = SCPClient(self.ssh.get_transport())
+            scp.put(
+                files=local_path,
+                remote_path=remote_path,
+                recursive=True
+            )
+            scp.close()
+            return True
+        except Exception as e:
+            return False
+
+
+    def scp_download(self, local_path: str, remote_path: str):
+        """
+        """
+        try:
+            if not self.is_active():
+                self.ssh_connect()
+            scp = SCPClient(self.ssh.get_transport())
+            scp.get(
+                remote_path=remote_path,
+                local_path=local_path,
+                recursive=True
+            )
+            scp.close()
+            return True
+        except Exception as e:
+            return False

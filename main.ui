@@ -574,7 +574,6 @@ background-color: rbg(255, 0, 0);
 background-color: rbg(0, 204, 255);
 }
 
-
 </string>
    </property>
    <layout class="QVBoxLayout" name="appMargins">
@@ -3324,7 +3323,7 @@ background-repeat: no-repeat;
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QFrame" name="diagnosticsCol1">
+                        <widget class="QFrame" name="diagnosticsButtons">
                          <property name="minimumSize">
                           <size>
                            <width>250</width>
@@ -3338,8 +3337,14 @@ background-repeat: no-repeat;
                           </size>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">/*border-left: 6px solid rgb(21, 23, 27); */
-background-color: rgb(21, 23, 27);</string>
+                          <string notr="true">#diagnosticsButtons {
+background-color: rgb(21, 23, 27);
+}
+#diagnosticsButtons QFrame {
+background: transparent;
+border: None;
+}
+</string>
                          </property>
                          <property name="frameShape">
                           <enum>QFrame::NoFrame</enum>
@@ -3349,168 +3354,7 @@ background-color: rgb(21, 23, 27);</string>
                          </property>
                          <layout class="QVBoxLayout" name="verticalLayout_7">
                           <item>
-                           <widget class="QFrame" name="diagnosticsRow11">
-                            <property name="minimumSize">
-                             <size>
-                              <width>0</width>
-                              <height>500</height>
-                             </size>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">QFrame {
-	background: transparent;
-	border: None;
-}
-QFrame QPushButton {
-	border: 2px solid rgb(0, 204, 255);
-	border-radius: 20px;
-	background-color: transparent;
-}
-QFrame QPushButton:hover {
-	background-color: rgb(0, 49, 61);
-}
-QFrame QPushButton:pressed {
-	background-color: rgb(0, 49, 61);
-}</string>
-                            </property>
-                            <widget class="QPushButton" name="btn_experiment_load">
-                             <property name="geometry">
-                              <rect>
-                               <x>10</x>
-                               <y>60</y>
-                               <width>211</width>
-                               <height>41</height>
-                              </rect>
-                             </property>
-                             <property name="cursor">
-                              <cursorShape>PointingHandCursor</cursorShape>
-                             </property>
-                             <property name="text">
-                              <string>    Load Experiment File  </string>
-                             </property>
-                             <property name="icon">
-                              <iconset theme="system-help">
-                               <normaloff>.</normaloff>.</iconset>
-                             </property>
-                            </widget>
-                            <widget class="QPushButton" name="btn_actors_connect">
-                             <property name="geometry">
-                              <rect>
-                               <x>20</x>
-                               <y>200</y>
-                               <width>181</width>
-                               <height>26</height>
-                              </rect>
-                             </property>
-                             <property name="text">
-                              <string>Connect to all Actors</string>
-                             </property>
-                            </widget>
-                            <widget class="QPushButton" name="pushButton_5">
-                             <property name="geometry">
-                              <rect>
-                               <x>20</x>
-                               <y>300</y>
-                               <width>181</width>
-                               <height>26</height>
-                              </rect>
-                             </property>
-                             <property name="text">
-                              <string>Start ROS2 Sensor Drivers</string>
-                             </property>
-                            </widget>
-                            <widget class="QPushButton" name="pushButton_6">
-                             <property name="geometry">
-                              <rect>
-                               <x>20</x>
-                               <y>220</y>
-                               <width>181</width>
-                               <height>26</height>
-                              </rect>
-                             </property>
-                             <property name="text">
-                              <string>Stop ROS2 Sensor Drivers</string>
-                             </property>
-                            </widget>
-                            <widget class="QPushButton" name="pushButton_7">
-                             <property name="geometry">
-                              <rect>
-                               <x>20</x>
-                               <y>240</y>
-                               <width>181</width>
-                               <height>26</height>
-                              </rect>
-                             </property>
-                             <property name="text">
-                              <string>Start ROS2 Actor Servers</string>
-                             </property>
-                            </widget>
-                            <widget class="QPushButton" name="pushButton_8">
-                             <property name="geometry">
-                              <rect>
-                               <x>20</x>
-                               <y>260</y>
-                               <width>181</width>
-                               <height>26</height>
-                              </rect>
-                             </property>
-                             <property name="text">
-                              <string>Stop ROS2 Actor Servers</string>
-                             </property>
-                            </widget>
-                            <widget class="QPushButton" name="btn_actors_disconnect">
-                             <property name="geometry">
-                              <rect>
-                               <x>20</x>
-                               <y>280</y>
-                               <width>181</width>
-                               <height>26</height>
-                              </rect>
-                             </property>
-                             <property name="text">
-                              <string>Disconnect from all Actors</string>
-                             </property>
-                            </widget>
-                            <widget class="QPushButton" name="btn_experiment_select">
-                             <property name="geometry">
-                              <rect>
-                               <x>10</x>
-                               <y>10</y>
-                               <width>211</width>
-                               <height>41</height>
-                              </rect>
-                             </property>
-                             <property name="cursor">
-                              <cursorShape>PointingHandCursor</cursorShape>
-                             </property>
-                             <property name="styleSheet">
-                              <string notr="true"/>
-                             </property>
-                             <property name="text">
-                              <string>    Select Experiment File</string>
-                             </property>
-                             <property name="icon">
-                              <iconset theme="folder-open">
-                               <normaloff>.</normaloff>.</iconset>
-                             </property>
-                            </widget>
-                            <widget class="QPushButton" name="btn_vicon_driver">
-                             <property name="geometry">
-                              <rect>
-                               <x>10</x>
-                               <y>110</y>
-                               <width>211</width>
-                               <height>41</height>
-                              </rect>
-                             </property>
-                             <property name="text">
-                              <string>Start VICON Driver</string>
-                             </property>
-                            </widget>
-                           </widget>
-                          </item>
-                          <item>
-                           <widget class="QFrame" name="diagnosticsRow12">
+                           <widget class="QFrame" name="diagnosticsButtonsBottom">
                             <property name="sizePolicy">
                              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                               <horstretch>0</horstretch>
@@ -3518,8 +3362,7 @@ QFrame QPushButton:pressed {
                              </sizepolicy>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">background: transparent;
-border: None;</string>
+                             <string notr="true"/>
                             </property>
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>
@@ -3527,19 +3370,856 @@ border: None;</string>
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
                             </property>
-                            <widget class="QPushButton" name="pushButton_2">
-                             <property name="geometry">
-                              <rect>
-                               <x>40</x>
-                               <y>50</y>
-                               <width>151</width>
-                               <height>26</height>
-                              </rect>
+                            <layout class="QVBoxLayout" name="verticalLayout_29">
+                             <property name="topMargin">
+                              <number>6</number>
                              </property>
-                             <property name="text">
-                              <string>Abort Experiment</string>
+                             <property name="bottomMargin">
+                              <number>27</number>
                              </property>
-                            </widget>
+                             <item>
+                              <widget class="QFrame" name="frame_top">
+                               <property name="sizePolicy">
+                                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                                 <horstretch>0</horstretch>
+                                 <verstretch>0</verstretch>
+                                </sizepolicy>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">QFrame QPushButton {
+border: 2px solid rgb(0, 204, 255);
+border-radius: 20px;
+background-color: transparent;
+min-height: 40px;
+}
+QFrame QPushButton:hover {
+	background-color: rgb(25, 40, 50);
+}
+QFrame QPushButton:pressed {
+	background-color: rgb(25, 40, 50);
+}
+QFrame QLabel {
+color: rgb(201, 201, 201);
+font-weight: 600;
+border-bottom: 1px solid rgb(0, 204, 255);
+}
+</string>
+                               </property>
+                               <property name="frameShape">
+                                <enum>QFrame::StyledPanel</enum>
+                               </property>
+                               <property name="frameShadow">
+                                <enum>QFrame::Raised</enum>
+                               </property>
+                               <layout class="QVBoxLayout" name="verticalLayout_32">
+                                <property name="leftMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="topMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="rightMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="bottomMargin">
+                                 <number>0</number>
+                                </property>
+                                <item>
+                                 <layout class="QVBoxLayout" name="diagnosticsSubmenu1">
+                                  <property name="spacing">
+                                   <number>27</number>
+                                  </property>
+                                  <property name="leftMargin">
+                                   <number>1</number>
+                                  </property>
+                                  <property name="topMargin">
+                                   <number>8</number>
+                                  </property>
+                                  <property name="rightMargin">
+                                   <number>1</number>
+                                  </property>
+                                  <property name="bottomMargin">
+                                   <number>54</number>
+                                  </property>
+                                  <item>
+                                   <widget class="QFrame" name="diagnosticsCalibrationFrame">
+                                    <property name="sizePolicy">
+                                     <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                                      <horstretch>0</horstretch>
+                                      <verstretch>0</verstretch>
+                                     </sizepolicy>
+                                    </property>
+                                    <property name="frameShape">
+                                     <enum>QFrame::StyledPanel</enum>
+                                    </property>
+                                    <property name="frameShadow">
+                                     <enum>QFrame::Raised</enum>
+                                    </property>
+                                    <layout class="QVBoxLayout" name="verticalLayout_31">
+                                     <property name="spacing">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="leftMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="topMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="rightMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="bottomMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <item>
+                                      <widget class="QLabel" name="diagnosticsCalibrationLabel">
+                                       <property name="maximumSize">
+                                        <size>
+                                         <width>16777215</width>
+                                         <height>24</height>
+                                        </size>
+                                       </property>
+                                       <property name="text">
+                                        <string>VICON CALIBRATION</string>
+                                       </property>
+                                      </widget>
+                                     </item>
+                                     <item>
+                                      <widget class="QFrame" name="calibrationObjectName">
+                                       <property name="maximumSize">
+                                        <size>
+                                         <width>16777215</width>
+                                         <height>48</height>
+                                        </size>
+                                       </property>
+                                       <property name="styleSheet">
+                                        <string notr="true">QFrame QLabel {
+color: rgb(201, 201, 201);
+font-weight: 400;
+font-size: 11px;
+border-bottom: 0px solid rgb(0, 204, 255);
+}
+QLineEdit {
+background-color: rgb(30, 33, 39);
+border: none;
+color: rgb(201, 201, 201);
+font-size: 11px;
+selection-background-color: rgb(0, 153, 191);
+}
+QLineEdit:hover {
+background-color: rgb(40, 44, 52);
+}
+QLineEdit:focus {
+background-color: rgb(40, 44, 52);
+}
+</string>
+                                       </property>
+                                       <property name="frameShape">
+                                        <enum>QFrame::StyledPanel</enum>
+                                       </property>
+                                       <property name="frameShadow">
+                                        <enum>QFrame::Raised</enum>
+                                       </property>
+                                       <layout class="QHBoxLayout" name="horizontalLayout_6">
+                                        <property name="spacing">
+                                         <number>6</number>
+                                        </property>
+                                        <property name="leftMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <property name="topMargin">
+                                         <number>15</number>
+                                        </property>
+                                        <property name="rightMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <property name="bottomMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <item>
+                                         <widget class="QLabel" name="calibrationObjectNameLabel">
+                                          <property name="maximumSize">
+                                           <size>
+                                            <width>16777215</width>
+                                            <height>24</height>
+                                           </size>
+                                          </property>
+                                          <property name="text">
+                                           <string>Object Name:</string>
+                                          </property>
+                                         </widget>
+                                        </item>
+                                        <item>
+                                         <widget class="QLineEdit" name="calibrationObjectNameText">
+                                          <property name="maximumSize">
+                                           <size>
+                                            <width>16777215</width>
+                                            <height>24</height>
+                                           </size>
+                                          </property>
+                                          <property name="styleSheet">
+                                           <string notr="true"/>
+                                          </property>
+                                          <property name="text">
+                                           <string>object</string>
+                                          </property>
+                                         </widget>
+                                        </item>
+                                       </layout>
+                                      </widget>
+                                     </item>
+                                     <item>
+                                      <widget class="QFrame" name="calibrationObjectNameComment">
+                                       <property name="styleSheet">
+                                        <string notr="true">QFrame QLabel {
+color: rgb(92, 95, 102);
+font-weight: 400;
+font-size: 10px;
+font-style: italic;
+border-bottom: 0px solid rgb(0, 204, 255);
+}</string>
+                                       </property>
+                                       <property name="frameShape">
+                                        <enum>QFrame::StyledPanel</enum>
+                                       </property>
+                                       <property name="frameShadow">
+                                        <enum>QFrame::Raised</enum>
+                                       </property>
+                                       <layout class="QVBoxLayout" name="verticalLayout_34">
+                                        <property name="leftMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <property name="topMargin">
+                                         <number>6</number>
+                                        </property>
+                                        <property name="rightMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <property name="bottomMargin">
+                                         <number>9</number>
+                                        </property>
+                                        <item>
+                                         <widget class="QLabel" name="label">
+                                          <property name="text">
+                                           <string>Must be an object in VICON Tracker</string>
+                                          </property>
+                                         </widget>
+                                        </item>
+                                       </layout>
+                                      </widget>
+                                     </item>
+                                     <item>
+                                      <widget class="QFrame" name="calibrationButtons">
+                                       <property name="maximumSize">
+                                        <size>
+                                         <width>16777215</width>
+                                         <height>24</height>
+                                        </size>
+                                       </property>
+                                       <property name="styleSheet">
+                                        <string notr="true">#calibrationButtons QPushButton {
+background-color: rgb(30, 33, 39);
+border-radius: 6px;
+padding: 0 9px 0 9px;
+}
+#calibrationButtons QPushButton:hover {
+background-color: rgb(40, 44, 52);
+}
+#calibrationButtons QPushButton:pressed {
+background-color: rgb(40, 44, 52);
+}</string>
+                                       </property>
+                                       <property name="frameShape">
+                                        <enum>QFrame::StyledPanel</enum>
+                                       </property>
+                                       <property name="frameShadow">
+                                        <enum>QFrame::Raised</enum>
+                                       </property>
+                                       <layout class="QHBoxLayout" name="horizontalLayout_8">
+                                        <property name="leftMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <property name="topMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <property name="rightMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <property name="bottomMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <item>
+                                         <widget class="QPushButton" name="btn_calibration">
+                                          <property name="sizePolicy">
+                                           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                           </sizepolicy>
+                                          </property>
+                                          <property name="minimumSize">
+                                           <size>
+                                            <width>0</width>
+                                            <height>24</height>
+                                           </size>
+                                          </property>
+                                          <property name="maximumSize">
+                                           <size>
+                                            <width>16777215</width>
+                                            <height>24</height>
+                                           </size>
+                                          </property>
+                                          <property name="cursor">
+                                           <cursorShape>PointingHandCursor</cursorShape>
+                                          </property>
+                                          <property name="styleSheet">
+                                           <string notr="true">color: rgb(201, 201, 201);
+font-size: 11px;
+min-height: 24px;
+max-height: 24px;
+border: none;</string>
+                                          </property>
+                                          <property name="text">
+                                           <string>Start Calibration</string>
+                                          </property>
+                                         </widget>
+                                        </item>
+                                        <item>
+                                         <widget class="QPushButton" name="btn_calibration_cancel">
+                                          <property name="cursor">
+                                           <cursorShape>PointingHandCursor</cursorShape>
+                                          </property>
+                                          <property name="styleSheet">
+                                           <string notr="true">color: rgb(201, 201, 201);
+font-size: 11px;
+min-height: 24px;
+max-height: 24px;
+border: none;</string>
+                                          </property>
+                                          <property name="text">
+                                           <string>Cancel</string>
+                                          </property>
+                                         </widget>
+                                        </item>
+                                       </layout>
+                                      </widget>
+                                     </item>
+                                    </layout>
+                                   </widget>
+                                  </item>
+                                  <item>
+                                   <widget class="QFrame" name="diagnosticsExperimentFrame">
+                                    <property name="sizePolicy">
+                                     <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                                      <horstretch>0</horstretch>
+                                      <verstretch>0</verstretch>
+                                     </sizepolicy>
+                                    </property>
+                                    <property name="frameShape">
+                                     <enum>QFrame::StyledPanel</enum>
+                                    </property>
+                                    <property name="frameShadow">
+                                     <enum>QFrame::Raised</enum>
+                                    </property>
+                                    <layout class="QVBoxLayout" name="verticalLayout_33">
+                                     <property name="spacing">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="leftMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="topMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="rightMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="bottomMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <item>
+                                      <widget class="QLabel" name="diagnosticsExperimentLabel">
+                                       <property name="maximumSize">
+                                        <size>
+                                         <width>16777215</width>
+                                         <height>24</height>
+                                        </size>
+                                       </property>
+                                       <property name="text">
+                                        <string>EXPERIMENT SELECTION</string>
+                                       </property>
+                                      </widget>
+                                     </item>
+                                     <item>
+                                      <widget class="QFrame" name="experimentFile">
+                                       <property name="maximumSize">
+                                        <size>
+                                         <width>16777215</width>
+                                         <height>48</height>
+                                        </size>
+                                       </property>
+                                       <property name="styleSheet">
+                                        <string notr="true">QFrame QLabel {
+color: rgb(201, 201, 201);
+font-weight: 400;
+font-size: 11px;
+border-bottom: 0px solid rgb(0, 204, 255);
+}
+QPushButton {
+background-color: rgb(30, 33, 39);
+border: none;
+color: rgb(201, 201, 201);
+font-size: 11px;
+selection-background-color: rgb(0, 153, 191);
+border-radius: 5px;
+min-height: 17px;
+}
+QPushButton:hover {
+background-color: rgb(40, 44, 52);
+}
+QPushButton:pressed {
+background-color: rgb(40, 44, 52);
+}
+QLineEdit {
+background-color: rgb(30, 33, 39);
+border: none;
+color: rgb(201, 201, 201);
+font-size: 9px;
+selection-background-color: rgb(0, 153, 191);
+padding: 0 6px 0 6px;
+}
+QLineEdit:hover {
+background-color: rgb(40, 44, 52);
+}
+QLineEdit:focus {
+background-color: rgb(40, 44, 52);
+}</string>
+                                       </property>
+                                       <property name="frameShape">
+                                        <enum>QFrame::StyledPanel</enum>
+                                       </property>
+                                       <property name="frameShadow">
+                                        <enum>QFrame::Raised</enum>
+                                       </property>
+                                       <layout class="QHBoxLayout" name="horizontalLayout_10">
+                                        <property name="spacing">
+                                         <number>6</number>
+                                        </property>
+                                        <property name="leftMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <property name="topMargin">
+                                         <number>15</number>
+                                        </property>
+                                        <property name="rightMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <property name="bottomMargin">
+                                         <number>9</number>
+                                        </property>
+                                        <item>
+                                         <widget class="QLabel" name="experimentFileLabel">
+                                          <property name="maximumSize">
+                                           <size>
+                                            <width>16777215</width>
+                                            <height>24</height>
+                                           </size>
+                                          </property>
+                                          <property name="text">
+                                           <string>Experiment File:</string>
+                                          </property>
+                                         </widget>
+                                        </item>
+                                        <item>
+                                         <widget class="QLineEdit" name="experimentFileNameText">
+                                          <property name="maximumSize">
+                                           <size>
+                                            <width>16777215</width>
+                                            <height>17</height>
+                                           </size>
+                                          </property>
+                                          <property name="text">
+                                           <string>experiment.yaml</string>
+                                          </property>
+                                          <property name="frame">
+                                           <bool>true</bool>
+                                          </property>
+                                          <property name="dragEnabled">
+                                           <bool>false</bool>
+                                          </property>
+                                          <property name="readOnly">
+                                           <bool>true</bool>
+                                          </property>
+                                         </widget>
+                                        </item>
+                                        <item>
+                                         <widget class="QPushButton" name="btn_experiment_select">
+                                          <property name="sizePolicy">
+                                           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                           </sizepolicy>
+                                          </property>
+                                          <property name="minimumSize">
+                                           <size>
+                                            <width>0</width>
+                                            <height>17</height>
+                                           </size>
+                                          </property>
+                                          <property name="maximumSize">
+                                           <size>
+                                            <width>16777215</width>
+                                            <height>16777215</height>
+                                           </size>
+                                          </property>
+                                          <property name="cursor">
+                                           <cursorShape>PointingHandCursor</cursorShape>
+                                          </property>
+                                          <property name="styleSheet">
+                                           <string notr="true">background-image: url(:/icons/images/icons2/browse_files.png);
+background-repeat: no-repeat;
+background-position: bottom;</string>
+                                          </property>
+                                          <property name="text">
+                                           <string/>
+                                          </property>
+                                         </widget>
+                                        </item>
+                                       </layout>
+                                      </widget>
+                                     </item>
+                                     <item>
+                                      <widget class="QFrame" name="experimentButtons">
+                                       <property name="sizePolicy">
+                                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                                         <horstretch>0</horstretch>
+                                         <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                       </property>
+                                       <property name="styleSheet">
+                                        <string notr="true">#experimentButtons QPushButton {
+background-color: rgb(30, 33, 39);
+border-radius: 6px;
+padding: 0 9px 0 9px;
+min-height: 24px;
+max-height: 24px;
+border: none;
+color: rgb(201, 201, 201);
+font-size: 11px;
+}
+#experimentButtons QPushButton:hover {
+background-color: rgb(40, 44, 52);
+}
+#experimentButtons QPushButton:pressed {
+background-color: rgb(40, 44, 52);
+}
+</string>
+                                       </property>
+                                       <property name="frameShape">
+                                        <enum>QFrame::StyledPanel</enum>
+                                       </property>
+                                       <property name="frameShadow">
+                                        <enum>QFrame::Raised</enum>
+                                       </property>
+                                       <layout class="QVBoxLayout" name="verticalLayout_36">
+                                        <property name="spacing">
+                                         <number>9</number>
+                                        </property>
+                                        <property name="leftMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <property name="topMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <property name="rightMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <property name="bottomMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <item>
+                                         <widget class="QPushButton" name="btn_experiment_load">
+                                          <property name="cursor">
+                                           <cursorShape>PointingHandCursor</cursorShape>
+                                          </property>
+                                          <property name="text">
+                                           <string>Load Experiment</string>
+                                          </property>
+                                         </widget>
+                                        </item>
+                                       </layout>
+                                      </widget>
+                                     </item>
+                                    </layout>
+                                   </widget>
+                                  </item>
+                                  <item>
+                                   <widget class="QFrame" name="diagnosticsExperimentRunFrame">
+                                    <property name="frameShape">
+                                     <enum>QFrame::StyledPanel</enum>
+                                    </property>
+                                    <property name="frameShadow">
+                                     <enum>QFrame::Raised</enum>
+                                    </property>
+                                    <layout class="QVBoxLayout" name="verticalLayout_37">
+                                     <property name="spacing">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="leftMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="topMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="rightMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="bottomMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <item>
+                                      <widget class="QLabel" name="diagnosticsExperimentRunLabel">
+                                       <property name="text">
+                                        <string>EXPERIMENT OPERATIONS</string>
+                                       </property>
+                                      </widget>
+                                     </item>
+                                     <item>
+                                      <widget class="QFrame" name="experimentRunButtons">
+                                       <property name="styleSheet">
+                                        <string notr="true">#experimentRunButtons QPushButton {
+background-color: rgb(30, 33, 39);
+border-radius: 6px;
+padding: 0 9px 0 9px;
+min-height: 24px;
+max-height: 24px;
+border: none;
+color: rgb(201, 201, 201);
+font-size: 11px;
+}
+#experimentRunButtons QPushButton:hover {
+background-color: rgb(40, 44, 52);
+}
+#experimentRunButtons QPushButton:pressed {
+background-color: rgb(40, 44, 52);
+}
+</string>
+                                       </property>
+                                       <property name="frameShape">
+                                        <enum>QFrame::StyledPanel</enum>
+                                       </property>
+                                       <property name="frameShadow">
+                                        <enum>QFrame::Raised</enum>
+                                       </property>
+                                       <layout class="QVBoxLayout" name="verticalLayout_38">
+                                        <property name="spacing">
+                                         <number>9</number>
+                                        </property>
+                                        <property name="leftMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <property name="topMargin">
+                                         <number>15</number>
+                                        </property>
+                                        <property name="rightMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <property name="bottomMargin">
+                                         <number>0</number>
+                                        </property>
+                                        <item>
+                                         <widget class="QPushButton" name="btn_ssh_connect">
+                                          <property name="cursor">
+                                           <cursorShape>PointingHandCursor</cursorShape>
+                                          </property>
+                                          <property name="text">
+                                           <string>Connect to all Actors</string>
+                                          </property>
+                                         </widget>
+                                        </item>
+                                        <item>
+                                         <widget class="QPushButton" name="btn_ros2_sensor_drivers">
+                                          <property name="cursor">
+                                           <cursorShape>PointingHandCursor</cursorShape>
+                                          </property>
+                                          <property name="text">
+                                           <string>Launch ROS2 Sensor Drivers</string>
+                                          </property>
+                                         </widget>
+                                        </item>
+                                        <item>
+                                         <widget class="QPushButton" name="btn_ros2_actor_nodes">
+                                          <property name="cursor">
+                                           <cursorShape>PointingHandCursor</cursorShape>
+                                          </property>
+                                          <property name="text">
+                                           <string>Launch ROS2 Actor Nodes</string>
+                                          </property>
+                                         </widget>
+                                        </item>
+                                       </layout>
+                                      </widget>
+                                     </item>
+                                    </layout>
+                                   </widget>
+                                  </item>
+                                  <item>
+                                   <widget class="QFrame" name="diagnosticsDataCollection">
+                                    <property name="frameShape">
+                                     <enum>QFrame::StyledPanel</enum>
+                                    </property>
+                                    <property name="frameShadow">
+                                     <enum>QFrame::Raised</enum>
+                                    </property>
+                                    <layout class="QVBoxLayout" name="verticalLayout_39">
+                                     <property name="spacing">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="leftMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="topMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="rightMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <property name="bottomMargin">
+                                      <number>0</number>
+                                     </property>
+                                     <item>
+                                      <widget class="QLabel" name="dataCollectionLabel">
+                                       <property name="text">
+                                        <string>DATA COLLECTION</string>
+                                       </property>
+                                      </widget>
+                                     </item>
+                                    </layout>
+                                   </widget>
+                                  </item>
+                                  <item>
+                                   <widget class="QFrame" name="frame">
+                                    <property name="sizePolicy">
+                                     <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                                      <horstretch>0</horstretch>
+                                      <verstretch>0</verstretch>
+                                     </sizepolicy>
+                                    </property>
+                                    <property name="frameShape">
+                                     <enum>QFrame::StyledPanel</enum>
+                                    </property>
+                                    <property name="frameShadow">
+                                     <enum>QFrame::Raised</enum>
+                                    </property>
+                                   </widget>
+                                  </item>
+                                 </layout>
+                                </item>
+                               </layout>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QFrame" name="diagnosticsButtonsFrameBottom">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>0</height>
+                                </size>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>16777215</width>
+                                 <height>16777215</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">#btn_experiment_abort  {
+color: rgb(201, 201, 201);
+background-color: rgb(35, 28, 30);
+font-size: 14px;
+min-height: 36px;
+max-height: 36px;
+border: 2px solid rgb(217, 83, 79);
+border-radius: 12px;
+}
+#btn_experiment_run  {
+color: rgb(201, 201, 201);
+background-color: rgb(35, 28, 30);
+font-size: 14px;
+min-height: 36px;
+max-height: 36px;
+border: 2px solid rgb(217, 83, 79);
+border-radius: 12px;
+}
+/*
+#diagnosticsButtonsFrameBottom QPushButton:hover {
+background-color: rgb(35, 28, 30);
+}
+#diagnosticsButtonsFrameBottom QPushButton:pressed {
+background-color: rgb(35, 28, 30);
+}
+*/</string>
+                               </property>
+                               <property name="frameShape">
+                                <enum>QFrame::StyledPanel</enum>
+                               </property>
+                               <property name="frameShadow">
+                                <enum>QFrame::Raised</enum>
+                               </property>
+                               <layout class="QVBoxLayout" name="verticalLayout_35">
+                                <property name="spacing">
+                                 <number>9</number>
+                                </property>
+                                <property name="leftMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="topMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="rightMargin">
+                                 <number>0</number>
+                                </property>
+                                <property name="bottomMargin">
+                                 <number>9</number>
+                                </property>
+                                <item>
+                                 <widget class="QPushButton" name="btn_experiment_run">
+                                  <property name="cursor">
+                                   <cursorShape>PointingHandCursor</cursorShape>
+                                  </property>
+                                  <property name="text">
+                                   <string>Run Experiment</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <widget class="QPushButton" name="btn_experiment_abort">
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>0</width>
+                                    <height>40</height>
+                                   </size>
+                                  </property>
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>16777215</width>
+                                    <height>40</height>
+                                   </size>
+                                  </property>
+                                  <property name="cursor">
+                                   <cursorShape>PointingHandCursor</cursorShape>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true"/>
+                                  </property>
+                                  <property name="text">
+                                   <string>Abort Experiment</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
+                              </widget>
+                             </item>
+                            </layout>
                            </widget>
                           </item>
                          </layout>
@@ -3876,8 +4556,8 @@ border: None;</string>
                                        <rect>
                                         <x>0</x>
                                         <y>0</y>
-                                        <width>90</width>
-                                        <height>38</height>
+                                        <width>711</width>
+                                        <height>712</height>
                                        </rect>
                                       </property>
                                       <layout class="QVBoxLayout" name="verticalLayout_26">
@@ -4149,7 +4829,7 @@ background: transparent;
                    <string notr="true">color: rgb(221, 221, 221)</string>
                   </property>
                   <property name="text">
-                   <string>v1.0.8</string>
+                   <string>v1.0.9</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

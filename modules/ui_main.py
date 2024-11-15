@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainWNFBYv.ui'
+## Form generated from reading UI file 'mainkcMSjR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -586,7 +586,6 @@ class Ui_MainWindow(object):
                         "d {\n"
 "background-color: rbg(0, 204, 255);\n"
 "}\n"
-"\n"
 "\n"
 "")
         self.appMargins = QVBoxLayout(self.styleSheet)
@@ -1516,110 +1515,395 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setSpacing(0)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
-        self.diagnosticsCol1 = QFrame(self.diagnostics)
-        self.diagnosticsCol1.setObjectName(u"diagnosticsCol1")
-        self.diagnosticsCol1.setMinimumSize(QSize(250, 60))
-        self.diagnosticsCol1.setMaximumSize(QSize(250, 16777215))
-        self.diagnosticsCol1.setStyleSheet(u"/*border-left: 6px solid rgb(21, 23, 27); */\n"
-"background-color: rgb(21, 23, 27);")
-        self.diagnosticsCol1.setFrameShape(QFrame.NoFrame)
-        self.diagnosticsCol1.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_7 = QVBoxLayout(self.diagnosticsCol1)
+        self.diagnosticsButtons = QFrame(self.diagnostics)
+        self.diagnosticsButtons.setObjectName(u"diagnosticsButtons")
+        self.diagnosticsButtons.setMinimumSize(QSize(250, 60))
+        self.diagnosticsButtons.setMaximumSize(QSize(250, 16777215))
+        self.diagnosticsButtons.setStyleSheet(u"#diagnosticsButtons {\n"
+"background-color: rgb(21, 23, 27);\n"
+"}\n"
+"#diagnosticsButtons QFrame {\n"
+"background: transparent;\n"
+"border: None;\n"
+"}\n"
+"")
+        self.diagnosticsButtons.setFrameShape(QFrame.NoFrame)
+        self.diagnosticsButtons.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_7 = QVBoxLayout(self.diagnosticsButtons)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.diagnosticsRow11 = QFrame(self.diagnosticsCol1)
-        self.diagnosticsRow11.setObjectName(u"diagnosticsRow11")
-        self.diagnosticsRow11.setMinimumSize(QSize(0, 500))
-        self.diagnosticsRow11.setStyleSheet(u"QFrame {\n"
-"	background: transparent;\n"
-"	border: None;\n"
-"}\n"
-"QFrame QPushButton {\n"
-"	border: 2px solid rgb(0, 204, 255);\n"
-"	border-radius: 20px;\n"
-"	background-color: transparent;\n"
-"}\n"
-"QFrame QPushButton:hover {\n"
-"	background-color: rgb(0, 49, 61);\n"
-"}\n"
-"QFrame QPushButton:pressed {\n"
-"	background-color: rgb(0, 49, 61);\n"
-"}")
-        self.btn_experiment_load = QPushButton(self.diagnosticsRow11)
-        self.btn_experiment_load.setObjectName(u"btn_experiment_load")
-        self.btn_experiment_load.setGeometry(QRect(10, 60, 211, 41))
-        self.btn_experiment_load.setCursor(QCursor(Qt.PointingHandCursor))
-        icon5 = QIcon()
-        iconThemeName = u"system-help"
-        if QIcon.hasThemeIcon(iconThemeName):
-            icon5 = QIcon.fromTheme(iconThemeName)
-        else:
-            icon5.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
-
-        self.btn_experiment_load.setIcon(icon5)
-        self.btn_actors_connect = QPushButton(self.diagnosticsRow11)
-        self.btn_actors_connect.setObjectName(u"btn_actors_connect")
-        self.btn_actors_connect.setGeometry(QRect(20, 200, 181, 26))
-        self.pushButton_5 = QPushButton(self.diagnosticsRow11)
-        self.pushButton_5.setObjectName(u"pushButton_5")
-        self.pushButton_5.setGeometry(QRect(20, 300, 181, 26))
-        self.pushButton_6 = QPushButton(self.diagnosticsRow11)
-        self.pushButton_6.setObjectName(u"pushButton_6")
-        self.pushButton_6.setGeometry(QRect(20, 220, 181, 26))
-        self.pushButton_7 = QPushButton(self.diagnosticsRow11)
-        self.pushButton_7.setObjectName(u"pushButton_7")
-        self.pushButton_7.setGeometry(QRect(20, 240, 181, 26))
-        self.pushButton_8 = QPushButton(self.diagnosticsRow11)
-        self.pushButton_8.setObjectName(u"pushButton_8")
-        self.pushButton_8.setGeometry(QRect(20, 260, 181, 26))
-        self.btn_actors_disconnect = QPushButton(self.diagnosticsRow11)
-        self.btn_actors_disconnect.setObjectName(u"btn_actors_disconnect")
-        self.btn_actors_disconnect.setGeometry(QRect(20, 280, 181, 26))
-        self.btn_experiment_select = QPushButton(self.diagnosticsRow11)
-        self.btn_experiment_select.setObjectName(u"btn_experiment_select")
-        self.btn_experiment_select.setGeometry(QRect(10, 10, 211, 41))
-        self.btn_experiment_select.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_experiment_select.setStyleSheet(u"")
-        icon6 = QIcon()
-        iconThemeName = u"folder-open"
-        if QIcon.hasThemeIcon(iconThemeName):
-            icon6 = QIcon.fromTheme(iconThemeName)
-        else:
-            icon6.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
-
-        self.btn_experiment_select.setIcon(icon6)
-        self.btn_vicon_driver = QPushButton(self.diagnosticsRow11)
-        self.btn_vicon_driver.setObjectName(u"btn_vicon_driver")
-        self.btn_vicon_driver.setGeometry(QRect(10, 110, 211, 41))
-
-        self.verticalLayout_7.addWidget(self.diagnosticsRow11)
-
-        self.diagnosticsRow12 = QFrame(self.diagnosticsCol1)
-        self.diagnosticsRow12.setObjectName(u"diagnosticsRow12")
+        self.diagnosticsButtonsBottom = QFrame(self.diagnosticsButtons)
+        self.diagnosticsButtonsBottom.setObjectName(u"diagnosticsButtonsBottom")
         sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy4.setHorizontalStretch(0)
         sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.diagnosticsRow12.sizePolicy().hasHeightForWidth())
-        self.diagnosticsRow12.setSizePolicy(sizePolicy4)
-        self.diagnosticsRow12.setStyleSheet(u"background: transparent;\n"
-"border: None;")
-        self.diagnosticsRow12.setFrameShape(QFrame.StyledPanel)
-        self.diagnosticsRow12.setFrameShadow(QFrame.Raised)
-        self.pushButton_2 = QPushButton(self.diagnosticsRow12)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setGeometry(QRect(40, 50, 151, 26))
+        sizePolicy4.setHeightForWidth(self.diagnosticsButtonsBottom.sizePolicy().hasHeightForWidth())
+        self.diagnosticsButtonsBottom.setSizePolicy(sizePolicy4)
+        self.diagnosticsButtonsBottom.setStyleSheet(u"")
+        self.diagnosticsButtonsBottom.setFrameShape(QFrame.StyledPanel)
+        self.diagnosticsButtonsBottom.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_29 = QVBoxLayout(self.diagnosticsButtonsBottom)
+        self.verticalLayout_29.setObjectName(u"verticalLayout_29")
+        self.verticalLayout_29.setContentsMargins(-1, 6, -1, 27)
+        self.frame_top = QFrame(self.diagnosticsButtonsBottom)
+        self.frame_top.setObjectName(u"frame_top")
+        sizePolicy2.setHeightForWidth(self.frame_top.sizePolicy().hasHeightForWidth())
+        self.frame_top.setSizePolicy(sizePolicy2)
+        self.frame_top.setStyleSheet(u"QFrame QPushButton {\n"
+"border: 2px solid rgb(0, 204, 255);\n"
+"border-radius: 20px;\n"
+"background-color: transparent;\n"
+"min-height: 40px;\n"
+"}\n"
+"QFrame QPushButton:hover {\n"
+"	background-color: rgb(25, 40, 50);\n"
+"}\n"
+"QFrame QPushButton:pressed {\n"
+"	background-color: rgb(25, 40, 50);\n"
+"}\n"
+"QFrame QLabel {\n"
+"color: rgb(201, 201, 201);\n"
+"font-weight: 600;\n"
+"border-bottom: 1px solid rgb(0, 204, 255);\n"
+"}")
+        self.frame_top.setFrameShape(QFrame.StyledPanel)
+        self.frame_top.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_32 = QVBoxLayout(self.frame_top)
+        self.verticalLayout_32.setObjectName(u"verticalLayout_32")
+        self.verticalLayout_32.setContentsMargins(0, 0, 0, 0)
+        self.diagnosticsSubmenu1 = QVBoxLayout()
+        self.diagnosticsSubmenu1.setSpacing(18)
+        self.diagnosticsSubmenu1.setObjectName(u"diagnosticsSubmenu1")
+        self.diagnosticsSubmenu1.setContentsMargins(1, 8, 1, 54)
+        self.diagnosticsCalibrationFrame = QFrame(self.frame_top)
+        self.diagnosticsCalibrationFrame.setObjectName(u"diagnosticsCalibrationFrame")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.diagnosticsCalibrationFrame.sizePolicy().hasHeightForWidth())
+        self.diagnosticsCalibrationFrame.setSizePolicy(sizePolicy5)
+        self.diagnosticsCalibrationFrame.setFrameShape(QFrame.StyledPanel)
+        self.diagnosticsCalibrationFrame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_31 = QVBoxLayout(self.diagnosticsCalibrationFrame)
+        self.verticalLayout_31.setSpacing(0)
+        self.verticalLayout_31.setObjectName(u"verticalLayout_31")
+        self.verticalLayout_31.setContentsMargins(0, 0, 0, 0)
+        self.diagnosticsCalibrationLabel = QLabel(self.diagnosticsCalibrationFrame)
+        self.diagnosticsCalibrationLabel.setObjectName(u"diagnosticsCalibrationLabel")
+        self.diagnosticsCalibrationLabel.setMaximumSize(QSize(16777215, 24))
 
-        self.verticalLayout_7.addWidget(self.diagnosticsRow12)
+        self.verticalLayout_31.addWidget(self.diagnosticsCalibrationLabel)
+
+        self.calibrationObjectName = QFrame(self.diagnosticsCalibrationFrame)
+        self.calibrationObjectName.setObjectName(u"calibrationObjectName")
+        self.calibrationObjectName.setMaximumSize(QSize(16777215, 48))
+        self.calibrationObjectName.setStyleSheet(u"QFrame QLabel {\n"
+"color: rgb(201, 201, 201);\n"
+"font-weight: 400;\n"
+"font-size: 11px;\n"
+"border-bottom: 0px solid rgb(0, 204, 255);\n"
+"}\n"
+"QLineEdit {\n"
+"background-color: rgb(30, 33, 39);\n"
+"border: none;\n"
+"color: rgb(201, 201, 201);\n"
+"font-size: 11px;\n"
+"selection-background-color: rgb(0, 153, 191);\n"
+"}\n"
+"QLineEdit:hover {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"")
+        self.calibrationObjectName.setFrameShape(QFrame.StyledPanel)
+        self.calibrationObjectName.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_6 = QHBoxLayout(self.calibrationObjectName)
+        self.horizontalLayout_6.setSpacing(6)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalLayout_6.setContentsMargins(0, 15, 0, 0)
+        self.calibrationObjectNameLabel = QLabel(self.calibrationObjectName)
+        self.calibrationObjectNameLabel.setObjectName(u"calibrationObjectNameLabel")
+        self.calibrationObjectNameLabel.setMaximumSize(QSize(16777215, 24))
+
+        self.horizontalLayout_6.addWidget(self.calibrationObjectNameLabel)
+
+        self.calibrationObjectNameText = QLineEdit(self.calibrationObjectName)
+        self.calibrationObjectNameText.setObjectName(u"calibrationObjectNameText")
+        self.calibrationObjectNameText.setMaximumSize(QSize(16777215, 24))
+        self.calibrationObjectNameText.setStyleSheet(u"")
+
+        self.horizontalLayout_6.addWidget(self.calibrationObjectNameText)
 
 
-        self.horizontalLayout_7.addWidget(self.diagnosticsCol1)
+        self.verticalLayout_31.addWidget(self.calibrationObjectName)
+
+        self.calibrationObjectNameComment = QFrame(self.diagnosticsCalibrationFrame)
+        self.calibrationObjectNameComment.setObjectName(u"calibrationObjectNameComment")
+        self.calibrationObjectNameComment.setStyleSheet(u"QFrame QLabel {\n"
+"color: rgb(92, 95, 102);\n"
+"font-weight: 400;\n"
+"font-size: 10px;\n"
+"font-style: italic;\n"
+"border-bottom: 0px solid rgb(0, 204, 255);\n"
+"}")
+        self.calibrationObjectNameComment.setFrameShape(QFrame.StyledPanel)
+        self.calibrationObjectNameComment.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_34 = QVBoxLayout(self.calibrationObjectNameComment)
+        self.verticalLayout_34.setObjectName(u"verticalLayout_34")
+        self.verticalLayout_34.setContentsMargins(0, 6, 0, 9)
+        self.label = QLabel(self.calibrationObjectNameComment)
+        self.label.setObjectName(u"label")
+
+        self.verticalLayout_34.addWidget(self.label)
+
+
+        self.verticalLayout_31.addWidget(self.calibrationObjectNameComment)
+
+        self.calibrationButtons = QFrame(self.diagnosticsCalibrationFrame)
+        self.calibrationButtons.setObjectName(u"calibrationButtons")
+        self.calibrationButtons.setMaximumSize(QSize(16777215, 24))
+        self.calibrationButtons.setStyleSheet(u"#calibrationButtons QPushButton {\n"
+"background-color: rgb(30, 33, 39);\n"
+"border-radius: 6px;\n"
+"padding: 0 9px 0 9px;\n"
+"}\n"
+"#calibrationButtons QPushButton:hover {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"#calibrationButtons QPushButton:pressed {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}")
+        self.calibrationButtons.setFrameShape(QFrame.StyledPanel)
+        self.calibrationButtons.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_8 = QHBoxLayout(self.calibrationButtons)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.horizontalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.btn_calibration = QPushButton(self.calibrationButtons)
+        self.btn_calibration.setObjectName(u"btn_calibration")
+        sizePolicy.setHeightForWidth(self.btn_calibration.sizePolicy().hasHeightForWidth())
+        self.btn_calibration.setSizePolicy(sizePolicy)
+        self.btn_calibration.setMinimumSize(QSize(0, 24))
+        self.btn_calibration.setMaximumSize(QSize(16777215, 24))
+        self.btn_calibration.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_calibration.setStyleSheet(u"color: rgb(201, 201, 201);\n"
+"font-size: 11px;\n"
+"min-height: 24px;\n"
+"max-height: 24px;\n"
+"border: none;")
+
+        self.horizontalLayout_8.addWidget(self.btn_calibration)
+
+        self.btn_calibration_cancel = QPushButton(self.calibrationButtons)
+        self.btn_calibration_cancel.setObjectName(u"btn_calibration_cancel")
+        self.btn_calibration_cancel.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_calibration_cancel.setStyleSheet(u"color: rgb(201, 201, 201);\n"
+"font-size: 11px;\n"
+"min-height: 24px;\n"
+"max-height: 24px;\n"
+"border: none;")
+
+        self.horizontalLayout_8.addWidget(self.btn_calibration_cancel)
+
+
+        self.verticalLayout_31.addWidget(self.calibrationButtons)
+
+
+        self.diagnosticsSubmenu1.addWidget(self.diagnosticsCalibrationFrame)
+
+        self.diagnosticsExperimentFrame = QFrame(self.frame_top)
+        self.diagnosticsExperimentFrame.setObjectName(u"diagnosticsExperimentFrame")
+        sizePolicy5.setHeightForWidth(self.diagnosticsExperimentFrame.sizePolicy().hasHeightForWidth())
+        self.diagnosticsExperimentFrame.setSizePolicy(sizePolicy5)
+        self.diagnosticsExperimentFrame.setFrameShape(QFrame.StyledPanel)
+        self.diagnosticsExperimentFrame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_33 = QVBoxLayout(self.diagnosticsExperimentFrame)
+        self.verticalLayout_33.setSpacing(0)
+        self.verticalLayout_33.setObjectName(u"verticalLayout_33")
+        self.verticalLayout_33.setContentsMargins(0, 0, 0, 0)
+        self.diagnosticsExperimentLabel = QLabel(self.diagnosticsExperimentFrame)
+        self.diagnosticsExperimentLabel.setObjectName(u"diagnosticsExperimentLabel")
+        self.diagnosticsExperimentLabel.setMaximumSize(QSize(16777215, 24))
+
+        self.verticalLayout_33.addWidget(self.diagnosticsExperimentLabel)
+
+        self.experimentFile = QFrame(self.diagnosticsExperimentFrame)
+        self.experimentFile.setObjectName(u"experimentFile")
+        self.experimentFile.setMaximumSize(QSize(16777215, 48))
+        self.experimentFile.setStyleSheet(u"QFrame QLabel {\n"
+"color: rgb(201, 201, 201);\n"
+"font-weight: 400;\n"
+"font-size: 11px;\n"
+"border-bottom: 0px solid rgb(0, 204, 255);\n"
+"}\n"
+"QPushButton {\n"
+"background-color: rgb(30, 33, 39);\n"
+"border: none;\n"
+"color: rgb(201, 201, 201);\n"
+"font-size: 11px;\n"
+"selection-background-color: rgb(0, 153, 191);\n"
+"border-radius: 5px;\n"
+"min-height: 17px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"QLineEdit {\n"
+"background-color: rgb(30, 33, 39);\n"
+"border: none;\n"
+"color: rgb(201, 201, 201);\n"
+"font-size: 9px;\n"
+"selection-background-color: rgb(0, 153, 191);\n"
+"padding: 0 6px 0 6px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}")
+        self.experimentFile.setFrameShape(QFrame.StyledPanel)
+        self.experimentFile.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_10 = QHBoxLayout(self.experimentFile)
+        self.horizontalLayout_10.setSpacing(6)
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.horizontalLayout_10.setContentsMargins(0, 15, 0, 9)
+        self.experimentFileLabel = QLabel(self.experimentFile)
+        self.experimentFileLabel.setObjectName(u"experimentFileLabel")
+        self.experimentFileLabel.setMaximumSize(QSize(16777215, 24))
+
+        self.horizontalLayout_10.addWidget(self.experimentFileLabel)
+
+        self.experimentFileNameText = QLineEdit(self.experimentFile)
+        self.experimentFileNameText.setObjectName(u"experimentFileNameText")
+        self.experimentFileNameText.setMaximumSize(QSize(16777215, 17))
+        self.experimentFileNameText.setFrame(True)
+        self.experimentFileNameText.setDragEnabled(False)
+        self.experimentFileNameText.setReadOnly(True)
+
+        self.horizontalLayout_10.addWidget(self.experimentFileNameText)
+
+        self.btn_experiment_select = QPushButton(self.experimentFile)
+        self.btn_experiment_select.setObjectName(u"btn_experiment_select")
+        sizePolicy.setHeightForWidth(self.btn_experiment_select.sizePolicy().hasHeightForWidth())
+        self.btn_experiment_select.setSizePolicy(sizePolicy)
+        self.btn_experiment_select.setMinimumSize(QSize(0, 17))
+        self.btn_experiment_select.setMaximumSize(QSize(16777215, 16777215))
+        self.btn_experiment_select.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_experiment_select.setStyleSheet(u"background-image: url(:/icons/images/icons2/browse_files.png);\n"
+"background-repeat: no-repeat;\n"
+"background-position: bottom;")
+
+        self.horizontalLayout_10.addWidget(self.btn_experiment_select)
+
+
+        self.verticalLayout_33.addWidget(self.experimentFile)
+
+        self.experimentButtons = QFrame(self.diagnosticsExperimentFrame)
+        self.experimentButtons.setObjectName(u"experimentButtons")
+        sizePolicy4.setHeightForWidth(self.experimentButtons.sizePolicy().hasHeightForWidth())
+        self.experimentButtons.setSizePolicy(sizePolicy4)
+        self.experimentButtons.setStyleSheet(u"#experimentButtons QPushButton {\n"
+"background-color: rgb(30, 33, 39);\n"
+"border-radius: 6px;\n"
+"padding: 0 9px 0 9px;\n"
+"min-height: 24px;\n"
+"max-height: 24px;\n"
+"border: none;\n"
+"color: rgb(201, 201, 201);\n"
+"font-size: 11px;\n"
+"}\n"
+"#experimentButtons QPushButton:hover {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"#experimentButtons QPushButton:pressed {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"")
+        self.experimentButtons.setFrameShape(QFrame.StyledPanel)
+        self.experimentButtons.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_36 = QVBoxLayout(self.experimentButtons)
+        self.verticalLayout_36.setObjectName(u"verticalLayout_36")
+        self.verticalLayout_36.setContentsMargins(0, 0, 0, 0)
+        self.btn_experiment_load = QPushButton(self.experimentButtons)
+        self.btn_experiment_load.setObjectName(u"btn_experiment_load")
+        self.btn_experiment_load.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.verticalLayout_36.addWidget(self.btn_experiment_load)
+
+
+        self.verticalLayout_33.addWidget(self.experimentButtons)
+
+
+        self.diagnosticsSubmenu1.addWidget(self.diagnosticsExperimentFrame)
+
+        self.frame = QFrame(self.frame_top)
+        self.frame.setObjectName(u"frame")
+        sizePolicy2.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
+        self.frame.setSizePolicy(sizePolicy2)
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+
+        self.diagnosticsSubmenu1.addWidget(self.frame)
+
+
+        self.verticalLayout_32.addLayout(self.diagnosticsSubmenu1)
+
+
+        self.verticalLayout_29.addWidget(self.frame_top)
+
+        self.diagnosticsButtonsFrameBottom = QFrame(self.diagnosticsButtonsBottom)
+        self.diagnosticsButtonsFrameBottom.setObjectName(u"diagnosticsButtonsFrameBottom")
+        self.diagnosticsButtonsFrameBottom.setMinimumSize(QSize(0, 0))
+        self.diagnosticsButtonsFrameBottom.setMaximumSize(QSize(16777215, 16777215))
+        self.diagnosticsButtonsFrameBottom.setStyleSheet(u"#diagnosticsButtonsFrameBottom QPushButton {\n"
+"color: rgb(201, 201, 201);\n"
+"background-color: transparent;\n"
+"font-size: 14px;\n"
+"min-height: 36px;\n"
+"max-height: 36px;\n"
+"border: 2px solid rgb(217, 83, 79);\n"
+"border-radius: 12px;\n"
+"}\n"
+"#diagnosticsButtonsFrameBottom QPushButton:hover {\n"
+"background-color: rgb(35, 28, 30);\n"
+"}\n"
+"#diagnosticsButtonsFrameBottom QPushButton:pressed {\n"
+"background-color: rgb(35, 28, 30);\n"
+"}")
+        self.diagnosticsButtonsFrameBottom.setFrameShape(QFrame.StyledPanel)
+        self.diagnosticsButtonsFrameBottom.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_35 = QVBoxLayout(self.diagnosticsButtonsFrameBottom)
+        self.verticalLayout_35.setObjectName(u"verticalLayout_35")
+        self.verticalLayout_35.setContentsMargins(0, 0, 0, 9)
+        self.btn_experiment_abort = QPushButton(self.diagnosticsButtonsFrameBottom)
+        self.btn_experiment_abort.setObjectName(u"btn_experiment_abort")
+        self.btn_experiment_abort.setMinimumSize(QSize(0, 40))
+        self.btn_experiment_abort.setMaximumSize(QSize(16777215, 40))
+        self.btn_experiment_abort.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_experiment_abort.setStyleSheet(u"")
+
+        self.verticalLayout_35.addWidget(self.btn_experiment_abort)
+
+
+        self.verticalLayout_29.addWidget(self.diagnosticsButtonsFrameBottom)
+
+
+        self.verticalLayout_7.addWidget(self.diagnosticsButtonsBottom)
+
+
+        self.horizontalLayout_7.addWidget(self.diagnosticsButtons)
 
         self.diagnosticsCol2 = QFrame(self.diagnostics)
         self.diagnosticsCol2.setObjectName(u"diagnosticsCol2")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(1)
-        sizePolicy5.setHeightForWidth(self.diagnosticsCol2.sizePolicy().hasHeightForWidth())
-        self.diagnosticsCol2.setSizePolicy(sizePolicy5)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(1)
+        sizePolicy6.setHeightForWidth(self.diagnosticsCol2.sizePolicy().hasHeightForWidth())
+        self.diagnosticsCol2.setSizePolicy(sizePolicy6)
         self.diagnosticsCol2.setMinimumSize(QSize(400, 60))
         self.diagnosticsCol2.setStyleSheet(u"background: transparent;\n"
 "")
@@ -1645,11 +1929,11 @@ class Ui_MainWindow(object):
         self.btn_diagnostics_uavs = QPushButton(self.diagnosticsSubMenu2)
         self.btn_diagnostics_uavs.setObjectName(u"btn_diagnostics_uavs")
         self.btn_diagnostics_uavs.setGeometry(QRect(163, 0, 72, 45))
-        sizePolicy6 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.btn_diagnostics_uavs.sizePolicy().hasHeightForWidth())
-        self.btn_diagnostics_uavs.setSizePolicy(sizePolicy6)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.btn_diagnostics_uavs.sizePolicy().hasHeightForWidth())
+        self.btn_diagnostics_uavs.setSizePolicy(sizePolicy7)
         self.btn_diagnostics_uavs.setMinimumSize(QSize(0, 45))
         self.btn_diagnostics_uavs.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_diagnostics_uavs.setStyleSheet(u"")
@@ -1732,7 +2016,7 @@ class Ui_MainWindow(object):
         self.diagnosticsUGVsScrollArea.setWidgetResizable(True)
         self.diagnosticsUGVsScrollAreaContent = QWidget()
         self.diagnosticsUGVsScrollAreaContent.setObjectName(u"diagnosticsUGVsScrollAreaContent")
-        self.diagnosticsUGVsScrollAreaContent.setGeometry(QRect(0, 0, 90, 38))
+        self.diagnosticsUGVsScrollAreaContent.setGeometry(QRect(0, 0, 711, 712))
         self.verticalLayout_26 = QVBoxLayout(self.diagnosticsUGVsScrollAreaContent)
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
         self.verticalLayout_26.setContentsMargins(0, 18, 18, 18)
@@ -2009,21 +2293,23 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Line", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
-        self.btn_experiment_load.setText(QCoreApplication.translate("MainWindow", u"    Load Experiment File  ", None))
-        self.btn_actors_connect.setText(QCoreApplication.translate("MainWindow", u"Connect to all Actors", None))
-        self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"Start ROS2 Sensor Drivers", None))
-        self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"Stop ROS2 Sensor Drivers", None))
-        self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"Start ROS2 Actor Servers", None))
-        self.pushButton_8.setText(QCoreApplication.translate("MainWindow", u"Stop ROS2 Actor Servers", None))
-        self.btn_actors_disconnect.setText(QCoreApplication.translate("MainWindow", u"Disconnect from all Actors", None))
-        self.btn_experiment_select.setText(QCoreApplication.translate("MainWindow", u"    Select Experiment File", None))
-        self.btn_vicon_driver.setText(QCoreApplication.translate("MainWindow", u"Start VICON Driver", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Abort Experiment", None))
+        self.diagnosticsCalibrationLabel.setText(QCoreApplication.translate("MainWindow", u"VICON CALIBRATION", None))
+        self.calibrationObjectNameLabel.setText(QCoreApplication.translate("MainWindow", u"Object Name:", None))
+        self.calibrationObjectNameText.setText(QCoreApplication.translate("MainWindow", u"burger1", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Must be an object in VICON Tracker", None))
+        self.btn_calibration.setText(QCoreApplication.translate("MainWindow", u"Start Calibration", None))
+        self.btn_calibration_cancel.setText(QCoreApplication.translate("MainWindow", u"Cancel", None))
+        self.diagnosticsExperimentLabel.setText(QCoreApplication.translate("MainWindow", u"EXPERIMENTS", None))
+        self.experimentFileLabel.setText(QCoreApplication.translate("MainWindow", u"Experiment File:", None))
+        self.experimentFileNameText.setText(QCoreApplication.translate("MainWindow", u"../experiment1.yaml", None))
+        self.btn_experiment_select.setText("")
+        self.btn_experiment_load.setText(QCoreApplication.translate("MainWindow", u"Load Experiment", None))
+        self.btn_experiment_abort.setText(QCoreApplication.translate("MainWindow", u"Abort Experiment", None))
         self.btn_diagnostics_ugvs.setText(QCoreApplication.translate("MainWindow", u"UGVs", None))
         self.btn_diagnostics_uavs.setText(QCoreApplication.translate("MainWindow", u"UAVs", None))
         self.btn_diagnostics_sensors.setText(QCoreApplication.translate("MainWindow", u"Sensors", None))
         self.btn_diagnostics_refresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"Marina J. Nelson", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.8", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.9", None))
     # retranslateUi
 

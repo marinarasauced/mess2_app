@@ -79,8 +79,10 @@ class MainWindow(QMainWindow):
 
 
         # diagnostics submenu 1
+        widgets.diagnosticsSubmenu1.setAlignment(Qt.AlignTop)
         widgets.btn_experiment_select.clicked.connect(self.mess2_experiment_select)
         widgets.btn_experiment_load.clicked.connect(self.mess2_experiment_load)
+        widgets.btn_experiment_abort.clicked.connect(self.mess2_experiment_abort)
 
         self.experiment_file_extensions: str = ".yaml (*.yaml)"
         self.experiment_file_path: str = None
@@ -323,6 +325,7 @@ class MainWindow(QMainWindow):
                 self.mess2_load_sensors()
                 self.mess2_load_actors()
                 self.is_experiment_loaded = True
+                UIFunctions.mess2_log_to_diagnostics(self, f"loaded experiment {self.experiment_name}")
 
             elif self.experiment_name is not None and experiment_name != "" and experiment_name != self.experiment_name:
                 self.experiment_name = experiment_name
@@ -331,6 +334,7 @@ class MainWindow(QMainWindow):
                 self.mess2_load_sensors()
                 self.mess2_load_actors()
                 self.is_experiment_loaded = True
+                UIFunctions.mess2_log_to_diagnostics(self, f"loaded experiment {self.experiment_name}")
 
             elif experiment_name == "":
                 UIFunctions.mess2_log_to_diagnostics(self, f"experiment file {self.experiment_file_path} is invalid")
@@ -489,6 +493,14 @@ class MainWindow(QMainWindow):
             self.diagnostics_actors_ugvs + self.diagnostics_actors_uavs
         )
         self.threadpool.start(worker)
+
+
+    def mess2_experiment_abort(self):
+        """
+        """
+        if self.is_experiment_running == True:
+            UIFunctions.mess2_log_to_diagnostics(self, f"aborting experiment {self.experiment_name}")
+            UIFunctions.mess2_log_to_diagnostics(self, f"aborted experiment {self.experiment_name}")
 
 
 

@@ -262,10 +262,12 @@
     <file>images/icons/icon_settings.png</file>
   </qresource>
   <qresource prefix="icons">
-    <file>images/icons2/status_offline.png</file>
-    <file>images/icons2/status_online.png</file>
-    <file>images/icons2/status_disconnected.png</file>
-    <file>images/icons2/status_connected.png</file>
+    <file>images/icons2/network_disconnected.png</file>
+    <file>images/icons2/network_connected.png</file>
+    <file>images/icons2/network_na.png</file>
+    <file>images/icons2/ssh_disconnected.png</file>
+    <file>images/icons2/ssh_connected.png</file>
+    <file>images/icons2/ssh_na.png</file>
     <file>images/icons2/battery_0.png</file>
     <file>images/icons2/battery_25.png</file>
     <file>images/icons2/battery_50.png</file>

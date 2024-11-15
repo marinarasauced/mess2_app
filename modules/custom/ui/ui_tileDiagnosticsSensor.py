@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tileDiagnosticsSensorZNSchP.ui'
+## Form generated from reading UI file 'tileDiagnosticsSensorkCtdqC.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -31,13 +31,8 @@ class Ui_tileDiagnosticsSensor(object):
 "border-radius: 5px;\n"
 "color: rgb(221, 221, 221);\n"
 "}\n"
-"#status_connected {\n"
-"background-image: url(:/icons/images/icons2/status_disconnected.png);\n"
-"background-repeat: no-repeat;\n"
-"background-position: center;\n"
-"}\n"
-"#status_online {\n"
-"background-image: url(:/icons/images/icons2/status_offline.png);\n"
+"#network_icon {\n"
+"background-image: url(:/icons/images/icons2/network_na.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
 "}\n"
@@ -75,39 +70,35 @@ class Ui_tileDiagnosticsSensor(object):
         self.horizontalLayout.setContentsMargins(1, 0, 1, 0)
         self.name_text = QLabel(self.horizontalWidget)
         self.name_text.setObjectName(u"name_text")
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(16)
+        sizePolicy.setHeightForWidth(self.name_text.sizePolicy().hasHeightForWidth())
+        self.name_text.setSizePolicy(sizePolicy)
         self.name_text.setMinimumSize(QSize(0, 16))
         self.name_text.setMaximumSize(QSize(16777215, 16))
 
         self.horizontalLayout.addWidget(self.name_text, 0, Qt.AlignTop)
 
-        self.status_connected = QFrame(self.horizontalWidget)
-        self.status_connected.setObjectName(u"status_connected")
-        self.status_connected.setMinimumSize(QSize(16, 16))
-        self.status_connected.setMaximumSize(QSize(16, 16))
-        self.status_connected.setFrameShape(QFrame.StyledPanel)
-        self.status_connected.setFrameShadow(QFrame.Raised)
+        self.network_icon = QFrame(self.horizontalWidget)
+        self.network_icon.setObjectName(u"network_icon")
+        self.network_icon.setMinimumSize(QSize(16, 16))
+        self.network_icon.setMaximumSize(QSize(16, 16))
+        self.network_icon.setFrameShape(QFrame.StyledPanel)
+        self.network_icon.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout.addWidget(self.status_connected, 0, Qt.AlignTop)
-
-        self.status_online = QFrame(self.horizontalWidget)
-        self.status_online.setObjectName(u"status_online")
-        self.status_online.setMinimumSize(QSize(16, 16))
-        self.status_online.setMaximumSize(QSize(16, 16))
-        self.status_online.setFrameShape(QFrame.StyledPanel)
-        self.status_online.setFrameShadow(QFrame.Raised)
-
-        self.horizontalLayout.addWidget(self.status_online, 0, Qt.AlignTop)
+        self.horizontalLayout.addWidget(self.network_icon, 0, Qt.AlignTop)
 
 
         self.verticalLayout_2.addWidget(self.horizontalWidget, 0, Qt.AlignTop)
 
         self.verticalFrame = QFrame(self.frame)
         self.verticalFrame.setObjectName(u"verticalFrame")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.verticalFrame.sizePolicy().hasHeightForWidth())
-        self.verticalFrame.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.verticalFrame.sizePolicy().hasHeightForWidth())
+        self.verticalFrame.setSizePolicy(sizePolicy1)
         self.verticalLayout_3 = QVBoxLayout(self.verticalFrame)
         self.verticalLayout_3.setSpacing(9)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
@@ -121,11 +112,11 @@ class Ui_tileDiagnosticsSensor(object):
 
         self.nodes = QFrame(self.verticalFrame)
         self.nodes.setObjectName(u"nodes")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.nodes.sizePolicy().hasHeightForWidth())
-        self.nodes.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.nodes.sizePolicy().hasHeightForWidth())
+        self.nodes.setSizePolicy(sizePolicy2)
         self.nodes.setStyleSheet(u"")
         self.nodes.setFrameShape(QFrame.StyledPanel)
         self.nodes.setFrameShadow(QFrame.Raised)

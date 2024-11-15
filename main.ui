@@ -3789,8 +3789,8 @@ border: None;</string>
                                        <rect>
                                         <x>0</x>
                                         <y>0</y>
-                                        <width>729</width>
-                                        <height>736</height>
+                                        <width>711</width>
+                                        <height>712</height>
                                        </rect>
                                       </property>
                                       <layout class="QVBoxLayout" name="verticalLayout_28">
@@ -3876,8 +3876,8 @@ border: None;</string>
                                        <rect>
                                         <x>0</x>
                                         <y>0</y>
-                                        <width>729</width>
-                                        <height>736</height>
+                                        <width>90</width>
+                                        <height>38</height>
                                        </rect>
                                       </property>
                                       <layout class="QVBoxLayout" name="verticalLayout_26">
@@ -4149,7 +4149,7 @@ background: transparent;
                    <string notr="true">color: rgb(221, 221, 221)</string>
                   </property>
                   <property name="text">
-                   <string>v1.0.6</string>
+                   <string>v1.0.8</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

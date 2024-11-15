@@ -1,17 +1,12 @@
 experiment_name: "test4_check_network_connectivity_pinging"
 sensors:
   - type: "vicon"
-    name: "VICON Valkyrie Motion Capture System"
-    ip: "192.168.0.101"
+    name: "marinarasauced"
+    ip: "192.168.1.168"
     show_connected: false
     show_online: true
   - type: "flir"
     name: "FLIR1"
     ip: "192.168.0.201"
-    show_connected: false
-    show_online: true
-  - type: "test"
-    name: "marina's pc"
-    ip: "192.168.1.168"
     show_connected: false
     show_online: true

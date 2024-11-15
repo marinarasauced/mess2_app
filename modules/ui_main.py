@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainxGyYXO.ui'
+## Form generated from reading UI file 'mainWNFBYv.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -1696,7 +1696,7 @@ class Ui_MainWindow(object):
         self.diagnosticsSensorsScrollArea.setWidgetResizable(True)
         self.diagnosticsSensorsScrollAreaContent = QWidget()
         self.diagnosticsSensorsScrollAreaContent.setObjectName(u"diagnosticsSensorsScrollAreaContent")
-        self.diagnosticsSensorsScrollAreaContent.setGeometry(QRect(0, 0, 729, 736))
+        self.diagnosticsSensorsScrollAreaContent.setGeometry(QRect(0, 0, 711, 712))
         self.verticalLayout_28 = QVBoxLayout(self.diagnosticsSensorsScrollAreaContent)
         self.verticalLayout_28.setObjectName(u"verticalLayout_28")
         self.verticalLayout_28.setContentsMargins(0, 18, 18, 18)
@@ -1732,7 +1732,7 @@ class Ui_MainWindow(object):
         self.diagnosticsUGVsScrollArea.setWidgetResizable(True)
         self.diagnosticsUGVsScrollAreaContent = QWidget()
         self.diagnosticsUGVsScrollAreaContent.setObjectName(u"diagnosticsUGVsScrollAreaContent")
-        self.diagnosticsUGVsScrollAreaContent.setGeometry(QRect(0, 0, 729, 736))
+        self.diagnosticsUGVsScrollAreaContent.setGeometry(QRect(0, 0, 90, 38))
         self.verticalLayout_26 = QVBoxLayout(self.diagnosticsUGVsScrollAreaContent)
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
         self.verticalLayout_26.setContentsMargins(0, 18, 18, 18)
@@ -2024,6 +2024,6 @@ class Ui_MainWindow(object):
         self.btn_diagnostics_sensors.setText(QCoreApplication.translate("MainWindow", u"Sensors", None))
         self.btn_diagnostics_refresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"Marina J. Nelson", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.6", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.8", None))
     # retranslateUi
 

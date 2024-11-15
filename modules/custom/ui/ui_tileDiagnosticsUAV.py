@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tileDiagnosticsUGVcOnEoG.ui'
+## Form generated from reading UI file 'tileDiagnosticsUAVcOnEoG.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -19,14 +19,14 @@ from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
     QLabel, QLayout, QSizePolicy, QVBoxLayout,
     QWidget)
 
-class Ui_tileDiagnosticsUGV(object):
-    def setupUi(self, tileDiagnosticsUGV):
-        if not tileDiagnosticsUGV.objectName():
-            tileDiagnosticsUGV.setObjectName(u"tileDiagnosticsUGV")
-        tileDiagnosticsUGV.resize(350, 128)
-        tileDiagnosticsUGV.setMinimumSize(QSize(350, 128))
-        tileDiagnosticsUGV.setMaximumSize(QSize(350, 128))
-        tileDiagnosticsUGV.setStyleSheet(u"QWidget QFrame {\n"
+class Ui_tileDiagnosticsUAV(object):
+    def setupUi(self, tileDiagnosticsUAV):
+        if not tileDiagnosticsUAV.objectName():
+            tileDiagnosticsUAV.setObjectName(u"tileDiagnosticsUAV")
+        tileDiagnosticsUAV.resize(350, 128)
+        tileDiagnosticsUAV.setMinimumSize(QSize(350, 128))
+        tileDiagnosticsUAV.setMaximumSize(QSize(350, 128))
+        tileDiagnosticsUAV.setStyleSheet(u"QWidget QFrame {\n"
 "background-color: rgb(21, 23, 27);\n"
 "border-radius: 5px;\n"
 "color: rgb(221, 221, 221);\n"
@@ -61,11 +61,11 @@ class Ui_tileDiagnosticsUGV(object):
 "color: rgb(191, 191, 191) !important;\n"
 "font-size: 10px !important;\n"
 "}")
-        self.verticalLayout = QVBoxLayout(tileDiagnosticsUGV)
+        self.verticalLayout = QVBoxLayout(tileDiagnosticsUAV)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.frame = QFrame(tileDiagnosticsUGV)
+        self.frame = QFrame(tileDiagnosticsUAV)
         self.frame.setObjectName(u"frame")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
@@ -195,15 +195,15 @@ class Ui_tileDiagnosticsUGV(object):
         self.verticalLayout.addWidget(self.frame)
 
 
-        self.retranslateUi(tileDiagnosticsUGV)
+        self.retranslateUi(tileDiagnosticsUAV)
 
-        QMetaObject.connectSlotsByName(tileDiagnosticsUGV)
+        QMetaObject.connectSlotsByName(tileDiagnosticsUAV)
     # setupUi
 
-    def retranslateUi(self, tileDiagnosticsUGV):
-        tileDiagnosticsUGV.setWindowTitle(QCoreApplication.translate("tileDiagnosticsUGV", u"Form", None))
-        self.name_text.setText(QCoreApplication.translate("tileDiagnosticsUGV", u"name", None))
-        self.battery_text.setText(QCoreApplication.translate("tileDiagnosticsUGV", u"80%", None))
-        self.ip_text.setText(QCoreApplication.translate("tileDiagnosticsUGV", u"ip", None))
+    def retranslateUi(self, tileDiagnosticsUAV):
+        tileDiagnosticsUAV.setWindowTitle(QCoreApplication.translate("tileDiagnosticsUAV", u"Form", None))
+        self.name_text.setText(QCoreApplication.translate("tileDiagnosticsUAV", u"name", None))
+        self.battery_text.setText(QCoreApplication.translate("tileDiagnosticsUAV", u"80%", None))
+        self.ip_text.setText(QCoreApplication.translate("tileDiagnosticsUAV", u"ip", None))
     # retranslateUi
 

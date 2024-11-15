@@ -7,7 +7,7 @@ import yaml
 
 from modules import *
 from widgets import *
-from modules.ui_diagnostics import *
+from modules.custom.imports import *
 os.environ["QT_FONT_DPI"] = "96" # FIX Problem for High DPI and Scale above 100%
 
 widgets = None
@@ -89,28 +89,25 @@ class MainWindow(QMainWindow):
         self.experiment_name = None
         self.is_experiment_loaded = False
 
-        self.experiment_widgets_sensors = []
-
         # diagnostics sensors
         widgets.diagnosticsSensorsLayout.setAlignment(Qt.AlignTop)
-        self.diagnostics_grid_sensors = Obj_gridWidget(2)
+        self.diagnostics_grid_sensors = Obj_gridDiagnosticsLayout(2)
         self.diagnostics_sensors = []
 
         # diagnostics ugvs
         widgets.diagnosticsUGVsLayout.setAlignment(Qt.AlignTop)
-        self.diagnsotics_grid_ugvs = Obj_gridWidget(2)
+        self.diagnsotics_grid_ugvs = Obj_gridDiagnosticsLayout(2)
         self.diagnostics_actors_ugvs = []
 
         # diagnostics uavs
         widgets.diagnosticsUAVsLayout.setAlignment(Qt.AlignTop)
-        self.diagnsotics_grid_uavs = Obj_gridWidget(2)
+        self.diagnsotics_grid_uavs = Obj_gridDiagnosticsLayout(2)
         self.diagnostics_actors_uavs = []
 
         # diagnostics update network connection icons worker
-        self.diagnostics_timer_network_connection = QTimer()
-        self.diagnostics_timer_network_connection.timeout.connect(self.mess2_check_network_connections)
-        self.diagnostics_timer_network_connection.start(5000)
-
+        self.diagnostics_timer_device_network_connections = QTimer()
+        self.diagnostics_timer_device_network_connections.timeout.connect(self.mess2_check_network_and_ssh_connections)
+        self.diagnostics_timer_device_network_connections.start(5000)
 
 
 
@@ -330,8 +327,8 @@ class MainWindow(QMainWindow):
             elif self.experiment_name is not None and experiment_name != "" and experiment_name != self.experiment_name:
                 self.experiment_name = experiment_name
                 self.mess2_remove_sensors()
-                self.mess2_load_sensors()
                 self.mess2_remove_actors()
+                self.mess2_load_sensors()
                 self.mess2_load_actors()
                 self.is_experiment_loaded = True
 
@@ -342,22 +339,23 @@ class MainWindow(QMainWindow):
                 UIFunctions.mess2_log_to_diagnostics(self, f"experiment file {self.experiment_file_path} was already loaded")
 
 
-    def mess2_add_sensor(self, sensor_type: str = "", sensor_name: str = "", sensor_ip: str = "", show_connected: bool = False, show_online: bool = True, is_empty: bool = False):
+    def mess2_add_sensor(self, type: str = "sensor", name: str = "", ip: str = "", username: str = "ubuntu", password: str = "1234", port: int = -1):
         """
         
         """
         index_row = self.diagnostics_grid_sensors.get_index_row()
         index_col = self.diagnostics_grid_sensors.get_index_col()
-
-        if is_empty:
-            sensor_name = f"sensorEmpty_{index_row}_{index_col}"
-        sensor = Sensor(sensor_type, sensor_name, sensor_ip, show_connected, show_online, is_empty)
-        self.diagnostics_sensors.append(sensor)
-
-        widgets.diagnosticsSensorsLayout.addWidget(sensor.widget, index_row, index_col)
+        if name == "":
+            name = f"blankSensor_{index_row}_{index_col}"
+        sensor = Device(
+            type=type, name=name, ip=ip, username=username, password=password, port=port
+        )
+        if type != "":
+            self.diagnostics_sensors.append(sensor)
+            widgets.diagnosticsSensorsLayout.addWidget(sensor.widget, index_row, index_col)
     
 
-    def mess2_remove_sensor(self, sensor):
+    def mess2_remove_sensor(self, sensor: Device):
         """
         
         """
@@ -371,8 +369,8 @@ class MainWindow(QMainWindow):
         """
         for sensor in self.diagnostics_sensors:
             self.mess2_remove_sensor(sensor)
-        
         self.diagnostics_sensors.clear()
+        self.diagnostics_grid_sensors.__reset__()
     
 
     def mess2_load_sensors(self):
@@ -382,34 +380,37 @@ class MainWindow(QMainWindow):
         if "sensors" in self.experiment_file_content:
             for sensor in self.experiment_file_content["sensors"]:
                 type = sensor.get("type", "")
-                assert(type != "" and type is not None)
-
                 name = sensor.get("name", "")
-                assert(name != "" and name is not None)
-
                 ip = sensor.get("ip", "")
-                show_connected = sensor.get("show_connected", False)
-                show_online = sensor.get("show_online", True)
+                assert(type != "" and type != None)
+                assert(name != "" and name != None)
 
-                self.mess2_add_sensor(type, name, ip, show_connected, show_online, False)
+                username = sensor.get("username", "ubuntu")
+                password = sensor.get("password", "1234")
+                port = sensor.get("port")
+                assert(username != "")
+
+                self.mess2_add_sensor(
+                    type=type, name=name, ip=ip, username=username, password=password, port=port
+                )
                 if type == "vicon":
-                    self.mess2_add_sensor(type, name, ip, show_connected, show_online, True)
+                    self.mess2_add_sensor(type="")  # add empty tile next to vicon ;) so it has its own row
 
 
-    def mess2_add_actor_ugv(self, actor_type: str = "ugv", actor_name: str = "", actor_ip: str = ""):
+    def mess2_add_actor_ugv(self, type: str = "ugv", name: str = "", ip: str = "", username: str = "ubuntu", password: str = "1234", port: int = -1):
         """
         
         """
         index_row = self.diagnsotics_grid_ugvs.get_index_row()
         index_col = self.diagnsotics_grid_ugvs.get_index_col()
-
-        actor = Actor(actor_type, actor_name, actor_ip)
+        actor = Device(
+            type=type, name=name, ip=ip, username=username, password=password, port=port
+        )
         self.diagnostics_actors_ugvs.append(actor)
-
         widgets.diagnosticsUGVsLayout.addWidget(actor.widget, index_row, index_col)
     
 
-    def mess2_remove_actor_ugv(self, actor):
+    def mess2_remove_actor_ugv(self, actor: Device):
         """
 
         """
@@ -417,19 +418,20 @@ class MainWindow(QMainWindow):
         actor.widget.deleteLater()
 
 
-    def mess2_add_actor_uav(self, actor_type: str = "uav", actor_name: str = "", actor_ip: str = ""):
+    def mess2_add_actor_uav(self, type: str = "ugv", name: str = "", ip: str = "", username: str = "ubuntu", password: str = "1234", port: int = -1):
         """
         
         """
-        actor = Actor(actor_type, actor_name, actor_ip)
-        self.diagnostics_actors_uavs.append(actor)
-        
         index_row = self.diagnsotics_grid_uavs.get_index_row()
         index_col = self.diagnsotics_grid_uavs.get_index_col()
+        actor = Device(
+            type=type, name=name, ip=ip, username=username, password=password, port=port
+        )
+        self.diagnostics_actors_uavs.append(actor)
         widgets.diagnosticsUAVsLayout.addWidget(actor.widget, index_row, index_col)
     
 
-    def mess2_remove_actor_uav(self, actor):
+    def mess2_remove_actor_uav(self, actor: Device):
         """
 
         """
@@ -443,67 +445,50 @@ class MainWindow(QMainWindow):
         """
         for actor in self.diagnostics_actors_ugvs:
             self.mess2_remove_actor_ugv(actor)
+        self.diagnostics_actors_ugvs.clear()
+        self.diagnsotics_grid_ugvs.__reset__()
         for actor in self.diagnostics_actors_uavs:
             self.mess2_remove_actor_uav(actor)
-        
-        self.diagnostics_actors_ugvs.clear()
         self.diagnostics_actors_uavs.clear()
+        self.diagnsotics_grid_uavs.__reset__()
 
 
     def mess2_load_actors(self):
         """
-        This method loads the ugv and uav actor diagnostics gui elements from a preconfigured experiment .yaml file.
+        Loads the ugv and uav actor diagnostics gui elements from a preconfigured experiment .yaml file.
         """
         if "actors" in self.experiment_file_content:
             for actor in self.experiment_file_content["actors"]:
                 type = actor.get("type", "")
-                assert(type != "" and type is not None)
-
                 name = actor.get("name", "")
-                assert(name != "" and name is not None)
-
                 ip = actor.get("ip", "")
+                assert(type != "" and type != None)
+                assert(name != "" and name != None)
+
+                username = actor.get("username", "ubuntu")
+                password = actor.get("password", "1234")
+                port = actor.get("port")
+                assert(username != "")
 
                 if type == "ugv":
-                    self.mess2_add_actor_ugv(type, name, ip)
+                    self.mess2_add_actor_ugv(
+                        type=type, name=name, ip=ip, username=username, password=password, port=port
+                    )
                 elif type == "uav":
-                    self.mess2_add_actor_uav(type, name, ip)
+                    self.mess2_add_actor_uav(
+                        type=type, name=name, ip=ip, username=username, password=password, port=port
+                    )
 
 
-    def mess2_check_network_connections(self):
+    def mess2_check_network_and_ssh_connections(self):
         """
-        Check network connections for sensors, UGVs, and UAVs.
+        Checks network connections for sensors, ugvs, and uavs.
         """
-        worker = Worker_mess2CheckNetworkConnection(
+        worker = WorkerDeviceUI(
             self.diagnostics_sensors,
-            self.diagnostics_actors_ugvs,
-            self.diagnostics_actors_uavs
+            self.diagnostics_actors_ugvs + self.diagnostics_actors_uavs
         )
-        
-        # worker.signal..connect(self.mess2_update_network_connection_icons)
-        # worker.signals.signal.connect(
-        #     lambda str: print(f"str: {str}")
-        # )
-
         self.threadpool.start(worker)
-        # if self.is_experiment_loaded:
-        #     worker = Worker_mess2CheckNetworkConnection(
-        #         self.diagnostics_sensors,
-        #         self.diagnostics_actors_ugvs,
-        #         self.diagnostics_actors_uavs
-        #     )
-
-        #     self.diagnostics_signal_ip_network_connection = None
-        #     self.diagnostics_signal_status_network_connection = None
-
-        #     def handle_signal(ip: str, status: bool):
-        #         """
-        #         Slot method to handle the signal emitted by the worker.
-        #         """
-        #         self.diagnostics_signal_ip_network_connection = ip
-        #         self.diagnostics_signal_status_network_connection = status
-
-        #     self.threadpool.start(worker)
 
 
 

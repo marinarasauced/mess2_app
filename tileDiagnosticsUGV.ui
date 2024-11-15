@@ -31,13 +31,15 @@ background-color: rgb(21, 23, 27);
 border-radius: 5px;
 color: rgb(221, 221, 221);
 }
-#status_connected {
-background-image: url(:/icons/images/icons2/status_disconnected.png);
+#ssh_icon {
+background-image: url(:/icons/images/icons2/ssh_na.png);
 background-repeat: no-repeat;
 background-position: center;
+border: none;
 }
-#status_online {
-background-image: url(:/icons/images/icons2/status_offline.png);
+
+#network_icon {
+background-image: url(:/icons/images/icons2/network_na.png);
 background-repeat: no-repeat;
 background-position: center;
 }
@@ -58,7 +60,7 @@ background-repeat: no-repeat;
 background-position: center;
 }
 #battery_text {
-color: rgb(191, 191, 191) !important;
+color: rgb(92, 95, 102) !important;
 font-size: 10px !important;
 }</string>
   </property>
@@ -202,29 +204,29 @@ font-size: 10px !important;
           </widget>
          </item>
          <item alignment="Qt::AlignTop">
-          <widget class="QFrame" name="status_connected">
+          <widget class="QPushButton" name="ssh_icon">
            <property name="minimumSize">
             <size>
-             <width>0</width>
+             <width>16</width>
              <height>16</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>16</width>
-             <height>24</height>
+             <height>16</height>
             </size>
            </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
            </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
+           <property name="text">
+            <string/>
            </property>
           </widget>
          </item>
          <item alignment="Qt::AlignTop">
-          <widget class="QFrame" name="status_online">
+          <widget class="QFrame" name="network_icon">
            <property name="minimumSize">
             <size>
              <width>0</width>

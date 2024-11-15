@@ -1,6 +1,6 @@
 
 
-class Obj_gridWidget():
+class Obj_gridDiagnosticsLayout():
     """
     This class trackes the indices of grid layouts assuming that the grid either has a maximum number of columns or rows. The current logic will not account for grids who dimensions are either both bounded or unbounded.
     """
@@ -34,3 +34,11 @@ class Obj_gridWidget():
         """
         self.curr_col += 1
         return self.curr_col
+
+
+    def __reset__(self):
+        """
+        Resets the current instance's row and column indices.
+        """
+        self.curr_row = 1
+        self.curr_col = 0

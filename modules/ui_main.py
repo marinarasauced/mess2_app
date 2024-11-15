@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainkcMSjR.ui'
+## Form generated from reading UI file 'mainywmMLR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -1564,14 +1564,15 @@ class Ui_MainWindow(object):
 "color: rgb(201, 201, 201);\n"
 "font-weight: 600;\n"
 "border-bottom: 1px solid rgb(0, 204, 255);\n"
-"}")
+"}\n"
+"")
         self.frame_top.setFrameShape(QFrame.StyledPanel)
         self.frame_top.setFrameShadow(QFrame.Raised)
         self.verticalLayout_32 = QVBoxLayout(self.frame_top)
         self.verticalLayout_32.setObjectName(u"verticalLayout_32")
         self.verticalLayout_32.setContentsMargins(0, 0, 0, 0)
         self.diagnosticsSubmenu1 = QVBoxLayout()
-        self.diagnosticsSubmenu1.setSpacing(18)
+        self.diagnosticsSubmenu1.setSpacing(27)
         self.diagnosticsSubmenu1.setObjectName(u"diagnosticsSubmenu1")
         self.diagnosticsSubmenu1.setContentsMargins(1, 8, 1, 54)
         self.diagnosticsCalibrationFrame = QFrame(self.frame_top)
@@ -1826,6 +1827,7 @@ class Ui_MainWindow(object):
         self.experimentButtons.setFrameShape(QFrame.StyledPanel)
         self.experimentButtons.setFrameShadow(QFrame.Raised)
         self.verticalLayout_36 = QVBoxLayout(self.experimentButtons)
+        self.verticalLayout_36.setSpacing(9)
         self.verticalLayout_36.setObjectName(u"verticalLayout_36")
         self.verticalLayout_36.setContentsMargins(0, 0, 0, 0)
         self.btn_experiment_load = QPushButton(self.experimentButtons)
@@ -1839,6 +1841,279 @@ class Ui_MainWindow(object):
 
 
         self.diagnosticsSubmenu1.addWidget(self.diagnosticsExperimentFrame)
+
+        self.diagnosticsExperimentRunFrame = QFrame(self.frame_top)
+        self.diagnosticsExperimentRunFrame.setObjectName(u"diagnosticsExperimentRunFrame")
+        self.diagnosticsExperimentRunFrame.setFrameShape(QFrame.StyledPanel)
+        self.diagnosticsExperimentRunFrame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_37 = QVBoxLayout(self.diagnosticsExperimentRunFrame)
+        self.verticalLayout_37.setSpacing(0)
+        self.verticalLayout_37.setObjectName(u"verticalLayout_37")
+        self.verticalLayout_37.setContentsMargins(0, 0, 0, 0)
+        self.diagnosticsExperimentRunLabel = QLabel(self.diagnosticsExperimentRunFrame)
+        self.diagnosticsExperimentRunLabel.setObjectName(u"diagnosticsExperimentRunLabel")
+
+        self.verticalLayout_37.addWidget(self.diagnosticsExperimentRunLabel)
+
+        self.experimentRunButtons = QFrame(self.diagnosticsExperimentRunFrame)
+        self.experimentRunButtons.setObjectName(u"experimentRunButtons")
+        self.experimentRunButtons.setStyleSheet(u"#experimentRunButtons QPushButton {\n"
+"background-color: rgb(30, 33, 39);\n"
+"border-radius: 6px;\n"
+"padding: 0 9px 0 9px;\n"
+"min-height: 24px;\n"
+"max-height: 24px;\n"
+"border: none;\n"
+"color: rgb(201, 201, 201);\n"
+"font-size: 11px;\n"
+"}\n"
+"#experimentRunButtons QPushButton:hover {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"#experimentRunButtons QPushButton:pressed {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"")
+        self.experimentRunButtons.setFrameShape(QFrame.StyledPanel)
+        self.experimentRunButtons.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_38 = QVBoxLayout(self.experimentRunButtons)
+        self.verticalLayout_38.setSpacing(9)
+        self.verticalLayout_38.setObjectName(u"verticalLayout_38")
+        self.verticalLayout_38.setContentsMargins(0, 15, 0, 0)
+        self.btn_ssh_connect = QPushButton(self.experimentRunButtons)
+        self.btn_ssh_connect.setObjectName(u"btn_ssh_connect")
+        self.btn_ssh_connect.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.verticalLayout_38.addWidget(self.btn_ssh_connect)
+
+        self.btn_ros2_sensor_drivers = QPushButton(self.experimentRunButtons)
+        self.btn_ros2_sensor_drivers.setObjectName(u"btn_ros2_sensor_drivers")
+        self.btn_ros2_sensor_drivers.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.verticalLayout_38.addWidget(self.btn_ros2_sensor_drivers)
+
+        self.btn_ros2_actor_nodes = QPushButton(self.experimentRunButtons)
+        self.btn_ros2_actor_nodes.setObjectName(u"btn_ros2_actor_nodes")
+        self.btn_ros2_actor_nodes.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.verticalLayout_38.addWidget(self.btn_ros2_actor_nodes)
+
+
+        self.verticalLayout_37.addWidget(self.experimentRunButtons)
+
+
+        self.diagnosticsSubmenu1.addWidget(self.diagnosticsExperimentRunFrame)
+
+        self.diagnosticsDataCollection = QFrame(self.frame_top)
+        self.diagnosticsDataCollection.setObjectName(u"diagnosticsDataCollection")
+        sizePolicy4.setHeightForWidth(self.diagnosticsDataCollection.sizePolicy().hasHeightForWidth())
+        self.diagnosticsDataCollection.setSizePolicy(sizePolicy4)
+        self.diagnosticsDataCollection.setMinimumSize(QSize(0, 150))
+        self.diagnosticsDataCollection.setFrameShape(QFrame.StyledPanel)
+        self.diagnosticsDataCollection.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_39 = QVBoxLayout(self.diagnosticsDataCollection)
+        self.verticalLayout_39.setSpacing(0)
+        self.verticalLayout_39.setObjectName(u"verticalLayout_39")
+        self.verticalLayout_39.setContentsMargins(0, 0, 0, 0)
+        self.dataCollectionLabel = QLabel(self.diagnosticsDataCollection)
+        self.dataCollectionLabel.setObjectName(u"dataCollectionLabel")
+
+        self.verticalLayout_39.addWidget(self.dataCollectionLabel)
+
+        self.dataCollectionSettings = QFrame(self.diagnosticsDataCollection)
+        self.dataCollectionSettings.setObjectName(u"dataCollectionSettings")
+        sizePolicy5.setHeightForWidth(self.dataCollectionSettings.sizePolicy().hasHeightForWidth())
+        self.dataCollectionSettings.setSizePolicy(sizePolicy5)
+        self.dataCollectionSettings.setMinimumSize(QSize(0, 0))
+        self.dataCollectionSettings.setMaximumSize(QSize(16777215, 48))
+        self.dataCollectionSettings.setStyleSheet(u"QFrame QLabel {\n"
+"color: rgb(201, 201, 201);\n"
+"font-weight: 400;\n"
+"font-size: 11px;\n"
+"border-bottom: 0px solid rgb(0, 204, 255);\n"
+"}\n"
+"QPushButton {\n"
+"background-color: rgb(30, 33, 39);\n"
+"border: none;\n"
+"color: rgb(201, 201, 201);\n"
+"font-size: 11px;\n"
+"selection-background-color: rgb(0, 153, 191);\n"
+"border-radius: 5px;\n"
+"min-height: 17px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"QLineEdit {\n"
+"background-color: rgb(30, 33, 39);\n"
+"border: none;\n"
+"color: rgb(201, 201, 201);\n"
+"font-size: 9px;\n"
+"selection-background-color: rgb(0, 153, 191);\n"
+"padding: 0 6px 0 6px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}")
+        self.dataCollectionSettings.setFrameShape(QFrame.StyledPanel)
+        self.dataCollectionSettings.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_13 = QHBoxLayout(self.dataCollectionSettings)
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.horizontalLayout_13.setContentsMargins(0, 15, 0, 0)
+        self.dataCollectionPathLabel = QLabel(self.dataCollectionSettings)
+        self.dataCollectionPathLabel.setObjectName(u"dataCollectionPathLabel")
+        self.dataCollectionPathLabel.setMaximumSize(QSize(16777215, 24))
+
+        self.horizontalLayout_13.addWidget(self.dataCollectionPathLabel)
+
+        self.logSavePathText = QLineEdit(self.dataCollectionSettings)
+        self.logSavePathText.setObjectName(u"logSavePathText")
+        self.logSavePathText.setReadOnly(True)
+
+        self.horizontalLayout_13.addWidget(self.logSavePathText)
+
+        self.btn_log_save_path_select = QPushButton(self.dataCollectionSettings)
+        self.btn_log_save_path_select.setObjectName(u"btn_log_save_path_select")
+        self.btn_log_save_path_select.setMaximumSize(QSize(16777215, 16))
+        self.btn_log_save_path_select.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_log_save_path_select.setStyleSheet(u"background-image: url(:/icons/images/icons2/browse_files.png);\n"
+"background-repeat: no-repeat;\n"
+"background-position: bottom;")
+
+        self.horizontalLayout_13.addWidget(self.btn_log_save_path_select)
+
+
+        self.verticalLayout_39.addWidget(self.dataCollectionSettings)
+
+        self.dataCollectionSettings2 = QFrame(self.diagnosticsDataCollection)
+        self.dataCollectionSettings2.setObjectName(u"dataCollectionSettings2")
+        sizePolicy5.setHeightForWidth(self.dataCollectionSettings2.sizePolicy().hasHeightForWidth())
+        self.dataCollectionSettings2.setSizePolicy(sizePolicy5)
+        self.dataCollectionSettings2.setMaximumSize(QSize(16777215, 24))
+        self.dataCollectionSettings2.setStyleSheet(u"QFrame QLabel {\n"
+"color: rgb(201, 201, 201);\n"
+"font-weight: 400;\n"
+"font-size: 11px;\n"
+"border-bottom: 0px solid rgb(0, 204, 255);\n"
+"}\n"
+"QPushButton {\n"
+"background-color: rgb(30, 33, 39);\n"
+"border: none;\n"
+"color: rgb(201, 201, 201);\n"
+"font-size: 11px;\n"
+"selection-background-color: rgb(0, 153, 191);\n"
+"border-radius: 5px;\n"
+"min-height: 17px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"QLineEdit {\n"
+"background-color: rgb(30, 33, 39);\n"
+"border: none;\n"
+"color: rgb(201, 201, 201);\n"
+"font-size: 9px;\n"
+"selection-background-color: rgb(0, 153, 191);\n"
+"padding: 0 6px 0 6px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"#checkboxUseGeneratedSavePath {\n"
+"border-radius: 5px;\n"
+"}\n"
+"#checkboxUseGeneratedSavePath::indicator {\n"
+"background: none;\n"
+"border: none;\n"
+"border-radius: 5"
+                        "px;\n"
+"width: 27px;\n"
+"height: 18px;\n"
+"background-image: url(:/icons/images/icons2/unchecked.png);\n"
+"background-repeat: no-repeat;\n"
+"background-position: center;\n"
+"}\n"
+"#checkboxUseGeneratedSavePath::indicator:checked {\n"
+"background: transparent;\n"
+"background-color: rgb(40, 44, 52);\n"
+"background-image: url(:/icons/images/icons2/checked.png);\n"
+"background-repeat: no-repeat;\n"
+"background-position: center;\n"
+"border-radius: 5px;\n"
+"}\n"
+"")
+        self.dataCollectionSettings2.setFrameShape(QFrame.NoFrame)
+        self.dataCollectionSettings2.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_14 = QHBoxLayout(self.dataCollectionSettings2)
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.horizontalLayout_14.setContentsMargins(0, 0, 0, 0)
+        self.useGeneratedSavePathLabel = QLabel(self.dataCollectionSettings2)
+        self.useGeneratedSavePathLabel.setObjectName(u"useGeneratedSavePathLabel")
+        self.useGeneratedSavePathLabel.setMaximumSize(QSize(16777215, 24))
+
+        self.horizontalLayout_14.addWidget(self.useGeneratedSavePathLabel)
+
+        self.checkboxUseGeneratedSavePath = QCheckBox(self.dataCollectionSettings2)
+        self.checkboxUseGeneratedSavePath.setObjectName(u"checkboxUseGeneratedSavePath")
+        self.checkboxUseGeneratedSavePath.setMinimumSize(QSize(0, 18))
+        self.checkboxUseGeneratedSavePath.setMaximumSize(QSize(27, 18))
+        self.checkboxUseGeneratedSavePath.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.horizontalLayout_14.addWidget(self.checkboxUseGeneratedSavePath)
+
+
+        self.verticalLayout_39.addWidget(self.dataCollectionSettings2)
+
+        self.dataCollectionButtons = QFrame(self.diagnosticsDataCollection)
+        self.dataCollectionButtons.setObjectName(u"dataCollectionButtons")
+        sizePolicy5.setHeightForWidth(self.dataCollectionButtons.sizePolicy().hasHeightForWidth())
+        self.dataCollectionButtons.setSizePolicy(sizePolicy5)
+        self.dataCollectionButtons.setStyleSheet(u"#dataCollectionButtons QPushButton {\n"
+"background-color: rgb(30, 33, 39);\n"
+"border-radius: 6px;\n"
+"padding: 0 9px 0 9px;\n"
+"min-height: 24px;\n"
+"max-height: 24px;\n"
+"border: none;\n"
+"color: rgb(201, 201, 201);\n"
+"font-size: 11px;\n"
+"}\n"
+"#dataCollectionButtons QPushButton:hover {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"#dataCollectionButtons QPushButton:pressed {\n"
+"background-color: rgb(40, 44, 52);\n"
+"}\n"
+"")
+        self.dataCollectionButtons.setFrameShape(QFrame.StyledPanel)
+        self.dataCollectionButtons.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_40 = QVBoxLayout(self.dataCollectionButtons)
+        self.verticalLayout_40.setSpacing(0)
+        self.verticalLayout_40.setObjectName(u"verticalLayout_40")
+        self.verticalLayout_40.setContentsMargins(0, 0, 0, 0)
+        self.btn_logs_download = QPushButton(self.dataCollectionButtons)
+        self.btn_logs_download.setObjectName(u"btn_logs_download")
+        self.btn_logs_download.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.verticalLayout_40.addWidget(self.btn_logs_download)
+
+
+        self.verticalLayout_39.addWidget(self.dataCollectionButtons)
+
+
+        self.diagnosticsSubmenu1.addWidget(self.diagnosticsDataCollection)
 
         self.frame = QFrame(self.frame_top)
         self.frame.setObjectName(u"frame")
@@ -1859,26 +2134,44 @@ class Ui_MainWindow(object):
         self.diagnosticsButtonsFrameBottom.setObjectName(u"diagnosticsButtonsFrameBottom")
         self.diagnosticsButtonsFrameBottom.setMinimumSize(QSize(0, 0))
         self.diagnosticsButtonsFrameBottom.setMaximumSize(QSize(16777215, 16777215))
-        self.diagnosticsButtonsFrameBottom.setStyleSheet(u"#diagnosticsButtonsFrameBottom QPushButton {\n"
+        self.diagnosticsButtonsFrameBottom.setStyleSheet(u"#btn_experiment_abort  {\n"
 "color: rgb(201, 201, 201);\n"
-"background-color: transparent;\n"
+"background-color: rgb(35, 28, 30);\n"
 "font-size: 14px;\n"
 "min-height: 36px;\n"
 "max-height: 36px;\n"
 "border: 2px solid rgb(217, 83, 79);\n"
 "border-radius: 12px;\n"
 "}\n"
+"#btn_experiment_run  {\n"
+"color: rgb(201, 201, 201);\n"
+"background-color: rgb(35, 28, 30);\n"
+"font-size: 14px;\n"
+"min-height: 36px;\n"
+"max-height: 36px;\n"
+"border: 2px solid rgb(217, 83, 79);\n"
+"border-radius: 12px;\n"
+"}\n"
+"/*\n"
 "#diagnosticsButtonsFrameBottom QPushButton:hover {\n"
 "background-color: rgb(35, 28, 30);\n"
 "}\n"
 "#diagnosticsButtonsFrameBottom QPushButton:pressed {\n"
 "background-color: rgb(35, 28, 30);\n"
-"}")
+"}\n"
+"*/")
         self.diagnosticsButtonsFrameBottom.setFrameShape(QFrame.StyledPanel)
         self.diagnosticsButtonsFrameBottom.setFrameShadow(QFrame.Raised)
         self.verticalLayout_35 = QVBoxLayout(self.diagnosticsButtonsFrameBottom)
+        self.verticalLayout_35.setSpacing(9)
         self.verticalLayout_35.setObjectName(u"verticalLayout_35")
         self.verticalLayout_35.setContentsMargins(0, 0, 0, 9)
+        self.btn_experiment_run = QPushButton(self.diagnosticsButtonsFrameBottom)
+        self.btn_experiment_run.setObjectName(u"btn_experiment_run")
+        self.btn_experiment_run.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.verticalLayout_35.addWidget(self.btn_experiment_run)
+
         self.btn_experiment_abort = QPushButton(self.diagnosticsButtonsFrameBottom)
         self.btn_experiment_abort.setObjectName(u"btn_experiment_abort")
         self.btn_experiment_abort.setMinimumSize(QSize(0, 40))
@@ -2295,21 +2588,33 @@ class Ui_MainWindow(object):
 
         self.diagnosticsCalibrationLabel.setText(QCoreApplication.translate("MainWindow", u"VICON CALIBRATION", None))
         self.calibrationObjectNameLabel.setText(QCoreApplication.translate("MainWindow", u"Object Name:", None))
-        self.calibrationObjectNameText.setText(QCoreApplication.translate("MainWindow", u"burger1", None))
+        self.calibrationObjectNameText.setText(QCoreApplication.translate("MainWindow", u"object", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Must be an object in VICON Tracker", None))
         self.btn_calibration.setText(QCoreApplication.translate("MainWindow", u"Start Calibration", None))
         self.btn_calibration_cancel.setText(QCoreApplication.translate("MainWindow", u"Cancel", None))
-        self.diagnosticsExperimentLabel.setText(QCoreApplication.translate("MainWindow", u"EXPERIMENTS", None))
+        self.diagnosticsExperimentLabel.setText(QCoreApplication.translate("MainWindow", u"EXPERIMENT SELECTION", None))
         self.experimentFileLabel.setText(QCoreApplication.translate("MainWindow", u"Experiment File:", None))
-        self.experimentFileNameText.setText(QCoreApplication.translate("MainWindow", u"../experiment1.yaml", None))
+        self.experimentFileNameText.setText(QCoreApplication.translate("MainWindow", u"experiment.yaml", None))
         self.btn_experiment_select.setText("")
         self.btn_experiment_load.setText(QCoreApplication.translate("MainWindow", u"Load Experiment", None))
+        self.diagnosticsExperimentRunLabel.setText(QCoreApplication.translate("MainWindow", u"EXPERIMENT OPERATIONS", None))
+        self.btn_ssh_connect.setText(QCoreApplication.translate("MainWindow", u"Connect to all Actors", None))
+        self.btn_ros2_sensor_drivers.setText(QCoreApplication.translate("MainWindow", u"Launch ROS2 Sensor Drivers", None))
+        self.btn_ros2_actor_nodes.setText(QCoreApplication.translate("MainWindow", u"Launch ROS2 Actor Nodes", None))
+        self.dataCollectionLabel.setText(QCoreApplication.translate("MainWindow", u"DATA COLLECTION", None))
+        self.dataCollectionPathLabel.setText(QCoreApplication.translate("MainWindow", u"Save Path:", None))
+        self.logSavePathText.setText(QCoreApplication.translate("MainWindow", u"../placeholder", None))
+        self.btn_log_save_path_select.setText("")
+        self.useGeneratedSavePathLabel.setText(QCoreApplication.translate("MainWindow", u"Use Auto-Generated File Path:", None))
+        self.checkboxUseGeneratedSavePath.setText("")
+        self.btn_logs_download.setText(QCoreApplication.translate("MainWindow", u"Download Experiment Logs", None))
+        self.btn_experiment_run.setText(QCoreApplication.translate("MainWindow", u"Run Experiment", None))
         self.btn_experiment_abort.setText(QCoreApplication.translate("MainWindow", u"Abort Experiment", None))
         self.btn_diagnostics_ugvs.setText(QCoreApplication.translate("MainWindow", u"UGVs", None))
         self.btn_diagnostics_uavs.setText(QCoreApplication.translate("MainWindow", u"UAVs", None))
         self.btn_diagnostics_sensors.setText(QCoreApplication.translate("MainWindow", u"Sensors", None))
         self.btn_diagnostics_refresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"Marina J. Nelson", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.9", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.10", None))
     # retranslateUi
 

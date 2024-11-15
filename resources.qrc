@@ -275,5 +275,7 @@
     <file>images/icons2/battery_100.png</file>
     <file>images/icons2/battery_na.png</file>
     <file>images/icons2/browse_files.png</file>
+    <file>images/icons2/unchecked.png</file>
+    <file>images/icons2/checked.png</file>
   </qresource>
 </RCC>

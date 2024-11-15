@@ -3755,7 +3755,7 @@ border: none;</string>
                                        <property name="maximumSize">
                                         <size>
                                          <width>16777215</width>
-                                         <height>36</height>
+                                         <height>16777215</height>
                                         </size>
                                        </property>
                                        <property name="styleSheet">
@@ -3770,7 +3770,7 @@ background-color: rgb(30, 33, 39);
 border: none;
 color: rgb(201, 201, 201);
 font-size: 11px;
-selection-color: rgb(231, 231, 231);
+selection-color: rgb(221, 221, 231);
 selection-background-color: rgb(0, 114, 143);
 border-radius: 5px;
 min-height: 17px;
@@ -3786,7 +3786,8 @@ background-color: rgb(30, 33, 39);
 border: none;
 color: rgb(201, 201, 201);
 font-size: 9px;
-selection-background-color: rgb(0, 153, 191);
+selection-color: rgb(221, 221, 231);
+selection-background-color: rgb(0, 114, 143);
 padding: 0 6px 0 6px;
 }
 QLineEdit:hover {
@@ -3820,6 +3821,12 @@ background-color: rgb(40, 44, 52);
                                         </property>
                                         <item>
                                          <widget class="QLabel" name="experimentFileLabel">
+                                          <property name="minimumSize">
+                                           <size>
+                                            <width>0</width>
+                                            <height>17</height>
+                                           </size>
+                                          </property>
                                           <property name="maximumSize">
                                            <size>
                                             <width>16777215</width>
@@ -3833,10 +3840,16 @@ background-color: rgb(40, 44, 52);
                                         </item>
                                         <item>
                                          <widget class="QLineEdit" name="experimentFileNameText">
+                                          <property name="minimumSize">
+                                           <size>
+                                            <width>0</width>
+                                            <height>17</height>
+                                           </size>
+                                          </property>
                                           <property name="maximumSize">
                                            <size>
                                             <width>16777215</width>
-                                            <height>17</height>
+                                            <height>24</height>
                                            </size>
                                           </property>
                                           <property name="text">
@@ -4160,7 +4173,8 @@ background-color: rgb(30, 33, 39);
 border: none;
 color: rgb(201, 201, 201);
 font-size: 9px;
-selection-background-color: rgb(0, 153, 191);
+selection-color: rgb(221, 221, 231);
+selection-background-color: rgb(0, 114, 143);
 padding: 0 6px 0 6px;
 }
 QLineEdit:hover {

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainywmMLR.ui'
+## Form generated from reading UI file 'mainmQNtcK.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -1596,7 +1596,7 @@ class Ui_MainWindow(object):
 
         self.calibrationObjectName = QFrame(self.diagnosticsCalibrationFrame)
         self.calibrationObjectName.setObjectName(u"calibrationObjectName")
-        self.calibrationObjectName.setMaximumSize(QSize(16777215, 48))
+        self.calibrationObjectName.setMaximumSize(QSize(16777215, 36))
         self.calibrationObjectName.setStyleSheet(u"QFrame QLabel {\n"
 "color: rgb(201, 201, 201);\n"
 "font-weight: 400;\n"
@@ -1608,7 +1608,8 @@ class Ui_MainWindow(object):
 "border: none;\n"
 "color: rgb(201, 201, 201);\n"
 "font-size: 11px;\n"
-"selection-background-color: rgb(0, 153, 191);\n"
+"selection-color: rgb(231, 231, 231);\n"
+"selection-background-color: rgb(0, 114, 143);\n"
 "}\n"
 "QLineEdit:hover {\n"
 "background-color: rgb(40, 44, 52);\n"
@@ -1622,7 +1623,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6 = QHBoxLayout(self.calibrationObjectName)
         self.horizontalLayout_6.setSpacing(6)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.horizontalLayout_6.setContentsMargins(0, 15, 0, 0)
+        self.horizontalLayout_6.setContentsMargins(0, 12, 0, 0)
         self.calibrationObjectNameLabel = QLabel(self.calibrationObjectName)
         self.calibrationObjectNameLabel.setObjectName(u"calibrationObjectNameLabel")
         self.calibrationObjectNameLabel.setMaximumSize(QSize(16777215, 24))
@@ -1730,7 +1731,7 @@ class Ui_MainWindow(object):
 
         self.experimentFile = QFrame(self.diagnosticsExperimentFrame)
         self.experimentFile.setObjectName(u"experimentFile")
-        self.experimentFile.setMaximumSize(QSize(16777215, 48))
+        self.experimentFile.setMaximumSize(QSize(16777215, 16777215))
         self.experimentFile.setStyleSheet(u"QFrame QLabel {\n"
 "color: rgb(201, 201, 201);\n"
 "font-weight: 400;\n"
@@ -1742,7 +1743,8 @@ class Ui_MainWindow(object):
 "border: none;\n"
 "color: rgb(201, 201, 201);\n"
 "font-size: 11px;\n"
-"selection-background-color: rgb(0, 153, 191);\n"
+"selection-color: rgb(221, 221, 231);\n"
+"selection-background-color: rgb(0, 114, 143);\n"
 "border-radius: 5px;\n"
 "min-height: 17px;\n"
 "}\n"
@@ -1757,7 +1759,8 @@ class Ui_MainWindow(object):
 "border: none;\n"
 "color: rgb(201, 201, 201);\n"
 "font-size: 9px;\n"
-"selection-background-color: rgb(0, 153, 191);\n"
+"selection-color: rgb(221, 221, 231);\n"
+"selection-background-color: rgb(0, 114, 143);\n"
 "padding: 0 6px 0 6px;\n"
 "}\n"
 "QLineEdit:hover {\n"
@@ -1774,13 +1777,15 @@ class Ui_MainWindow(object):
         self.horizontalLayout_10.setContentsMargins(0, 15, 0, 9)
         self.experimentFileLabel = QLabel(self.experimentFile)
         self.experimentFileLabel.setObjectName(u"experimentFileLabel")
+        self.experimentFileLabel.setMinimumSize(QSize(0, 17))
         self.experimentFileLabel.setMaximumSize(QSize(16777215, 24))
 
         self.horizontalLayout_10.addWidget(self.experimentFileLabel)
 
         self.experimentFileNameText = QLineEdit(self.experimentFile)
         self.experimentFileNameText.setObjectName(u"experimentFileNameText")
-        self.experimentFileNameText.setMaximumSize(QSize(16777215, 17))
+        self.experimentFileNameText.setMinimumSize(QSize(0, 17))
+        self.experimentFileNameText.setMaximumSize(QSize(16777215, 24))
         self.experimentFileNameText.setFrame(True)
         self.experimentFileNameText.setDragEnabled(False)
         self.experimentFileNameText.setReadOnly(True)
@@ -1908,7 +1913,7 @@ class Ui_MainWindow(object):
         self.diagnosticsDataCollection.setObjectName(u"diagnosticsDataCollection")
         sizePolicy4.setHeightForWidth(self.diagnosticsDataCollection.sizePolicy().hasHeightForWidth())
         self.diagnosticsDataCollection.setSizePolicy(sizePolicy4)
-        self.diagnosticsDataCollection.setMinimumSize(QSize(0, 150))
+        self.diagnosticsDataCollection.setMinimumSize(QSize(0, 0))
         self.diagnosticsDataCollection.setFrameShape(QFrame.StyledPanel)
         self.diagnosticsDataCollection.setFrameShadow(QFrame.Raised)
         self.verticalLayout_39 = QVBoxLayout(self.diagnosticsDataCollection)
@@ -1917,6 +1922,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_39.setContentsMargins(0, 0, 0, 0)
         self.dataCollectionLabel = QLabel(self.diagnosticsDataCollection)
         self.dataCollectionLabel.setObjectName(u"dataCollectionLabel")
+        self.dataCollectionLabel.setMaximumSize(QSize(16777215, 24))
 
         self.verticalLayout_39.addWidget(self.dataCollectionLabel)
 
@@ -1925,7 +1931,7 @@ class Ui_MainWindow(object):
         sizePolicy5.setHeightForWidth(self.dataCollectionSettings.sizePolicy().hasHeightForWidth())
         self.dataCollectionSettings.setSizePolicy(sizePolicy5)
         self.dataCollectionSettings.setMinimumSize(QSize(0, 0))
-        self.dataCollectionSettings.setMaximumSize(QSize(16777215, 48))
+        self.dataCollectionSettings.setMaximumSize(QSize(16777215, 36))
         self.dataCollectionSettings.setStyleSheet(u"QFrame QLabel {\n"
 "color: rgb(201, 201, 201);\n"
 "font-weight: 400;\n"
@@ -1952,7 +1958,8 @@ class Ui_MainWindow(object):
 "border: none;\n"
 "color: rgb(201, 201, 201);\n"
 "font-size: 9px;\n"
-"selection-background-color: rgb(0, 153, 191);\n"
+"selection-color: rgb(221, 221, 231);\n"
+"selection-background-color: rgb(0, 114, 143);\n"
 "padding: 0 6px 0 6px;\n"
 "}\n"
 "QLineEdit:hover {\n"
@@ -1995,7 +2002,7 @@ class Ui_MainWindow(object):
         self.dataCollectionSettings2.setObjectName(u"dataCollectionSettings2")
         sizePolicy5.setHeightForWidth(self.dataCollectionSettings2.sizePolicy().hasHeightForWidth())
         self.dataCollectionSettings2.setSizePolicy(sizePolicy5)
-        self.dataCollectionSettings2.setMaximumSize(QSize(16777215, 24))
+        self.dataCollectionSettings2.setMaximumSize(QSize(16777215, 16777215))
         self.dataCollectionSettings2.setStyleSheet(u"QFrame QLabel {\n"
 "color: rgb(201, 201, 201);\n"
 "font-weight: 400;\n"
@@ -2058,7 +2065,7 @@ class Ui_MainWindow(object):
         self.dataCollectionSettings2.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_14 = QHBoxLayout(self.dataCollectionSettings2)
         self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.horizontalLayout_14.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_14.setContentsMargins(0, 6, 0, 9)
         self.useGeneratedSavePathLabel = QLabel(self.dataCollectionSettings2)
         self.useGeneratedSavePathLabel.setObjectName(u"useGeneratedSavePathLabel")
         self.useGeneratedSavePathLabel.setMaximumSize(QSize(16777215, 24))

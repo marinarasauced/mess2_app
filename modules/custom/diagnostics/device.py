@@ -1,10 +1,11 @@
 
-from PySide6.QtCore import Qt, QRunnable
-from PySide6.QtWidgets import QWidget
+from PySide6.QtCore import Qt, QRunnable, QThreadPool
+from PySide6.QtWidgets import QWidget, QPlainTextEdit
 
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, Future
-from modules.custom.diagnostics.network import *
+from modules.custom.diagnostics.logger import LoggerUI
+from modules.custom.diagnostics.network import NetworkFunctions
 from modules.custom.ui.ui_tileDiagnosticsSensor import Ui_tileDiagnosticsSensor
 from modules.custom.ui.ui_tileDiagnosticsUGV import Ui_tileDiagnosticsUGV
 from modules.custom.ui.ui_tileDiagnosticsUAV import Ui_tileDiagnosticsUAV
@@ -184,7 +185,7 @@ class Device(DeviceFunctions, DeviceUI):
     """
     Manages a mess2 app diagnostics device. 
     """
-    def __init__(self, type: str, name: str, ip: str, username: str = "ubuntu", password="1234", port: int = -1):
+    def __init__(self, type: str, name: str, ip: str, username: str = "ubuntu", password="1234", port: int = -1, logger: QPlainTextEdit = None, threadpool: QThreadPool = None):
         """
         Initializes device attributes and shows the device in the mess2 app.
         """
@@ -203,6 +204,10 @@ class Device(DeviceFunctions, DeviceUI):
 
         # device visual information
         self.ui_draw()
+
+        #
+        self.logger = LoggerUI(logger)
+        self.threadpool = threadpool
 
 
     def __del__(self):
@@ -230,7 +235,7 @@ class Device(DeviceFunctions, DeviceUI):
 
             if hasattr(self.ui, "ssh_icon"):
                 self.set_ssh_icon(False)
-                self.ui.ssh_icon.clicked.connect(self.clickSSH)
+                self.ui.ssh_icon.clicked.connect(self.click_ssh)
 
             if hasattr(self.ui, "network_icon"):
                 self.set_network_icon(False)
@@ -264,10 +269,14 @@ class Device(DeviceFunctions, DeviceUI):
                 self.network.status_network = status_network
 
 
-    def clickSSH(self):
+    def click_ssh(self):
         """
         """
-        print(f"Device::clickSSH : called ssh button placeholder method for {self.name}")
+        if self.network.status_ssh == True:
+            worker = WorkerDeviceSSHDisconnect(self)
+        else:
+            worker = WorkerDeviceSSHConnect(self)
+        self.threadpool.start(worker)
 
 
 class WorkerDeviceUI(QRunnable):
@@ -313,7 +322,8 @@ class WorkerDeviceUI(QRunnable):
                 try:
                     if device.name != "" and device.name != None:
                         status_network = results_network[device.name]
-                        status_ssh = results_ssh[device.name]
+                        # status_ssh = results_ssh[device.name]
+                        status_ssh = None
                         device.ui_redraw(
                             battery_percentage_text=None,
                             battery_percentage_value=None,
@@ -322,3 +332,114 @@ class WorkerDeviceUI(QRunnable):
                         )
                 except Exception as e:
                     pass
+
+
+def ssh_connect(device: Device):
+    """
+    Establishes an SSH connection with a remote device with more-involved networking logic and diagnostics logging.
+    """
+    if device.network.status_network != True:
+        result_ping = device.network.ping(device.ip)
+        device.network.status_network = result_ping
+
+    if device.network.status_network == False:
+        device.logger.log(f"unable to establish network connection {device.name}")
+
+    elif device.network.status_network == True:
+
+        if device.network.connect(hostname=device.ip, username=device.username, password=device.password, port=device.port):
+            device.network.status_ssh = True
+            device.logger.log(f"established SSH connection with {device.name}")
+
+        else:
+            device.network.status_ssh = False
+            device.logger.log(f"unable to establish SSH connection with {device.name}")
+
+
+class WorkerDeviceSSHConnect(QRunnable):
+    """
+    Manages threaded worker to establish an SSH connection with a single device.
+    """
+    def __init__(self, device: Device):
+        """
+        """
+        super().__init__()
+        self.device = device
+
+
+    def run(self):
+        """
+        """
+        ssh_connect(self.device)
+        
+
+class WorkerDevicesSSHConnect(QRunnable):
+    """
+    Manages threaded worker to establish SSH connections with multiple devices.
+    """
+    def __init__(self, devices: List[Device]):
+        """
+        """
+        super().__init__()
+        self.devices = devices
+
+
+    def run(self):
+        """
+        """
+        with ThreadPoolExecutor() as executor:
+            futures = {executor.submit(ssh_connect, device): device for device in self.devices if device.name != "" and device.name != None}
+
+
+def ssh_disconnect(device: Device):
+    """
+    Closes an SSH connection with a remote device using more-involved networking logic and diagnostics logging.
+    """
+    if device.network.status_network != True:
+        result_ping = device.network.ping(device.ip)
+        device.network.status_network = result_ping
+
+    if device.network.status_ssh == True:
+
+        if device.network.disconnect():
+            device.network.status_ssh = False
+            device.logger.log(f"closed SSH connection with {device.name}")
+
+        else:
+            device.network.status_ssh = True
+            device.logger.log(f"unable to close SSH connection with {device.name}")
+
+
+class WorkerDeviceSSHDisconnect(QRunnable):
+    """
+    Manages threaded worker to close an SSH connection with a single device.
+    """
+    def __init__(self, device: Device):
+        """
+        """
+        super().__init__()
+        self.device = device
+
+
+    def run(self):
+        """
+        """
+        ssh_disconnect(self.device)
+        
+
+class WorkerDevicesSSHDisconnect(QRunnable):
+    """
+    Manages threaded worker to close SSH connections with multiple devices.
+    """
+    def __init__(self, devices: List[Device]):
+        """
+        """
+        super().__init__()
+        self.devices = devices
+
+
+    def run(self):
+        """
+        """
+        with ThreadPoolExecutor() as executor:
+            futures = {executor.submit(ssh_disconnect, device): device for device in self.devices if device.name != "" and device.name != None}

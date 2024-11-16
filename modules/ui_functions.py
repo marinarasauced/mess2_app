@@ -385,4 +385,6 @@ class UIFunctions(MainWindow):
         """
         timestamp = datetime.now().strftime("[%H:%M:%S]")
         message = f"{timestamp} : {msg}"
+
         self.ui.diagnosticsTerminal.appendPlainText(message)
+        self.ui.diagnosticsTerminal.verticalScrollBar().setValue(self.ui.diagnosticsTerminal.verticalScrollBar().maximum())

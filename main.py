@@ -91,6 +91,21 @@ class MainWindow(QMainWindow):
         self.experiment_name = None
         self.is_experiment_loaded = False
 
+        widgets.btn_log_save_path_select.clicked.connect(self.mess2_logs_path_select)
+        self.experiment_dir_logs = os.path.abspath(os.path.join(os.getcwd(), "../logs"))
+        widgets.logSavePathText.setText(self.experiment_dir_logs)
+
+
+        self.are_actors_ssh_connected = False
+        widgets.btn_ssh_connect.clicked.connect(self.mess2_establish_or_close_ssh_connections)
+
+        self.are_sensor_nodes_running = False
+        widgets.btn_ros2_sensor_drivers.clicked.connect(self.mess2_start_or_stop_sensor_nodes)
+
+        self.are_actor_nodes_running = False
+        widgets.btn_ros2_actor_nodes.clicked.connect(self.mess2_start_or_stop_actor_nodes)
+
+
         # diagnostics sensors
         widgets.diagnosticsSensorsLayout.setAlignment(Qt.AlignTop)
         self.diagnostics_grid_sensors = Obj_gridDiagnosticsLayout(2)
@@ -110,7 +125,6 @@ class MainWindow(QMainWindow):
         self.diagnostics_timer_device_network_connections = QTimer()
         self.diagnostics_timer_device_network_connections.timeout.connect(self.mess2_check_network_and_ssh_connections)
         self.diagnostics_timer_device_network_connections.start(5000)
-
 
 
         # SHOW APP
@@ -326,6 +340,7 @@ class MainWindow(QMainWindow):
                 self.mess2_load_actors()
                 self.is_experiment_loaded = True
                 UIFunctions.mess2_log_to_diagnostics(self, f"loaded experiment {self.experiment_name}")
+                widgets.experimentFileNameText.setText(self.experiment_file_path)
 
             elif self.experiment_name is not None and experiment_name != "" and experiment_name != self.experiment_name:
                 self.experiment_name = experiment_name
@@ -335,6 +350,8 @@ class MainWindow(QMainWindow):
                 self.mess2_load_actors()
                 self.is_experiment_loaded = True
                 UIFunctions.mess2_log_to_diagnostics(self, f"loaded experiment {self.experiment_name}")
+                widgets.experimentFileNameText.setText(self.experiment_file_path)
+
 
             elif experiment_name == "":
                 UIFunctions.mess2_log_to_diagnostics(self, f"experiment file {self.experiment_file_path} is invalid")
@@ -352,7 +369,7 @@ class MainWindow(QMainWindow):
         if name == "":
             name = f"blankSensor_{index_row}_{index_col}"
         sensor = Device(
-            type=type, name=name, ip=ip, username=username, password=password, port=port
+            type=type, name=name, ip=ip, username=username, password=password, port=port, logger=widgets.diagnosticsTerminal, threadpool=self.threadpool
         )
         if type != "":
             self.diagnostics_sensors.append(sensor)
@@ -408,7 +425,7 @@ class MainWindow(QMainWindow):
         index_row = self.diagnsotics_grid_ugvs.get_index_row()
         index_col = self.diagnsotics_grid_ugvs.get_index_col()
         actor = Device(
-            type=type, name=name, ip=ip, username=username, password=password, port=port
+            type=type, name=name, ip=ip, username=username, password=password, port=port, logger=widgets.diagnosticsTerminal, threadpool=self.threadpool
         )
         self.diagnostics_actors_ugvs.append(actor)
         widgets.diagnosticsUGVsLayout.addWidget(actor.widget, index_row, index_col)
@@ -429,7 +446,7 @@ class MainWindow(QMainWindow):
         index_row = self.diagnsotics_grid_uavs.get_index_row()
         index_col = self.diagnsotics_grid_uavs.get_index_col()
         actor = Device(
-            type=type, name=name, ip=ip, username=username, password=password, port=port
+            type=type, name=name, ip=ip, username=username, password=password, port=port, logger=widgets.diagnosticsTerminal, threadpool=self.threadpool
         )
         self.diagnostics_actors_uavs.append(actor)
         widgets.diagnosticsUAVsLayout.addWidget(actor.widget, index_row, index_col)
@@ -495,12 +512,58 @@ class MainWindow(QMainWindow):
         self.threadpool.start(worker)
 
 
+    def mess2_establish_or_close_ssh_connections(self):
+        """
+        """
+        if self.are_actors_ssh_connected == False:
+            widgets.btn_ssh_connect.setText("Disconnect from all Actors")
+            self.are_actors_ssh_connected = True
+        elif self.are_actors_ssh_connected == True:
+            widgets.btn_ssh_connect.setText("Connect to all Actors")
+            self.are_actors_ssh_connected = False
+
+
+    def mess2_start_or_stop_sensor_nodes(self):
+        """
+        """
+        if self.are_sensor_nodes_running == False:
+            widgets.btn_ros2_sensor_drivers.setText("Shutdown ROS2 Sensor Drivers")
+            self.are_sensor_nodes_running = True
+        elif self.are_sensor_nodes_running == True:
+            widgets.btn_ros2_sensor_drivers.setText("Launch ROS2 Sensor Drivers")
+            self.are_sensor_nodes_running = False
+
+
+    def mess2_start_or_stop_actor_nodes(self):
+        """
+        """
+        if self.are_actor_nodes_running == False:
+            widgets.btn_ros2_actor_nodes.setText("Shutdown ROS2 Actor Nodes")
+            self.are_actor_nodes_running = True
+        elif self.are_actor_nodes_running == True:
+            widgets.btn_ros2_actor_nodes.setText("Launch ROS2 Actor Nodes")
+            self.are_actor_nodes_running = False
+
+
     def mess2_experiment_abort(self):
         """
         """
         if self.is_experiment_running == True:
             UIFunctions.mess2_log_to_diagnostics(self, f"aborting experiment {self.experiment_name}")
             UIFunctions.mess2_log_to_diagnostics(self, f"aborted experiment {self.experiment_name}")
+
+
+    def mess2_logs_path_select(self):
+        """
+        """
+        if not self.is_experiment_running:
+            response = QFileDialog.getExistingDirectory(
+                parent=self,
+                caption="Select a directory",
+                dir=os.getcwd(),
+            )
+            self.experiment_dir_logs = response
+            widgets.logSavePathText.setText(self.experiment_dir_logs)
 
 
 

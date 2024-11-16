@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainmQNtcK.ui'
+## Form generated from reading UI file 'mainxxjODC.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -1998,90 +1998,28 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_39.addWidget(self.dataCollectionSettings)
 
-        self.dataCollectionSettings2 = QFrame(self.diagnosticsDataCollection)
-        self.dataCollectionSettings2.setObjectName(u"dataCollectionSettings2")
-        sizePolicy5.setHeightForWidth(self.dataCollectionSettings2.sizePolicy().hasHeightForWidth())
-        self.dataCollectionSettings2.setSizePolicy(sizePolicy5)
-        self.dataCollectionSettings2.setMaximumSize(QSize(16777215, 16777215))
-        self.dataCollectionSettings2.setStyleSheet(u"QFrame QLabel {\n"
-"color: rgb(201, 201, 201);\n"
+        self.frame_3 = QFrame(self.diagnosticsDataCollection)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setStyleSheet(u"QFrame QLabel {\n"
+"color: rgb(92, 95, 102);\n"
 "font-weight: 400;\n"
-"font-size: 11px;\n"
+"font-size: 10px;\n"
+"font-style: italic;\n"
 "border-bottom: 0px solid rgb(0, 204, 255);\n"
-"}\n"
-"QPushButton {\n"
-"background-color: rgb(30, 33, 39);\n"
-"border: none;\n"
-"color: rgb(201, 201, 201);\n"
-"font-size: 11px;\n"
-"selection-background-color: rgb(0, 153, 191);\n"
-"border-radius: 5px;\n"
-"min-height: 17px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"background-color: rgb(40, 44, 52);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"background-color: rgb(40, 44, 52);\n"
-"}\n"
-"QLineEdit {\n"
-"background-color: rgb(30, 33, 39);\n"
-"border: none;\n"
-"color: rgb(201, 201, 201);\n"
-"font-size: 9px;\n"
-"selection-background-color: rgb(0, 153, 191);\n"
-"padding: 0 6px 0 6px;\n"
-"}\n"
-"QLineEdit:hover {\n"
-"background-color: rgb(40, 44, 52);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"background-color: rgb(40, 44, 52);\n"
-"}\n"
-"#checkboxUseGeneratedSavePath {\n"
-"border-radius: 5px;\n"
-"}\n"
-"#checkboxUseGeneratedSavePath::indicator {\n"
-"background: none;\n"
-"border: none;\n"
-"border-radius: 5"
-                        "px;\n"
-"width: 27px;\n"
-"height: 18px;\n"
-"background-image: url(:/icons/images/icons2/unchecked.png);\n"
-"background-repeat: no-repeat;\n"
-"background-position: center;\n"
-"}\n"
-"#checkboxUseGeneratedSavePath::indicator:checked {\n"
-"background: transparent;\n"
-"background-color: rgb(40, 44, 52);\n"
-"background-image: url(:/icons/images/icons2/checked.png);\n"
-"background-repeat: no-repeat;\n"
-"background-position: center;\n"
-"border-radius: 5px;\n"
-"}\n"
-"")
-        self.dataCollectionSettings2.setFrameShape(QFrame.NoFrame)
-        self.dataCollectionSettings2.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_14 = QHBoxLayout(self.dataCollectionSettings2)
-        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.horizontalLayout_14.setContentsMargins(0, 6, 0, 9)
-        self.useGeneratedSavePathLabel = QLabel(self.dataCollectionSettings2)
-        self.useGeneratedSavePathLabel.setObjectName(u"useGeneratedSavePathLabel")
-        self.useGeneratedSavePathLabel.setMaximumSize(QSize(16777215, 24))
+"}")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_30 = QVBoxLayout(self.frame_3)
+        self.verticalLayout_30.setSpacing(0)
+        self.verticalLayout_30.setObjectName(u"verticalLayout_30")
+        self.verticalLayout_30.setContentsMargins(0, 6, 0, 0)
+        self.label_2 = QLabel(self.frame_3)
+        self.label_2.setObjectName(u"label_2")
 
-        self.horizontalLayout_14.addWidget(self.useGeneratedSavePathLabel)
-
-        self.checkboxUseGeneratedSavePath = QCheckBox(self.dataCollectionSettings2)
-        self.checkboxUseGeneratedSavePath.setObjectName(u"checkboxUseGeneratedSavePath")
-        self.checkboxUseGeneratedSavePath.setMinimumSize(QSize(0, 18))
-        self.checkboxUseGeneratedSavePath.setMaximumSize(QSize(27, 18))
-        self.checkboxUseGeneratedSavePath.setCursor(QCursor(Qt.PointingHandCursor))
-
-        self.horizontalLayout_14.addWidget(self.checkboxUseGeneratedSavePath)
+        self.verticalLayout_30.addWidget(self.label_2)
 
 
-        self.verticalLayout_39.addWidget(self.dataCollectionSettings2)
+        self.verticalLayout_39.addWidget(self.frame_3)
 
         self.dataCollectionButtons = QFrame(self.diagnosticsDataCollection)
         self.dataCollectionButtons.setObjectName(u"dataCollectionButtons")
@@ -2109,7 +2047,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_40 = QVBoxLayout(self.dataCollectionButtons)
         self.verticalLayout_40.setSpacing(0)
         self.verticalLayout_40.setObjectName(u"verticalLayout_40")
-        self.verticalLayout_40.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_40.setContentsMargins(0, 9, 0, 0)
         self.btn_logs_download = QPushButton(self.dataCollectionButtons)
         self.btn_logs_download.setObjectName(u"btn_logs_download")
         self.btn_logs_download.setCursor(QCursor(Qt.PointingHandCursor))
@@ -2121,6 +2059,13 @@ class Ui_MainWindow(object):
 
 
         self.diagnosticsSubmenu1.addWidget(self.diagnosticsDataCollection)
+
+        self.frame_2 = QFrame(self.frame_top)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+
+        self.diagnosticsSubmenu1.addWidget(self.frame_2)
 
         self.frame = QFrame(self.frame_top)
         self.frame.setObjectName(u"frame")
@@ -2595,13 +2540,13 @@ class Ui_MainWindow(object):
 
         self.diagnosticsCalibrationLabel.setText(QCoreApplication.translate("MainWindow", u"VICON CALIBRATION", None))
         self.calibrationObjectNameLabel.setText(QCoreApplication.translate("MainWindow", u"Object Name:", None))
-        self.calibrationObjectNameText.setText(QCoreApplication.translate("MainWindow", u"object", None))
+        self.calibrationObjectNameText.setText("")
         self.label.setText(QCoreApplication.translate("MainWindow", u"Must be an object in VICON Tracker", None))
         self.btn_calibration.setText(QCoreApplication.translate("MainWindow", u"Start Calibration", None))
         self.btn_calibration_cancel.setText(QCoreApplication.translate("MainWindow", u"Cancel", None))
         self.diagnosticsExperimentLabel.setText(QCoreApplication.translate("MainWindow", u"EXPERIMENT SELECTION", None))
         self.experimentFileLabel.setText(QCoreApplication.translate("MainWindow", u"Experiment File:", None))
-        self.experimentFileNameText.setText(QCoreApplication.translate("MainWindow", u"experiment.yaml", None))
+        self.experimentFileNameText.setText("")
         self.btn_experiment_select.setText("")
         self.btn_experiment_load.setText(QCoreApplication.translate("MainWindow", u"Load Experiment", None))
         self.diagnosticsExperimentRunLabel.setText(QCoreApplication.translate("MainWindow", u"EXPERIMENT OPERATIONS", None))
@@ -2610,10 +2555,9 @@ class Ui_MainWindow(object):
         self.btn_ros2_actor_nodes.setText(QCoreApplication.translate("MainWindow", u"Launch ROS2 Actor Nodes", None))
         self.dataCollectionLabel.setText(QCoreApplication.translate("MainWindow", u"DATA COLLECTION", None))
         self.dataCollectionPathLabel.setText(QCoreApplication.translate("MainWindow", u"Save Path:", None))
-        self.logSavePathText.setText(QCoreApplication.translate("MainWindow", u"../placeholder", None))
+        self.logSavePathText.setText("")
         self.btn_log_save_path_select.setText("")
-        self.useGeneratedSavePathLabel.setText(QCoreApplication.translate("MainWindow", u"Use Auto-Generated File Path:", None))
-        self.checkboxUseGeneratedSavePath.setText("")
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Subdirectories for each trial are auto-generated", None))
         self.btn_logs_download.setText(QCoreApplication.translate("MainWindow", u"Download Experiment Logs", None))
         self.btn_experiment_run.setText(QCoreApplication.translate("MainWindow", u"Run Experiment", None))
         self.btn_experiment_abort.setText(QCoreApplication.translate("MainWindow", u"Abort Experiment", None))
@@ -2622,6 +2566,6 @@ class Ui_MainWindow(object):
         self.btn_diagnostics_sensors.setText(QCoreApplication.translate("MainWindow", u"Sensors", None))
         self.btn_diagnostics_refresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"Marina J. Nelson", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.10", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.11", None))
     # retranslateUi
 

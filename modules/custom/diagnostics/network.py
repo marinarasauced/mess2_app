@@ -30,6 +30,8 @@ class SSH():
     def connect(self, hostname: str, username: str, password: str, port: int = -1):
         """
         Establishes an SSH connection with a remote host.
+
+        @return: True if SSH connection established, False otherwise.
         """
         try:
             if port == -1:
@@ -53,6 +55,8 @@ class SSH():
     def disconnect(self):
         """
         Closes an SSH connection with a remote host.
+
+        @return: True if closed SSH connection, False otherwise.
         """
         try:
             if self.ssh:

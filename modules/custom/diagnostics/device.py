@@ -185,7 +185,7 @@ class Device(DeviceFunctions, DeviceUI):
     """
     Manages a mess2 app diagnostics device. 
     """
-    def __init__(self, type: str, name: str, ip: str, username: str = "ubuntu", password="1234", port: int = -1, logger: QPlainTextEdit = None, threadpool: QThreadPool = None):
+    def __init__(self, type: str, name: str, ip: str, username: str = "ubuntu", password="1234", port: int = -1, logger: QPlainTextEdit = None, threadpool: QThreadPool = None, enable_network: bool = True, enable_ssh: bool = False, enable_battery: bool = False):
         """
         Initializes device attributes and shows the device in the mess2 app.
         """
@@ -201,6 +201,11 @@ class Device(DeviceFunctions, DeviceUI):
         self.username = username
         self.password = password
         self.port = port
+
+        #
+        self.enable_network = enable_network
+        self.enable_ssh = enable_ssh
+        self.enable_battery = enable_battery
 
         # device visual information
         self.ui_draw()
@@ -221,10 +226,24 @@ class Device(DeviceFunctions, DeviceUI):
         """
         """
         self.widget.setObjectName(f"{self.type}_{self.name.replace(" ", "_").replace(".", "_")}")
-        if self.ui_lookup(self.type) != None:
-            self.ui = eval(f"{self.ui_lookup(self.type)}()")
-            self.ui.setupUi(self.widget)
+        if self.type == None:
+            pass
+        else:
+            self.ui = Ui_tileDiagnosticsUGV()
+            self.ui.setupUi(self.widget, self.enable_network, self.enable_ssh, self.enable_battery)
             self.set_name_text(self.name)
+
+            # print(vars(self.widget))
+
+            # if self.enable_network == False:
+            #     self.ui.__delattr__("network_icon")
+
+            # if self.enable_ssh == False:
+            #     self.ui.__delattr__("ssh_icon")
+            
+            # if self.enable_battery == False:
+            #     self.ui.__delattr__("battery_icon")
+            #     self.ui.__delattr__("battery_text")
             
             if hasattr(self.ui, "battery_text"):
                 self.set_battery_percentage_text("n/a")

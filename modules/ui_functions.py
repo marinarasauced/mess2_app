@@ -17,7 +17,9 @@
 # MAIN FILE
 # ///////////////////////////////////////////////////////////////
 from main import *
-from datetime import datetime
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
 
 # GLOBALS
 # ///////////////////////////////////////////////////////////////
@@ -379,12 +381,23 @@ class UIFunctions(MainWindow):
     # ///////////////////////////////////////////////////////////////
     # END - GUI DEFINITIONS
 
-    def mess2_log_to_diagnostics(self, msg: str = ""):
+    def diagnostics_submenu2_style(self, name: str):
         """
-        This method logs strings to the diagnostics terminal with an HH:MM:SS timestamp.
         """
-        timestamp = datetime.now().strftime("[%H:%M:%S]")
-        message = f"{timestamp} : {msg}"
+        ignore = ["btn_diagnostics2_refresh"]
+        for widget in self.ui.diagnosticsSubmenu2.findChildren(QPushButton):
+            is_same: bool = (widget.objectName() == name)
+            is_ignore: bool = (widget.objectName() in ignore)
+            if is_same == False and is_ignore == False:
+                style = widget.styleSheet()
+                style = style.replace(Settings.DIAGNOSTICS_SUBMENU2_STYLE, "")
+                widget.setStyleSheet(style)
+            elif is_same == True:
+                style = widget.styleSheet()
+                style = style.replace("", Settings.DIAGNOSTICS_SUBMENU2_STYLE)
+                widget.setStyleSheet(style)
 
-        self.ui.diagnosticsTerminal.appendPlainText(message)
-        self.ui.diagnosticsTerminal.verticalScrollBar().setValue(self.ui.diagnosticsTerminal.verticalScrollBar().maximum())
+                page = self.ui.diagnosticsPages2.findChild(QWidget, f"{widget.objectName().replace('btn', 'page')}")
+                self.ui.diagnosticsPages2.setCurrentWidget(page)
+
+        

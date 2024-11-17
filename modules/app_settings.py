@@ -28,3 +28,18 @@ class Settings():
     ICON_IS_DISCONNECTED = """background-image: url(:/icons/images/icons2/status_disconnected.png);"""
     ICON_IS_CONNECTED = """background-image: url(:/icons/images/icons2/status_connected.png);"""
 
+
+
+
+
+
+
+
+
+
+    DIAGNOSTICS_SUBMENU2_STYLE = """
+    background-color: rgb(40, 44, 52); 
+    border-bottom: 3px solid rgb(0, 204, 255); 
+    border-top: 3px solid transparent; 
+    """
+

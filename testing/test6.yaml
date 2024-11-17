@@ -1,0 +1,31 @@
+experiment:
+  name: "test6 : dynamic device category loading 2"
+  categories:
+    - "Test"
+    - "Miscellaneous"
+Test:
+  - type: "test"
+    name: "test1"
+    ip: "192.168.1.168"
+    username: "ubuntu"
+    password: "1234"
+    enable_network: true
+    enable_ssh: false
+    enable_battery: false
+Miscellaneous:
+  - type: "misc"
+    name: "misc1"
+    ip: "192.168.1.168"
+    username: "ubuntu"
+    password: "1234"
+    enable_network: false
+    enable_ssh: false
+    enable_battery: false
+  - type: "misc"
+    name: "misc2"
+    ip: "192.168.1.168"
+    username: "ubuntu"
+    password: "1234"
+    enable_network: false
+    enable_ssh: false
+    enable_battery: false

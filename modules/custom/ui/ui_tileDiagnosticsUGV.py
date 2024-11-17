@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
     QVBoxLayout, QWidget)
 
 class Ui_tileDiagnosticsUGV(object):
-    def setupUi(self, tileDiagnosticsUGV):
+    def setupUi(self, tileDiagnosticsUGV, enable_network: bool = False, enable_ssh: bool = True, enable_battery: bool = True):
         if not tileDiagnosticsUGV.objectName():
             tileDiagnosticsUGV.setObjectName(u"tileDiagnosticsUGV")
         tileDiagnosticsUGV.resize(350, 128)
@@ -91,43 +91,52 @@ class Ui_tileDiagnosticsUGV(object):
 
         self.horizontalLayout.addWidget(self.name_text, 0, Qt.AlignTop)
 
-        self.battery_text = QLabel(self.horizontalFrame)
-        self.battery_text.setObjectName(u"battery_text")
-        sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.battery_text.sizePolicy().hasHeightForWidth())
-        self.battery_text.setSizePolicy(sizePolicy)
-        self.battery_text.setMinimumSize(QSize(38, 0))
-        self.battery_text.setMaximumSize(QSize(38, 16777215))
+        self.enable_battery = enable_battery
+        if enable_battery:
 
-        self.horizontalLayout.addWidget(self.battery_text, 0, Qt.AlignRight|Qt.AlignTop)
+            self.battery_text = QLabel(self.horizontalFrame)
+            self.battery_text.setObjectName(u"battery_text")
+            sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+            sizePolicy.setHorizontalStretch(0)
+            sizePolicy.setVerticalStretch(0)
+            sizePolicy.setHeightForWidth(self.battery_text.sizePolicy().hasHeightForWidth())
+            self.battery_text.setSizePolicy(sizePolicy)
+            self.battery_text.setMinimumSize(QSize(38, 0))
+            self.battery_text.setMaximumSize(QSize(38, 16777215))
 
-        self.battery_icon = QFrame(self.horizontalFrame)
-        self.battery_icon.setObjectName(u"battery_icon")
-        self.battery_icon.setMinimumSize(QSize(24, 16))
-        self.battery_icon.setMaximumSize(QSize(24, 24))
-        self.battery_icon.setFrameShape(QFrame.StyledPanel)
-        self.battery_icon.setFrameShadow(QFrame.Raised)
+            self.horizontalLayout.addWidget(self.battery_text, 0, Qt.AlignRight|Qt.AlignTop)
 
-        self.horizontalLayout.addWidget(self.battery_icon, 0, Qt.AlignTop)
+            self.battery_icon = QFrame(self.horizontalFrame)
+            self.battery_icon.setObjectName(u"battery_icon")
+            self.battery_icon.setMinimumSize(QSize(24, 16))
+            self.battery_icon.setMaximumSize(QSize(24, 24))
+            self.battery_icon.setFrameShape(QFrame.StyledPanel)
+            self.battery_icon.setFrameShadow(QFrame.Raised)
 
-        self.ssh_icon = QPushButton(self.horizontalFrame)
-        self.ssh_icon.setObjectName(u"ssh_icon")
-        self.ssh_icon.setMinimumSize(QSize(16, 16))
-        self.ssh_icon.setMaximumSize(QSize(16, 16))
-        self.ssh_icon.setCursor(QCursor(Qt.PointingHandCursor))
+            self.horizontalLayout.addWidget(self.battery_icon, 0, Qt.AlignTop)
 
-        self.horizontalLayout.addWidget(self.ssh_icon, 0, Qt.AlignTop)
+        self.enable_ssh = enable_ssh
+        if enable_ssh:
 
-        self.network_icon = QFrame(self.horizontalFrame)
-        self.network_icon.setObjectName(u"network_icon")
-        self.network_icon.setMinimumSize(QSize(0, 16))
-        self.network_icon.setMaximumSize(QSize(16, 24))
-        self.network_icon.setFrameShape(QFrame.StyledPanel)
-        self.network_icon.setFrameShadow(QFrame.Raised)
+            self.ssh_icon = QPushButton(self.horizontalFrame)
+            self.ssh_icon.setObjectName(u"ssh_icon")
+            self.ssh_icon.setMinimumSize(QSize(16, 16))
+            self.ssh_icon.setMaximumSize(QSize(16, 16))
+            self.ssh_icon.setCursor(QCursor(Qt.PointingHandCursor))
 
-        self.horizontalLayout.addWidget(self.network_icon, 0, Qt.AlignTop)
+            self.horizontalLayout.addWidget(self.ssh_icon, 0, Qt.AlignTop)
+
+        self.enable_network = enable_network
+        if enable_network:
+
+            self.network_icon = QFrame(self.horizontalFrame)
+            self.network_icon.setObjectName(u"network_icon")
+            self.network_icon.setMinimumSize(QSize(0, 16))
+            self.network_icon.setMaximumSize(QSize(16, 24))
+            self.network_icon.setFrameShape(QFrame.StyledPanel)
+            self.network_icon.setFrameShadow(QFrame.Raised)
+
+            self.horizontalLayout.addWidget(self.network_icon, 0, Qt.AlignTop)
 
 
         self.verticalLayout_2.addWidget(self.horizontalFrame)
@@ -204,8 +213,10 @@ class Ui_tileDiagnosticsUGV(object):
     def retranslateUi(self, tileDiagnosticsUGV):
         tileDiagnosticsUGV.setWindowTitle(QCoreApplication.translate("tileDiagnosticsUGV", u"Form", None))
         self.name_text.setText(QCoreApplication.translate("tileDiagnosticsUGV", u"name", None))
-        self.battery_text.setText(QCoreApplication.translate("tileDiagnosticsUGV", u"80%", None))
-        self.ssh_icon.setText("")
+        if self.enable_battery == True:
+            self.battery_text.setText(QCoreApplication.translate("tileDiagnosticsUGV", u"80%", None))
+        if self.enable_ssh == True:
+            self.ssh_icon.setText("")
         self.ip_text.setText(QCoreApplication.translate("tileDiagnosticsUGV", u"ip", None))
     # retranslateUi
 

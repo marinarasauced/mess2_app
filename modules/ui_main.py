@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainxxjODC.ui'
+## Form generated from reading UI file 'main2DTnCfC.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -22,7 +22,7 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QScrollArea, QScrollBar, QSizePolicy, QSlider,
     QStackedWidget, QTableWidget, QTableWidgetItem, QTextEdit,
     QVBoxLayout, QWidget)
-import modules.resources_rc
+import resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -124,30 +124,12 @@ class Ui_MainWindow(object):
 "background-color: rgb(98, 114, 164 );\n"
 "color: rgb(255, 255, 255);\n"
 "}\n"
-"#diagnosticsSubMenu2 .QPushButton { \n"
-"background-color: transparent;\n"
-"text-align: center;\n"
-"padding: 0 18px 0 18px;\n"
-"border: None;\n"
-"border-radius: 0;\n"
-"}\n"
-"#diagnosticsSubMenu2 .QPushButton:hover {\n"
-"background-color: rgb(37, 39, 43);\n"
-"border: None;\n"
-"border-radius: 0;\n"
-"}\n"
-"#diagnosticsSubMenu2 .QPushButton:pressed { \n"
-"background-color: rgb(98, 114, 164 );\n"
-"color: rgb(255, 255, 255);\n"
-"border: None;\n"
-"border-radius: 0;\n"
-"}\n"
+"\n"
 "\n"
 "/* Toggle Button */\n"
 "#toggleButton {\n"
 "background-position: left center;\n"
-""
-                        "background-repeat: no-repeat;\n"
+"background-repeat: no-repeat;\n"
 "border: none;\n"
 "border-left: 20px solid transparent;\n"
 "background-color: rgb(37, 41, 48);\n"
@@ -166,7 +148,8 @@ class Ui_MainWindow(object):
 "#titleRightInfo { padding-left: 10px; }\n"
 "\n"
 "\n"
-"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"/* ////////////////////"
+                        "/////////////////////////////////////////////////////////////////////////////\n"
 "Extra Tab */\n"
 "#extraLeftBox { \n"
 "background-color: rgb(44, 49, 58);\n"
@@ -186,8 +169,7 @@ class Ui_MainWindow(object):
 "#extraLabel { color: rgb(255, 255, 255); }\n"
 "\n"
 "/* Btn Close */\n"
-"#extraCloseColumnBtn { background-color: rgba(255, 255, 255,"
-                        " 0); border: none; border-radius: 5px; }\n"
+"#extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none; border-radius: 5px; }\n"
 "#extraCloseColumnBtn:hover { background-color: rgb(98, 114, 164 ); border-style: solid; border-radius: 4px; }\n"
 "#extraCloseColumnBtn:pressed { background-color: rgb(98, 114, 164 ); border-style: solid; border-radius: 4px; }\n"
 "\n"
@@ -198,7 +180,8 @@ class Ui_MainWindow(object):
 "\n"
 "/* Extra Top Menus */\n"
 "#extraTopMenu .QPushButton {\n"
-"background-position: left center;\n"
+"background-position: left cen"
+                        "ter;\n"
 "background-repeat: no-repeat;\n"
 "border: none;\n"
 "border-left: 22px solid transparent;\n"
@@ -217,8 +200,7 @@ class Ui_MainWindow(object):
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Content App */\n"
 "#contentTopBg{ \n"
-"background-color: "
-                        "rgb(33, 37, 43);\n"
+"background-color: rgb(33, 37, 43);\n"
 "}\n"
 "#contentBottom{\n"
 "border-top: 3px solid rgb(0, 204, 255);\n"
@@ -227,7 +209,8 @@ class Ui_MainWindow(object):
 "/* Top Buttons */\n"
 "#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none; border-radius: 5px; }\n"
 "#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-style: solid; border-radius: 4px; }\n"
-"#rightButtons .QPushButton:pressed { background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; }\n"
+"#rightButtons .QPushButton:pressed { background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; "
+                        "}\n"
 "\n"
 "/* Theme Settings */\n"
 "#extraRightBox { background-color: rgb(44, 49, 58); }\n"
@@ -243,8 +226,7 @@ class Ui_MainWindow(object):
 "background-position: left center;\n"
 "background-repeat: no-repeat;\n"
 "border: none;\n"
-"border-left: 2"
-                        "2px solid transparent;\n"
+"border-left: 22px solid transparent;\n"
 "background-color:transparent;\n"
 "text-align: left;\n"
 "padding-left: 44px;\n"
@@ -259,7 +241,8 @@ class Ui_MainWindow(object):
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "QTableWidget */\n"
-"QTableWidget { \n"
+"QTableWidge"
+                        "t { \n"
 "background-color: transparent;\n"
 "padding: 10px;\n"
 "border-radius: 5px;\n"
@@ -280,8 +263,7 @@ class Ui_MainWindow(object):
 "max-width: 30px;\n"
 "border: 1px solid rgb(44, 49, 58);\n"
 "border-style: none;\n"
-"borde"
-                        "r-bottom: 1px solid rgb(44, 49, 60);\n"
+"border-bottom: 1px solid rgb(44, 49, 60);\n"
 "border-right: 1px solid rgb(44, 49, 60);\n"
 "}\n"
 "QTableWidget::horizontalHeader { \n"
@@ -298,7 +280,8 @@ class Ui_MainWindow(object):
 "QHeaderView::section:vertical\n"
 "{\n"
 "border: 1px solid rgb(44, 49, 60);\n"
-"}\n"
+""
+                        "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "LineEdit */\n"
@@ -317,8 +300,7 @@ class Ui_MainWindow(object):
 "border: 2px solid rgb(91, 101, 124);\n"
 "}\n"
 "\n"
-"/* /////////////////////////////////////////////"
-                        "////////////////////////////////////////////////////\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "PlainTextEdit */\n"
 "QPlainTextEdit {\n"
 "background-color: rgb(27, 29, 35);\n"
@@ -334,7 +316,8 @@ class Ui_MainWindow(object):
 "height: 8px;\n"
 "}\n"
 "QPlainTextEdit:hover {\n"
-"border: 2px solid rgb(64, 71, 88);\n"
+"border: 2px solid rgb(64, 71, 88"
+                        ");\n"
 "}\n"
 "QPlainTextEdit:focus {\n"
 "border: 2px solid rgb(91, 101, 124);\n"
@@ -356,8 +339,7 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "border: none;\n"
-"background: "
-                        "rgb(55, 63, 77);\n"
+"background: rgb(55, 63, 77);\n"
 "width: 20px;\n"
 "border-top-right-radius: 4px;\n"
 "border-bottom-right-radius: 4px;\n"
@@ -373,7 +355,8 @@ class Ui_MainWindow(object):
 "subcontrol-position: left;\n"
 "subcontrol-origin: margin;\n"
 "}\n"
-"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar:"
+                        ":down-arrow:horizontal\n"
 "{\n"
 "background: none;\n"
 "}\n"
@@ -397,8 +380,7 @@ class Ui_MainWindow(object):
 "background: rgb(60, 64, 72);\n"
 "}\n"
 "QScrollBar::handle:vertical:pressed { \n"
-"background:"
-                        " rgb(60, 64, 72); \n"
+"background: rgb(60, 64, 72); \n"
 "}\n"
 "QScrollBar::add-line:vertical {\n"
 "border: none;\n"
@@ -415,7 +397,8 @@ class Ui_MainWindow(object):
 "height: 0px;\n"
 "border-top-left-radius: 4px;\n"
 "border-top-right-radius: 4px;\n"
-"subcontrol-position: top;\n"
+"subcontrol-positio"
+                        "n: top;\n"
 "subcontrol-origin: margin;\n"
 "}\n"
 "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
@@ -435,8 +418,7 @@ class Ui_MainWindow(object):
 "border-radius: 10px;\n"
 "background: rgb(44, 49, 60);\n"
 "}\n"
-"QCheckBox::indicator:ho"
-                        "ver {\n"
+"QCheckBox::indicator:hover {\n"
 "border: 3px solid rgb(58, 66, 81);\n"
 "}\n"
 "QCheckBox::indicator:checked {\n"
@@ -450,7 +432,8 @@ class Ui_MainWindow(object):
 "QRadioButton::indicator {\n"
 "border: 3px solid rgb(52, 59, 72);\n"
 "width: 15px;\n"
-"height: 15px;\n"
+"heig"
+                        "ht: 15px;\n"
 "border-radius: 10px;\n"
 "background: rgb(44, 49, 60);\n"
 "}\n"
@@ -469,8 +452,7 @@ class Ui_MainWindow(object):
 "border-radius: 5px;\n"
 "border: 2px solid rgb(33, 37, 43);\n"
 "padding: 5px;\n"
-"padding-lef"
-                        "t: 10px;\n"
+"padding-left: 10px;\n"
 "}\n"
 "QComboBox:hover{\n"
 "border: 2px solid rgb(64, 71, 88);\n"
@@ -485,7 +467,8 @@ class Ui_MainWindow(object):
 "border-top-right-radius: 3px;\n"
 "border-bottom-right-radius: 3px; \n"
 "background-image: url(:/icons/images/icons/cil-arrow-bottom.png);\n"
-"background-position: center;\n"
+"background-position: "
+                        "center;\n"
 "background-repeat: no-reperat;\n"
 "}\n"
 "QComboBox QAbstractItemView {\n"
@@ -504,8 +487,7 @@ class Ui_MainWindow(object):
 "background-color: rgb(52, 59, 72);\n"
 "}\n"
 "QSlider::groove:horizontal:hover {\n"
-"background-color: rgb(55, 62,"
-                        " 76);\n"
+"background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:horizontal {\n"
 "background-color: rgb(98, 114, 164 );\n"
@@ -526,7 +508,8 @@ class Ui_MainWindow(object):
 "border-radius: 5px;\n"
 "width: 10px;\n"
 "margin: 0px;\n"
-"background-color: rgb(52, 59, 72);\n"
+"backgr"
+                        "ound-color: rgb(52, 59, 72);\n"
 "}\n"
 "QSlider::groove:vertical:hover {\n"
 "background-color: rgb(55, 62, 76);\n"
@@ -546,8 +529,7 @@ class Ui_MainWindow(object):
 "background-color: rgb(0, 204, 255);\n"
 "}\n"
 "\n"
-"/* ////////////////////////////////////////////////////////////////////////////////////////"
-                        "/////////\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "CommandLinkButton */\n"
 "QCommandLinkButton { \n"
 "color: rgb(0, 204, 255);\n"
@@ -564,7 +546,8 @@ class Ui_MainWindow(object):
 "background-color: rgb(52, 58, 71);\n"
 "}\n"
 "\n"
-"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"/* //////////////////////////////////////////////////////////////////"
+                        "///////////////////////////////\n"
 "Button */\n"
 "#pagesContainer QPushButton {\n"
 "border: 2px solid rgb(52, 59, 72);\n"
@@ -582,11 +565,12 @@ class Ui_MainWindow(object):
 "#diagnosticsRow11 QPushButton {\n"
 "background-color: rbg(255, 0, 0);\n"
 "}\n"
-"#diagnosticsRow11 QPushButton:presse"
-                        "d {\n"
+"#diagnosticsRow11 QPushButton:pressed {\n"
 "background-color: rbg(0, 204, 255);\n"
 "}\n"
-"\n"
+"#toggleBox{\n"
+"border-top: 3px solid rgb(0, 204, 255);\n"
+"}\n"
 "")
         self.appMargins = QVBoxLayout(self.styleSheet)
         self.appMargins.setSpacing(0)
@@ -2150,8 +2134,7 @@ class Ui_MainWindow(object):
         sizePolicy6.setHeightForWidth(self.diagnosticsCol2.sizePolicy().hasHeightForWidth())
         self.diagnosticsCol2.setSizePolicy(sizePolicy6)
         self.diagnosticsCol2.setMinimumSize(QSize(400, 60))
-        self.diagnosticsCol2.setStyleSheet(u"background: transparent;\n"
-"")
+        self.diagnosticsCol2.setStyleSheet(u"")
         self.diagnosticsCol2.setFrameShape(QFrame.NoFrame)
         self.diagnosticsCol2.setFrameShadow(QFrame.Raised)
         self.verticalLayout_14 = QVBoxLayout(self.diagnosticsCol2)
@@ -2161,157 +2144,93 @@ class Ui_MainWindow(object):
         self.verticalLayout_21 = QVBoxLayout()
         self.verticalLayout_21.setSpacing(0)
         self.verticalLayout_21.setObjectName(u"verticalLayout_21")
-        self.diagnosticsSubMenu2 = QFrame(self.diagnosticsCol2)
-        self.diagnosticsSubMenu2.setObjectName(u"diagnosticsSubMenu2")
-        self.diagnosticsSubMenu2.setMinimumSize(QSize(0, 45))
-        self.diagnosticsSubMenu2.setStyleSheet(u"background-color: rgb(21, 23, 27);")
-        self.btn_diagnostics_ugvs = QPushButton(self.diagnosticsSubMenu2)
-        self.btn_diagnostics_ugvs.setObjectName(u"btn_diagnostics_ugvs")
-        self.btn_diagnostics_ugvs.setGeometry(QRect(90, 0, 73, 45))
-        self.btn_diagnostics_ugvs.setMinimumSize(QSize(0, 45))
-        self.btn_diagnostics_ugvs.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_diagnostics_ugvs.setStyleSheet(u"")
-        self.btn_diagnostics_uavs = QPushButton(self.diagnosticsSubMenu2)
-        self.btn_diagnostics_uavs.setObjectName(u"btn_diagnostics_uavs")
-        self.btn_diagnostics_uavs.setGeometry(QRect(163, 0, 72, 45))
-        sizePolicy7 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.btn_diagnostics_uavs.sizePolicy().hasHeightForWidth())
-        self.btn_diagnostics_uavs.setSizePolicy(sizePolicy7)
-        self.btn_diagnostics_uavs.setMinimumSize(QSize(0, 45))
-        self.btn_diagnostics_uavs.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_diagnostics_uavs.setStyleSheet(u"")
-        self.btn_diagnostics_sensors = QPushButton(self.diagnosticsSubMenu2)
-        self.btn_diagnostics_sensors.setObjectName(u"btn_diagnostics_sensors")
-        self.btn_diagnostics_sensors.setGeometry(QRect(-1, 0, 91, 45))
-        self.btn_diagnostics_sensors.setMinimumSize(QSize(0, 45))
-        self.btn_diagnostics_sensors.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_diagnostics_sensors.setStyleSheet(u"")
-        self.btn_diagnostics_refresh = QPushButton(self.diagnosticsSubMenu2)
-        self.btn_diagnostics_refresh.setObjectName(u"btn_diagnostics_refresh")
-        self.btn_diagnostics_refresh.setGeometry(QRect(680, 0, 87, 45))
-        self.btn_diagnostics_refresh.setMinimumSize(QSize(0, 45))
-        self.btn_diagnostics_refresh.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_diagnostics_refresh.setStyleSheet(u"")
-        self.btn_diagnostics_refresh.setCheckable(False)
-        self.btn_diagnostics_refresh.setAutoDefault(False)
+        self.diagnosticsSubmenu2 = QFrame(self.diagnosticsCol2)
+        self.diagnosticsSubmenu2.setObjectName(u"diagnosticsSubmenu2")
+        self.diagnosticsSubmenu2.setMinimumSize(QSize(0, 43))
+        self.diagnosticsSubmenu2.setMaximumSize(QSize(16777215, 43))
+        self.diagnosticsSubmenu2.setStyleSheet(u"#diagnosticsSubmenu2 {\n"
+"background-color: rgb(21, 23, 27);\n"
+"}\n"
+"#diagnosticsSubmenu2 .QFrame {\n"
+"background: transparent;\n"
+"}\n"
+"#diagnosticsSubmenu2 .QPushButton { \n"
+"background-color: transparent;\n"
+"border: None;\n"
+"border-radius: 0;\n"
+"color: rgb(201, 201, 201);\n"
+"font-size: 14px;\n"
+"height: 100%;\n"
+"padding: 0 18px 0 18px;\n"
+"text-align: center;\n"
+"}\n"
+"#diagnosticsSubmenu2 .QPushButton:pressed { \n"
+"color: rgb(255, 255, 255);\n"
+"}")
+        self.diagnosticsSubmenu2.setFrameShape(QFrame.NoFrame)
+        self.diagnosticsSubmenu2.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_14 = QHBoxLayout(self.diagnosticsSubmenu2)
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.horizontalLayout_14.setContentsMargins(0, 0, 0, 0)
+        self.diagnosticsSubmenu2LeftFrame = QFrame(self.diagnosticsSubmenu2)
+        self.diagnosticsSubmenu2LeftFrame.setObjectName(u"diagnosticsSubmenu2LeftFrame")
+        self.diagnosticsSubmenu2LeftFrame.setFrameShape(QFrame.NoFrame)
+        self.diagnosticsSubmenu2LeftFrame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_16 = QHBoxLayout(self.diagnosticsSubmenu2LeftFrame)
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.horizontalLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.diagnosticsSubmenu2ButtonsLeftLayout = QHBoxLayout()
+        self.diagnosticsSubmenu2ButtonsLeftLayout.setSpacing(0)
+        self.diagnosticsSubmenu2ButtonsLeftLayout.setObjectName(u"diagnosticsSubmenu2ButtonsLeftLayout")
 
-        self.verticalLayout_21.addWidget(self.diagnosticsSubMenu2)
+        self.horizontalLayout_16.addLayout(self.diagnosticsSubmenu2ButtonsLeftLayout)
 
-        self.verticalFrame_2 = QFrame(self.diagnosticsCol2)
-        self.verticalFrame_2.setObjectName(u"verticalFrame_2")
-        self.verticalLayout_22 = QVBoxLayout(self.verticalFrame_2)
-        self.verticalLayout_22.setSpacing(0)
+
+        self.horizontalLayout_14.addWidget(self.diagnosticsSubmenu2LeftFrame)
+
+        self.diagnosticsSubmenu2RightFrame = QFrame(self.diagnosticsSubmenu2)
+        self.diagnosticsSubmenu2RightFrame.setObjectName(u"diagnosticsSubmenu2RightFrame")
+        sizePolicy1.setHeightForWidth(self.diagnosticsSubmenu2RightFrame.sizePolicy().hasHeightForWidth())
+        self.diagnosticsSubmenu2RightFrame.setSizePolicy(sizePolicy1)
+        self.diagnosticsSubmenu2RightFrame.setFrameShape(QFrame.NoFrame)
+        self.diagnosticsSubmenu2RightFrame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_17 = QHBoxLayout(self.diagnosticsSubmenu2RightFrame)
+        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
+        self.horizontalLayout_17.setContentsMargins(0, 0, 0, 0)
+        self.btn_diagnostics2_refresh = QPushButton(self.diagnosticsSubmenu2RightFrame)
+        self.btn_diagnostics2_refresh.setObjectName(u"btn_diagnostics2_refresh")
+        self.btn_diagnostics2_refresh.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_diagnostics2_refresh.setStyleSheet(u"font-size: 11px;")
+
+        self.horizontalLayout_17.addWidget(self.btn_diagnostics2_refresh, 0, Qt.AlignRight)
+
+
+        self.horizontalLayout_14.addWidget(self.diagnosticsSubmenu2RightFrame)
+
+
+        self.verticalLayout_21.addWidget(self.diagnosticsSubmenu2)
+
+        self.frame_5 = QFrame(self.diagnosticsCol2)
+        self.frame_5.setObjectName(u"frame_5")
+        sizePolicy2.setHeightForWidth(self.frame_5.sizePolicy().hasHeightForWidth())
+        self.frame_5.setSizePolicy(sizePolicy2)
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_22 = QVBoxLayout(self.frame_5)
         self.verticalLayout_22.setObjectName(u"verticalLayout_22")
-        self.verticalLayout_22.setContentsMargins(0, 0, 0, 0)
-        self.diagnosticsStackedWidget = QStackedWidget(self.verticalFrame_2)
-        self.diagnosticsStackedWidget.setObjectName(u"diagnosticsStackedWidget")
-        sizePolicy3.setHeightForWidth(self.diagnosticsStackedWidget.sizePolicy().hasHeightForWidth())
-        self.diagnosticsStackedWidget.setSizePolicy(sizePolicy3)
-        self.diagnosticsSensors = QWidget()
-        self.diagnosticsSensors.setObjectName(u"diagnosticsSensors")
-        sizePolicy3.setHeightForWidth(self.diagnosticsSensors.sizePolicy().hasHeightForWidth())
-        self.diagnosticsSensors.setSizePolicy(sizePolicy3)
-        self.diagnosticsSensors.setMinimumSize(QSize(748, 732))
-        self.verticalLayout_23 = QVBoxLayout(self.diagnosticsSensors)
-        self.verticalLayout_23.setSpacing(6)
-        self.verticalLayout_23.setObjectName(u"verticalLayout_23")
-        self.verticalLayout_23.setContentsMargins(18, 9, 9, 9)
-        self.diagnosticsSensorsScrollArea = QScrollArea(self.diagnosticsSensors)
-        self.diagnosticsSensorsScrollArea.setObjectName(u"diagnosticsSensorsScrollArea")
-        self.diagnosticsSensorsScrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
-        self.diagnosticsSensorsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.diagnosticsSensorsScrollArea.setWidgetResizable(True)
-        self.diagnosticsSensorsScrollAreaContent = QWidget()
-        self.diagnosticsSensorsScrollAreaContent.setObjectName(u"diagnosticsSensorsScrollAreaContent")
-        self.diagnosticsSensorsScrollAreaContent.setGeometry(QRect(0, 0, 711, 712))
-        self.verticalLayout_28 = QVBoxLayout(self.diagnosticsSensorsScrollAreaContent)
-        self.verticalLayout_28.setObjectName(u"verticalLayout_28")
-        self.verticalLayout_28.setContentsMargins(0, 18, 18, 18)
-        self.diagnosticsSensorsLayout = QGridLayout()
-        self.diagnosticsSensorsLayout.setSpacing(9)
-        self.diagnosticsSensorsLayout.setObjectName(u"diagnosticsSensorsLayout")
-        self.diagnosticsSensorsLayout.setContentsMargins(0, 0, 0, 0)
+        self.diagnosticsPages2 = QStackedWidget(self.frame_5)
+        self.diagnosticsPages2.setObjectName(u"diagnosticsPages2")
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.diagnosticsPages2.addWidget(self.page)
+        self.page_2 = QWidget()
+        self.page_2.setObjectName(u"page_2")
+        self.diagnosticsPages2.addWidget(self.page_2)
 
-        self.verticalLayout_28.addLayout(self.diagnosticsSensorsLayout)
-
-        self.diagnosticsSensorsScrollArea.setWidget(self.diagnosticsSensorsScrollAreaContent)
-
-        self.verticalLayout_23.addWidget(self.diagnosticsSensorsScrollArea)
-
-        self.diagnosticsStackedWidget.addWidget(self.diagnosticsSensors)
-        self.diagnosticsTEST = QWidget()
-        self.diagnosticsTEST.setObjectName(u"diagnosticsTEST")
-        self.gridLayout_6 = QGridLayout(self.diagnosticsTEST)
-        self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.diagnosticsStackedWidget.addWidget(self.diagnosticsTEST)
-        self.diagnosticsUGVs = QWidget()
-        self.diagnosticsUGVs.setObjectName(u"diagnosticsUGVs")
-        sizePolicy3.setHeightForWidth(self.diagnosticsUGVs.sizePolicy().hasHeightForWidth())
-        self.diagnosticsUGVs.setSizePolicy(sizePolicy3)
-        self.diagnosticsUGVs.setMinimumSize(QSize(748, 732))
-        self.verticalLayout_25 = QVBoxLayout(self.diagnosticsUGVs)
-        self.verticalLayout_25.setObjectName(u"verticalLayout_25")
-        self.verticalLayout_25.setContentsMargins(18, 9, 9, 9)
-        self.diagnosticsUGVsScrollArea = QScrollArea(self.diagnosticsUGVs)
-        self.diagnosticsUGVsScrollArea.setObjectName(u"diagnosticsUGVsScrollArea")
-        self.diagnosticsUGVsScrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
-        self.diagnosticsUGVsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.diagnosticsUGVsScrollArea.setWidgetResizable(True)
-        self.diagnosticsUGVsScrollAreaContent = QWidget()
-        self.diagnosticsUGVsScrollAreaContent.setObjectName(u"diagnosticsUGVsScrollAreaContent")
-        self.diagnosticsUGVsScrollAreaContent.setGeometry(QRect(0, 0, 711, 712))
-        self.verticalLayout_26 = QVBoxLayout(self.diagnosticsUGVsScrollAreaContent)
-        self.verticalLayout_26.setObjectName(u"verticalLayout_26")
-        self.verticalLayout_26.setContentsMargins(0, 18, 18, 18)
-        self.diagnosticsUGVsLayout = QGridLayout()
-        self.diagnosticsUGVsLayout.setSpacing(9)
-        self.diagnosticsUGVsLayout.setObjectName(u"diagnosticsUGVsLayout")
-
-        self.verticalLayout_26.addLayout(self.diagnosticsUGVsLayout)
-
-        self.diagnosticsUGVsScrollArea.setWidget(self.diagnosticsUGVsScrollAreaContent)
-
-        self.verticalLayout_25.addWidget(self.diagnosticsUGVsScrollArea)
-
-        self.diagnosticsStackedWidget.addWidget(self.diagnosticsUGVs)
-        self.diagnosticsUAVs = QWidget()
-        self.diagnosticsUAVs.setObjectName(u"diagnosticsUAVs")
-        sizePolicy3.setHeightForWidth(self.diagnosticsUAVs.sizePolicy().hasHeightForWidth())
-        self.diagnosticsUAVs.setSizePolicy(sizePolicy3)
-        self.diagnosticsUAVs.setMinimumSize(QSize(748, 732))
-        self.verticalLayout_24 = QVBoxLayout(self.diagnosticsUAVs)
-        self.verticalLayout_24.setSpacing(6)
-        self.verticalLayout_24.setObjectName(u"verticalLayout_24")
-        self.verticalLayout_24.setContentsMargins(18, 9, 9, 9)
-        self.diagnosticsUAVsScrollArea = QScrollArea(self.diagnosticsUAVs)
-        self.diagnosticsUAVsScrollArea.setObjectName(u"diagnosticsUAVsScrollArea")
-        self.diagnosticsUAVsScrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
-        self.diagnosticsUAVsScrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.diagnosticsUAVsScrollArea.setWidgetResizable(True)
-        self.diagnosticsUAVsScrollAreaContent = QWidget()
-        self.diagnosticsUAVsScrollAreaContent.setObjectName(u"diagnosticsUAVsScrollAreaContent")
-        self.diagnosticsUAVsScrollAreaContent.setGeometry(QRect(0, 0, 729, 736))
-        self.verticalLayout_27 = QVBoxLayout(self.diagnosticsUAVsScrollAreaContent)
-        self.verticalLayout_27.setObjectName(u"verticalLayout_27")
-        self.verticalLayout_27.setContentsMargins(0, 18, 18, 18)
-        self.diagnosticsUAVsLayout = QGridLayout()
-        self.diagnosticsUAVsLayout.setSpacing(9)
-        self.diagnosticsUAVsLayout.setObjectName(u"diagnosticsUAVsLayout")
-
-        self.verticalLayout_27.addLayout(self.diagnosticsUAVsLayout)
-
-        self.diagnosticsUAVsScrollArea.setWidget(self.diagnosticsUAVsScrollAreaContent)
-
-        self.verticalLayout_24.addWidget(self.diagnosticsUAVsScrollArea)
-
-        self.diagnosticsStackedWidget.addWidget(self.diagnosticsUAVs)
-
-        self.verticalLayout_22.addWidget(self.diagnosticsStackedWidget)
+        self.verticalLayout_22.addWidget(self.diagnosticsPages2)
 
 
-        self.verticalLayout_21.addWidget(self.verticalFrame_2)
+        self.verticalLayout_21.addWidget(self.frame_5)
 
 
         self.verticalLayout_14.addLayout(self.verticalLayout_21)
@@ -2420,7 +2339,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget.setCurrentIndex(2)
-        self.diagnosticsStackedWidget.setCurrentIndex(3)
+        self.diagnosticsPages2.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2561,11 +2480,8 @@ class Ui_MainWindow(object):
         self.btn_logs_download.setText(QCoreApplication.translate("MainWindow", u"Download Experiment Logs", None))
         self.btn_experiment_run.setText(QCoreApplication.translate("MainWindow", u"Run Experiment", None))
         self.btn_experiment_abort.setText(QCoreApplication.translate("MainWindow", u"Abort Experiment", None))
-        self.btn_diagnostics_ugvs.setText(QCoreApplication.translate("MainWindow", u"UGVs", None))
-        self.btn_diagnostics_uavs.setText(QCoreApplication.translate("MainWindow", u"UAVs", None))
-        self.btn_diagnostics_sensors.setText(QCoreApplication.translate("MainWindow", u"Sensors", None))
-        self.btn_diagnostics_refresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
+        self.btn_diagnostics2_refresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"Marina J. Nelson", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.11", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.1.0", None))
     # retranslateUi
 

@@ -556,7 +556,9 @@ background-color: rbg(255, 0, 0);
 #diagnosticsRow11 QPushButton:pressed {
 background-color: rbg(0, 204, 255);
 }
-
+#toggleBox{
+border-top: 3px solid rgb(0, 204, 255);
+}
 </string>
    </property>
    <layout class="QVBoxLayout" name="appMargins">
@@ -4529,132 +4531,43 @@ background-color: rgb(35, 28, 30);
                               <property name="minimumSize">
                                <size>
                                 <width>0</width>
-                                <height>45</height>
+                                <height>43</height>
+                               </size>
+                              </property>
+                              <property name="maximumSize">
+                               <size>
+                                <width>16777215</width>
+                                <height>43</height>
                                </size>
                               </property>
                               <property name="styleSheet">
-                               <string notr="true"/>
+                               <string notr="true">#diagnosticsSubmenu2 {
+background-color: rgb(21, 23, 27);
+}
+#diagnosticsSubmenu2 .QFrame {
+background: transparent;
+}
+#diagnosticsSubmenu2 .QPushButton { 
+background-color: transparent;
+border: None;
+border-radius: 0;
+color: rgb(201, 201, 201);
+font-size: 14px;
+height: 100%;
+padding: 0 18px 0 18px;
+text-align: center;
+}
+#diagnosticsSubmenu2 .QPushButton:pressed { 
+color: rgb(255, 255, 255);
+}</string>
                               </property>
-                              <widget class="QPushButton" name="btn_diagnostics_ugvs">
-                               <property name="geometry">
-                                <rect>
-                                 <x>90</x>
-                                 <y>0</y>
-                                 <width>73</width>
-                                 <height>45</height>
-                                </rect>
-                               </property>
-                               <property name="minimumSize">
-                                <size>
-                                 <width>0</width>
-                                 <height>45</height>
-                                </size>
-                               </property>
-                               <property name="cursor">
-                                <cursorShape>PointingHandCursor</cursorShape>
-                               </property>
-                               <property name="styleSheet">
-                                <string notr="true"/>
-                               </property>
-                               <property name="text">
-                                <string>UGVs</string>
-                               </property>
-                              </widget>
-                              <widget class="QPushButton" name="btn_diagnostics_uavs">
-                               <property name="geometry">
-                                <rect>
-                                 <x>163</x>
-                                 <y>0</y>
-                                 <width>72</width>
-                                 <height>45</height>
-                                </rect>
-                               </property>
-                               <property name="sizePolicy">
-                                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                                 <horstretch>0</horstretch>
-                                 <verstretch>0</verstretch>
-                                </sizepolicy>
-                               </property>
-                               <property name="minimumSize">
-                                <size>
-                                 <width>0</width>
-                                 <height>45</height>
-                                </size>
-                               </property>
-                               <property name="cursor">
-                                <cursorShape>PointingHandCursor</cursorShape>
-                               </property>
-                               <property name="styleSheet">
-                                <string notr="true"/>
-                               </property>
-                               <property name="text">
-                                <string>UAVs</string>
-                               </property>
-                              </widget>
-                              <widget class="QPushButton" name="btn_diagnostics_sensors">
-                               <property name="geometry">
-                                <rect>
-                                 <x>-1</x>
-                                 <y>0</y>
-                                 <width>91</width>
-                                 <height>45</height>
-                                </rect>
-                               </property>
-                               <property name="minimumSize">
-                                <size>
-                                 <width>0</width>
-                                 <height>45</height>
-                                </size>
-                               </property>
-                               <property name="cursor">
-                                <cursorShape>PointingHandCursor</cursorShape>
-                               </property>
-                               <property name="styleSheet">
-                                <string notr="true"/>
-                               </property>
-                               <property name="text">
-                                <string>Sensors</string>
-                               </property>
-                              </widget>
-                              <widget class="QPushButton" name="btn_diagnostics_refresh">
-                               <property name="geometry">
-                                <rect>
-                                 <x>680</x>
-                                 <y>0</y>
-                                 <width>87</width>
-                                 <height>45</height>
-                                </rect>
-                               </property>
-                               <property name="minimumSize">
-                                <size>
-                                 <width>0</width>
-                                 <height>45</height>
-                                </size>
-                               </property>
-                               <property name="cursor">
-                                <cursorShape>PointingHandCursor</cursorShape>
-                               </property>
-                               <property name="styleSheet">
-                                <string notr="true"/>
-                               </property>
-                               <property name="text">
-                                <string>Refresh</string>
-                               </property>
-                               <property name="checkable">
-                                <bool>false</bool>
-                               </property>
-                               <property name="autoDefault">
-                                <bool>false</bool>
-                               </property>
-                              </widget>
-                             </widget>
-                            </item>
-                            <item>
-                             <widget class="QFrame" name="verticalFrame_2">
-                              <layout class="QVBoxLayout" name="verticalLayout_22">
-                               <property name="spacing">
-                                <number>0</number>
-                               </property>
+                              <property name="frameShape">
+                               <enum>QFrame::NoFrame</enum>
+                              </property>
+                              <property name="frameShadow">
+                               <enum>QFrame::Raised</enum>
+                              </property>
+                              <layout class="QHBoxLayout" name="horizontalLayout_14">
                                <property name="leftMargin">
                                 <number>0</number>
                                </property>
@@ -4668,253 +4581,104 @@ background-color: rgb(35, 28, 30);
                                 <number>0</number>
                                </property>
                                <item>
-                                <widget class="QStackedWidget" name="diagnosticsStackedWidget">
+                                <widget class="QFrame" name="diagnosticsSubmenu2LeftFrame">
+                                 <property name="frameShape">
+                                  <enum>QFrame::NoFrame</enum>
+                                 </property>
+                                 <property name="frameShadow">
+                                  <enum>QFrame::Raised</enum>
+                                 </property>
+                                 <layout class="QHBoxLayout" name="horizontalLayout_16">
+                                  <property name="leftMargin">
+                                   <number>0</number>
+                                  </property>
+                                  <property name="topMargin">
+                                   <number>0</number>
+                                  </property>
+                                  <property name="rightMargin">
+                                   <number>0</number>
+                                  </property>
+                                  <property name="bottomMargin">
+                                   <number>0</number>
+                                  </property>
+                                  <item>
+                                   <layout class="QHBoxLayout" name="diagnosticsSubmenu2ButtonsLeftLayout">
+                                    <property name="spacing">
+                                     <number>0</number>
+                                    </property>
+                                   </layout>
+                                  </item>
+                                 </layout>
+                                </widget>
+                               </item>
+                               <item>
+                                <widget class="QFrame" name="diagnosticsSubmenu2RightFrame">
                                  <property name="sizePolicy">
-                                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
                                    <horstretch>0</horstretch>
                                    <verstretch>0</verstretch>
                                   </sizepolicy>
                                  </property>
-                                 <property name="currentIndex">
-                                  <number>0</number>
+                                 <property name="frameShape">
+                                  <enum>QFrame::NoFrame</enum>
                                  </property>
-                                 <widget class="QWidget" name="diagnosticsSensors">
-                                  <property name="sizePolicy">
-                                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                   </sizepolicy>
+                                 <property name="frameShadow">
+                                  <enum>QFrame::Raised</enum>
+                                 </property>
+                                 <layout class="QHBoxLayout" name="horizontalLayout_17">
+                                  <property name="leftMargin">
+                                   <number>0</number>
                                   </property>
-                                  <property name="minimumSize">
-                                   <size>
-                                    <width>748</width>
-                                    <height>732</height>
-                                   </size>
+                                  <property name="topMargin">
+                                   <number>0</number>
                                   </property>
-                                  <layout class="QVBoxLayout" name="verticalLayout_23">
-                                   <property name="spacing">
-                                    <number>6</number>
-                                   </property>
-                                   <property name="leftMargin">
-                                    <number>18</number>
-                                   </property>
-                                   <property name="topMargin">
-                                    <number>9</number>
-                                   </property>
-                                   <property name="rightMargin">
-                                    <number>9</number>
-                                   </property>
-                                   <property name="bottomMargin">
-                                    <number>9</number>
-                                   </property>
-                                   <item>
-                                    <widget class="QScrollArea" name="diagnosticsSensorsScrollArea">
-                                     <property name="verticalScrollBarPolicy">
-                                      <enum>Qt::ScrollBarAlwaysOn</enum>
-                                     </property>
-                                     <property name="horizontalScrollBarPolicy">
-                                      <enum>Qt::ScrollBarAlwaysOff</enum>
-                                     </property>
-                                     <property name="widgetResizable">
-                                      <bool>true</bool>
-                                     </property>
-                                     <widget class="QWidget" name="diagnosticsSensorsScrollAreaContent">
-                                      <property name="geometry">
-                                       <rect>
-                                        <x>0</x>
-                                        <y>0</y>
-                                        <width>729</width>
-                                        <height>736</height>
-                                       </rect>
-                                      </property>
-                                      <layout class="QVBoxLayout" name="verticalLayout_28">
-                                       <property name="leftMargin">
-                                        <number>0</number>
-                                       </property>
-                                       <property name="topMargin">
-                                        <number>18</number>
-                                       </property>
-                                       <property name="rightMargin">
-                                        <number>18</number>
-                                       </property>
-                                       <property name="bottomMargin">
-                                        <number>18</number>
-                                       </property>
-                                       <item>
-                                        <layout class="QGridLayout" name="diagnosticsSensorsLayout">
-                                         <property name="leftMargin">
-                                          <number>0</number>
-                                         </property>
-                                         <property name="topMargin">
-                                          <number>0</number>
-                                         </property>
-                                         <property name="rightMargin">
-                                          <number>0</number>
-                                         </property>
-                                         <property name="bottomMargin">
-                                          <number>0</number>
-                                         </property>
-                                         <property name="spacing">
-                                          <number>9</number>
-                                         </property>
-                                        </layout>
-                                       </item>
-                                      </layout>
-                                     </widget>
-                                    </widget>
-                                   </item>
-                                  </layout>
-                                 </widget>
-                                 <widget class="QWidget" name="diagnosticsTEST">
-                                  <layout class="QGridLayout" name="gridLayout_6"/>
-                                 </widget>
-                                 <widget class="QWidget" name="diagnosticsUGVs">
-                                  <property name="sizePolicy">
-                                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                   </sizepolicy>
+                                  <property name="rightMargin">
+                                   <number>0</number>
                                   </property>
-                                  <property name="minimumSize">
-                                   <size>
-                                    <width>748</width>
-                                    <height>732</height>
-                                   </size>
+                                  <property name="bottomMargin">
+                                   <number>0</number>
                                   </property>
-                                  <layout class="QVBoxLayout" name="verticalLayout_25">
-                                   <property name="leftMargin">
-                                    <number>18</number>
-                                   </property>
-                                   <property name="topMargin">
-                                    <number>9</number>
-                                   </property>
-                                   <property name="rightMargin">
-                                    <number>9</number>
-                                   </property>
-                                   <property name="bottomMargin">
-                                    <number>9</number>
-                                   </property>
-                                   <item>
-                                    <widget class="QScrollArea" name="diagnosticsUGVsScrollArea">
-                                     <property name="verticalScrollBarPolicy">
-                                      <enum>Qt::ScrollBarAlwaysOn</enum>
-                                     </property>
-                                     <property name="horizontalScrollBarPolicy">
-                                      <enum>Qt::ScrollBarAlwaysOff</enum>
-                                     </property>
-                                     <property name="widgetResizable">
-                                      <bool>true</bool>
-                                     </property>
-                                     <widget class="QWidget" name="diagnosticsUGVsScrollAreaContent">
-                                      <property name="geometry">
-                                       <rect>
-                                        <x>0</x>
-                                        <y>0</y>
-                                        <width>711</width>
-                                        <height>712</height>
-                                       </rect>
-                                      </property>
-                                      <layout class="QVBoxLayout" name="verticalLayout_26">
-                                       <property name="leftMargin">
-                                        <number>0</number>
-                                       </property>
-                                       <property name="topMargin">
-                                        <number>18</number>
-                                       </property>
-                                       <property name="rightMargin">
-                                        <number>18</number>
-                                       </property>
-                                       <property name="bottomMargin">
-                                        <number>18</number>
-                                       </property>
-                                       <item>
-                                        <layout class="QGridLayout" name="diagnosticsUGVsLayout">
-                                         <property name="spacing">
-                                          <number>9</number>
-                                         </property>
-                                        </layout>
-                                       </item>
-                                      </layout>
-                                     </widget>
-                                    </widget>
-                                   </item>
-                                  </layout>
-                                 </widget>
-                                 <widget class="QWidget" name="diagnosticsUAVs">
-                                  <property name="sizePolicy">
-                                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                                    <horstretch>0</horstretch>
-                                    <verstretch>0</verstretch>
-                                   </sizepolicy>
-                                  </property>
-                                  <property name="minimumSize">
-                                   <size>
-                                    <width>748</width>
-                                    <height>732</height>
-                                   </size>
-                                  </property>
-                                  <layout class="QVBoxLayout" name="verticalLayout_24">
-                                   <property name="spacing">
-                                    <number>6</number>
-                                   </property>
-                                   <property name="leftMargin">
-                                    <number>18</number>
-                                   </property>
-                                   <property name="topMargin">
-                                    <number>9</number>
-                                   </property>
-                                   <property name="rightMargin">
-                                    <number>9</number>
-                                   </property>
-                                   <property name="bottomMargin">
-                                    <number>9</number>
-                                   </property>
-                                   <item>
-                                    <widget class="QScrollArea" name="diagnosticsUAVsScrollArea">
-                                     <property name="verticalScrollBarPolicy">
-                                      <enum>Qt::ScrollBarAlwaysOn</enum>
-                                     </property>
-                                     <property name="horizontalScrollBarPolicy">
-                                      <enum>Qt::ScrollBarAlwaysOff</enum>
-                                     </property>
-                                     <property name="widgetResizable">
-                                      <bool>true</bool>
-                                     </property>
-                                     <widget class="QWidget" name="diagnosticsUAVsScrollAreaContent">
-                                      <property name="geometry">
-                                       <rect>
-                                        <x>0</x>
-                                        <y>0</y>
-                                        <width>729</width>
-                                        <height>736</height>
-                                       </rect>
-                                      </property>
-                                      <layout class="QVBoxLayout" name="verticalLayout_27">
-                                       <property name="leftMargin">
-                                        <number>0</number>
-                                       </property>
-                                       <property name="topMargin">
-                                        <number>18</number>
-                                       </property>
-                                       <property name="rightMargin">
-                                        <number>18</number>
-                                       </property>
-                                       <property name="bottomMargin">
-                                        <number>18</number>
-                                       </property>
-                                       <item>
-                                        <layout class="QGridLayout" name="diagnosticsUAVsLayout">
-                                         <property name="spacing">
-                                          <number>9</number>
-                                         </property>
-                                        </layout>
-                                       </item>
-                                      </layout>
-                                     </widget>
-                                    </widget>
-                                   </item>
-                                  </layout>
-                                 </widget>
+                                  <item alignment="Qt::AlignRight">
+                                   <widget class="QPushButton" name="btn_diagnostics2_refresh">
+                                    <property name="cursor">
+                                     <cursorShape>PointingHandCursor</cursorShape>
+                                    </property>
+                                    <property name="styleSheet">
+                                     <string notr="true">font-size: 11px;</string>
+                                    </property>
+                                    <property name="text">
+                                     <string>Refresh</string>
+                                    </property>
+                                   </widget>
+                                  </item>
+                                 </layout>
+                                </widget>
+                               </item>
+                              </layout>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QFrame" name="frame_5">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="frameShape">
+                               <enum>QFrame::StyledPanel</enum>
+                              </property>
+                              <property name="frameShadow">
+                               <enum>QFrame::Raised</enum>
+                              </property>
+                              <layout class="QVBoxLayout" name="verticalLayout_22">
+                               <item>
+                                <widget class="QStackedWidget" name="diagnosticsPages2">
+                                 <property name="currentIndex">
+                                  <number>1</number>
+                                 </property>
+                                 <widget class="QWidget" name="page"/>
+                                 <widget class="QWidget" name="page_2"/>
                                 </widget>
                                </item>
                               </layout>
@@ -5083,7 +4847,7 @@ background: transparent;
                    <string notr="true">color: rgb(221, 221, 221)</string>
                   </property>
                   <property name="text">
-                   <string>v1.0.11</string>
+                   <string>v1.1.0</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

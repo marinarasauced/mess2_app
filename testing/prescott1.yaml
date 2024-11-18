@@ -1,0 +1,23 @@
+experiment:
+  name: "Prescott1 : Network Backend Integration Test"
+  categories:
+    - "Sensors"
+    - "UGVs"
+Sensors:
+  - type: "vicon"
+    name: "VICON Valkyrie Motion Capture System"
+    ip: "192.168.0.45"
+    username: ""
+    password: ""
+    enable_network: true
+    enable_ssh: false
+    enable_battery: false
+UGVs:
+  - type: "vicon"
+    name: "burger3"
+    ip: "192.168.0.197"
+    username: "ubuntu"
+    password: "1234"
+    enable_network: true
+    enable_ssh: true
+    enable_battery: true

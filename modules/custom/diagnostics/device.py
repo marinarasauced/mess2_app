@@ -225,7 +225,7 @@ class Device(DeviceFunctions, DeviceUI):
     def ui_draw(self):
         """
         """
-        self.widget.setObjectName(f"{self.type}_{self.name.replace(" ", "_").replace(".", "_")}")
+        self.widget.setObjectName(f"{self.type}_{self.name.replace(' ', '_').replace('.', '_')}")
         if self.type == None:
             pass
         else:

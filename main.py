@@ -46,9 +46,9 @@ class MainWindow(QMainWindow):
 
 
         # EXPERIMENT CHECKS
-        self.are_all_remote_devices_connected_to_network: bool = False
         self.are_all_devices_connected_to_network: bool = False
-        self.are_all_devices_connected_via_ssh: bool = False
+        self.are_all_remote_devices_connected_to_network: bool = False
+        self.are_all_remote_devices_connected_via_ssh: bool = False
         self.are_all_local_nodes_running: bool = False
         self.are_all_remote_nodes_running: bool = False
 
@@ -71,6 +71,9 @@ class MainWindow(QMainWindow):
         widgets.btn_planner.clicked.connect(self.buttonClick)
         widgets.btn_settings.clicked.connect(self.buttonClick)
 
+        # DIAGNOSTICS
+        # ///////////////////////////////////////////////////////////////
+
         # DIAGNOSTICS SUBMENU1
         widgets.btn_experiment_select.clicked.connect(self.experiment_select)
         widgets.btn_experiment_load.clicked.connect(self.experiment_load)
@@ -83,20 +86,19 @@ class MainWindow(QMainWindow):
         self.toggle_connect_to_remote_devices = 0
         widgets.btn_connect_to_remote_devices.clicked.connect(self.experiment_toggle_click_connect_to_remote_devices)
 
+        self.toggle_start_remote_ros2_nodes = 0
+        widgets.btn_start_remote_ros2_nodes.clicked.connect(self.experiment_toggle_click_start_remote_ros2_nodes)
+
         # DIAGNOSTICS SUBMENU2
         self.diagnostics_content = []
         self.devices_offline = []   # devices off the network (most likely the host machine) that must run ros2 software
         self.devices_remote = []    # devices with ros2 software that must be run on the remote device
         self.devices_local = []     # devices with ros2 software that must be run locally
 
-
         # DIAGNOSTICS ICONS WORKER
         self.diagnostics_timer_update_device_icons = QTimer()
         self.diagnostics_timer_update_device_icons.timeout.connect(self.diagnostics_update_icons)
         self.diagnostics_timer_update_device_icons.start(7000)
-        # self.diagnostics_timer_device_network_connections = QTimer()
-        # self.diagnostics_timer_device_network_connections.timeout.connect(self.mess2_check_network_and_ssh_connections)
-        # self.diagnostics_timer_device_network_connections.start(5000)
 
 
 
@@ -104,54 +106,6 @@ class MainWindow(QMainWindow):
 
 
 
-
-        # DIAGNOSTICS SUBMENU 2
-        # widgets.btn_diagnostics_sensors.clicked.connect(self.buttonClick)
-        # widgets.btn_diagnostics_ugvs.clicked.connect(self.buttonClick)
-        # widgets.btn_diagnostics_uavs.clicked.connect(self.buttonClick)
-        # widgets.btn_diagnostics_refresh.clicked.connect(self.buttonClick)
-
-        # VICON CONNECTIVITY
-        # self.sensor_vicon = SensorVICON(name="VICON Valkyrie Motion Capture System", btnName=widgets.btnVICON_11.objectName())
-        # self.sensors_flir = []
-        # widgets.btnVICON_11.clicked.connect(self.buttonClick)
-
-        # ///////////////////////////////////////////////////////////////
-        
-        # thread pool
-        
-
-
-
-
-
-        # self.are_actors_ssh_connected = False
-        # widgets.btn_ssh_connect.clicked.connect(self.mess2_establish_or_close_ssh_connections)
-
-        # self.are_sensor_nodes_running = False
-        # widgets.btn_ros2_sensor_drivers.clicked.connect(self.mess2_start_or_stop_sensor_nodes)
-
-        # self.are_actor_nodes_running = False
-        # widgets.btn_ros2_actor_nodes.clicked.connect(self.mess2_start_or_stop_actor_nodes)
-
-
-        # # diagnostics sensors
-        # widgets.diagnosticsSensorsLayout.setAlignment(Qt.AlignTop)
-        # self.diagnostics_grid_sensors = Obj_gridDiagnosticsLayout(2)
-        # self.diagnostics_sensors = []
-
-        # # diagnostics ugvs
-        # widgets.diagnosticsUGVsLayout.setAlignment(Qt.AlignTop)
-        # self.diagnsotics_grid_ugvs = Obj_gridDiagnosticsLayout(2)
-        # self.diagnostics_actors_ugvs = []
-
-        # # diagnostics uavs
-        # widgets.diagnosticsUAVsLayout.setAlignment(Qt.AlignTop)
-        # self.diagnsotics_grid_uavs = Obj_gridDiagnosticsLayout(2)
-        # self.diagnostics_actors_uavs = []
-
-        # # diagnostics update network connection icons worker
-        
 
 
         # SHOW APP
@@ -590,7 +544,56 @@ class MainWindow(QMainWindow):
         self.toggle_connect_to_remote_devices = 0
 
 
+    def experiment_check_remote_devices_connected_via_ssh(self):
+        """
+        """
+        self.are_all_remote_devices_connected_via_ssh = True
+        for device in self.devices_remote:
+            if device.network.status() == False:
+                self.diagnostics_log(f"{device.name} is not connected via SSH")
+                self.are_all_remote_devices_connected_via_ssh = False
+        return self.are_all_remote_devices_connected_via_ssh
+
+
+    def experiment_toggle_click_start_remote_ros2_nodes(self):
+        """
+        """
+        if self.toggle_start_remote_ros2_nodes == 0:
+            self.experiment_start_remote_ros2_nodes()
+        elif self.toggle_start_remote_ros2_nodes == 1:
+            self.experiment_stop_remote_ros2_nodes()
+
+
+    def experiment_start_remote_ros2_nodes(self):
+        """
+        """
+        # if self.is_experiment_loaded == False:
+        #     self.diagnostics_log(f"cannot connect to remote devices before experiment is selected")
+        #     return
+
+        # if self.experiment_check_remote_devices_connected_to_network() == False:
+        #     self.diagnostics_log(f"cannot connect to remote devices before all are connected to network")
+        #     return
         
+        # worker = WorkerDevicesSSHConnect(self.devices_remote)
+        # self.threadpool.start(worker)
+
+        widgets.btn_start_remote_ros2_nodes.setText("Shutdown Remote ROS2 Nodes")
+        self.toggle_start_remote_ros2_nodes = 1
+
+
+    def experiment_stop_remote_ros2_nodes(self):
+        """
+        """
+        # if self.is_experiment_loaded == False:
+        #     self.diagnostics_log(f"cannot disconnect to remote devices before experiment is selected")
+        #     return
+        
+        # worker = WorkerDevicesSSHDisconnect(self.devices_remote)
+        # self.threadpool.start(worker)
+
+        widgets.btn_start_remote_ros2_nodes.setText("Launch Remote ROS2 Nodes")
+        self.toggle_start_remote_ros2_nodes = 0
 
 
 

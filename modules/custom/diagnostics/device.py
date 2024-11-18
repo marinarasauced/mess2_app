@@ -1,5 +1,5 @@
 
-from PySide6.QtCore import Qt, QRunnable, QThreadPool
+from PySide6.QtCore import Qt, QRunnable, QThreadPool, Signal
 from PySide6.QtWidgets import QWidget, QPlainTextEdit
 
 from collections import defaultdict
@@ -344,18 +344,13 @@ def ssh_connect(device: Device):
     """
     Establishes an SSH connection with a remote device with more-involved networking logic and diagnostics logging.
     """
-    if device.network.status_network != True:
-        if device.network.ping(device.ip) == False:
-            device.logger.log(f"unable to establish network connection {device.name}")
-            return
-
-    elif device.network.status_network == True:
-
-        if device.network.connect(hostname=device.ip, username=device.username, password=device.password, port=device.port):
+    if device.network.status_network == True:
+        if device.network.status_ssh == True:
+            device.logger.log(f"{device.name} already connected via ssh")
+        elif device.network.connect(hostname=device.ip, username=device.username, password=device.password, port=device.port):
             device.ui_redraw(status_ssh=True)
             device.network.status_ssh = True
-            device.logger.log(f"established SSH connection with {device.name}")
-
+            device.logger.log(f"opened SSH connection with {device.name}")
         else:
             device.logger.log(f"unable to establish SSH connection with {device.name}")
 
@@ -391,25 +386,22 @@ class WorkerDevicesSSHConnect(QRunnable):
     def run(self):
         """
         """
-        with ThreadPoolExecutor() as executor:
-            futures = {executor.submit(ssh_connect, device): device for device in self.devices if device.name != "" and device.name != None}
+        for device in self.devices:
+            if device.name != "" and device.name != None:
+                ssh_connect(device)
 
 
 def ssh_disconnect(device: Device):
     """
     Closes an SSH connection with a remote device using more-involved networking logic and diagnostics logging.
     """
-    if device.network.status_network != True:
-        result_ping = device.network.ping(device.ip)
-        device.network.status_network = result_ping
-
-    if device.network.status_ssh == True:
-
+    if device.network.status_ssh == False:
+        device.logger.log(f"{device.name} already disconnected from SSH")
+    elif device.network.status_ssh == True:
         if device.network.disconnect():
             device.ui_redraw(status_ssh=False)
             device.network.status_ssh = False
             device.logger.log(f"closed SSH connection with {device.name}")
-
         else:
             device.logger.log(f"unable to close SSH connection with {device.name}")
 
@@ -445,5 +437,6 @@ class WorkerDevicesSSHDisconnect(QRunnable):
     def run(self):
         """
         """
-        with ThreadPoolExecutor() as executor:
-            futures = {executor.submit(ssh_disconnect, device): device for device in self.devices if device.name != "" and device.name != None}
+        for device in self.devices:
+            if device.name != "" and device.name != None:
+                ssh_disconnect(device)

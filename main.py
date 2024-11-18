@@ -46,6 +46,7 @@ class MainWindow(QMainWindow):
 
 
         # EXPERIMENT CHECKS
+        self.are_all_remote_devices_connected_to_network: bool = False
         self.are_all_devices_connected_to_network: bool = False
         self.are_all_devices_connected_via_ssh: bool = False
         self.are_all_local_nodes_running: bool = False
@@ -78,6 +79,9 @@ class MainWindow(QMainWindow):
         widgets.btn_experiment_run.clicked.connect(self.experiment_run)
 
         widgets.diagnosticsSubmenu1.setAlignment(Qt.AlignTop)
+
+        self.toggle_connect_to_remote_devices = 0
+        widgets.btn_connect_to_remote_devices.clicked.connect(self.experiment_toggle_click_connect_to_remote_devices)
 
         # DIAGNOSTICS SUBMENU2
         self.diagnostics_content = []
@@ -518,7 +522,7 @@ class MainWindow(QMainWindow):
             save_path_dir = response
             if save_path_dir:
                 self.experiment_log_path = save_path_dir
-                self.diagnostics_log(f"selected experiment `log directory {self.experiment_log_path}")
+                self.diagnostics_log(f"selected experiment log directory {self.experiment_log_path}")
                 widgets.logSavePathText.setText(self.experiment_log_path)
 
 
@@ -534,10 +538,59 @@ class MainWindow(QMainWindow):
         self.diagnostics_log("experiment abort not yet implemented")
 
 
-    def experiment_connect_to_devices(self):
+    def experiment_check_remote_devices_connected_to_network(self):
         """
         """
-        # status_network = 
+        self.are_all_remote_devices_connected_to_network = True
+        for device in self.devices_remote:
+            if device.network.status_network == False or device.network.status_network == None:
+                self.diagnostics_log(f"{device.name} is disconnected from the network")
+                self.are_all_remote_devices_connected_to_network = False
+        return self.are_all_remote_devices_connected_to_network
+
+
+    def experiment_toggle_click_connect_to_remote_devices(self):
+        """
+        """
+        if self.toggle_connect_to_remote_devices == 0:
+            self.experiment_connect_to_remote_devices()
+        elif self.toggle_connect_to_remote_devices == 1:
+            self.experiment_disconnect_from_remote_devices()
+
+
+    def experiment_connect_to_remote_devices(self):
+        """
+        """
+        if self.is_experiment_loaded == False:
+            self.diagnostics_log(f"cannot connect to remote devices before experiment is selected")
+            return
+
+        if self.experiment_check_remote_devices_connected_to_network() == False:
+            self.diagnostics_log(f"cannot connect to remote devices before all are connected to network")
+            return
+        
+        worker = WorkerDevicesSSHConnect(self.devices_remote)
+        self.threadpool.start(worker)
+
+        widgets.btn_connect_to_remote_devices.setText("Disconnect from Remote Devices")
+        self.toggle_connect_to_remote_devices = 1
+
+
+    def experiment_disconnect_from_remote_devices(self):
+        """
+        """
+        if self.is_experiment_loaded == False:
+            self.diagnostics_log(f"cannot disconnect to remote devices before experiment is selected")
+            return
+        
+        worker = WorkerDevicesSSHDisconnect(self.devices_remote)
+        self.threadpool.start(worker)
+
+        widgets.btn_connect_to_remote_devices.setText("Connect to Remote Devices")
+        self.toggle_connect_to_remote_devices = 0
+
+
+        
 
 
 

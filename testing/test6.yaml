@@ -26,6 +26,6 @@ Miscellaneous:
     ip: "192.168.1.168"
     username: "ubuntu"
     password: "1234"
-    enable_network: false
-    enable_ssh: false
-    enable_battery: false
+    enable_network: true
+    enable_ssh: true
+    enable_battery: true

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'diagnosticsPage2hEOMKh.ui'
+## Form generated from reading UI file 'diagnosticsPage2smMvnw.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -25,7 +25,7 @@ class Ui_diagnosticsPage2(object):
         diagnosticsPage2.resize(748, 732)
         self.verticalLayout = QVBoxLayout(diagnosticsPage2)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(18, 3, 3, 3)
+        self.verticalLayout.setContentsMargins(9, 3, 3, 3)
         self.diagnostics2ScrollArea = QScrollArea(diagnosticsPage2)
         self.diagnostics2ScrollArea.setObjectName(u"diagnostics2ScrollArea")
         self.diagnostics2ScrollArea.setFrameShape(QFrame.NoFrame)
@@ -34,10 +34,10 @@ class Ui_diagnosticsPage2(object):
         self.diagnostics2ScrollArea.setWidgetResizable(True)
         self.diagnostics2ScrollAreaContent = QWidget()
         self.diagnostics2ScrollAreaContent.setObjectName(u"diagnostics2ScrollAreaContent")
-        self.diagnostics2ScrollAreaContent.setGeometry(QRect(0, 0, 713, 726))
+        self.diagnostics2ScrollAreaContent.setGeometry(QRect(0, 0, 722, 726))
         self.verticalLayout_2 = QVBoxLayout(self.diagnostics2ScrollAreaContent)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(0, 18, 18, 18)
+        self.verticalLayout_2.setContentsMargins(0, 18, 27, 18)
         self.diagnostics2ScrollAreaLayout = QGridLayout()
         self.diagnostics2ScrollAreaLayout.setSpacing(9)
         self.diagnostics2ScrollAreaLayout.setObjectName(u"diagnostics2ScrollAreaLayout")

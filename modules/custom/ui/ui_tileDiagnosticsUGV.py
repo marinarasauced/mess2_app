@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tileDiagnosticsUGVOIxBhc.ui'
+## Form generated from reading UI file 'tileDiagnosticsUGVDGqRMb.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -21,6 +21,11 @@ from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
 
 class Ui_tileDiagnosticsUGV(object):
     def setupUi(self, tileDiagnosticsUGV, enable_network: bool = False, enable_ssh: bool = True, enable_battery: bool = True):
+
+        self.enable_network = enable_network
+        self.enable_ssh = enable_ssh
+        self.enable_battery = enable_battery
+
         if not tileDiagnosticsUGV.objectName():
             tileDiagnosticsUGV.setObjectName(u"tileDiagnosticsUGV")
         tileDiagnosticsUGV.resize(350, 128)
@@ -32,12 +37,12 @@ class Ui_tileDiagnosticsUGV(object):
 "color: rgb(221, 221, 221);\n"
 "}\n"
 "#ssh_icon {\n"
+"background-color: transparent;\n"
 "background-image: url(:/icons/images/icons2/ssh_na.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
 "border: none;\n"
 "}\n"
-"\n"
 "#network_icon {\n"
 "background-image: url(:/icons/images/icons2/network_na.png);\n"
 "background-repeat: no-repeat;\n"
@@ -91,8 +96,7 @@ class Ui_tileDiagnosticsUGV(object):
 
         self.horizontalLayout.addWidget(self.name_text, 0, Qt.AlignTop)
 
-        self.enable_battery = enable_battery
-        if enable_battery:
+        if self.enable_battery == True:
 
             self.battery_text = QLabel(self.horizontalFrame)
             self.battery_text.setObjectName(u"battery_text")
@@ -115,8 +119,7 @@ class Ui_tileDiagnosticsUGV(object):
 
             self.horizontalLayout.addWidget(self.battery_icon, 0, Qt.AlignTop)
 
-        self.enable_ssh = enable_ssh
-        if enable_ssh:
+        if self.enable_ssh == True:
 
             self.ssh_icon = QPushButton(self.horizontalFrame)
             self.ssh_icon.setObjectName(u"ssh_icon")
@@ -126,8 +129,7 @@ class Ui_tileDiagnosticsUGV(object):
 
             self.horizontalLayout.addWidget(self.ssh_icon, 0, Qt.AlignTop)
 
-        self.enable_network = enable_network
-        if enable_network:
+        if self.enable_network == True:
 
             self.network_icon = QFrame(self.horizontalFrame)
             self.network_icon.setObjectName(u"network_icon")

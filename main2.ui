@@ -4027,32 +4027,32 @@ background-color: rgb(40, 44, 52);
                                          <number>0</number>
                                         </property>
                                         <item>
-                                         <widget class="QPushButton" name="btn_ssh_connect">
+                                         <widget class="QPushButton" name="btn_connect_to_remote_devices">
                                           <property name="cursor">
                                            <cursorShape>PointingHandCursor</cursorShape>
                                           </property>
                                           <property name="text">
-                                           <string>Connect to all Actors</string>
+                                           <string>Connect to all Devices</string>
                                           </property>
                                          </widget>
                                         </item>
                                         <item>
-                                         <widget class="QPushButton" name="btn_ros2_sensor_drivers">
+                                         <widget class="QPushButton" name="btn_start_local_ros2_nodes">
                                           <property name="cursor">
                                            <cursorShape>PointingHandCursor</cursorShape>
                                           </property>
                                           <property name="text">
-                                           <string>Launch ROS2 Sensor Drivers</string>
+                                           <string>Launch Local ROS2 Nodes</string>
                                           </property>
                                          </widget>
                                         </item>
                                         <item>
-                                         <widget class="QPushButton" name="btn_ros2_actor_nodes">
+                                         <widget class="QPushButton" name="btn_start_remote_ros2_nodes">
                                           <property name="cursor">
                                            <cursorShape>PointingHandCursor</cursorShape>
                                           </property>
                                           <property name="text">
-                                           <string>Launch ROS2 Actor Nodes</string>
+                                           <string>Launch Remote ROS2 Nodes</string>
                                           </property>
                                          </widget>
                                         </item>

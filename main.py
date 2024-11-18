@@ -22,13 +22,14 @@ class MainWindow(QMainWindow):
         """
         QMainWindow.__init__(self)
 
+        # GENERAL SETTINGS
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         global widgets
         widgets = self.ui
 
         Settings.ENABLE_CUSTOM_TITLE_BAR = True
-
+        
         title = "mess2"
         description = "Modular Experiment Software System 2"
         self.setWindowTitle(title)
@@ -38,8 +39,29 @@ class MainWindow(QMainWindow):
         UIFunctions.uiDefinitions(self)
         widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
+
+        # THREADPOOL
+        self.threadpool = QThreadPool.globalInstance()
+        self.threadpool.maxThreadCount = 8
+
+
+        # EXPERIMENT CHECKS
+        self.are_all_devices_connected_to_network: bool = False
+        self.are_all_devices_connected_via_ssh: bool = False
+        self.are_all_local_nodes_running: bool = False
+        self.are_all_remote_nodes_running: bool = False
+
+
         #
+        self.experiment_name = None
+        self.experiment_file_extensions: str = ".yaml (*.yaml)"
+        self.experiment_file_path: str = None
+        self.experiment_file_content = None
+        self.is_experiment_loaded = False
         self.is_experiment_running: bool = False
+
+        self.experiment_log_path: str = os.path.abspath(os.path.join(os.getcwd(), "../logs"))
+        widgets.logSavePathText.setText(self.experiment_log_path)
 
 
         # PRIMARY MENU
@@ -51,6 +73,11 @@ class MainWindow(QMainWindow):
         # DIAGNOSTICS SUBMENU1
         widgets.btn_experiment_select.clicked.connect(self.experiment_select)
         widgets.btn_experiment_load.clicked.connect(self.experiment_load)
+        widgets.btn_log_save_path_select.clicked.connect(self.save_path_select)
+        widgets.btn_experiment_abort.clicked.connect(self.experiment_abort)
+        widgets.btn_experiment_run.clicked.connect(self.experiment_run)
+
+        widgets.diagnosticsSubmenu1.setAlignment(Qt.AlignTop)
 
         # DIAGNOSTICS SUBMENU2
         self.diagnostics_content = []
@@ -59,6 +86,13 @@ class MainWindow(QMainWindow):
         self.devices_local = []     # devices with ros2 software that must be run locally
 
 
+        # DIAGNOSTICS ICONS WORKER
+        self.diagnostics_timer_update_device_icons = QTimer()
+        self.diagnostics_timer_update_device_icons.timeout.connect(self.diagnostics_update_icons)
+        self.diagnostics_timer_update_device_icons.start(7000)
+        # self.diagnostics_timer_device_network_connections = QTimer()
+        # self.diagnostics_timer_device_network_connections.timeout.connect(self.mess2_check_network_and_ssh_connections)
+        # self.diagnostics_timer_device_network_connections.start(5000)
 
 
 
@@ -66,22 +100,6 @@ class MainWindow(QMainWindow):
 
 
 
-
-        # LEFT MENUS
-        
-
-        # DIAGNOSTICS TAB
-        # ///////////////////////////////////////////////////////////////
-
-        # DIAGNOSTICS MENU
-        # widgets.btn_experiment_select.clicked.connect(self.buttonClick)
-        # widgets.btn_experiment_load.clicked.connect(self.buttonClick)
-        # widgets.btn_actors_connect.clicked.connect(self.buttonClick)
-        # widgets.btn_actors_disconnect.clicked.connect(self.buttonClick)
-
-        self.enable_click_logging_while_experiment_running = False
-        self.is_experiment_running: bool = False
-        
 
         # DIAGNOSTICS SUBMENU 2
         # widgets.btn_diagnostics_sensors.clicked.connect(self.buttonClick)
@@ -97,27 +115,10 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         
         # thread pool
-        self.threadpool = QThreadPool.globalInstance()
-        self.threadpool.maxThreadCount = 20
-
-
-
-        # diagnostics submenu 1
-        widgets.diagnosticsSubmenu1.setAlignment(Qt.AlignTop)
-        # widgets.btn_experiment_select.clicked.connect(self.mess2_experiment_select)
-        # widgets.btn_experiment_load.clicked.connect(self.mess2_experiment_load)
-        # widgets.btn_experiment_abort.clicked.connect(self.mess2_experiment_abort)
-
-        self.experiment_file_extensions: str = ".yaml (*.yaml)"
-        self.experiment_file_path: str = None
-        self.experiment_file_content = None
         
-        self.experiment_name = None
-        self.is_experiment_loaded = False
 
-        # widgets.btn_log_save_path_select.clicked.connect(self.mess2_logs_path_select)
-        # self.experiment_dir_logs = os.path.abspath(os.path.join(os.getcwd(), "../logs"))
-        # widgets.logSavePathText.setText(self.experiment_dir_logs)
+
+
 
 
         # self.are_actors_ssh_connected = False
@@ -146,9 +147,7 @@ class MainWindow(QMainWindow):
         # self.diagnostics_actors_uavs = []
 
         # # diagnostics update network connection icons worker
-        # self.diagnostics_timer_device_network_connections = QTimer()
-        # self.diagnostics_timer_device_network_connections.timeout.connect(self.mess2_check_network_and_ssh_connections)
-        # self.diagnostics_timer_device_network_connections.start(5000)
+        
 
 
         # SHOW APP
@@ -295,7 +294,9 @@ class MainWindow(QMainWindow):
         """
         Opens a dialogue to select an experiment file. 
         """
-        if not self.is_experiment_running:
+        if self.is_experiment_running == True:
+            self.diagnostics_log("unable to select experiment file while experiment is running")
+        elif self.is_experiment_running == False:
             response = QFileDialog.getOpenFileName(
                 parent=self,
                 caption="Select a file",
@@ -313,10 +314,10 @@ class MainWindow(QMainWindow):
         """
         This method loads the gui elements of a preconfigured experiment .yaml file and creates backend object instances needed to run an experiment.
         """
-        if self.is_experiment_running:
+        if self.is_experiment_running == True:
             self.diagnostics_log("unable to load experiment file while experiment is running")
 
-        elif self.experiment_file_path is None:
+        elif self.experiment_file_path == None:
             self.diagnostics_log("unable to load exeperiment file while no experiment is selected")
 
         else:
@@ -487,20 +488,7 @@ class MainWindow(QMainWindow):
                 index_row = content.grid.get_index_row()
                 index_col = content.grid.get_index_col()
                 content.layout.addWidget(device_.widget, index_row, index_col)
-                
-                # layout = eval(f"self.ui.grid_diagnostics2_{category}")
-                # grid: Obj_gridDiagnosticsLayout = eval(f"self.grid_{category}")
 
-                # index_row = grid.get_index_row()
-                # index_col = grid.get_index_col()
-
-                # layout.addWidget(device_.widget, index_row, index_col)
-
-
-
-            # miscellaneous
-            # if counter == 0:
-            #     UIFunctions.diagnostics_submenu2_style(self, button.objectName())
             counter += 1
             if counter == 1:
                 content.select()
@@ -509,375 +497,47 @@ class MainWindow(QMainWindow):
         self.is_experiment_loaded = True
 
 
-    def diagnostics_submenu2_click(self, button: QPushButton):
+    def diagnostics_update_icons(self):
         """
         """
-        button.clicked.disconnect()
-        UIFunctions.diagnostics_submenu2_style(self, button.objectName())
-        # button.clicked.connect(lambda self=self, button=button: UIFunctions.diagnostics_submenu2_click(self, button))
-
-
-    
-
-
-    # def diagnostics_submenu2_style_reset(self, name: str):
-    #     """
-    #     """
-    #     for widget in widgets.diagnosticsSubmenu2ButtonsLeftLayout.findChildren(QPushButton):
-    #         is_same: bool = (widget.objectName() == name)
-    #         if is_same == False:
-    #             style = widget.styleSheet()
-    #             style = style.replace(Settings.DIAGNOSTICS_SUBMENU2_STYLE, "")
-    #             widget.setStyleSheet(style)
-    #         elif is_same == True:
-    #             style = widget.styleSheet()
-    #             style = style.replace("", Settings.DIAGNOSTICS_SUBMENU2_STYLE)
-    #             widget.setStyleSheet(style)
-
-    #             page = widgets.diagnosticsPages2.findChild(QWidget, f"{widget.objectName().replace('btn', 'page')}")
-    #             widgets.diagnosticsPages2.setCurrentWidget(page)
-
-
-            # experiment_name = self.experiment_file_content.get("experiment_name", "")
-
-            # if self.experiment_name is None and experiment_name != "":
-            #     self.experiment_name = experiment_name
-
-            #     UIFunctions.diagnostics_add_submenu2_button(self, "test3")
-
-            #     # self.mess2_load_sensors()
-            #     # self.mess2_load_actors()
-            #     self.is_experiment_loaded = True
-            #     UIFunctions.diagnostics_log(self, f"loaded experiment {self.experiment_name}")
-            #     widgets.experimentFileNameText.setText(self.experiment_file_path)
-
-            # elif self.experiment_name is not None and experiment_name != "" and experiment_name != self.experiment_name:
-            #     self.experiment_name = experiment_name
-            #     # self.mess2_remove_sensors()
-            #     # self.mess2_remove_actors()
-            #     # self.mess2_load_sensors()
-            #     # self.mess2_load_actors()
-            #     self.is_experiment_loaded = True
-            #     UIFunctions.diagnostics_log(self, f"loaded experiment {self.experiment_name}")
-            #     widgets.experimentFileNameText.setText(self.experiment_file_path)
-
-
-            # elif experiment_name == "":
-            #     UIFunctions.diagnostics_log(self, f"experiment file {self.experiment_file_path} is invalid")
-
-            # elif experiment_name == self.experiment_name:
-            #     UIFunctions.diagnostics_log(self, f"experiment file {self.experiment_file_path} was already loaded")
-
-
-    
-    # BUTTON EVENTS
-    # ///////////////////////////////////////////////////////////////
-    # def logExperimentRunningEvent(self, btnName: str):
-    #     """
-    #     """
-    #     if self.enable_click_logging_while_experiment_running:
-    #                 UIFunctions.diagnostics_log(f"buttonClick : cannot press {btnName} while experiment is running")
-
-
-    # def selectExperimentEvent(self):
-    #     """
-    #     """
-        
-    
-
-    # def createSensorVICONEvent(self):
-    #     """
-    #     """
-    #     if self.sensor_vicon:
-    #         pass
-
-
-    # def toggleSensorVICONEvent(self):
-    #     """
-    #     """
-    #     if not self.sensor_vicon.is_connected:
-    #         UIFunctions.toggleStyleConnected(self, self.sensor_vicon.frameNameConnected, True)
-    #         UIFunctions.toggleStyleOnline(self, self.sensor_vicon.frameNameOnline, True)
-    #         self.sensor_vicon.is_connected = True
-    #     # if not self.sensor_vicon.is_running
-
-
-
-
-
-
-
-
-
-    # CUSTOM CODE
-    # ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    # def mess2_create_grid(self, n_cols: int = 2, n_rows: int = None):
-    #     """
-    #     This method initializes 
-    #     """
-    # def mess2_experiment_select(self):
-    #     """
-    #     This method creates a 
-    #     """
-    #     if not self.is_experiment_running:
-    #         response = QFileDialog.getOpenFileName(
-    #             parent=self,
-    #             caption="Select a file",
-    #             dir=os.getcwd(),
-    #             filter=self.experiment_file_extensions
-    #         )
-    #         experiment_file_path, _ = response
-    #         if experiment_file_path:
-    #             self.experiment_file_path = experiment_file_path
-    #             UIFunctions.diagnostics_log(self, f"selected experiment file {self.experiment_file_path}")
-
-
-    # def mess2_experiment_load(self):
-    #     """
-    #     This method loads the gui elements of a preconfigured experiment .yaml file and creates backend object instances needed to run an experiment.
-    #     """
-    #     if self.is_experiment_running:
-    #         UIFunctions.diagnostics_log(self, "unable to load experiment file while experiment is running")
-
-    #     elif self.experiment_file_path is None:
-    #         UIFunctions.diagnostics_log(self, "unable to load exeperiment file while no experiment is selected")
-
-    #     else:
-    #         with open(self.experiment_file_path, "r") as file:
-    #             self.experiment_file_content = yaml.safe_load(file)
-            
-    #         experiment_name = self.experiment_file_content.get("experiment_name", "")
-
-    #         if self.experiment_name is None and experiment_name != "":
-    #             self.experiment_name = experiment_name
-    #             self.mess2_load_sensors()
-    #             self.mess2_load_actors()
-    #             self.is_experiment_loaded = True
-    #             UIFunctions.diagnostics_log(self, f"loaded experiment {self.experiment_name}")
-    #             widgets.experimentFileNameText.setText(self.experiment_file_path)
-
-    #         elif self.experiment_name is not None and experiment_name != "" and experiment_name != self.experiment_name:
-    #             self.experiment_name = experiment_name
-    #             self.mess2_remove_sensors()
-    #             self.mess2_remove_actors()
-    #             self.mess2_load_sensors()
-    #             self.mess2_load_actors()
-    #             self.is_experiment_loaded = True
-    #             UIFunctions.diagnostics_log(self, f"loaded experiment {self.experiment_name}")
-    #             widgets.experimentFileNameText.setText(self.experiment_file_path)
-
-
-    #         elif experiment_name == "":
-    #             UIFunctions.diagnostics_log(self, f"experiment file {self.experiment_file_path} is invalid")
-
-    #         elif experiment_name == self.experiment_name:
-    #             UIFunctions.diagnostics_log(self, f"experiment file {self.experiment_file_path} was already loaded")
-
-
-    # def mess2_add_sensor(self, type: str = "sensor", name: str = "", ip: str = "", username: str = "ubuntu", password: str = "1234", port: int = -1):
-    #     """
-        
-    #     """
-    #     index_row = self.diagnostics_grid_sensors.get_index_row()
-    #     index_col = self.diagnostics_grid_sensors.get_index_col()
-    #     if name == "":
-    #         name = f"blankSensor_{index_row}_{index_col}"
-    #     sensor = Device(
-    #         type=type, name=name, ip=ip, username=username, password=password, port=port, logger=widgets.diagnosticsTerminal, threadpool=self.threadpool
-    #     )
-    #     if type != "":
-    #         self.diagnostics_sensors.append(sensor)
-    #         widgets.diagnosticsSensorsLayout.addWidget(sensor.widget, index_row, index_col)
-    
-
-    # def mess2_remove_sensor(self, sensor: Device):
-    #     """
-        
-    #     """
-    #     widgets.diagnosticsSensorsLayout.removeWidget(sensor.widget)
-    #     sensor.widget.deleteLater()
-
-
-    # def mess2_remove_sensors(self):
-    #     """
-        
-    #     """
-    #     for sensor in self.diagnostics_sensors:
-    #         self.mess2_remove_sensor(sensor)
-    #     self.diagnostics_sensors.clear()
-    #     self.diagnostics_grid_sensors.__reset__()
-    
-
-    # def mess2_load_sensors(self):
-    #     """
-    #     This method loads the sensor diagnostics gui elements from a preconfigured experiment .yaml file.
-    #     """
-    #     if "sensors" in self.experiment_file_content:
-    #         for sensor in self.experiment_file_content["sensors"]:
-    #             type = sensor.get("type", "")
-    #             name = sensor.get("name", "")
-    #             ip = sensor.get("ip", "")
-    #             assert(type != "" and type != None)
-    #             assert(name != "" and name != None)
-
-    #             username = sensor.get("username", "ubuntu")
-    #             password = sensor.get("password", "1234")
-    #             port = sensor.get("port")
-    #             assert(username != "")
-
-    #             self.mess2_add_sensor(
-    #                 type=type, name=name, ip=ip, username=username, password=password, port=port
-    #             )
-    #             if type == "vicon":
-    #                 self.mess2_add_sensor(type="")  # add empty tile next to vicon ;) so it has its own row
-
-
-    # def mess2_add_actor_ugv(self, type: str = "ugv", name: str = "", ip: str = "", username: str = "ubuntu", password: str = "1234", port: int = -1):
-    #     """
-        
-    #     """
-    #     index_row = self.diagnsotics_grid_ugvs.get_index_row()
-    #     index_col = self.diagnsotics_grid_ugvs.get_index_col()
-    #     actor = Device(
-    #         type=type, name=name, ip=ip, username=username, password=password, port=port, logger=widgets.diagnosticsTerminal, threadpool=self.threadpool
-    #     )
-    #     self.diagnostics_actors_ugvs.append(actor)
-    #     widgets.diagnosticsUGVsLayout.addWidget(actor.widget, index_row, index_col)
-    
-
-    # def mess2_remove_actor_ugv(self, actor: Device):
-    #     """
-
-    #     """
-    #     widgets.diagnosticsUGVsLayout.removeWidget(actor.widget)
-    #     actor.widget.deleteLater()
-
-
-    # def mess2_add_actor_uav(self, type: str = "ugv", name: str = "", ip: str = "", username: str = "ubuntu", password: str = "1234", port: int = -1):
-    #     """
-        
-    #     """
-    #     index_row = self.diagnsotics_grid_uavs.get_index_row()
-    #     index_col = self.diagnsotics_grid_uavs.get_index_col()
-    #     actor = Device(
-    #         type=type, name=name, ip=ip, username=username, password=password, port=port, logger=widgets.diagnosticsTerminal, threadpool=self.threadpool
-    #     )
-    #     self.diagnostics_actors_uavs.append(actor)
-    #     widgets.diagnosticsUAVsLayout.addWidget(actor.widget, index_row, index_col)
-    
-
-    # def mess2_remove_actor_uav(self, actor: Device):
-    #     """
-
-    #     """
-    #     widgets.diagnosticsUAVsLayout.removeWidget(actor.widget)
-    #     actor.widget.deleteLater()
-
-    
-    # def mess2_remove_actors(self):
-    #     """
-        
-    #     """
-    #     for actor in self.diagnostics_actors_ugvs:
-    #         self.mess2_remove_actor_ugv(actor)
-    #     self.diagnostics_actors_ugvs.clear()
-    #     self.diagnsotics_grid_ugvs.__reset__()
-    #     for actor in self.diagnostics_actors_uavs:
-    #         self.mess2_remove_actor_uav(actor)
-    #     self.diagnostics_actors_uavs.clear()
-    #     self.diagnsotics_grid_uavs.__reset__()
-
-
-    # def mess2_load_actors(self):
-    #     """
-    #     Loads the ugv and uav actor diagnostics gui elements from a preconfigured experiment .yaml file.
-    #     """
-    #     if "actors" in self.experiment_file_content:
-    #         for actor in self.experiment_file_content["actors"]:
-    #             type = actor.get("type", "")
-    #             name = actor.get("name", "")
-    #             ip = actor.get("ip", "")
-    #             assert(type != "" and type != None)
-    #             assert(name != "" and name != None)
-
-    #             username = actor.get("username", "ubuntu")
-    #             password = actor.get("password", "1234")
-    #             port = actor.get("port")
-    #             assert(username != "")
-
-    #             if type == "ugv":
-    #                 self.mess2_add_actor_ugv(
-    #                     type=type, name=name, ip=ip, username=username, password=password, port=port
-    #                 )
-    #             elif type == "uav":
-    #                 self.mess2_add_actor_uav(
-    #                     type=type, name=name, ip=ip, username=username, password=password, port=port
-    #                 )
-
-
-    # def mess2_check_network_and_ssh_connections(self):
-    #     """
-    #     Checks network connections for sensors, ugvs, and uavs.
-    #     """
-    #     worker = WorkerDeviceUI(
-    #         self.diagnostics_sensors,
-    #         self.diagnostics_actors_ugvs + self.diagnostics_actors_uavs
-    #     )
-    #     self.threadpool.start(worker)
-
-
-    # def mess2_establish_or_close_ssh_connections(self):
-    #     """
-    #     """
-    #     if self.are_actors_ssh_connected == False:
-    #         widgets.btn_ssh_connect.setText("Disconnect from all Actors")
-    #         self.are_actors_ssh_connected = True
-    #     elif self.are_actors_ssh_connected == True:
-    #         widgets.btn_ssh_connect.setText("Connect to all Actors")
-    #         self.are_actors_ssh_connected = False
-
-
-    # def mess2_start_or_stop_sensor_nodes(self):
-    #     """
-    #     """
-    #     if self.are_sensor_nodes_running == False:
-    #         widgets.btn_ros2_sensor_drivers.setText("Shutdown ROS2 Sensor Drivers")
-    #         self.are_sensor_nodes_running = True
-    #     elif self.are_sensor_nodes_running == True:
-    #         widgets.btn_ros2_sensor_drivers.setText("Launch ROS2 Sensor Drivers")
-    #         self.are_sensor_nodes_running = False
-
-
-    # def mess2_start_or_stop_actor_nodes(self):
-    #     """
-    #     """
-    #     if self.are_actor_nodes_running == False:
-    #         widgets.btn_ros2_actor_nodes.setText("Shutdown ROS2 Actor Nodes")
-    #         self.are_actor_nodes_running = True
-    #     elif self.are_actor_nodes_running == True:
-    #         widgets.btn_ros2_actor_nodes.setText("Launch ROS2 Actor Nodes")
-    #         self.are_actor_nodes_running = False
-
-
-    # def mess2_experiment_abort(self):
-    #     """
-    #     """
-    #     if self.is_experiment_running == True:
-    #         UIFunctions.diagnostics_log(self, f"aborting experiment {self.experiment_name}")
-    #         UIFunctions.diagnostics_log(self, f"aborted experiment {self.experiment_name}")
-
-
-    # def mess2_logs_path_select(self):
-    #     """
-    #     """
-    #     if not self.is_experiment_running:
-    #         response = QFileDialog.getExistingDirectory(
-    #             parent=self,
-    #             caption="Select a directory",
-    #             dir=os.getcwd(),
-    #         )
-    #         self.experiment_dir_logs = response
-    #         widgets.logSavePathText.setText(self.experiment_dir_logs)
+        worker = WorkerDeviceUI(self.devices_local, self.devices_remote)
+        self.threadpool.start(worker)
+
+
+    def save_path_select(self):
+        """
+        """
+        if self.is_experiment_running:
+            self.diagnostics_log("unable to change log save path while experiment is running")
+        else:
+            response = QFileDialog.getExistingDirectory(
+                parent=self,
+                caption="Select a directory",
+                dir=os.getcwd()
+            )
+            save_path_dir = response
+            if save_path_dir:
+                self.experiment_log_path = save_path_dir
+                self.diagnostics_log(f"selected experiment `log directory {self.experiment_log_path}")
+                widgets.logSavePathText.setText(self.experiment_log_path)
+
+
+    def experiment_run(self):
+        """
+        """
+        self.diagnostics_log("experiment run not yet implemented")
+
+
+    def experiment_abort(self):
+        """
+        """
+        self.diagnostics_log("experiment abort not yet implemented")
+
+
+    def experiment_connect_to_devices(self):
+        """
+        """
+        # status_network = 
 
 
 

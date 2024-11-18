@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main2DTnCfC.ui'
+## Form generated from reading UI file 'main2IHUcPo.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -1869,23 +1869,23 @@ class Ui_MainWindow(object):
         self.verticalLayout_38.setSpacing(9)
         self.verticalLayout_38.setObjectName(u"verticalLayout_38")
         self.verticalLayout_38.setContentsMargins(0, 15, 0, 0)
-        self.btn_ssh_connect = QPushButton(self.experimentRunButtons)
-        self.btn_ssh_connect.setObjectName(u"btn_ssh_connect")
-        self.btn_ssh_connect.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_connect_to_remote_devices = QPushButton(self.experimentRunButtons)
+        self.btn_connect_to_remote_devices.setObjectName(u"btn_connect_to_remote_devices")
+        self.btn_connect_to_remote_devices.setCursor(QCursor(Qt.PointingHandCursor))
 
-        self.verticalLayout_38.addWidget(self.btn_ssh_connect)
+        self.verticalLayout_38.addWidget(self.btn_connect_to_remote_devices)
 
-        self.btn_ros2_sensor_drivers = QPushButton(self.experimentRunButtons)
-        self.btn_ros2_sensor_drivers.setObjectName(u"btn_ros2_sensor_drivers")
-        self.btn_ros2_sensor_drivers.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_start_local_ros2_nodes = QPushButton(self.experimentRunButtons)
+        self.btn_start_local_ros2_nodes.setObjectName(u"btn_start_local_ros2_nodes")
+        self.btn_start_local_ros2_nodes.setCursor(QCursor(Qt.PointingHandCursor))
 
-        self.verticalLayout_38.addWidget(self.btn_ros2_sensor_drivers)
+        self.verticalLayout_38.addWidget(self.btn_start_local_ros2_nodes)
 
-        self.btn_ros2_actor_nodes = QPushButton(self.experimentRunButtons)
-        self.btn_ros2_actor_nodes.setObjectName(u"btn_ros2_actor_nodes")
-        self.btn_ros2_actor_nodes.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_start_remote_ros2_nodes = QPushButton(self.experimentRunButtons)
+        self.btn_start_remote_ros2_nodes.setObjectName(u"btn_start_remote_ros2_nodes")
+        self.btn_start_remote_ros2_nodes.setCursor(QCursor(Qt.PointingHandCursor))
 
-        self.verticalLayout_38.addWidget(self.btn_ros2_actor_nodes)
+        self.verticalLayout_38.addWidget(self.btn_start_remote_ros2_nodes)
 
 
         self.verticalLayout_37.addWidget(self.experimentRunButtons)
@@ -2469,9 +2469,9 @@ class Ui_MainWindow(object):
         self.btn_experiment_select.setText("")
         self.btn_experiment_load.setText(QCoreApplication.translate("MainWindow", u"Load Experiment", None))
         self.diagnosticsExperimentRunLabel.setText(QCoreApplication.translate("MainWindow", u"EXPERIMENT OPERATIONS", None))
-        self.btn_ssh_connect.setText(QCoreApplication.translate("MainWindow", u"Connect to all Actors", None))
-        self.btn_ros2_sensor_drivers.setText(QCoreApplication.translate("MainWindow", u"Launch ROS2 Sensor Drivers", None))
-        self.btn_ros2_actor_nodes.setText(QCoreApplication.translate("MainWindow", u"Launch ROS2 Actor Nodes", None))
+        self.btn_connect_to_remote_devices.setText(QCoreApplication.translate("MainWindow", u"Connect to all Devices", None))
+        self.btn_start_local_ros2_nodes.setText(QCoreApplication.translate("MainWindow", u"Launch Local ROS2 Nodes", None))
+        self.btn_start_remote_ros2_nodes.setText(QCoreApplication.translate("MainWindow", u"Launch Remote ROS2 Nodes", None))
         self.dataCollectionLabel.setText(QCoreApplication.translate("MainWindow", u"DATA COLLECTION", None))
         self.dataCollectionPathLabel.setText(QCoreApplication.translate("MainWindow", u"Save Path:", None))
         self.logSavePathText.setText("")

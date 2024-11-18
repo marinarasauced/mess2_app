@@ -302,12 +302,12 @@ class WorkerDeviceUI(QRunnable):
     """
     Manages threaded worker to check and update network connection icons.
     """
-    def __init__(self, sensors: List[Device], actors: list[Device]):
+    def __init__(self, local: List[Device], remote: list[Device]):
         """
         """
         super().__init__()
-        self.sensors = sensors
-        self.actors = actors
+        self.local = local
+        self.remote = remote
 
 
     def run(self):
@@ -318,8 +318,8 @@ class WorkerDeviceUI(QRunnable):
         results_ssh = defaultdict(lambda: None)
 
         with ThreadPoolExecutor() as executor:
-            futures_network = {executor.submit(device.network.ping, device.ip): device for device in self.sensors + self.actors if device.name != "" and device.name != None}
-            futures_ssh = {executor.submit(device.network.status): device for device in self.actors if device.name != "" and device.name != None}
+            futures_network = {executor.submit(device.network.ping, device.ip): device for device in self.local + self.remote if device.name != "" and device.name != None}
+            futures_ssh = {executor.submit(device.network.status): device for device in self.remote if device.name != "" and device.name != None}
             
             for future in futures_network:
                 try:
@@ -337,7 +337,7 @@ class WorkerDeviceUI(QRunnable):
                 except Exception as e:
                     pass
 
-            for device in self.sensors + self.actors:
+            for device in self.local + self.remote:
                 try:
                     if device.name != "" and device.name != None:
                         status_network = results_network[device.name]

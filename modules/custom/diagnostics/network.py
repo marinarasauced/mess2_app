@@ -73,14 +73,8 @@ class SSH():
         Checks if the SSH connection is active.
         """
         try:
-            transport = self.ssh.get_transport()
-            if transport is None:
+            if self.ssh.get_transport() == None:
                 return False
-            # start_time = time.time()
-            # while transport.is_active():
-            #     if time.time() - start_time > timeout:
-            #         return False
-            #     time.sleep(0.1)
             return True
         except Exception as e:
             return False

@@ -13,7 +13,7 @@ Sensors:
     enable_ssh: false
     enable_battery: false
 UGVs:
-  - type: "vicon"
+  - type: "turtlebot3"
     name: "burger3"
     ip: "192.168.0.197"
     username: "ubuntu"

@@ -5,7 +5,7 @@ from PySide6.QtWidgets import QWidget, QPlainTextEdit
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, Future
 from modules.custom.diagnostics.logger import LoggerUI
-from modules.custom.diagnostics.network import NetworkFunctions
+from modules.custom.diagnostics.network import NetworkFunctions, SSHClient
 from modules.custom.ui.ui_tileDiagnosticsSensor import Ui_tileDiagnosticsSensor
 from modules.custom.ui.ui_tileDiagnosticsUGV import Ui_tileDiagnosticsUGV
 from modules.custom.ui.ui_tileDiagnosticsUAV import Ui_tileDiagnosticsUAV
@@ -233,18 +233,6 @@ class Device(DeviceFunctions, DeviceUI):
             self.ui.setupUi(self.widget, self.enable_network, self.enable_ssh, self.enable_battery)
             self.set_name_text(self.name)
 
-            # print(vars(self.widget))
-
-            # if self.enable_network == False:
-            #     self.ui.__delattr__("network_icon")
-
-            # if self.enable_ssh == False:
-            #     self.ui.__delattr__("ssh_icon")
-            
-            # if self.enable_battery == False:
-            #     self.ui.__delattr__("battery_icon")
-            #     self.ui.__delattr__("battery_text")
-            
             if hasattr(self.ui, "battery_text"):
                 self.set_battery_percentage_text("n/a")
                 self.ui.battery_text.setAlignment(Qt.AlignRight)
@@ -266,7 +254,7 @@ class Device(DeviceFunctions, DeviceUI):
     def ui_redraw(self, battery_percentage_text: str = None, battery_percentage_value: float = None, status_ssh: bool = None, status_network: bool = None):
         """
         Updates the device's dynamic app gui elements with new values if updates are necessary. Any parameters that are no
-        """
+        """        
         # only update battery percentage text if value has changed (check performed in method). 
         if hasattr(self.ui, "battery_text") and battery_percentage_text != None:
             self.set_battery_percentage_text(battery_percentage_text)
@@ -341,8 +329,7 @@ class WorkerDeviceUI(QRunnable):
                 try:
                     if device.name != "" and device.name != None:
                         status_network = results_network[device.name]
-                        # status_ssh = results_ssh[device.name]
-                        status_ssh = None
+                        status_ssh = results_ssh[device.name]
                         device.ui_redraw(
                             battery_percentage_text=None,
                             battery_percentage_value=None,
@@ -358,20 +345,18 @@ def ssh_connect(device: Device):
     Establishes an SSH connection with a remote device with more-involved networking logic and diagnostics logging.
     """
     if device.network.status_network != True:
-        result_ping = device.network.ping(device.ip)
-        device.network.status_network = result_ping
-
-    if device.network.status_network == False:
-        device.logger.log(f"unable to establish network connection {device.name}")
+        if device.network.ping(device.ip) == False:
+            device.logger.log(f"unable to establish network connection {device.name}")
+            return
 
     elif device.network.status_network == True:
 
         if device.network.connect(hostname=device.ip, username=device.username, password=device.password, port=device.port):
+            device.ui_redraw(status_ssh=True)
             device.network.status_ssh = True
             device.logger.log(f"established SSH connection with {device.name}")
 
         else:
-            device.network.status_ssh = False
             device.logger.log(f"unable to establish SSH connection with {device.name}")
 
 
@@ -421,11 +406,11 @@ def ssh_disconnect(device: Device):
     if device.network.status_ssh == True:
 
         if device.network.disconnect():
+            device.ui_redraw(status_ssh=False)
             device.network.status_ssh = False
             device.logger.log(f"closed SSH connection with {device.name}")
 
         else:
-            device.network.status_ssh = True
             device.logger.log(f"unable to close SSH connection with {device.name}")
 
 

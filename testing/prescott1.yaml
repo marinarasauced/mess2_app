@@ -12,6 +12,11 @@ Sensors:
     enable_network: true
     enable_ssh: false
     enable_battery: false
+    commands1:
+      - ros2:
+        - launch:
+            package: "vicon_driver"
+            executable: "driver.launch.py"
 UGVs:
   - type: "turtlebot3"
     name: "burger3"

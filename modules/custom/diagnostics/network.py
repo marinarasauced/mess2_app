@@ -3,6 +3,8 @@ from paramiko import SSHClient, AutoAddPolicy
 import platform
 from scp import SCPClient
 import subprocess
+import os
+import signal
 
 
 class SSH():
@@ -128,6 +130,94 @@ class SCP(SSH):
             return False
 
 
+class ROS2Local():
+    """
+    Manages ROS2 command execution and termination on the local device. 
+    """
+    def start(self, device, priority: int):
+        """
+        """
+        if priority == 1:
+            commands = device.commands1
+        elif priority == 2:
+            commands = device.commands2
+        
+        device.pids = {}
+
+        for command in commands:
+            process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            device.pids[priority] = device.pids.get(priority, [])
+            device.pids[priority].append(process.pid)
+
+
+    def stop(self, device, priority: int):
+        """
+        Terminates the processes associated with the given priority.
+        """
+        if priority not in device.pids or not device.pids[priority]:
+            return
+
+        for pid in device.pids[priority]:
+            try:
+                os.kill(pid, signal.SIGTERM)
+                # print(f"Terminated process with PID: {pid}")
+                device.pids[priority].remove(pid)
+            except ProcessLookupError:
+                # print(f"Process with PID {pid} not found.")
+                pass
+            except Exception as e:
+                # print(f"Error terminating process with PID {pid}: {e}")
+                pass
+
+
+class ROS2Remote():
+    """
+    Manages ROS2 command execution and termination on the local device. 
+    """
+    def start(self, device, priority: int):
+        """
+        """
+        if priority == 1:
+            commands = device.commands1
+        elif priority == 2:
+            commands = device.commands2
+        
+        if not device.network.status():
+            device.logger.log(f"unable to execute commands on {device.name}")
+            return
+        
+        device.pids = {}
+
+        for command in commands:
+            command_ = f"{' '.join(command)} & echo $!"
+            stdin, stdout, stderr = device.network.ssh.exec_command(command_)
+            pid = stdout.read().decode().strip()
+            device.pids[priority] = device.pids.get(priority, [])
+            device.pids[priority].append(pid)
+
+
+    def stop(self, device, priority: int):
+        """
+        Terminates the processes associated with the given priority.
+        """
+        if priority not in device.pids or not device.pids[priority]:
+            return
+
+        for pid in device.pids[priority]:
+            try:
+                command = f"kill {pid}"
+                stdin, stdout, stderr = device.network.ssh.exec_command(command)
+                device.pids[priority].remove(pid)
+            except ProcessLookupError:
+                # print(f"Process with PID {pid} not found.")
+                pass
+            except Exception as e:
+                # print(f"Error terminating process with PID {pid}: {e}")
+                pass
+
+        device.pids[priority] = []
+
+
 class NetworkFunctions(SCP):
     """
     Manages method's and attributes relating to network protocols.
@@ -138,6 +228,8 @@ class NetworkFunctions(SCP):
         """
         SCP.__init__(self)
         self.status_network: bool = None
+        self.local = ROS2Local()
+        self.remote = ROS2Remote()
 
 
     def ping(self, ip: str):

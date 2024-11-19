@@ -214,6 +214,11 @@ class Device(DeviceFunctions, DeviceUI):
         self.logger = LoggerUI(logger)
         self.threadpool = threadpool
 
+        # ROS2 integrations
+        self.commands1 = []     # high priority like drivers
+        self.commands2 = []     # low priority like loggers
+        self.pids = {}
+
 
     def __del__(self):
         """
@@ -440,3 +445,143 @@ class WorkerDevicesSSHDisconnect(QRunnable):
         for device in self.devices:
             if device.name != "" and device.name != None:
                 ssh_disconnect(device)
+
+
+class WorkerDeviceROS2LocalStart(QRunnable):
+    """
+    """
+    def __init__(self, device: Device, priority: int):
+        """
+        """
+        super().__init__()
+        self.device = device
+        self.priority = priority
+
+
+    def run(self):
+        """
+        """
+        self.device.network.local.start(self.device, self.priority)
+
+
+class WorkerDeviceROS2LocalStop(QRunnable):
+    """
+    """
+    def __init__(self, device: Device, priority: int):
+        """
+        """
+        super().__init__()
+        self.device = device
+        self.priority = priority
+
+
+    def run(self):
+        """
+        """
+        self.device.network.local.stop(self.device, self.priority)
+
+
+class WorkerDevicesROS2LocalStart(QRunnable):
+    """
+    """
+    def __init__(self, devices: List[Device], priority: int):
+        """
+        """
+        super().__init__()
+        self.devices = devices
+        self.priority = priority
+
+
+    def run(self):
+        """
+        """
+        with ThreadPoolExecutor() as executor:
+            futures = {executor.submit(device.network.local.start, device, self.priority): device for device in self.devices if device.name != "" and device.name != None}
+
+
+class WorkerDevicesROS2LocalStop(QRunnable):
+    """
+    """
+    def __init__(self, devices: List[Device], priority: int):
+        """
+        """
+        super().__init__()
+        self.devices = devices
+        self.priority = priority
+
+
+    def run(self):
+        """
+        """
+        with ThreadPoolExecutor() as executor:
+            futures = {executor.submit(device.network.local.stop, device, self.priority): device for device in self.devices if device.name != "" and device.name != None}
+
+
+class WorkerDeviceROS2RemoteStart(QRunnable):
+    """
+    """
+    def __init__(self, device: Device, priority: int):
+        """
+        """
+        super().__init__()
+        self.device = device
+        self.priority = priority
+
+
+    def run(self):
+        """
+        """
+        self.device.network.remote.start(self.device, self.priority)
+
+
+class WorkerDeviceROS2RemoteStop(QRunnable):
+    """
+    """
+    def __init__(self, device: Device, priority: int):
+        """
+        """
+        super().__init__()
+        self.device = device
+        self.priority = priority
+
+
+    def run(self):
+        """
+        """
+        self.device.network.remote.stop(self.device, self.priority)
+
+
+class WorkerDevicesROS2RemoteStart(QRunnable):
+    """
+    """
+    def __init__(self, devices: List[Device], priority: int):
+        """
+        """
+        super().__init__()
+        self.devices = devices
+        self.priority = priority
+
+
+    def run(self):
+        """
+        """
+        with ThreadPoolExecutor() as executor:
+            futures = {executor.submit(device.network.remote.start, device, self.priority): device for device in self.devices if device.name != "" and device.name != None}
+
+
+class WorkerDevicesROS2RemoteStop(QRunnable):
+    """
+    """
+    def __init__(self, devices: List[Device], priority: int):
+        """
+        """
+        super().__init__()
+        self.devices = devices
+        self.priority = priority
+
+
+    def run(self):
+        """
+        """
+        with ThreadPoolExecutor() as executor:
+            futures = {executor.submit(device.network.remote.stop, device, self.priority): device for device in self.devices if device.name != "" and device.name != None}

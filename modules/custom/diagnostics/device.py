@@ -215,12 +215,10 @@ class Device(DeviceFunctions, DeviceUI):
         self.threadpool = threadpool
 
         # ROS2 integrations
-        self.commands1 = commands1     # high priority like drivers
-        self.commands2 = commands2     # low priority like loggers
-        self.pids = {}
-
-        self.processes1 = []
-        self.processes2 = []
+        self.commands1 = commands1  # high priority commands (i.e., sensor drivers, motor drivers)
+        self.commands2 = commands2  # low priority like loggers (i.e., custom controllers)
+        self.processes1 = []        # group processes for high priority commands
+        self.processes2 = []        # group processes for low priority commands
 
 
     def __del__(self):
@@ -228,6 +226,7 @@ class Device(DeviceFunctions, DeviceUI):
         Safely destroys the device by closing any active SSH connections.
         """
         self.network.disconnect()
+        
         
 
     def ui_draw(self):

@@ -1,0 +1,15 @@
+experiment:
+  name: "Prescott2 : Local ROS2 Backend Integration Test"
+  categories:
+    - "Sensors"
+Sensors:
+  - type: "vicon"
+    name: "VICON Valkyrie Motion Capture System"
+    ip: "192.168.0.11"
+    username: ""
+    password: ""
+    enable_network: true
+    enable_ssh: false
+    enable_battery: false
+    commands1:
+      - "ros2 launch vicon_driver driver.launch.py"

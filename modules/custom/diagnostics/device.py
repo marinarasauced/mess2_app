@@ -185,7 +185,7 @@ class Device(DeviceFunctions, DeviceUI):
     """
     Manages a mess2 app diagnostics device. 
     """
-    def __init__(self, type: str, name: str, ip: str, username: str = "ubuntu", password="1234", port: int = -1, logger: QPlainTextEdit = None, threadpool: QThreadPool = None, enable_network: bool = True, enable_ssh: bool = False, enable_battery: bool = False):
+    def __init__(self, type: str, name: str, ip: str, username: str = "ubuntu", password="1234", port: int = -1, logger: QPlainTextEdit = None, threadpool: QThreadPool = None, enable_network: bool = True, enable_ssh: bool = False, enable_battery: bool = False, commands1: List = [], commands2: List = []):
         """
         Initializes device attributes and shows the device in the mess2 app.
         """
@@ -215,9 +215,12 @@ class Device(DeviceFunctions, DeviceUI):
         self.threadpool = threadpool
 
         # ROS2 integrations
-        self.commands1 = []     # high priority like drivers
-        self.commands2 = []     # low priority like loggers
+        self.commands1 = commands1     # high priority like drivers
+        self.commands2 = commands2     # low priority like loggers
         self.pids = {}
+
+        self.processes1 = []
+        self.processes2 = []
 
 
     def __del__(self):

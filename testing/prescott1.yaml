@@ -6,17 +6,14 @@ experiment:
 Sensors:
   - type: "vicon"
     name: "VICON Valkyrie Motion Capture System"
-    ip: "192.168.0.45"
+    ip: "192.168.0.11"
     username: ""
     password: ""
     enable_network: true
     enable_ssh: false
     enable_battery: false
-    commands1:
-      - ros2:
-        - launch:
-            package: "vicon_driver"
-            executable: "driver.launch.py"
+    # commands1:
+    #   - "ros2 launch vicon_driver driver.launch.py"
 UGVs:
   - type: "turtlebot3"
     name: "burger3"

@@ -1,10 +1,16 @@
 
 from paramiko import SSHClient, AutoAddPolicy
 import platform
+import psutil
 from scp import SCPClient
 import subprocess
 import os
 import signal
+
+import launch
+import launch_ros.actions
+from launch import LaunchDescription
+from launch import LaunchService
 
 
 class SSH():
@@ -136,38 +142,73 @@ class ROS2Local():
     """
     def start(self, device, priority: int):
         """
+        Starts ROS2 nodes on the device based on the given priority.
         """
         if priority == 1:
             commands = device.commands1
         elif priority == 2:
             commands = device.commands2
-        
-        device.pids = {}
-
         for command in commands:
-            process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            device.pids[priority] = device.pids.get(priority, [])
-            device.pids[priority].append(process.pid)
+            command_ = command.split()
+            process = subprocess.Popen(command_, stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=os.setpgrp)
+            device.logger.log(f"{device.name} started \"{command}\" as process {process.pid}")
+            if priority == 1:
+                device.processes1.append(process)
+            elif priority == 2:
+                device.processes2.append(process)
 
 
     def stop(self, device, priority: int):
         """
-        Terminates the processes associated with the given priority.
+        Terminates the processes associated with the given priority on the device, including child processes.
         """
-        if priority not in device.pids or not device.pids[priority]:
-            return
+        if priority == 1:
+            processes = device.processes1
+        elif priority == 2:
+            processes = device.processes2
+        for process in processes:
+            os.killpg(process.pid, signal.SIGTERM)
+            device.logger.log(f"{device.name} stopped process {process.pid}")
+            if priority == 1:
+                device.processes1.remove(process)
+            elif priority == 2:
+                device.processes2.remote(process)
 
-        for pid in device.pids[priority]:
-            try:
-                os.kill(pid, signal.SIGTERM)
-                # print(f"Terminated process with PID: {pid}")
-                device.pids[priority].remove(pid)
-            except ProcessLookupError:
-                # print(f"Process with PID {pid} not found.")
-                pass
-            except Exception as e:
-                # print(f"Error terminating process with PID {pid}: {e}")
-                pass
+
+
+        # if priority not in device.pids or not device.pids[priority]:
+        #     return
+
+        # for pid in device.pids[priority]:
+        #     try:
+        #         parent_process = psutil.Process(pid)
+
+        #         for child in parent_process.children(recursive=True):
+        #             if 'grep' not in child.name():
+        #                 child.terminate()
+
+        #         parent_process.terminate()
+        #         parent_process.wait(timeout=1)
+
+        #         if parent_process.is_running():
+        #             print(f"Process {pid} is still running after graceful termination, force killing.")
+        #             parent_process.kill()
+
+        #         result = subprocess.run(f"ps -p {pid}", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        #         if result.returncode == 0:
+        #             print(f"Process {pid} is still running after SIGKILL.")
+        #         else:
+        #             print(f"Process {pid} successfully terminated.")
+
+        #         device.pids[priority].remove(pid)
+        #     except psutil.NoSuchProcess:
+        #         print(f"Process with PID {pid} no longer exists.")
+        #     except psutil.AccessDenied:
+        #         print(f"Access denied while trying to terminate PID {pid}.")
+        #     except Exception as e:
+        #         print(f"Error terminating process with PID {pid}: {e}")
+
+        # print(f"All processes for device {device.name} with priority {priority} have been stopped.")
 
 
 class ROS2Remote():
@@ -177,45 +218,45 @@ class ROS2Remote():
     def start(self, device, priority: int):
         """
         """
-        if priority == 1:
-            commands = device.commands1
-        elif priority == 2:
-            commands = device.commands2
+        # if priority == 1:
+        #     commands = device.commands1
+        # elif priority == 2:
+        #     commands = device.commands2
         
-        if not device.network.status():
-            device.logger.log(f"unable to execute commands on {device.name}")
-            return
+        # if not device.network.status():
+        #     device.logger.log(f"unable to execute commands on {device.name}")
+        #     return
         
-        device.pids = {}
+        # device.pids = {}
 
-        for command in commands:
-            command_ = f"{' '.join(command)} & echo $!"
-            stdin, stdout, stderr = device.network.ssh.exec_command(command_)
-            pid = stdout.read().decode().strip()
-            device.pids[priority] = device.pids.get(priority, [])
-            device.pids[priority].append(pid)
+        # for command in commands:
+        #     command_ = f"{' '.join(command)} & echo $!"
+        #     stdin, stdout, stderr = device.network.ssh.exec_command(command_)
+        #     pid = stdout.read().decode().strip()
+        #     device.pids[priority] = device.pids.get(priority, [])
+        #     device.pids[priority].append(pid)
 
 
     def stop(self, device, priority: int):
         """
         Terminates the processes associated with the given priority.
         """
-        if priority not in device.pids or not device.pids[priority]:
-            return
+        # if priority not in device.pids or not device.pids[priority]:
+        #     return
 
-        for pid in device.pids[priority]:
-            try:
-                command = f"kill {pid}"
-                stdin, stdout, stderr = device.network.ssh.exec_command(command)
-                device.pids[priority].remove(pid)
-            except ProcessLookupError:
-                # print(f"Process with PID {pid} not found.")
-                pass
-            except Exception as e:
-                # print(f"Error terminating process with PID {pid}: {e}")
-                pass
+        # for pid in device.pids[priority]:
+        #     try:
+        #         command = f"kill {pid}"
+        #         stdin, stdout, stderr = device.network.ssh.exec_command(command)
+        #         device.pids[priority].remove(pid)
+        #     except ProcessLookupError:
+        #         # print(f"Process with PID {pid} not found.")
+        #         pass
+        #     except Exception as e:
+        #         # print(f"Error terminating process with PID {pid}: {e}")
+        #         pass
 
-        device.pids[priority] = []
+        # device.pids[priority] = []
 
 
 class NetworkFunctions(SCP):

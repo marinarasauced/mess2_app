@@ -3,7 +3,9 @@ from modules.custom.diagnostics.device import (
     Device,
     WorkerDeviceUI,
     WorkerDevicesSSHConnect,
-    WorkerDevicesSSHDisconnect
+    WorkerDevicesSSHDisconnect,
+    WorkerDevicesROS2LocalStart,
+    WorkerDevicesROS2LocalStop
 )
 
 from modules.custom.ui.obj_gridDiagnosticsLayout import Obj_gridDiagnosticsLayout

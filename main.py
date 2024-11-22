@@ -85,6 +85,9 @@ class MainWindow(QMainWindow):
 
         self.toggle_connect_to_remote_devices = 0
         widgets.btn_connect_to_remote_devices.clicked.connect(self.experiment_toggle_click_connect_to_remote_devices)
+    
+        self.toggle_start_local_ros2_nodes = 0
+        widgets.btn_start_local_ros2_nodes.clicked.connect(self.experiment_toggle_click_start_local_ros2_nodes)
 
         self.toggle_start_remote_ros2_nodes = 0
         widgets.btn_start_remote_ros2_nodes.clicked.connect(self.experiment_toggle_click_start_remote_ros2_nodes)
@@ -283,6 +286,13 @@ class MainWindow(QMainWindow):
                 self.experiment_file_content = yaml.safe_load(file)
             
             self.diagnostics_experiment_load(self.experiment_file_content)
+        
+        if self.devices_remote == None or self.devices_remote == []:
+            self.toggle_connect_to_remote_devices = 2
+            self.toggle_start_remote_ros2_nodes = 2
+        else:
+            self.toggle_connect_to_remote_devices = 0
+            self.toggle_start_remote_ros2_nodes = 0
 
 
     def diagnostics_experiment_clear(self):
@@ -422,6 +432,8 @@ class MainWindow(QMainWindow):
                 enable_network = device.get("enable_network", False)
                 enable_ssh = device.get("enable_ssh", False)
                 enable_battery = device.get("enable_battery", False)
+                commands1 = device.get("commands1", [])
+                print(commands1)
 
                 device_ = Device(
                     type=device_type,
@@ -433,7 +445,8 @@ class MainWindow(QMainWindow):
                     threadpool=self.threadpool,
                     enable_network=enable_network,
                     enable_ssh=enable_ssh,
-                    enable_battery=enable_battery
+                    enable_battery=enable_battery,
+                    commands1=commands1
                 )
 
                 if enable_network == False:
@@ -510,6 +523,8 @@ class MainWindow(QMainWindow):
             self.experiment_connect_to_remote_devices()
         elif self.toggle_connect_to_remote_devices == 1:
             self.experiment_disconnect_from_remote_devices()
+        elif self.toggle_connect_to_remote_devices == 2:
+            self.diagnostics_log("cannot connect to remote devices as no remote device are in the loaded experiment")
 
 
     def experiment_connect_to_remote_devices(self):
@@ -562,6 +577,8 @@ class MainWindow(QMainWindow):
             self.experiment_start_remote_ros2_nodes()
         elif self.toggle_start_remote_ros2_nodes == 1:
             self.experiment_stop_remote_ros2_nodes()
+        elif self.toggle_start_remote_ros2_nodes == 2:
+            self.diagnostics_log("cannot start remote ros2 nodes as there are no remote device in the loaded experiment")
 
 
     def experiment_start_remote_ros2_nodes(self):
@@ -595,6 +612,42 @@ class MainWindow(QMainWindow):
         widgets.btn_start_remote_ros2_nodes.setText("Launch Remote ROS2 Nodes")
         self.toggle_start_remote_ros2_nodes = 0
 
+
+    def experiment_toggle_click_start_local_ros2_nodes(self):
+        """
+        """
+        if self.toggle_start_local_ros2_nodes == 0:
+            self.experiment_start_local_ros2_nodes()
+        elif self.toggle_start_local_ros2_nodes == 1:
+            self.experiment_stop_local_ros2_nodes()
+
+
+    def experiment_start_local_ros2_nodes(self):
+        """
+        """
+        if self.is_experiment_loaded == False:
+            self.diagnostics_log(f"cannot start local ros2 nodes before experiment is selected")
+            return
+
+        worker = WorkerDevicesROS2LocalStart(self.devices_local, 1)
+        self.threadpool.start(worker)
+
+        widgets.btn_start_local_ros2_nodes.setText("Shutdown Local ROS2 Nodes")
+        self.toggle_start_local_ros2_nodes = 1
+
+
+    def experiment_stop_local_ros2_nodes(self):
+        """
+        """
+        if self.is_experiment_loaded == False:
+            self.diagnostics_log(f"cannot stop local ros2 nodes before experiment is selected")
+            return
+
+        worker = WorkerDevicesROS2LocalStop(self.devices_local, 1)
+        self.threadpool.start(worker)
+
+        widgets.btn_start_local_ros2_nodes.setText("Launch Local ROS2 Nodes")
+        self.toggle_start_local_ros2_nodes = 0
 
 
 

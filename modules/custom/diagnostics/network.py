@@ -166,13 +166,16 @@ class ROS2Local():
             processes = device.processes1
         elif priority == 2:
             processes = device.processes2
+        removable = []
         for process in processes:
             os.killpg(process.pid, signal.SIGTERM)
             device.logger.log(f"{device.name} stopped process {process.pid}")
+            removable.append(process)
+        for process in removable:
             if priority == 1:
                 device.processes1.remove(process)
             elif priority == 2:
-                device.processes2.remote(process)
+                device.processes2.remove(process)
 
 
 

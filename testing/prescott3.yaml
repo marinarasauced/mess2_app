@@ -1,0 +1,26 @@
+experiment:
+  name: "Prescott3 : Local ROS2 Backend Integration Test with VICON and FLIR"
+  categories:
+    - "Sensors"
+Sensors:
+  - type: "vicon"
+    name: "VICON Valkyrie Motion Capture System"
+    ip: "192.168.0.11"
+    username: ""
+    password: ""
+    enable_network: true
+    enable_ssh: false
+    enable_battery: false
+    commands1:
+      - "ros2 launch vicon_driver driver.launch.py"
+  - type: "flir"
+    name: "FLIR2"
+    ip: "192.168.0.102"
+    username: ""
+    password: ""
+    enable_network: true
+    enable_ssh: false
+    enable_battery: false
+    commands1:
+      - "ros2 launch spinnaker_camera_driver cameras.launch.py"
+      - "ros2 launch mess2_logger_cpp template.launch.py"

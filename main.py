@@ -606,12 +606,17 @@ class MainWindow(QMainWindow):
     def experiment_stop_remote_ros2_nodes(self):
         """
         """
-        # if self.is_experiment_loaded == False:
-        #     self.diagnostics_log(f"cannot disconnect to remote devices before experiment is selected")
-        #     return
+        if self.is_experiment_loaded == False:
+            self.diagnostics_log(f"cannot stop remote ros2 nodes before experiment is selected")
+            return
+
+        devices_ = []
+        for device in self.devices_remote:
+            if device.network.status() == True:
+                devices_.append(device)
         
-        # worker = WorkerDevicesSSHDisconnect(self.devices_remote)
-        # self.threadpool.start(worker)
+        worker = WorkerDevicesROS2RemoteStop(devices_, 1)
+        self.threadpool.start(worker)
 
         widgets.btn_start_remote_ros2_nodes.setText("Launch Remote ROS2 Nodes")
         self.toggle_start_remote_ros2_nodes = 0

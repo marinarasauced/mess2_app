@@ -193,25 +193,45 @@ class ROS2Remote():
             device.logger.log(f"unable to execute commands on {device.name}")
             return
         for command in commands:
-            script =  f"""
-import subprocess
-import os
+#             script1 =  f"""
+# import os
+# import subprocess
 
-# os.system("source ~/.zshrc")
-command = '{command}'
-# command_ = command.split()
-print(['zsh', '-c', 'source /opt/ros/humble/setup.zsh && ' + command])
-process = subprocess.Popen(['zsh', '-c', 'source /opt/ros/humble/setup.zsh && ' + command], stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=os.setpgrp, shell=False)
-print(process.pid)
-            """
-            print(f"\"{script}\"")
-            stdin, stdout, stderr = device.network.ssh.exec_command(f"python3 -c '{script}'")
+# command = "source ~/.zshrc && {command}"
+# process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=os.setpgrp, shell=True, executable="/bin/zsh")
 
+# file = "/home/ubuntu/pids{priority}.txt"
+# os.makedirs(os.path.dirname(file), exist_ok=True)
+# with open(file, "a") as file:
+#     file.write(str(process.pid) + "\\n")
+
+# stdout, stderr = process.communicate(input=None, timeout=None)
+#             """
+#             device.network.ssh.exec_command(f"python3 -c '{script1}' > /dev/null 2>&1 &")
+#             # pid = stdout.read().decode().strip()
+#             # device.logger.log(f"started pid {pid} on {device.name}\"{command}\"")
+#             # if priority == 1:
+#             #     device.processes1.append(pid)
+#             # elif priority == 2:
+#             #     device.processes2.append(pid)
+        
+#         script2 = f"""
+# file = pids{priority}.txt
+# try:
+#     with open(file, "r") as file:
+#         pids = file.readlines()
+
+#         for pid in pids:
+#             print(pid.strip())
+# except:
+#     pass
+#         """
+#         stdin, stdout, stderr = device.network.ssh.exec_command(f"python3 -c '{script1}'", get_pty=False)
+#         pids = stdout.read().decode().strip()
+#         print(pids)
+
+            stdin, stdout, stderr = device.network.ssh.exec_command(f"nohup zsh -c 'source ~/.zshrc && {command} > /dev/null 2>&1' & echo $!", get_pty=False)
             pid = stdout.read().decode().strip()
-            print(pid)
-            err = stderr.read().decode().strip()
-            print(err)
-
             device.logger.log(f"started pid {pid} on {device.name}\"{command}\"")
             if priority == 1:
                 device.processes1.append(pid)
@@ -223,6 +243,7 @@ print(process.pid)
         """
         Terminates the processes associated with the given priority.
         """
+
         if priority == 1:
             processes = device.processes1
         elif priority == 2:
@@ -232,8 +253,7 @@ print(process.pid)
             return
         removable = []
         for process in processes:
-            command = f"kill {process}"
-            device.network.ssh.exec_command(command)
+            device.network.ssh.exec_command(f"pgrep -P {process} | xargs kill -9")
             device.logger.log(f"stopped pid {process} on {device.name}")
             removable.append(process)
         for process in removable:

@@ -25,3 +25,4 @@ UGVs:
     enable_battery: false
     commands1:
       - "ros2 launch turtlebot3_driver robot.launch.py name:=burger2"
+      - "ros2 launch ros2_differential_drive_line_following burger.launch.py name:=burger2"

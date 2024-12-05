@@ -1,0 +1,27 @@
+experiment:
+  name: "Prescott3 : Remote ROS2 Backend Integration Test with Burger2"
+  categories:
+    - "Sensors"
+    - "UGVs"
+Sensors:
+  - type: "vicon"
+    name: "VICON Valkyrie Motion Capture System"
+    ip: "192.168.0.11"
+    username: ""
+    password: ""
+    enable_network: true
+    enable_ssh: false
+    enable_battery: false
+    commands1:
+      - "ros2 launch vicon_driver driver.launch.py"
+UGVs:
+  - type: "burger"
+    name: "burger2"
+    ip: "192.168.0.22"
+    username: "ubuntu"
+    password: "1234"
+    enable_network:  true
+    enable_ssh: true
+    enable_battery: false
+    commands1:
+      - "ros2 launch turtlebot3_driver robot.launch.py name:=burger2"

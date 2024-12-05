@@ -584,16 +584,20 @@ class MainWindow(QMainWindow):
     def experiment_start_remote_ros2_nodes(self):
         """
         """
-        # if self.is_experiment_loaded == False:
-        #     self.diagnostics_log(f"cannot connect to remote devices before experiment is selected")
-        #     return
-
-        # if self.experiment_check_remote_devices_connected_to_network() == False:
-        #     self.diagnostics_log(f"cannot connect to remote devices before all are connected to network")
-        #     return
+        if self.is_experiment_loaded == False:
+            self.diagnostics_log(f"cannot start remote ros2 nodes before experiment is selected")
+            return
+    
+        if self.experiment_check_remote_devices_connected_to_network() == False:
+            self.diagnostics_log(f"cannot start remote ros2 nodes unless all remote devices are connected to the network")
+            return
         
-        # worker = WorkerDevicesSSHConnect(self.devices_remote)
-        # self.threadpool.start(worker)
+        if self.experiment_check_remote_devices_connected_via_ssh() == False:
+            self.diagnostics_log(f"cannot start remote ros2 nodes unless all remote devices are connected via ssh")
+            return
+        
+        worker = WorkerDevicesROS2RemoteStart(self.devices_remote, 1)
+        self.threadpool.start(worker)
 
         widgets.btn_start_remote_ros2_nodes.setText("Shutdown Remote ROS2 Nodes")
         self.toggle_start_remote_ros2_nodes = 1
